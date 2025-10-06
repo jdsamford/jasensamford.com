@@ -1,147 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jasen Samford | Music Industry Consultant</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jasen Samford — Music Industry Consultant</title>
+  <meta name="description" content="Consulting for artists, labels, and music companies: distribution, payouts, and streaming integrity." />
   <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #222;
-      background-color: #fff;
-      line-height: 1.6;
+    :root {
+      --bg:#ffffff; --ink:#111; --muted:#666; --line:#eee;
+      --btn:#111; --btnHover:#2a2a2a; --radius:10px; --max:840px;
     }
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      font-weight: 600;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: #555;
-      max-width: 600px;
-      margin: 0.5rem auto 1.5rem;
-    }
-    .btn {
-      background-color: #222;
-      color: white;
-      padding: 0.9rem 1.6rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background-color: #444;
-    }
-    section {
-      max-width: 750px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
-    section h2 {
-      font-size: 1.6rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    section p {
-      color: #333;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    input, textarea {
-      padding: 0.8rem;
-      font-family: inherit;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-    button[type="submit"] {
-      background-color: #222;
-      color: #fff;
-      padding: 0.9rem 1.6rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button[type="submit"]:hover {
-      background-color: #444;
-    }
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: #888;
-      font-size: 0.9rem;
-    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; line-height:1.6; }
+    a { color:var(--ink); }
+    .wrap { max-width:var(--max); margin:auto; padding:0 20px; }
+    header { padding:72px 0 28px; border-bottom:1px solid var(--line); }
+    nav { display:flex; gap:18px; justify-content:flex-end; font-size:.95rem; }
+    .brand { font-weight:700; letter-spacing:.2px; }
+    .hero { display:grid; gap:14px; padding:36px 0; }
+    .hero h1 { margin:0; font-size:2.2rem; line-height:1.2; }
+    .hero p { color:var(--muted); margin:0; max-width:60ch; }
+    .cta { display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
+    .btn { background:var(--btn); color:#fff; padding:12px 16px; border-radius:var(--radius); text-decoration:none; display:inline-block; }
+    .btn:hover { background:var(--btnHover); }
+    .ghost { background:#f6f6f6; color:#111; }
+    section { padding:42px 0; border-bottom:1px solid var(--line); }
+    h2 { margin:0 0 10px; font-size:1.35rem; }
+    .cols { display:grid; grid-template-columns:1fr; gap:18px; }
+    @media (min-width:820px){ .cols { grid-template-columns:1fr 1fr; } }
+    ul { padding-left:18px; margin:8px 0 0; }
+    /* form */
+    form { display:grid; gap:12px; margin-top:6px; }
+    label { font-weight:600; font-size:.95rem; }
+    input, textarea { padding:12px; border:1px solid #ccc; border-radius:10px; font:inherit; }
+    .row { display:grid; gap:12px; grid-template-columns:1fr; }
+    @media (min-width:560px){ .row { grid-template-columns:1fr 1fr; } }
+    .hint { font-size:.9rem; color:var(--muted); }
+    footer { padding:28px 0 60px; text-align:center; color:var(--muted); font-size:.95rem; }
+    /* small anchor nav */
+    .topnav { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+    .topnav a { text-decoration:none; color:var(--muted); }
+    .topnav a:hover { color:var(--ink); }
+    .card { background:#fafafa; border:1px solid var(--line); border-radius:14px; padding:18px; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Jasen Samford</h1>
-    <p>I help artists and music companies navigate distribution, payouts, and streaming fraud — with clarity and integrity.</p>
-    <a href="https://calendly.com/jdsamford/60min" class="btn">Book a Consultation</a>
+  <header class="wrap">
+    <div class="topnav">
+      <div class="brand">Jasen Samford</div>
+      <div style="flex:1"></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <h1>Music industry consulting that’s clear, practical, and honest.</h1>
+      <p>I help artists, labels, and platforms with distribution setup, payouts, and streaming-integrity workflows. The goal: fewer surprises, better outcomes.</p>
+      <div class="cta">
+        <a class="btn" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
+        <a class="btn ghost" href="mailto:jasen@jasensamford.com">Email me</a>
+      </div>
+    </div>
   </header>
 
-  <section id="about">
+  <section id="about" class="wrap">
     <h2>About</h2>
-    <p>I spent a decade at DistroKid helping build the systems that serve millions of independent artists. Today, I consult with distributors, labels, and artists on revenue transparency, streaming integrity, and support operations that scale without losing their personal touch.</p>
+    <div class="cols">
+      <p class="card">
+        I spent years at DistroKid building and refining systems that serve millions of independent artists. I now advise artists and music companies on revenue transparency, fraud/dispute handling, and support operations that scale without losing the human touch.
+      </p>
+      <div class="card">
+        <strong>Typical outcomes</strong>
+        <ul>
+          <li>Cleaner accounting and payout flows</li>
+          <li>Lower false-positive fraud flags</li>
+          <li>Faster, friendlier customer workflows</li>
+          <li>Clear documentation for teams and partners</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="services">
-    <h2>How I Can Help</h2>
-    <ul>
-      <li>Artist & label distribution setup and optimization</li>
-      <li>Fraud detection and dispute best practices</li>
-      <li>Team workflows for support and payouts</li>
-      <li>Education partnerships & strategic outreach</li>
-    </ul>
+  <section id="services" class="wrap">
+    <h2>Services</h2>
+    <div class="cols">
+      <div class="card">
+        <strong>For artists & labels</strong>
+        <ul>
+          <li>Distributor setup and catalog migration</li>
+          <li>Metadata, splits, and payout checks</li>
+          <li>Dispute and takedown guidance</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>For platforms & teams</strong>
+        <ul>
+          <li>Fraud detection + playbook design</li>
+          <li>Support operations and escalations</li>
+          <li>Education partnerships and content</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Get In Touch</h2>
-    <p>Want to talk through your goals or troubleshoot an issue? Send me a message — or book time directly via Calendly.</p>
+  <section id="contact" class="wrap">
+    <h2>Contact</h2>
+    <p class="hint">Prefer to talk live? <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time here</a>. Otherwise, send a quick note below — it goes to <strong>jasen@jasensamford.com</strong>.</p>
 
-    <!-- Contact Form via Formspree -->
-    <!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/mzzjvlwo"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-
-    <p style="margin-top:1.5rem;">Or email me directly at <a href="mailto:jasen@jasensamford.com">jasen@jasensamford.com</a>.</p>
+    <!-- Formspree: forwards to jasen@jasensamford.com -->
+    <form action="https://formspree.io/f/mzzjvlwo" method="POST">
+      <!-- anti-bot field -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- custom subject -->
+      <input type="hidden" name="_subject" value="Website contact — jasensamford.com">
+      <div class="row">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <div class="cta">
+        <button class="btn" type="submit">Send message</button>
+        <a class="btn ghost" href="mailto:jasen@jasensamford.com">Or email directly</a>
+      </div>
+      <p class="hint">By submitting, you agree to be contacted about your request.</p>
+    </form>
   </section>
 
-  <footer>
-    <p>© 2025 Jasen Samford</p>
+  <footer class="wrap">
+    © <span id="y"></span> Jasen Samford
   </footer>
 
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
