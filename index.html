@@ -6,7 +6,6 @@
   <title>Jasen Samford — Music Industry Consultant</title>
   <meta name="description" content="Consulting for artists, labels, and music platforms on distribution, payouts, and streaming integrity." />
 
-  <!-- Optional: modern, readable type -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -20,7 +19,6 @@
     a{color:var(--ink)}
     .wrap{max-width:var(--max);margin:auto;padding:0 var(--space)}
 
-    /* Header / hero */
     header{padding:64px 0;border-bottom:1px solid var(--line);text-align:center}
     .headshot{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--line);margin-bottom:14px}
     h1{margin:0 0 6px;font-size:2rem;font-weight:700}
@@ -30,7 +28,6 @@
     .btn:hover{background:var(--btnHover)}
     .ghost{background:var(--ghost);color:#111}
 
-    /* Sections */
     section{padding:var(--space-lg) 0;border-bottom:1px solid var(--line)}
     h2{margin:0 0 10px;font-size:1.3rem}
     p,li{color:var(--muted)}
@@ -40,7 +37,6 @@
 
     footer{text-align:center;padding:40px var(--space);color:var(--muted);font-size:.95rem}
 
-    /* Responsive tweaks */
     @media (max-width:640px){
       .headshot{width:120px;height:120px}
       h1{font-size:1.65rem}
@@ -51,16 +47,16 @@
 <body>
 
   <header class="wrap">
-    <!-- Make sure headshot.png is in the repo root (same folder as index.html) -->
     <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" />
     <h1>Jasen Samford</h1>
     <p class="lede">
       I help artists, labels, and music platforms improve distribution systems, payouts,
-      and streaming integrity with clarity and integrity.
+      and streaming integrity — with clarity and integrity.
     </p>
     <div class="cta-row">
       <a class="btn" href="https://calendly.com/jdsamford/60min">Book a consultation</a>
       <a class="btn ghost" href="mailto:jasen@jasensamford.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/jdsamford/" target="_blank">LinkedIn</a>
     </div>
   </header>
 
@@ -98,22 +94,52 @@
       </div>
     </section>
 
+    <section id="highlights" class="wrap">
+      <h2>Highlights</h2>
+      <ul>
+        <li>10 years at DistroKid, from early employee to Director of Artist Relations and Education.</li>
+        <li>Built artist-facing programs that served millions of independent musicians worldwide.</li>
+        <li>Designed scalable systems for distribution, payouts, and streaming-fraud prevention.</li>
+        <li>Partnered with DSPs and educators to improve transparency across the music ecosystem.</li>
+      </ul>
+    </section>
+
+    <section id="testimonials" class="wrap">
+      <h2>What People Say</h2>
+      <div class="cards">
+        <div class="card">
+          “Jasen is pragmatic, intuitive, and a creative problem-solver... collaborative, calm under pressure, and an amazing leader.”
+          <br><span class="source">— Zach Domer, Project Manager, DistroKid</span>
+        </div>
+        <div class="card">
+          “He’s the kind of leader people trust, respect, and are eager to follow. Jasen’s integrity and warmth make everyone better.”
+          <br><span class="source">— Kennith Darling, Ops Leader</span>
+        </div>
+        <div class="card">
+          “Jasen leads with integrity and empathy. Our team would’ve gone to war for him.”
+          <br><span class="source">— Nick Greengard, Former Direct Report</span>
+        </div>
+        <div class="card">
+          “He has a rare ability to balance big-picture strategy with hands-on execution. Any team would be lucky to have him.”
+          <br><span class="source">— Kaite Heeren, Marketing, DistroKid</span>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <p class="lede" style="margin-left:0;">
-        Book a time or email me directly.
+        Prefer live? Book a time — or email me directly if that’s easier.
       </p>
       <div class="cta-row" style="justify-content:flex-start;">
         <a class="btn" href="https://calendly.com/jdsamford/60min">Book a consultation</a>
-        <a class="btn ghost" href="mailto:jasen@jasensamford.com?subject=Consulting%20inquiry&body=Hi%20Jasen%2C%0A%0A[share%20a%20few%20sentences%20about%20what%20you%E2%80%99re%20working%20on]%0A">
-          Email me
-        </a>
+        <a class="btn ghost" href="mailto:jasen@jasensamford.com?subject=Consulting%20inquiry&body=Hi%20Jasen%2C%0A%0A[share%20a%20few%20sentences%20about%20what%20you%E2%80%99re%20working%20on]%0A">Email me</a>
       </div>
     </section>
   </main>
 
   <footer>
-    © <span id="y"></span> Jasen Samford
+    © <span id="y"></span> Jasen Samford · <a href="https://www.linkedin.com/in/jdsamford/" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 
   <script>
