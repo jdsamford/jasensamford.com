@@ -4,14 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
-  <meta name="description" content="Consulting for independent artists, labels, and music platforms—release planning, distribution, payouts, and streaming integrity." />
+  <meta name="description" content="Consulting for independent artists, labels, and music platforms. Practical help for releases, payouts, and streaming integrity." />
   <meta name="theme-color" content="#0aa2a2" />
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Jasen Samford | Music Business Consultant" />
   <meta property="og:description" content="Clear, practical help for releases, payouts, and streaming integrity." />
   <meta property="og:type" content="website" />
 
   <!-- SVG favicon (circle JS on teal, no square background) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3circle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
 
   <style>
     :root{
@@ -21,10 +23,8 @@
       --muted:#566;
       --bg:#ffffff;
       --bg-alt:#fafbfb;
-      --card:#ffffff;
-      --line:#eaeef0;
+      --line:#e9eef0;
       --radius:16px;
-      --radius-sm:12px;
       --shadow:0 8px 24px rgba(0,0,0,.06);
       --wrap:960px;
     }
@@ -36,7 +36,8 @@
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
       color:var(--text);
       background:var(--bg);
-      line-height:1.6;
+      font-size:17px;
+      line-height:1.65;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -44,35 +45,36 @@
     .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
     section{scroll-margin-top:72px}
     section + section{border-top:1px solid var(--line);margin-top:2rem;padding-top:2rem}
-    .section-alt{background:var(--bg-alt);border-top:none;margin-top:2.5rem}
-    .section-alt .wrap{padding-top:32px;padding-bottom:24px}
+    section:nth-of-type(even){background:var(--bg-alt)}
+    section:nth-of-type(even) .wrap{padding-top:32px;padding-bottom:24px}
 
     h1,h2,h3{line-height:1.22;margin:0 0 .5rem}
-    h1{font-size:clamp(2.2rem,3.8vw+1rem,3.1rem);font-weight:800}
+    h1{font-size:clamp(2.4rem,4vw+1rem,3rem);font-weight:800}
     h2{font-size:clamp(1.35rem,1.2vw+1rem,1.6rem);font-weight:800;margin-top:2.25rem}
-    p.lead{font-size:1.06rem;color:#333;margin:.65rem auto 1.25rem;max-width:60ch}
+    p.lead{font-size:1.05rem;color:#333;margin:.75rem auto 1.75rem;max-width:60ch;line-height:1.45}
     .muted{color:var(--muted)}
 
     /* Buttons */
     .btn{
       appearance:none;border:0;cursor:pointer;
-      display:inline-block;padding:.82rem 1.1rem;border-radius:999px;
-      font-weight:700;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+      display:inline-block;padding:.9rem 1.15rem;border-radius:999px;
+      font-weight:700;text-decoration:none;
+      transition:all .25s ease;
       box-shadow:0 2px 0 rgba(0,0,0,.04)
     }
-    .btn-primary{background:var(--text);color:#fff}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+    .btn-primary{background:#0b0b0b;color:#fff}
+    .btn-primary:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 10px 22px rgba(0,0,0,.12)}
     .btn-ghost{background:#eef4f4;color:#0f1115}
-    .btn-ghost:hover{background:#e6efef;transform:translateY(-2px)}
-    .btn-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:1rem 0 1.5rem}
+    .btn-ghost:hover{background:#e6efef;transform:translateY(-1px) scale(1.02)}
+    .btn-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 2rem}
     a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
 
     /* Hero */
-    header{text-align:center;padding-top:24px}
+    header{text-align:center;padding-top:28px}
     .headshot{
       width:168px;height:168px;border-radius:50%;
       object-fit:cover;object-position:center;
-      margin:0 auto .9rem;
+      margin:0 auto .95rem;
       box-shadow:0 0 0 6px #fff, 0 0 0 10px rgba(10,162,162,.12), var(--shadow);
       background:#f3f5f5
     }
@@ -81,7 +83,7 @@
     .grid{display:grid;gap:1rem}
     @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} }
     .card{
-      background:var(--card);
+      background:#fff;
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1rem;
@@ -92,40 +94,39 @@
     ul.clean{margin:.2rem 0 0 1rem;padding:0}
     ul.clean li{margin:.22rem 0}
 
-    /* Testimonials — simplified, even grid */
+    /* Testimonials — 2-column, top accent */
     .testimonials h2{ text-align:center; margin-bottom:1.1rem; }
     .t-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:14px;
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    @media(min-width:860px){
+      .t-grid{ grid-template-columns:1fr 1fr; }
     }
     .t-card{
       background:#fff;
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:16px 16px 18px;
-      min-height:120px;
+      padding:16px 18px 18px;
+      min-height:110px;
       box-shadow:var(--shadow);
       position:relative;
-      display:flex;
     }
     .t-card::before{
       content:"";
-      position:absolute; inset:0 auto auto 0;
-      width:4px; height:100%;
-      border-radius:var(--radius) 0 0 var(--radius);
-      background:linear-gradient(180deg,var(--accent),var(--accent-2));
+      position:absolute; left:0; top:0; right:0; height:4px;
+      border-radius:var(--radius) var(--radius) 0 0;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
     }
-    .t-text{ margin:0 0 2px 10px; color:#222; font-size:1rem; letter-spacing:.1px; }
-    .t-grid.featured .t-text{ font-size:1.04rem; }
-    .t-wrap{padding:0 24px 24px} /* extra air when on alt background */
+    .t-text{ margin:0; color:#222; font-size:1rem; letter-spacing:.1px; }
 
     /* Contact */
-    .contact{ background:var(--bg-alt); border-top:none; }
-    .contact h2{ margin-bottom:.2rem; }
-    .contact .btn-row{ margin-top:.8rem; }
+    .contact h2{ margin-bottom:.25rem; }
+    .contact .btn-row{ margin-top:.9rem; }
     @media(max-width:520px){
       .btn{width:100%; text-align:center}
+      .wrap{padding:22px}
     }
 
     /* Footer */
@@ -142,7 +143,7 @@
     <!-- HERO -->
     <section class="wrap">
       <header>
-        <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168" loading="lazy">
+        <img src="headshot.png" alt="Portrait of Jasen Samford" class="headshot" width="168" height="168" loading="lazy">
         <h1>Jasen Samford</h1>
         <p class="lead">
           I help independent artists and labels navigate digital distribution, plan stronger releases,
@@ -208,19 +209,13 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section-alt">
-      <div class="wrap t-wrap testimonials">
+    <section id="testimonials">
+      <div class="wrap testimonials">
         <h2>Trusted by teams that build for artists</h2>
-
-        <!-- Featured (top row) -->
-        <div class="t-grid featured" style="margin-bottom:14px;">
+        <div class="t-grid" style="margin-top:12px">
           <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
           <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
           <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
-        </div>
-
-        <!-- Secondary -->
-        <div class="t-grid">
           <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
           <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
           <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
@@ -230,11 +225,11 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="wrap">
+    <section id="contact">
+      <div class="wrap contact">
         <h2>Let’s talk</h2>
-        <p class="muted" style="margin-top:.25rem">Ready to walk through a release plan or troubleshoot an issue?</p>
-        <div class="btn-row" style="margin-top:.8rem">
+        <p class="muted" style="margin-top:.25rem">Consulting sessions available worldwide via Zoom.</p>
+        <div class="btn-row" style="margin-top:.9rem">
           <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
           <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
         </div>
