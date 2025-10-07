@@ -1,333 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jasen Samford — Music Industry Consultant</title>
-  <meta name="description" content="I help artists, labels, and music platforms improve payout accuracy, reduce fraud risk, and scale support operations." />
-  <link rel="icon" href="favicon.ico" />
-  <meta property="og:title" content="Jasen Samford — Music Industry Consultant" />
-  <meta property="og:description" content="Artist and platform consulting on distribution, fraud, and CX." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.com" />
-  <meta property="og:image" content="https://your-domain.com/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jasen Samford | Music Business Consultant</title>
+
   <style>
-    :root {
-      --bg: #0f1115;
-      --panel: #151823;
-      --text: #e8eaf2;
-      --muted: #a9afc3;
-      --brand: #6ea8ff;
-      --brand-2: #9ad1ff;
-      --stroke: #242b3a;
-      --ok: #70f0b0;
-      --warn: #ffd479;
-      --radius: 16px;
-      --maxw: 1120px;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 80% -10%, #1b2133 0%, #0f1115 55%) no-repeat, var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    :root{
+      --accent:#0aa2a2; /* soft teal */
+      --text:#111;
+      --muted:#666;
+      --bg:#fff;
+      --card:#f7fbfb;
+      --line:#eee;
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 6px 24px rgba(0,0,0,.08);
     }
 
-    /* Layout */
-    header, main, footer { width: 100%; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .wrap{max-width:960px;margin:0 auto;padding:24px}
+    h1,h2,h3{line-height:1.25;margin:0 0 .5rem}
+    h1{font-size:clamp(2rem,3.2vw+1rem,2.8rem);font-weight:800}
+    h2{font-size:clamp(1.35rem,1.2vw+1rem,1.55rem);font-weight:800;margin-top:2.5rem}
+    p.lead{font-size:1.05rem;color:#333;margin:.5rem auto 1.25rem;max-width:48ch}
+    section + section{border-top:1px solid var(--line);margin-top:2rem;padding-top:2rem}
 
-    /* Header */
-    .site-header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: color-mix(in srgb, var(--bg) 75%, transparent);
-      border-bottom: 1px solid var(--stroke);
+    /* Buttons */
+    .btn{
+      appearance:none;border:0;cursor:pointer;
+      display:inline-block;padding:.78rem 1.05rem;border-radius:999px;
+      font-weight:700;text-decoration:none;transition:.2s ease;
+      box-shadow:0 2px 0 rgba(0,0,0,.04)
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-    .badge {
-      width: 28px; height: 28px; border-radius: 8px;
-      background: linear-gradient(160deg, var(--brand), var(--brand-2));
-      display: grid; place-items: center; color: #0b1020; font-weight: 800; font-size: 14px;
-      border: 1px solid color-mix(in srgb, var(--brand) 60%, #ffffff 15%);
-      box-shadow: 0 6px 18px rgba(110,168,255,.25), inset 0 0 0 1px rgba(255,255,255,.15);
-    }
-    .brand span { font-weight: 700; letter-spacing: .2px; }
-    .nav-links { display: flex; gap: 18px; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; }
-    .nav-links a:hover { color: var(--text); }
+    .btn-primary{background:var(--text);color:#fff}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{background:#eee;color:#111}
+    .btn-ghost:hover{background:#e5e5e5}
+    .btn-row{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0 1.25rem}
 
     /* Hero */
-    .hero { padding: 72px 0 32px; }
-    .hero .grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; }
-    .kicker { color: var(--brand-2); font-size: 13px; letter-spacing: .4px; text-transform: uppercase; font-weight: 600; }
-    h1 { margin: 10px 0 12px; font-size: clamp(28px, 5vw, 44px); line-height: 1.1; }
-    .lead { color: var(--muted); font-size: 18px; max-width: 60ch; }
-    .cta-row { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
-    .btn {
-      appearance: none; border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, #1b2133, #151823);
-      color: var(--text); padding: 12px 16px; border-radius: 12px;
-      text-decoration: none; font-weight: 600; font-size: 15px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 8px 24px rgba(0,0,0,.25);
+    header{text-align:center;padding-top:1rem}
+    .headshot{
+      width:168px;height:168px;border-radius:50%;
+      object-fit:cover;object-position:center;
+      display:block;margin:0 auto .85rem;
+      box-shadow:0 0 0 6px #fff, 0 0 0 10px rgba(10,162,162,.12), var(--shadow);
+      background:#f5f5f5
     }
-    .btn.primary { border-color: color-mix(in srgb, var(--brand) 40%, #000 60%); background: linear-gradient(180deg, #2a3a66, #1e2b4e); }
-    .btn:hover { transform: translateY(-1px); }
-    .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
 
-    .hero-card {
-      background: linear-gradient(180deg, #171c29, #121624);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+    /* Cards & grids */
+    .grid{display:grid;gap:.9rem}
+    @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} .grid-4{grid-template-columns:repeat(4,1fr)} }
+    .card{
+      background:var(--card); border:1px solid #e7f1f1; border-radius:var(--radius);
+      padding:1rem; box-shadow:var(--shadow)
     }
-    .stat { display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; align-items: center; }
-    .stat .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(112,240,176,.2); }
-    .stat p { margin: 0; font-size: 14px; color: var(--muted); }
-    .stat strong { color: var(--text); }
+    .muted{color:var(--muted)}
+    ul.clean{margin:.2rem 0 0 1rem;padding:0}
+    ul.clean li{margin:.22rem 0}
 
-    /* Sections */
-    section { padding: 48px 0; }
-    h2 { font-size: 24px; margin: 0 0 18px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
-    }
-    .card h3 { margin: 4px 0 8px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    /* Testimonials */
+    .testimonials h2{margin-top:3rem;margin-bottom:1.1rem}
+    .testimonials-featured{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:1rem}
+    @media(min-width:820px){ .testimonials-featured{grid-template-columns:repeat(3,1fr)} }
+    .testimonials-grid{display:grid;grid-template-columns:1fr;gap:.75rem}
+    @media(min-width:820px){ .testimonials-grid{grid-template-columns:repeat(4,1fr)} }
 
-    /* Testimonial */
-    .testimonial { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .quote {
-      font-size: 18px; line-height: 1.5; color: var(--text);
-      background: linear-gradient(180deg, #171c29, #121624);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 18px;
+    .testimonial{
+      background:var(--card);border:1px solid #e7f1f1;border-left:4px solid var(--accent);
+      border-radius:var(--radius-sm);padding:.9rem 1rem
     }
-    .who { color: var(--muted); font-size: 14px; }
-
-    /* FAQ */
-    details {
-      background: var(--panel);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-    }
-    details + details { margin-top: 10px; }
-    summary { cursor: pointer; font-weight: 600; }
-    details p { color: var(--muted); margin: 10px 0 0; }
+    .t-featured{background:#f2fafa;border-left-width:6px}
+    .testimonial blockquote{margin:0 0 .35rem 0}
+    .testimonial p{margin:0}
+    .testimonial figcaption{font-size:.92rem;color:var(--muted)}
 
     /* Footer */
-    footer { border-top: 1px solid var(--stroke); }
-    .foot {
-      display: grid; gap: 12px; align-items: center; 
-      grid-template-columns: 1fr auto;
-      padding: 20px 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero .grid { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
+    footer{border-top:1px solid var(--line);margin-top:2.25rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem;text-align:center}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Jasen Samford",
-    "jobTitle":"Consultant",
-    "url":"https://your-domain.com",
-    "sameAs": [],
-    "knowsAbout": ["Music distribution","Streaming fraud mitigation","Customer support operations","Artist education"],
-    "worksFor": {
-      "@type":"Organization",
-      "name":"Independent"
-    }
-  }
-  </script>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="#top">
-        <div class="badge" aria-hidden="true">JS</div>
-        <span>Jasen Samford</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#who">Who I help</a>
-        <a href="#results">Results</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn" href="https://calendly.com/jdsamford/60min">Book a call</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="grid">
-          <div>
-            <div class="kicker">Consulting for artists and platforms</div>
-            <h1>I help you ship clean releases, get paid correctly, and keep fraud out.</h1>
-            <p class="lead">
-              I spent a decade helping scale a major distributor from tiny startup to industry leader. Now I work with artists, labels, and music platforms on payout accuracy, fraud prevention, and support systems that feel personal at scale.
-            </p>
-            <div class="cta-row">
-              <a class="btn primary" href="https://calendly.com/jdsamford/60min">Book a 60 minute consult</a>
-              <a class="btn" href="#services">See services</a>
-            </div>
-            <p class="note">Prefer 30 minutes? Ask during booking. I keep it focused and practical.</p>
-          </div>
-          <div class="hero-card" aria-label="Snapshot">
-            <div class="stat">
-              <div class="dot" aria-hidden="true"></div>
-              <p><strong>10 years</strong> building artist support, education, and ops.</p>
-              <div class="dot" aria-hidden="true"></div>
-              <p><strong>Millions</strong> of creators served across releases and payouts.</p>
-              <div class="dot" aria-hidden="true"></div>
-              <p><strong>Hands-on</strong> help for dispute workflows and fraud flags.</p>
-            </div>
-          </div>
-        </div>
+  <main class="wrap">
+    <!-- HERO -->
+    <header>
+      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168">
+      <h1>Jasen Samford</h1>
+      <p class="lead">
+        I help independent artists and labels navigate digital distribution, plan stronger releases,
+        and protect streaming integrity — with practical steps and clear communication.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
+        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-    </section>
+    </header>
 
-    <!-- Services -->
-    <section id="services">
-      <div class="wrap">
-        <h2>What I do</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>For artists and labels</h3>
-            <p>Release checklists, metadata cleanup, dispute prep, playlist risk checks, and realistic growth plans that do not trigger fraud systems.</p>
-          </div>
-          <div class="card">
-            <h3>For platforms</h3>
-            <p>Fraud mitigation playbooks, support QA and macros, education hubs, and "trust and safety" workflows that reduce churn and tickets.</p>
-          </div>
-          <div class="card">
-            <h3>Workshops</h3>
-            <p>Clear sessions for classrooms and teams. Distribution basics, revenue paths, audit trails, and practical ops you can use the same day.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Who I help -->
-    <section id="who">
-      <div class="wrap">
-        <h2>Who I help</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Independent artists</h3>
-            <p>Upload with confidence, resolve flags faster, and keep payouts steady.</p>
-          </div>
-          <div class="card">
-            <h3>Small labels</h3>
-            <p>Simple pipelines for catalog, splits, statements, and artist onboarding.</p>
-          </div>
-          <div class="card">
-            <h3>Education programs</h3>
-            <p>Guest talks and templates that make the modern music business less opaque.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Results -->
-    <section id="results">
-      <div class="wrap">
-        <h2>How this helps</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Cleaner releases</h3>
-            <p>Fewer rejections and takedowns through better metadata and audit trails.</p>
-          </div>
-          <div class="card">
-            <h3>Fewer surprises</h3>
-            <p>Fraud risk checks before you spend. Clear guidance on what triggers flags.</p>
-          </div>
-          <div class="card">
-            <h3>Faster support</h3>
-            <p>When things break, you know who to contact and what to send. No guesswork.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials">
-      <div class="wrap">
-        <h2>Testimonials</h2>
-        <div class="testimonial">
-          <div class="quote">“I leaned on Jasen’s expertise for every customer-facing project. He is pragmatic, intuitive, and a creative problem solver. Calm under pressure, collaborative, and focused on results.”</div>
-          <div class="who">Zach Domer, Project and Delivery Manager</div>
-        </div>
-        <!-- Add more later. Keep quotes specific and outcome focused. -->
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section>
-      <div class="wrap">
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="grid grid-2">
         <div class="card">
-          <h2>Ready to get practical?</h2>
-          <p class="lead">Bring your questions, links, and screenshots. We will make a plan you can act on right away.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="https://calendly.com/jdsamford/60min">Book a call</a>
-            <a class="btn" href="mailto:hello@your-domain.com">Email me</a>
-          </div>
+          <p>
+            I spent years at DistroKid helping build systems that serve millions of independent artists.
+            Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
+            streamline payouts, and keep growth sustainable without losing the human touch.
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Typical outcomes</h3>
+          <ul class="clean">
+            <li>Cleaner metadata and smoother payouts</li>
+            <li>Release plans that travel from idea to impact</li>
+            <li>Fewer false-positive fraud flags</li>
+            <li>Clear documentation for teams and partners</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="wrap">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Can I book 30 minutes instead of 60?</summary>
-          <p>Yes. Mention it when you book. Short sessions are fine for tight questions.</p>
-        </details>
-        <details>
-          <summary>What do I bring to the call?</summary>
-          <p>Release links, screenshots, statements, and a brief timeline. The more context you bring, the faster we get to answers.</p>
-        </details>
-        <details>
-          <summary>Do you do long term work?</summary>
-          <p>Yes. We can set up a scope after an initial session. I keep terms simple.</p>
-        </details>
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="margin-top:0">For artists and labels</h3>
+          <ul class="clean">
+            <li>Distributor setup and catalog optimization</li>
+            <li>Release strategy and lightweight promo plans</li>
+            <li>Metadata, splits, and payout checks</li>
+            <li>Dispute handling and takedown prevention</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">For platforms and teams</h3>
+          <ul class="clean">
+            <li>Integrity playbooks and risk reduction</li>
+            <li>Support operations and escalation models</li>
+            <li>Artist education and partner content</li>
+          </ul>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="wrap foot">
-      <div>&copy; <span id="y"></span> Jasen Samford</div>
-      <div>
-        <a class="btn" href="https://calendly.com/jdsamford/60min">Book a call</a>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+      <h2>Trusted by teams that build for artists</h2>
+
+      <!-- Featured -->
+      <div class="testimonials-featured">
+        <figure class="testimonial t-featured">
+          <blockquote><p>He reduces complex context to the essentials and spins up scalable solutions fast.</p></blockquote>
+          <figcaption>Ty Teixeira · Operations and Product Development</figcaption>
+        </figure>
+
+        <figure class="testimonial t-featured">
+          <blockquote><p>The go to for distribution and artist education.</p></blockquote>
+          <figcaption>Kaite Heeren · Marketing</figcaption>
+        </figure>
+
+        <figure class="testimonial t-featured">
+          <blockquote><p>Pragmatic, intuitive, and a creative problem solver.</p></blockquote>
+          <figcaption>Zach Domer · Delivery Manager</figcaption>
+        </figure>
       </div>
-    </div>
-  </footer>
+
+      <!-- Secondary -->
+      <div class="testimonials-grid">
+        <figure class="testimonial">
+          <blockquote><p>He balances data driven decisions with people first leadership that lifts performance.</p></blockquote>
+          <figcaption>Nick Greengard · Project Management and Operations</figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote><p>Strategic thinking on process and scaling built a world class support team.</p></blockquote>
+          <figcaption>Kennith Darling · Operations Leader</figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote><p>Brings clarity, calm, and a deep understanding of tech and people.</p></blockquote>
+          <figcaption>Gert Franz</figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <blockquote><p>Extensive industry knowledge and a focus on growing and retaining users.</p></blockquote>
+          <figcaption>Igal Sapir · Software Architect</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT STRIP -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted" style="margin-top:.25rem">Ready to talk through a release plan or troubleshoot an issue</p>
+      <div class="btn-row" style="margin-top:.6rem">
+        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
+        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Jasen Samford
+    </footer>
+  </main>
 
   <script>
     // year
