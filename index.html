@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
+  <meta name="description" content="Consulting for independent artists, labels, and music platforms—release planning, distribution, payouts, and streaming integrity." />
 
   <style>
     :root{
-      --accent:#0aa2a2; /* soft teal */
+      --accent:#0aa2a2;      /* soft teal */
       --text:#111;
-      --muted:#666;
+      --muted:#566;
       --bg:#fff;
       --card:#f7fbfb;
-      --line:#eee;
+      --line:#e9efef;
       --radius:14px;
       --radius-sm:10px;
-      --shadow:0 6px 24px rgba(0,0,0,.08);
+      --shadow:0 6px 24px rgba(0,0,0,.06);
+      --wrap:960px;
     }
 
     /* Base */
@@ -29,39 +31,41 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    .wrap{max-width:960px;margin:0 auto;padding:24px}
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
     h1,h2,h3{line-height:1.25;margin:0 0 .5rem}
     h1{font-size:clamp(2rem,3.2vw+1rem,2.8rem);font-weight:800}
-    h2{font-size:clamp(1.35rem,1.2vw+1rem,1.55rem);font-weight:800;margin-top:2.5rem}
-    p.lead{font-size:1.05rem;color:#333;margin:.5rem auto 1.25rem;max-width:48ch}
+    h2{font-size:clamp(1.35rem,1.2vw+1rem,1.55rem);font-weight:800;margin-top:2.25rem}
+    p.lead{font-size:1.06rem;color:#333;margin:.5rem auto 1.25rem;max-width:58ch}
     section + section{border-top:1px solid var(--line);margin-top:2rem;padding-top:2rem}
+    img{max-width:100%;display:block}
 
     /* Buttons */
     .btn{
       appearance:none;border:0;cursor:pointer;
       display:inline-block;padding:.78rem 1.05rem;border-radius:999px;
-      font-weight:700;text-decoration:none;transition:.2s ease;
+      font-weight:700;text-decoration:none;transition:transform .15s ease;
       box-shadow:0 2px 0 rgba(0,0,0,.04)
     }
     .btn-primary{background:var(--text);color:#fff}
     .btn-primary:hover{transform:translateY(-1px)}
-    .btn-ghost{background:#eee;color:#111}
-    .btn-ghost:hover{background:#e5e5e5}
+    .btn-ghost{background:#eef4f4;color:#111}
+    .btn-ghost:hover{background:#e6efef}
     .btn-row{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0 1.25rem}
+    a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
 
     /* Hero */
     header{text-align:center;padding-top:1rem}
     .headshot{
       width:168px;height:168px;border-radius:50%;
       object-fit:cover;object-position:center;
-      display:block;margin:0 auto .85rem;
+      margin:0 auto .85rem;
       box-shadow:0 0 0 6px #fff, 0 0 0 10px rgba(10,162,162,.12), var(--shadow);
       background:#f5f5f5
     }
 
     /* Cards & grids */
     .grid{display:grid;gap:.9rem}
-    @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} .grid-4{grid-template-columns:repeat(4,1fr)} }
+    @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} }
     .card{
       background:var(--card); border:1px solid #e7f1f1; border-radius:var(--radius);
       padding:1rem; box-shadow:var(--shadow)
@@ -70,67 +74,67 @@
     ul.clean{margin:.2rem 0 0 1rem;padding:0}
     ul.clean li{margin:.22rem 0}
 
-   /* Testimonials (nameless) */
-.testimonials { margin-top: 3rem; }
-.testimonials h2 {
-  margin-bottom: 1.25rem;
-  text-align: center;
-}
-.testimonials-featured,
-.testimonials-grid {
-  display: grid;
-  gap: 1rem;
-}
-@media (min-width: 820px) {
-  .testimonials-featured { grid-template-columns: repeat(3, 1fr); }
-  .testimonials-grid { grid-template-columns: repeat(4, 1fr); }
-}
-.testimonials-featured { margin-bottom: 2rem; }
+    /* Testimonials — clean grid */
+    .testimonials { scroll-margin-top:64px; }
+    .testimonials h2 { text-align:center; margin-bottom:1.25rem; }
 
-.testimonial {
-  background: var(--card);
-  border: 1px solid #e7f1f1;
-  border-left: 4px solid var(--accent);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.15rem 1.05rem;
-  display: flex;
-  height: 100%;
-  box-shadow: var(--shadow);
-}
+    .t-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+    }
 
-.t-featured {
-  background: #f2fafa;
-  border-left-width: 6px;
-}
+    .t-card{
+      background:var(--card);
+      border:1px solid #e7f1f1;
+      border-radius:16px;
+      padding:16px 16px 18px;
+      box-shadow:var(--shadow);
+      display:flex;
+      min-height:120px;
+      position:relative;
+      isolation:isolate;
+    }
 
-/* quote only, no names */
-.testimonial blockquote {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #222;
-}
-.testimonial blockquote p {
-  margin: 0;
-  font-style: italic;       /* subtle “testimonial” feel */
-  color: #222;
-}
+    /* subtle accent + quote mark */
+    .t-card::before{
+      content:"";
+      position:absolute; inset:0 auto auto 0;
+      width:4px; height:100%;
+      border-radius:16px 0 0 16px;
+      background:linear-gradient(180deg,var(--accent),#5fd0d0);
+      opacity:.9;
+    }
+    .t-card::after{
+      content:"“";
+      position:absolute; top:10px; right:12px;
+      font-size:26px; line-height:1; color:#b7dede; font-weight:800;
+      opacity:.45; pointer-events:none;
+    }
 
-/* optional tiny tag if you want context like “Artist” or “Platform team” */
-.testimonial .tag {
-  margin-top: .65rem;
-  font-size: .82rem;
-  color: var(--muted);
-  background: #eef6f6;
-  border: 1px solid #d8eeee;
-  border-radius: 999px;
-  padding: .15rem .5rem;
-  width: fit-content;
-}
+    .t-text{
+      margin:0 0 2px 8px;   /* make room from accent */
+      color:#222;
+      font-size:1rem;
+      letter-spacing:.1px;
+      hyphens:auto;
+    }
 
+    /* Featured row just uses larger text and denser layout */
+    .t-featured .t-text { font-size:1.02rem; }
+    .t-section + .t-section { margin-top:18px; }
 
     /* Footer */
-    footer{border-top:1px solid var(--line);margin-top:2.25rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem;text-align:center}
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:2.25rem;padding:1.25rem 0;
+      color:var(--muted);font-size:.95rem;text-align:center
+    }
+
+    /* Small niceties */
+    @media (max-width:480px){
+      .t-card::after{ display:none; }
+    }
   </style>
 </head>
 
@@ -138,11 +142,11 @@
   <main class="wrap">
     <!-- HERO -->
     <header>
-      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168">
+      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168" loading="lazy">
       <h1>Jasen Samford</h1>
       <p class="lead">
         I help independent artists and labels navigate digital distribution, plan stronger releases,
-        and protect streaming integrity — with practical steps and clear communication.
+        and protect streaming integrity with practical steps and clear communication.
       </p>
       <div class="btn-row">
         <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
@@ -198,52 +202,25 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
- <section id="testimonials" class="testimonials">
-  <h2>Trusted by teams that build for artists</h2>
+    <!-- TESTIMONIALS (nameless, clean) -->
+    <section id="testimonials" class="testimonials">
+      <h2>Trusted by teams that build for artists</h2>
 
-  <!-- Featured (nameless) -->
-  <div class="testimonials-featured">
-    <figure class="testimonial t-featured">
-      <blockquote><p>He reduces complex context to the essentials and spins up scalable solutions fast.</p></blockquote>
-      <!-- <div class="tag">Platform team</div> -->
-    </figure>
+      <!-- Featured row -->
+      <div class="t-grid t-featured t-section">
+        <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
+        <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
+        <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
+      </div>
 
-    <figure class="testimonial t-featured">
-      <blockquote><p>The go-to for distribution and artist education.</p></blockquote>
-      <!-- <div class="tag">Marketing</div> -->
-    </figure>
-
-    <figure class="testimonial t-featured">
-      <blockquote><p>Pragmatic, intuitive, and a creative problem solver.</p></blockquote>
-      <!-- <div class="tag">Delivery</div> -->
-    </figure>
-  </div>
-
-  <!-- Secondary (nameless) -->
-  <div class="testimonials-grid">
-    <figure class="testimonial">
-      <blockquote><p>Balances data-driven decisions with people-first leadership that lifts performance.</p></blockquote>
-      <!-- <div class="tag">Ops</div> -->
-    </figure>
-
-    <figure class="testimonial">
-      <blockquote><p>Strategic process thinking helped us scale to a world-class support org.</p></blockquote>
-      <!-- <div class="tag">Operations</div> -->
-    </figure>
-
-    <figure class="testimonial">
-      <blockquote><p>Brings clarity, calm, and a deep understanding of tech and people.</p></blockquote>
-      <!-- <div class="tag">Engineering</div> -->
-    </figure>
-
-    <figure class="testimonial">
-      <blockquote><p>Extensive industry knowledge with a sharp focus on growth and retention.</p></blockquote>
-      <!-- <div class="tag">Product/Eng</div> -->
-    </figure>
-  </div>
-</section>
-
+      <!-- Secondary row -->
+      <div class="t-grid t-section">
+        <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
+        <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
+        <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
+        <article class="t-card"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
+      </div>
+    </section>
 
     <!-- CONTACT STRIP -->
     <section id="contact">
@@ -261,7 +238,6 @@
   </main>
 
   <script>
-    // year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
