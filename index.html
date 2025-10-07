@@ -5,20 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
   <meta name="description" content="Consulting for independent artists, labels, and music platforms—release planning, distribution, payouts, and streaming integrity." />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230aa2a2'/><text x='50' y='68' font-size='52' text-anchor='middle' font-family='sans-serif' fill='white' font-weight='700'>JS</text></svg>">
+  <meta name="theme-color" content="#0aa2a2" />
+  <meta property="og:title" content="Jasen Samford | Music Business Consultant" />
+  <meta property="og:description" content="Clear, practical help for releases, payouts, and streaming integrity." />
+  <meta property="og:type" content="website" />
 
+  <!-- SVG favicon (circle JS on teal, no square background) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
 
   <style>
     :root{
-      --accent:#0aa2a2;      /* soft teal */
-      --text:#111;
+      --accent:#0aa2a2;
+      --accent-2:#5fd0d0;
+      --text:#0f1115;
       --muted:#566;
-      --bg:#fff;
-      --card:#f7fbfb;
-      --line:#e9efef;
-      --radius:14px;
-      --radius-sm:10px;
-      --shadow:0 6px 24px rgba(0,0,0,.06);
+      --bg:#ffffff;
+      --bg-alt:#fafbfb;
+      --card:#ffffff;
+      --line:#eaeef0;
+      --radius:16px;
+      --radius-sm:12px;
+      --shadow:0 8px 24px rgba(0,0,0,.06);
       --wrap:960px;
     }
 
@@ -33,98 +40,93 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
-    h1,h2,h3{line-height:1.25;margin:0 0 .5rem}
-    h1{font-size:clamp(2rem,3.2vw+1rem,2.8rem);font-weight:800}
-    h2{font-size:clamp(1.35rem,1.2vw+1rem,1.55rem);font-weight:800;margin-top:2.25rem}
-    p.lead{font-size:1.06rem;color:#333;margin:.5rem auto 1.25rem;max-width:58ch}
-    section + section{border-top:1px solid var(--line);margin-top:2rem;padding-top:2rem}
     img{max-width:100%;display:block}
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
+    section{scroll-margin-top:72px}
+    section + section{border-top:1px solid var(--line);margin-top:2rem;padding-top:2rem}
+    .section-alt{background:var(--bg-alt);border-top:none;margin-top:2.5rem}
+    .section-alt .wrap{padding-top:32px;padding-bottom:24px}
+
+    h1,h2,h3{line-height:1.22;margin:0 0 .5rem}
+    h1{font-size:clamp(2.2rem,3.8vw+1rem,3.1rem);font-weight:800}
+    h2{font-size:clamp(1.35rem,1.2vw+1rem,1.6rem);font-weight:800;margin-top:2.25rem}
+    p.lead{font-size:1.06rem;color:#333;margin:.65rem auto 1.25rem;max-width:60ch}
+    .muted{color:var(--muted)}
 
     /* Buttons */
     .btn{
       appearance:none;border:0;cursor:pointer;
-      display:inline-block;padding:.78rem 1.05rem;border-radius:999px;
-      font-weight:700;text-decoration:none;transition:transform .15s ease;
+      display:inline-block;padding:.82rem 1.1rem;border-radius:999px;
+      font-weight:700;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
       box-shadow:0 2px 0 rgba(0,0,0,.04)
     }
     .btn-primary{background:var(--text);color:#fff}
-    .btn-primary:hover{transform:translateY(-1px)}
-    .btn-ghost{background:#eef4f4;color:#111}
-    .btn-ghost:hover{background:#e6efef}
-    .btn-row{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0 1.25rem}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+    .btn-ghost{background:#eef4f4;color:#0f1115}
+    .btn-ghost:hover{background:#e6efef;transform:translateY(-2px)}
+    .btn-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:1rem 0 1.5rem}
     a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
 
     /* Hero */
-    header{text-align:center;padding-top:1rem}
+    header{text-align:center;padding-top:24px}
     .headshot{
       width:168px;height:168px;border-radius:50%;
       object-fit:cover;object-position:center;
-      margin:0 auto .85rem;
+      margin:0 auto .9rem;
       box-shadow:0 0 0 6px #fff, 0 0 0 10px rgba(10,162,162,.12), var(--shadow);
-      background:#f5f5f5
+      background:#f3f5f5
     }
 
-    /* Cards & grids */
-    .grid{display:grid;gap:.9rem}
+    /* Grids + cards */
+    .grid{display:grid;gap:1rem}
     @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} }
     .card{
-      background:var(--card); border:1px solid #e7f1f1; border-radius:var(--radius);
-      padding:1rem; box-shadow:var(--shadow)
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1rem;
+      box-shadow:var(--shadow);
+      transition:transform .2s ease, box-shadow .2s ease;
     }
-    .muted{color:var(--muted)}
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.08)}
     ul.clean{margin:.2rem 0 0 1rem;padding:0}
     ul.clean li{margin:.22rem 0}
 
-    /* Testimonials — clean grid */
-    .testimonials { scroll-margin-top:64px; }
-    .testimonials h2 { text-align:center; margin-bottom:1.25rem; }
-
+    /* Testimonials — simplified, even grid */
+    .testimonials h2{ text-align:center; margin-bottom:1.1rem; }
     .t-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:14px;
     }
-
     .t-card{
-      background:var(--card);
-      border:1px solid #e7f1f1;
-      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
       padding:16px 16px 18px;
-      box-shadow:var(--shadow);
-      display:flex;
       min-height:120px;
+      box-shadow:var(--shadow);
       position:relative;
-      isolation:isolate;
+      display:flex;
     }
-
-    /* subtle accent + quote mark */
     .t-card::before{
       content:"";
       position:absolute; inset:0 auto auto 0;
       width:4px; height:100%;
-      border-radius:16px 0 0 16px;
-      background:linear-gradient(180deg,var(--accent),#5fd0d0);
-      opacity:.9;
+      border-radius:var(--radius) 0 0 var(--radius);
+      background:linear-gradient(180deg,var(--accent),var(--accent-2));
     }
-    .t-card::after{
-      content:"“";
-      position:absolute; top:10px; right:12px;
-      font-size:26px; line-height:1; color:#b7dede; font-weight:800;
-      opacity:.45; pointer-events:none;
-    }
+    .t-text{ margin:0 0 2px 10px; color:#222; font-size:1rem; letter-spacing:.1px; }
+    .t-grid.featured .t-text{ font-size:1.04rem; }
+    .t-wrap{padding:0 24px 24px} /* extra air when on alt background */
 
-    .t-text{
-      margin:0 0 2px 8px;   /* make room from accent */
-      color:#222;
-      font-size:1rem;
-      letter-spacing:.1px;
-      hyphens:auto;
+    /* Contact */
+    .contact{ background:var(--bg-alt); border-top:none; }
+    .contact h2{ margin-bottom:.2rem; }
+    .contact .btn-row{ margin-top:.8rem; }
+    @media(max-width:520px){
+      .btn{width:100%; text-align:center}
     }
-
-    /* Featured row just uses larger text and denser layout */
-    .t-featured .t-text { font-size:1.02rem; }
-    .t-section + .t-section { margin-top:18px; }
 
     /* Footer */
     footer{
@@ -132,105 +134,110 @@
       margin-top:2.25rem;padding:1.25rem 0;
       color:var(--muted);font-size:.95rem;text-align:center
     }
-
-    /* Small niceties */
-    @media (max-width:480px){
-      .t-card::after{ display:none; }
-    }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
+  <main>
     <!-- HERO -->
-    <header>
-      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168" loading="lazy">
-      <h1>Jasen Samford</h1>
-      <p class="lead">
-        I help independent artists and labels navigate digital distribution, plan stronger releases,
-        and protect streaming integrity with practical steps and clear communication.
-      </p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
-        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </header>
+    <section class="wrap">
+      <header>
+        <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168" loading="lazy">
+        <h1>Jasen Samford</h1>
+        <p class="lead">
+          I help independent artists and labels navigate digital distribution, plan stronger releases,
+          and protect streaming integrity with practical steps and clear communication.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
+          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </header>
+    </section>
 
     <!-- ABOUT -->
     <section id="about">
-      <h2>About</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <p>
-            I spent years at DistroKid helping build systems that serve millions of independent artists.
-            Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
-            streamline payouts, and keep growth sustainable without losing the human touch.
-          </p>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0">Typical outcomes</h3>
-          <ul class="clean">
-            <li>Cleaner metadata and smoother payouts</li>
-            <li>Release plans that travel from idea to impact</li>
-            <li>Fewer false-positive fraud flags</li>
-            <li>Clear documentation for teams and partners</li>
-          </ul>
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <p>
+              I spent years at DistroKid helping build systems that serve millions of independent artists.
+              Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
+              streamline payouts, and keep growth sustainable without losing the human touch.
+            </p>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Typical outcomes</h3>
+            <ul class="clean">
+              <li>Cleaner metadata and smoother payouts</li>
+              <li>Release plans that travel from idea to impact</li>
+              <li>Fewer false-positive fraud flags</li>
+              <li>Clear documentation for teams and partners</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section id="services">
-      <h2>Services</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 style="margin-top:0">For artists and labels</h3>
-          <ul class="clean">
-            <li>Distributor setup and catalog optimization</li>
-            <li>Release strategy and lightweight promo plans</li>
-            <li>Metadata, splits, and payout checks</li>
-            <li>Dispute handling and takedown prevention</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0">For platforms and teams</h3>
-          <ul class="clean">
-            <li>Integrity playbooks and risk reduction</li>
-            <li>Support operations and escalation models</li>
-            <li>Artist education and partner content</li>
-          </ul>
+      <div class="wrap">
+        <h2>Services</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3 style="margin-top:0">For artists and labels</h3>
+            <ul class="clean">
+              <li>Distributor setup and catalog optimization</li>
+              <li>Release strategy and lightweight promo plans</li>
+              <li>Metadata, splits, and payout checks</li>
+              <li>Dispute handling and takedown prevention</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">For platforms and teams</h3>
+            <ul class="clean">
+              <li>Integrity playbooks and risk reduction</li>
+              <li>Support operations and escalation models</li>
+              <li>Artist education and partner content</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS (nameless, clean) -->
-    <section id="testimonials" class="testimonials">
-      <h2>Trusted by teams that build for artists</h2>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section-alt">
+      <div class="wrap t-wrap testimonials">
+        <h2>Trusted by teams that build for artists</h2>
 
-      <!-- Featured row -->
-      <div class="t-grid t-featured t-section">
-        <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
-        <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
-        <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
-      </div>
+        <!-- Featured (top row) -->
+        <div class="t-grid featured" style="margin-bottom:14px;">
+          <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
+          <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
+          <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
+        </div>
 
-      <!-- Secondary row -->
-      <div class="t-grid t-section">
-        <!--  <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article> -->
-        <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
-        <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
-        <article class="t-card"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
+        <!-- Secondary -->
+        <div class="t-grid">
+          <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
+          <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
+          <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
+          <article class="t-card"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT STRIP -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="muted" style="margin-top:.25rem">Ready to talk through a release plan or troubleshoot an issue?</p>
-      <div class="btn-row" style="margin-top:.6rem">
-        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
-        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2>Let’s talk</h2>
+        <p class="muted" style="margin-top:.25rem">Ready to walk through a release plan or troubleshoot an issue?</p>
+        <div class="btn-row" style="margin-top:.8rem">
+          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
+          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
+        </div>
       </div>
     </section>
 
