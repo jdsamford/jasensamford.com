@@ -4,16 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
+
+  <!-- Meta -->
   <meta name="description" content="Consulting for independent artists, labels, and music platforms. Practical help for releases, payouts, and streaming integrity." />
   <meta name="theme-color" content="#0aa2a2" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Jasen Samford | Music Business Consultant" />
   <meta property="og:description" content="Clear, practical help for releases, payouts, and streaming integrity." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="headshot.png" />
 
-  <!-- SVG favicon (circle JS on teal, no square background) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3circle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
+  <!-- SVG favicon: circular, no square background -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Jasen Samford",
+    "jobTitle":"Music Business Consultant",
+    "url":"https://jasensamford.com",
+    "sameAs":["https://www.linkedin.com/in/jasensamford"]
+  }
+  </script>
 
   <style>
     :root{
@@ -24,9 +39,31 @@
       --bg:#ffffff;
       --bg-alt:#fafbfb;
       --line:#e9eef0;
+      --card:#ffffff;
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.06);
       --wrap:960px;
+    }
+    /* Dark mode (toggle or system) */
+    @media (prefers-color-scheme: dark){
+      :root{
+        --text:#eef1f3;
+        --muted:#a7b1b8;
+        --bg:#0f1115;
+        --bg-alt:#13161c;
+        --line:#273040;
+        --card:#171b23;
+        --shadow:0 8px 24px rgba(0,0,0,.45);
+      }
+    }
+    [data-theme="dark"]{
+      --text:#eef1f3;
+      --muted:#a7b1b8;
+      --bg:#0f1115;
+      --bg-alt:#13161c;
+      --line:#273040;
+      --card:#171b23;
+      --shadow:0 8px 24px rgba(0,0,0,.45);
     }
 
     /* Base */
@@ -48,10 +85,10 @@
     section:nth-of-type(even){background:var(--bg-alt)}
     section:nth-of-type(even) .wrap{padding-top:32px;padding-bottom:24px}
 
-    h1,h2,h3{line-height:1.22;margin:0 0 .5rem}
+    h1,h2,h3{line-height:1.2;margin:0 0 .5rem}
     h1{font-size:clamp(2.4rem,4vw+1rem,3rem);font-weight:800}
     h2{font-size:clamp(1.35rem,1.2vw+1rem,1.6rem);font-weight:800;margin-top:2.25rem}
-    p.lead{font-size:1.05rem;color:#333;margin:.75rem auto 1.75rem;max-width:60ch;line-height:1.45}
+    p.lead{font-size:1.05rem;color:var(--muted);margin:.75rem auto 1.75rem;max-width:60ch;line-height:1.5}
     .muted{color:var(--muted)}
 
     /* Buttons */
@@ -64,10 +101,21 @@
     }
     .btn-primary{background:#0b0b0b;color:#fff}
     .btn-primary:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 10px 22px rgba(0,0,0,.12)}
+    [data-theme="dark"] .btn-primary{background:#e6e9ec;color:#0b0b0b}
     .btn-ghost{background:#eef4f4;color:#0f1115}
     .btn-ghost:hover{background:#e6efef;transform:translateY(-1px) scale(1.02)}
+    [data-theme="dark"] .btn-ghost{background:#1f262f;color:#eef1f3}
     .btn-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 2rem}
     a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
+
+    /* Theme toggle */
+    .theme-toggle{
+      position:fixed; right:16px; top:14px; z-index:10;
+      background:var(--card); border:1px solid var(--line); border-radius:999px;
+      padding:.45rem .7rem; display:flex; gap:.4rem; align-items:center; box-shadow:var(--shadow);
+      cursor:pointer; font-size:.9rem; color:var(--text);
+    }
+    .theme-toggle span{font-weight:700}
 
     /* Hero */
     header{text-align:center;padding-top:28px}
@@ -78,12 +126,13 @@
       box-shadow:0 0 0 6px #fff, 0 0 0 10px rgba(10,162,162,.12), var(--shadow);
       background:#f3f5f5
     }
+    [data-theme="dark"] .headshot{box-shadow:0 0 0 6px var(--bg), 0 0 0 10px rgba(10,162,162,.18), var(--shadow)}
 
     /* Grids + cards */
     .grid{display:grid;gap:1rem}
     @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} }
     .card{
-      background:#fff;
+      background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1rem;
@@ -94,32 +143,44 @@
     ul.clean{margin:.2rem 0 0 1rem;padding:0}
     ul.clean li{margin:.22rem 0}
 
-    /* Testimonials — 2-column, top accent */
+    /* Testimonials — 2-column grid + subtle quotation mark detail */
     .testimonials h2{ text-align:center; margin-bottom:1.1rem; }
     .t-grid{
       display:grid;
       grid-template-columns:1fr;
       gap:16px;
     }
-    @media(min-width:860px){
-      .t-grid{ grid-template-columns:1fr 1fr; }
-    }
+    @media(min-width:860px){ .t-grid{ grid-template-columns:1fr 1fr; } }
     .t-card{
-      background:#fff;
+      background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:16px 18px 18px;
+      padding:18px 20px 20px;
       min-height:110px;
       box-shadow:var(--shadow);
       position:relative;
+      overflow:hidden;
     }
+    /* top accent */
     .t-card::before{
       content:"";
       position:absolute; left:0; top:0; right:0; height:4px;
-      border-radius:var(--radius) var(--radius) 0 0;
       background:linear-gradient(90deg,var(--accent),var(--accent-2));
     }
-    .t-text{ margin:0; color:#222; font-size:1rem; letter-spacing:.1px; }
+    /* decorative quotation mark */
+    .t-card::after{
+      content:"“";
+      position:absolute; right:14px; top:6px;
+      font-size:32px; line-height:1; font-weight:800;
+      color:rgba(0,0,0,.08);
+      pointer-events:none;
+    }
+    [data-theme="dark"] .t-card::after{ color:rgba(255,255,255,.08); }
+    .t-text{ margin:0; color:var(--text); font-size:1rem; letter-spacing:.1px; }
+
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+    .reveal.in{ opacity:1; transform:none; }
 
     /* Contact */
     .contact h2{ margin-bottom:.25rem; }
@@ -139,10 +200,15 @@
 </head>
 
 <body>
+  <!-- Dark mode toggle -->
+  <button class="theme-toggle" id="toggleTheme" aria-label="Toggle color theme">
+    <span id="themeLabel">Dark</span>
+  </button>
+
   <main>
     <!-- HERO -->
     <section class="wrap">
-      <header>
+      <header class="reveal">
         <img src="headshot.png" alt="Portrait of Jasen Samford" class="headshot" width="168" height="168" loading="lazy">
         <h1>Jasen Samford</h1>
         <p class="lead">
@@ -160,16 +226,16 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="wrap">
-        <h2>About</h2>
+        <h2 class="reveal">About</h2>
         <div class="grid grid-2">
-          <div class="card">
+          <div class="card reveal">
             <p>
               I spent years at DistroKid helping build systems that serve millions of independent artists.
               Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
               streamline payouts, and keep growth sustainable without losing the human touch.
             </p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <h3 style="margin-top:0">Typical outcomes</h3>
             <ul class="clean">
               <li>Cleaner metadata and smoother payouts</li>
@@ -185,9 +251,9 @@
     <!-- SERVICES -->
     <section id="services">
       <div class="wrap">
-        <h2>Services</h2>
+        <h2 class="reveal">Services</h2>
         <div class="grid grid-2">
-          <div class="card">
+          <div class="card reveal">
             <h3 style="margin-top:0">For artists and labels</h3>
             <ul class="clean">
               <li>Distributor setup and catalog optimization</li>
@@ -196,7 +262,7 @@
               <li>Dispute handling and takedown prevention</li>
             </ul>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <h3 style="margin-top:0">For platforms and teams</h3>
             <ul class="clean">
               <li>Integrity playbooks and risk reduction</li>
@@ -211,15 +277,15 @@
     <!-- TESTIMONIALS -->
     <section id="testimonials">
       <div class="wrap testimonials">
-        <h2>Trusted by teams that build for artists</h2>
+        <h2 class="reveal">Trusted by teams that build for artists</h2>
         <div class="t-grid" style="margin-top:12px">
-          <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
-          <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
-          <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
-          <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
-          <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
-          <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
-          <article class="t-card"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
+          <article class="t-card reveal"><p class="t-text">Jasen reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
+          <article class="t-card reveal"><p class="t-text">The go-to for distribution and artist education.</p></article>
+          <article class="t-card reveal"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
+          <article class="t-card reveal"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
+          <article class="t-card reveal"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
+          <article class="t-card reveal"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
+          <article class="t-card reveal"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
         </div>
       </div>
     </section>
@@ -227,9 +293,9 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="wrap contact">
-        <h2>Let’s talk</h2>
-        <p class="muted" style="margin-top:.25rem">Consulting sessions available worldwide via Google Meet.</p>
-        <div class="btn-row" style="margin-top:.9rem">
+        <h2 class="reveal">Let’s talk</h2>
+        <p class="muted reveal" style="margin-top:.25rem">Consulting sessions available worldwide via Google Meet.</p>
+        <div class="btn-row reveal" style="margin-top:.9rem">
           <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
           <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
         </div>
@@ -242,7 +308,28 @@
   </main>
 
   <script>
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Simple reveal on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Theme toggle (persist in localStorage)
+    const root = document.documentElement;
+    const btn = document.getElementById('toggleTheme');
+    const label = document.getElementById('themeLabel');
+    const saved = localStorage.getItem('theme');
+    if (saved) { root.setAttribute('data-theme', saved); label.textContent = saved === 'dark' ? 'Light' : 'Dark'; }
+
+    btn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', current);
+      localStorage.setItem('theme', current);
+      label.textContent = current === 'dark' ? 'Light' : 'Dark';
+    });
   </script>
 </body>
 </html>
