@@ -9,70 +9,60 @@
   <meta name="description" content="Consulting for independent artists, labels, and music platforms. Practical help for releases, payouts, and streaming integrity." />
   <meta name="theme-color" content="#0aa2a2" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Jasen Samford | Music Business Consultant" />
   <meta property="og:description" content="Clear, practical help for releases, payouts, and streaming integrity." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="headshot.png" />
 
-  <!-- SVG favicon: circular, no square background -->
+  <!-- SVG favicon (circular, no square bg) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
 
-  <!-- Schema -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Jasen Samford",
-    "jobTitle":"Music Business Consultant",
-    "url":"https://jasensamford.com",
-    "sameAs":["https://www.linkedin.com/in/jasensamford"]
-  }
-  </script>
-
   <style>
+    /* ===== Light theme (default) ===== */
     :root{
       --accent:#0aa2a2;
       --accent-2:#5fd0d0;
-      --text:#0f1115;
-      --muted:#566;
+
       --bg:#ffffff;
-      --bg-alt:#fafbfb;
-      --line:#e9eef0;
+      --bg-alt:#f6f8fb;            /* clearly lighter panel */
       --card:#ffffff;
+      --line:#e5e9f0;
+
+      --text:#111213;
+      --muted:#4b5563;
+
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.06);
       --wrap:960px;
     }
-    /* Dark mode (toggle or system) */
-    @media (prefers-color-scheme: dark){
-      :root{
-        --text:#eef1f3;
-        --muted:#a7b1b8;
-        --bg:#0f1115;
-        --bg-alt:#13161c;
-        --line:#273040;
-        --card:#171b23;
-        --shadow:0 8px 24px rgba(0,0,0,.45);
-      }
-    }
+
+    /* ===== Dark theme ===== */
     [data-theme="dark"]{
-      --text:#eef1f3;
+      --bg:#0c1117;                /* much darker */
+      --bg-alt:#0a0f14;
+      --card:#141a21;              /* raised surface */
+      --line:#263041;
+
+      --text:#e7ecf2;
       --muted:#a7b1b8;
-      --bg:#0f1115;
-      --bg-alt:#13161c;
-      --line:#273040;
-      --card:#171b23;
-      --shadow:0 8px 24px rgba(0,0,0,.45);
+
+      --shadow:0 18px 36px rgba(0,0,0,.45);
     }
 
-    /* Base */
+    /* Also respect system preference on first load */
+    @media (prefers-color-scheme: dark){
+      :root{
+        color-scheme: dark;
+      }
+    }
+
+    /* ===== Base ===== */
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-      color:var(--text);
       background:var(--bg);
+      color:var(--text);
       font-size:17px;
       line-height:1.65;
       -webkit-font-smoothing:antialiased;
@@ -88,36 +78,19 @@
     h1,h2,h3{line-height:1.2;margin:0 0 .5rem}
     h1{font-size:clamp(2.4rem,4vw+1rem,3rem);font-weight:800}
     h2{font-size:clamp(1.35rem,1.2vw+1rem,1.6rem);font-weight:800;margin-top:2.25rem}
-    p.lead{font-size:1.05rem;color:var(--muted);margin:.75rem auto 1.75rem;max-width:60ch;line-height:1.5}
+    p.lead{font-size:1.06rem;color:var(--muted);margin:.8rem auto 1.8rem;max-width:60ch;line-height:1.5}
     .muted{color:var(--muted)}
 
-    /* Buttons */
-    .btn{
-      appearance:none;border:0;cursor:pointer;
-      display:inline-block;padding:.9rem 1.15rem;border-radius:999px;
-      font-weight:700;text-decoration:none;
-      transition:all .25s ease;
-      box-shadow:0 2px 0 rgba(0,0,0,.04)
-    }
-    .btn-primary{background:#0b0b0b;color:#fff}
-    .btn-primary:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 10px 22px rgba(0,0,0,.12)}
-    [data-theme="dark"] .btn-primary{background:#e6e9ec;color:#0b0b0b}
-    .btn-ghost{background:#eef4f4;color:#0f1115}
-    .btn-ghost:hover{background:#e6efef;transform:translateY(-1px) scale(1.02)}
-    [data-theme="dark"] .btn-ghost{background:#1f262f;color:#eef1f3}
-    .btn-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 2rem}
-    a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
-
-    /* Theme toggle */
+    /* ===== Theme toggle ===== */
     .theme-toggle{
       position:fixed; right:16px; top:14px; z-index:10;
       background:var(--card); border:1px solid var(--line); border-radius:999px;
-      padding:.45rem .7rem; display:flex; gap:.4rem; align-items:center; box-shadow:var(--shadow);
-      cursor:pointer; font-size:.9rem; color:var(--text);
+      padding:.46rem .72rem; display:flex; gap:.4rem; align-items:center; box-shadow:var(--shadow);
+      cursor:pointer; font-size:.92rem; color:var(--text);
     }
     .theme-toggle span{font-weight:700}
 
-    /* Hero */
+    /* ===== Hero ===== */
     header{text-align:center;padding-top:28px}
     .headshot{
       width:168px;height:168px;border-radius:50%;
@@ -128,7 +101,29 @@
     }
     [data-theme="dark"] .headshot{box-shadow:0 0 0 6px var(--bg), 0 0 0 10px rgba(10,162,162,.18), var(--shadow)}
 
-    /* Grids + cards */
+    /* ===== Buttons ===== */
+    .btn{
+      appearance:none;border:0;cursor:pointer;
+      display:inline-block;padding:.92rem 1.15rem;border-radius:999px;
+      font-weight:700;text-decoration:none;
+      transition:all .25s ease;
+      box-shadow:0 2px 0 rgba(0,0,0,.04)
+    }
+    /* Light mode: black primary, soft gray ghosts */
+    .btn-primary{background:#0d0d0d;color:#fff}
+    .btn-primary:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 10px 22px rgba(0,0,0,.12)}
+    .btn-ghost{background:#eef2f5;color:#0f1115}
+    .btn-ghost:hover{background:#e5ebef;transform:translateY(-1px) scale(1.02)}
+    a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
+    .btn-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 2rem}
+
+    /* Dark mode button overrides for contrast */
+    [data-theme="dark"] .btn-primary{background:var(--accent);color:#051416}
+    [data-theme="dark"] .btn-primary:hover{filter:brightness(1.05)}
+    [data-theme="dark"] .btn-ghost{background:#1c242d;color:var(--text)}
+    [data-theme="dark"] .btn-ghost:hover{background:#24303b}
+
+    /* ===== Grids + cards ===== */
     .grid{display:grid;gap:1rem}
     @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} }
     .card{
@@ -143,7 +138,7 @@
     ul.clean{margin:.2rem 0 0 1rem;padding:0}
     ul.clean li{margin:.22rem 0}
 
-    /* Testimonials — 2-column grid + subtle quotation mark detail */
+    /* ===== Testimonials (2-col, quotes visible) ===== */
     .testimonials h2{ text-align:center; margin-bottom:1.1rem; }
     .t-grid{
       display:grid;
@@ -151,6 +146,7 @@
       gap:16px;
     }
     @media(min-width:860px){ .t-grid{ grid-template-columns:1fr 1fr; } }
+
     .t-card{
       background:var(--card);
       border:1px solid var(--line);
@@ -158,178 +154,3 @@
       padding:18px 20px 20px;
       min-height:110px;
       box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    /* top accent */
-    .t-card::before{
-      content:"";
-      position:absolute; left:0; top:0; right:0; height:4px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-    }
-    /* decorative quotation mark */
-    .t-card::after{
-      content:"“";
-      position:absolute; right:14px; top:6px;
-      font-size:32px; line-height:1; font-weight:800;
-      color:rgba(0,0,0,.08);
-      pointer-events:none;
-    }
-    [data-theme="dark"] .t-card::after{ color:rgba(255,255,255,.08); }
-    .t-text{ margin:0; color:var(--text); font-size:1rem; letter-spacing:.1px; }
-
-    /* Reveal on scroll */
-    .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
-    .reveal.in{ opacity:1; transform:none; }
-
-    /* Contact */
-    .contact h2{ margin-bottom:.25rem; }
-    .contact .btn-row{ margin-top:.9rem; }
-    @media(max-width:520px){
-      .btn{width:100%; text-align:center}
-      .wrap{padding:22px}
-    }
-
-    /* Footer */
-    footer{
-      border-top:1px solid var(--line);
-      margin-top:2.25rem;padding:1.25rem 0;
-      color:var(--muted);font-size:.95rem;text-align:center
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Dark mode toggle -->
-  <button class="theme-toggle" id="toggleTheme" aria-label="Toggle color theme">
-    <span id="themeLabel">Dark</span>
-  </button>
-
-  <main>
-    <!-- HERO -->
-    <section class="wrap">
-      <header class="reveal">
-        <img src="headshot.png" alt="Portrait of Jasen Samford" class="headshot" width="168" height="168" loading="lazy">
-        <h1>Jasen Samford</h1>
-        <p class="lead">
-          I help independent artists and labels navigate digital distribution, plan stronger releases,
-          and protect streaming integrity with practical steps and clear communication.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
-          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </header>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="wrap">
-        <h2 class="reveal">About</h2>
-        <div class="grid grid-2">
-          <div class="card reveal">
-            <p>
-              I spent years at DistroKid helping build systems that serve millions of independent artists.
-              Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
-              streamline payouts, and keep growth sustainable without losing the human touch.
-            </p>
-          </div>
-          <div class="card reveal">
-            <h3 style="margin-top:0">Typical outcomes</h3>
-            <ul class="clean">
-              <li>Cleaner metadata and smoother payouts</li>
-              <li>Release plans that travel from idea to impact</li>
-              <li>Fewer false-positive fraud flags</li>
-              <li>Clear documentation for teams and partners</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="wrap">
-        <h2 class="reveal">Services</h2>
-        <div class="grid grid-2">
-          <div class="card reveal">
-            <h3 style="margin-top:0">For artists and labels</h3>
-            <ul class="clean">
-              <li>Distributor setup and catalog optimization</li>
-              <li>Release strategy and lightweight promo plans</li>
-              <li>Metadata, splits, and payout checks</li>
-              <li>Dispute handling and takedown prevention</li>
-            </ul>
-          </div>
-          <div class="card reveal">
-            <h3 style="margin-top:0">For platforms and teams</h3>
-            <ul class="clean">
-              <li>Integrity playbooks and risk reduction</li>
-              <li>Support operations and escalation models</li>
-              <li>Artist education and partner content</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials">
-      <div class="wrap testimonials">
-        <h2 class="reveal">Trusted by teams that build for artists</h2>
-        <div class="t-grid" style="margin-top:12px">
-          <article class="t-card reveal"><p class="t-text">Jasen reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
-          <article class="t-card reveal"><p class="t-text">The go-to for distribution and artist education.</p></article>
-          <article class="t-card reveal"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
-          <article class="t-card reveal"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
-          <article class="t-card reveal"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
-          <article class="t-card reveal"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
-          <article class="t-card reveal"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap contact">
-        <h2 class="reveal">Let’s talk</h2>
-        <p class="muted reveal" style="margin-top:.25rem">Consulting sessions available worldwide via Google Meet.</p>
-        <div class="btn-row reveal" style="margin-top:.9rem">
-          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
-          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="y"></span> Jasen Samford
-    </footer>
-  </main>
-
-  <script>
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Simple reveal on scroll
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
-    }, {threshold: 0.12});
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // Theme toggle (persist in localStorage)
-    const root = document.documentElement;
-    const btn = document.getElementById('toggleTheme');
-    const label = document.getElementById('themeLabel');
-    const saved = localStorage.getItem('theme');
-    if (saved) { root.setAttribute('data-theme', saved); label.textContent = saved === 'dark' ? 'Light' : 'Dark'; }
-
-    btn.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', current);
-      localStorage.setItem('theme', current);
-      label.textContent = current === 'dark' ? 'Light' : 'Dark';
-    });
-  </script>
-</body>
-</html>
