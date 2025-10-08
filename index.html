@@ -154,3 +154,188 @@
       padding:18px 20px 20px;
       min-height:110px;
       box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    /* top accent */
+    .t-card::before{
+      content:"";
+      position:absolute; left:0; top:0; right:0; height:4px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    }
+    .t-text{
+      position:relative;
+      margin:0;
+      color:var(--text);
+      font-size:1rem;
+      letter-spacing:.1px;
+      padding:6px 4px 10px;
+    }
+    /* opening & closing marks tied to the quote text */
+    .t-text::before{
+      content:"“";
+      position:absolute; left:-8px; top:-10px;
+      font-size:30px; line-height:1; font-weight:800;
+      color:rgba(0,0,0,.12);
+    }
+    .t-text::after{
+      content:"”";
+      position:absolute; right:-8px; bottom:-14px;
+      font-size:30px; line-height:1; font-weight:800;
+      color:rgba(0,0,0,.12);
+    }
+    [data-theme="dark"] .t-text::before,
+    [data-theme="dark"] .t-text::after{
+      color:rgba(255,255,255,.12);
+    }
+
+    /* ===== Contact ===== */
+    .contact h2{ margin-bottom:.25rem; }
+    .contact .btn-row{ margin-top:.9rem; }
+    @media(max-width:520px){
+      .btn{width:100%; text-align:center}
+      .wrap{padding:22px}
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:2.25rem;padding:1.25rem 0;
+      color:var(--muted);font-size:.95rem;text-align:center
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" id="toggleTheme" aria-label="Toggle color theme">
+    <span id="themeLabel">Dark</span>
+  </button>
+
+  <main>
+    <!-- HERO -->
+    <section class="wrap">
+      <header>
+        <img src="headshot.png" alt="Portrait of Jasen Samford" class="headshot" width="168" height="168" loading="lazy">
+        <h1>Jasen Samford</h1>
+        <p class="lead">
+          I help independent artists and labels navigate digital distribution, plan stronger releases,
+          and protect streaming integrity with practical steps and clear communication.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
+          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </header>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <p>
+              I spent years at DistroKid helping build systems that serve millions of independent artists.
+              Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
+              streamline payouts, and keep growth sustainable without losing the human touch.
+            </p>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Typical outcomes</h3>
+            <ul class="clean">
+              <li>Cleaner metadata and smoother payouts</li>
+              <li>Release plans that travel from idea to impact</li>
+              <li>Fewer false-positive fraud flags</li>
+              <li>Clear documentation for teams and partners</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <h2>Services</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3 style="margin-top:0">For artists and labels</h3>
+            <ul class="clean">
+              <li>Distributor setup and catalog optimization</li>
+              <li>Release strategy and lightweight promo plans</li>
+              <li>Metadata, splits, and payout checks</li>
+              <li>Dispute handling and takedown prevention</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">For platforms and teams</h3>
+            <ul class="clean">
+              <li>Integrity playbooks and risk reduction</li>
+              <li>Support operations and escalation models</li>
+              <li>Artist education and partner content</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="wrap testimonials">
+        <h2>Trusted by teams that build for artists</h2>
+        <div class="t-grid" style="margin-top:12px">
+          <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
+          <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
+          <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
+          <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
+          <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
+          <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
+          <article class="t-card"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap contact">
+        <h2>Let’s talk</h2>
+        <p class="muted" style="margin-top:.25rem">Consulting sessions available worldwide via Google Meet.</p>
+        <div class="btn-row" style="margin-top:.9rem">
+          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
+          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Jasen Samford
+    </footer>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle with persistence
+    const root = document.documentElement;
+    const btn = document.getElementById('toggleTheme');
+    const label = document.getElementById('themeLabel');
+
+    // Load saved theme if any
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      root.setAttribute('data-theme', saved);
+      label.textContent = saved === 'dark' ? 'Light' : 'Dark';
+    }
+
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      label.textContent = next === 'dark' ? 'Light' : 'Dark';
+    });
+  </script>
+</body>
+</html>
