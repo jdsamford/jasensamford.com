@@ -4,383 +4,385 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
+  <meta name="description" content="Practical consulting for independent artists and labels — from creation and distribution to promotion, payouts, touring, and merch sales." />
+  <meta name="keywords" content="music business consultant, artist development, digital distribution, indie artist strategy, DistroKid expert, streaming consulting, metadata, release planning" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <!-- Meta -->
-  <meta name="description" content="Practical answers for independent artists and small teams—creation, distribution, promotion, payouts, touring, merch, and everything between." />
-  <meta name="theme-color" content="#0aa2a2" />
-  <meta name="color-scheme" content="light dark" />
-  <meta property="og:title" content="Jasen Samford | Music Business Consultant" />
-  <meta property="og:description" content="Straight answers on creation, distribution, promotion, payouts, touring, and merch." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="headshot.png" />
-
-  <!-- SVG favicon (circular, no square bg) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
-
-  <!-- Lightweight, privacy-friendly analytics -->
+  <!-- Plausible Analytics -->
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 
   <style>
-    /* ===== Light theme ===== */
-    :root{
-      --accent:#0aa2a2;
-      --accent-2:#5fd0d0;
-
-      --bg:#ffffff;
-      --bg-alt:#f6f8fb;
-      --card:#ffffff;
-      --line:#e5e9f0;
-
-      --text:#111213;
-      --muted:#4b5563;
-
-      --radius:16px;
-      --shadow:0 8px 24px rgba(0,0,0,.06);
-      --wrap:1040px;
+    :root {
+      --accent: #0aa2a2;
+      --text: #111;
+      --muted: #666;
+      --bg: #fff;
+      --card: #f7fbfb;
+      --line: #eee;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
     }
-    /* ===== Dark theme ===== */
-    [data-theme="dark"]{
-      --bg:#0c1117;
-      --bg-alt:#0a0f14;
-      --card:#141a21;
-      --line:#263041;
 
-      --text:#e7ecf2;
-      --muted:#a7b1b8;
-
-      --shadow:0 18px 36px rgba(0,0,0,.45);
+    body.dark {
+      --bg: #111418;
+      --text: #f7f7f7;
+      --muted: #aaa;
+      --card: #1b1e23;
+      --line: #222;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-    @media (prefers-color-scheme: dark){ :root{ color-scheme: dark; } }
 
-    /* Base */
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      font-size:17px;
-      line-height:1.65;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    * {
+      box-sizing: border-box;
     }
-    img{max-width:100%;display:block}
-    .wrap{max-width:var(--wrap);margin:0 auto;padding:24px}
-    section{scroll-margin-top:72px}
-    section + section{border-top:1px solid var(--line);margin-top:2rem;padding-top:2rem}
-    section:nth-of-type(even){background:var(--bg-alt)}
-    section:nth-of-type(even) .wrap{padding-top:32px;padding-bottom:24px}
-
-    h1,h2,h3{line-height:1.2;margin:0 0 .5rem}
-    h1{font-size:clamp(2.4rem,4vw+1rem,3rem);font-weight:800}
-    h2{font-size:clamp(1.35rem,1.2vw+1rem,1.6rem);font-weight:800;margin-top:2.25rem}
-    p.lead{font-size:1.07rem;color:var(--muted);margin:.8rem auto 1.8rem;max-width:68ch;line-height:1.5}
-    .muted{color:var(--muted)}
-
-    /* Theme toggle */
-    .theme-toggle{
-      position:fixed; right:16px; top:14px; z-index:10;
-      background:var(--card); border:1px solid var(--line); border-radius:999px;
-      padding:.46rem .72rem; display:flex; gap:.4rem; align-items:center; box-shadow:var(--shadow);
-      cursor:pointer; font-size:.92rem; color:var(--text);
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-    .theme-toggle span{font-weight:700}
 
-    /* Hero */
-    header{text-align:center;padding-top:28px}
-    .brand-lockup{display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:8px;}
-    .logo{height:46px; width:auto; filter:drop-shadow(0 6px 18px rgba(0,0,0,.12))}
-    .logo-dark{display:none}
-    /* If system dark and no manual toggle yet */
-    @media (prefers-color-scheme: dark){
-      .logo-light{display:none}
-      .logo-dark{display:block}
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
     }
-    /* If user toggles theme */
-    [data-theme="dark"] .logo-light{display:none}
-    [data-theme="dark"] .logo-dark{display:block}
 
-    .headshot{
-      width:168px;height:168px;border-radius:50%;
-      object-fit:cover;object-position:center;
-      margin:0 auto .95rem;
-      box-shadow:0 0 0 6px #fff, 0 0 0 10px rgba(10,162,162,.12), var(--shadow);
-      background:#f3f5f5
+    h1, h2, h3 {
+      line-height: 1.25;
+      margin: 0 0 0.5rem;
     }
-    [data-theme="dark"] .headshot{box-shadow:0 0 0 6px var(--bg), 0 0 0 10px rgba(10,162,162,.18), var(--shadow)}
+
+    h1 {
+      font-size: clamp(2rem, 3.2vw + 1rem, 2.8rem);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 1.2vw + 1rem, 1.55rem);
+      font-weight: 800;
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0.75rem auto 1.25rem;
+      max-width: 60ch;
+      text-align: center;
+    }
+
+    section + section {
+      border-top: 1px solid var(--line);
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
 
     /* Buttons */
-    .btn{
-      appearance:none;border:0;cursor:pointer;
-      display:inline-block;padding:.92rem 1.15rem;border-radius:999px;
-      font-weight:700;text-decoration:none;
-      transition:all .25s ease;
-      box-shadow:0 2px 0 rgba(0,0,0,.04)
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
     }
-    .btn-primary{background:#0d0d0d;color:#fff}
-    .btn-primary:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 10px 22px rgba(0,0,0,.12)}
-    .btn-ghost{background:#eef2f5;color:#0f1115}
-    .btn-ghost:hover{background:#e5ebef;transform:translateY(-1px) scale(1.02)}
-    a.btn:focus-visible{outline:3px solid rgba(10,162,162,.45);outline-offset:2px}
-    .btn-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 2rem}
-    [data-theme="dark"] .btn-primary{background:var(--accent);color:#051416}
-    [data-theme="dark"] .btn-primary:hover{filter:brightness(1.05)}
-    [data-theme="dark"] .btn-ghost{background:#1c242d;color:var(--text)}
-    [data-theme="dark"] .btn-ghost:hover{background:#24313b}
 
-    /* Grids + cards */
-    .grid{display:grid;gap:1rem}
-    @media(min-width:920px){ .grid-3{grid-template-columns:repeat(3,1fr)} }
-    @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1rem;
-      box-shadow:var(--shadow);
-      transition:transform .2s ease, box-shadow .2s ease;
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
     }
-    .card:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.08)}
-    ul.clean{margin:.2rem 0 0 1rem;padding:0}
-    ul.clean li{margin:.22rem 0}
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
 
-    /* Chips */
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem}
-    .chip{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:.42rem .7rem;
-      font-size:.92rem;
-      color:var(--muted);
+    .btn-ghost {
+      background: #e7e7e7;
+      color: #111;
+    }
+    body.dark .btn-ghost {
+      background: #2a2f35;
+      color: #f5f5f5;
+    }
+    .btn-ghost:hover {
+      filter: brightness(1.1);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.5rem;
+    }
+
+    /* Hero */
+    header {
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 1.25rem;
+      width: clamp(220px, 30vw, 340px);
+      height: auto;
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+      transition: opacity 0.3s ease;
+    }
+
+    footer .logo {
+      margin: 0 auto 1rem;
+      width: clamp(160px, 24vw, 260px);
+      opacity: 0.85;
+    }
+
+    .headshot {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      margin: 0 auto 1rem;
+      box-shadow: 0 0 0 6px var(--bg), 0 0 0 10px rgba(10, 162, 162, 0.12), var(--shadow);
+      background: #f5f5f5;
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+    @media (min-width: 820px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    ul.clean {
+      margin: 0.2rem 0 0 1rem;
+      padding: 0;
+    }
+    ul.clean li {
+      margin: 0.22rem 0;
     }
 
     /* Testimonials */
-    .testimonials h2{ text-align:center; margin-bottom:1.1rem; }
-    .t-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-    @media(min-width:860px){ .t-grid{ grid-template-columns:1fr 1fr; } }
-    .t-card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:18px 20px 20px;
-      min-height:110px;
-      box-shadow:var(--shadow);
-      position:relative; overflow:hidden;
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 1.2rem;
     }
-    .t-card::before{
-      content:""; position:absolute; left:0; top:0; right:0; height:4px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+
+    .testimonials-grid {
+      display: grid;
+      gap: 1rem;
     }
-    .t-text{ position:relative; margin:0; color:var(--text); font-size:1rem; letter-spacing:.1px; padding:6px 4px 10px; }
-    .t-text::before{
-      content:"“"; position:absolute; left:-8px; top:-10px;
-      font-size:30px; line-height:1; font-weight:800; color:rgba(0,0,0,.12);
+    @media (min-width: 820px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
-    .t-text::after{
-      content:"”"; position:absolute; right:-8px; bottom:-14px;
-      font-size:30px; line-height:1; font-weight:800; color:rgba(0,0,0,.12);
+
+    .testimonial {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      position: relative;
     }
-    [data-theme="dark"] .t-text::before,
-    [data-theme="dark"] .t-text::after{ color:rgba(255,255,255,.12); }
+
+    .testimonial:before {
+      content: "“";
+      position: absolute;
+      top: -0.4rem;
+      left: 0.6rem;
+      font-size: 2rem;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    .testimonial blockquote {
+      margin: 0;
+      font-style: italic;
+      color: var(--text);
+    }
 
     /* Footer */
-    .footer-brand{display:flex; flex-direction:column; align-items:center; gap:8px}
-    .footer-logo{height:28px; width:auto; opacity:.9}
-    .footer-logo-dark{display:none}
-    @media (prefers-color-scheme: dark){
-      .footer-logo-light{display:none}
-      .footer-logo-dark{display:block}
-    }
-    [data-theme="dark"] .footer-logo-light{display:none}
-    [data-theme="dark"] .footer-logo-dark{display:block}
-
-    footer{
-      border-top:1px solid var(--line);
-      margin-top:2.25rem;padding:1.25rem 0;
-      color:var(--muted);font-size:.95rem;text-align:center
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 2.25rem;
+      padding: 2rem 0 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
     }
 
-    /* Mobile niceties */
-    @media(max-width:560px){
-      .btn{width:100%; text-align:center}
-      .wrap{padding:22px}
-      .logo{height:40px}
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.3rem 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: #fff;
     }
   </style>
 </head>
 
 <body>
-  <!-- Theme toggle -->
-  <button class="theme-toggle" id="toggleTheme" aria-label="Toggle color theme">
-    <span id="themeLabel">Dark</span>
-  </button>
+  <button id="theme-toggle" class="theme-toggle">Dark</button>
 
-  <main>
+  <main class="wrap">
     <!-- HERO -->
-    <section class="wrap">
-      <header>
-        <!-- Brand logo (auto switches) -->
-        <div class="brand-lockup">
-          <img src="logo_lt_bg.png" alt="Jasen Samford logo" class="logo logo-light" width="400" height="80">
-          <img src="logo_drk_bg.png" alt="Jasen Samford logo" class="logo logo-dark" width="400" height="80">
+    <header>
+      <img id="logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo" />
+      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168" />
+      <h1>Jasen Samford</h1>
+      <p class="lead">
+        Practical answers across the full indie artist lifecycle — creation, distribution, promotion,
+        payouts, touring, merch, and everything in between.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener"
+          onclick="window.plausible && plausible('Book consultation');">Book a consultation</a>
+        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com"
+          onclick="window.plausible && plausible('Email click');">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener"
+          onclick="window.plausible && plausible('LinkedIn click');">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <p>
+            I spent years at DistroKid helping build systems that serve millions of independent artists.
+            Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
+            streamline payouts, and keep growth sustainable without losing the human touch.
+          </p>
         </div>
-
-        <!-- Headshot stays as a personal trust anchor -->
-        <img src="headshot.png" alt="Portrait of Jasen Samford" class="headshot" width="168" height="168" loading="lazy">
-
-        <h1>Jasen Samford</h1>
-        <p class="lead">
-          Practical answers across the full indie artist lifecycle — creation, distribution, promotion, payouts, touring, merch, and everything in between.
-        </p>
-
-        <div class="btn-row">
-          <a class="btn btn-primary"
-             href="https://calendly.com/jdsamford/60min"
-             target="_blank" rel="noopener"
-             onclick="window.plausible && plausible('Book consultation');">
-            Book a consultation
-          </a>
-          <a class="btn btn-ghost"
-             href="mailto:jasen@jasensamford.com"
-             onclick="window.plausible && plausible('Email click');">
-            Email me
-          </a>
-          <a class="btn btn-ghost"
-             href="https://www.linkedin.com/in/jasensamford"
-             target="_blank" rel="noopener"
-             onclick="window.plausible && plausible('LinkedIn click');">
-            LinkedIn
-          </a>
-        </div>
-      </header>
-    </section>
-
-    <!-- SERVICES: Create → Release → Grow -->
-    <section id="services">
-      <div class="wrap">
-        <h2>Where I help</h2>
-        <div class="grid grid-3">
-          <div class="card">
-            <h3 style="margin-top:0">Create</h3>
-            <ul class="clean">
-              <li>Project scoping and timelines</li>
-              <li>Credits, splits, PRO/MLC basics</li>
-              <li>Asset standards: audio, art, ISRC/UPC</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0">Release</h3>
-            <ul class="clean">
-              <li>Distributor setup and catalog hygiene</li>
-              <li>Metadata, rights, takedown prevention</li>
-              <li>Pitching, release plans, playlist risk checks</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0">Grow</h3>
-            <ul class="clean">
-              <li>Payouts, statements, and audit trails</li>
-              <li>Touring and live logistics at a glance</li>
-              <li>Merch, D2C, and sustainable promo tactics</li>
-            </ul>
-          </div>
+        <div class="card">
+          <h3 style="margin-top: 0">Typical outcomes</h3>
+          <ul class="clean">
+            <li>Cleaner metadata and smoother payouts</li>
+            <li>Release plans that travel from idea to impact</li>
+            <li>Fewer false-positive fraud flags</li>
+            <li>Clear documentation for teams and partners</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- WHAT YOU CAN ASK ME -->
-    <section id="topics">
-      <div class="wrap">
-        <h2>What you can ask me</h2>
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="grid grid-2">
         <div class="card">
-          <div class="chips">
-            <span class="chip">Release timelines</span>
-            <span class="chip">Metadata + rights</span>
-            <span class="chip">DSP distribution</span>
-            <span class="chip">Playlisting reality checks</span>
-            <span class="chip">YouTube Content ID</span>
-            <span class="chip">Fan funnels & email</span>
-            <span class="chip">Paid ads basics</span>
-            <span class="chip">Touring & settlement</span>
-            <span class="chip">Merch & D2C</span>
-            <span class="chip">Payout issues & disputes</span>
-            <span class="chip">Fraud flags / prevention</span>
-            <span class="chip">Splits, PRO, MLC</span>
-            <span class="chip">Sync prep</span>
-            <span class="chip">Team roles & hiring</span>
-          </div>
+          <h3 style="margin-top: 0">For artists and labels</h3>
+          <ul class="clean">
+            <li>Distributor setup and catalog optimization</li>
+            <li>Release strategy and lightweight promo plans</li>
+            <li>Metadata, splits, and payout checks</li>
+            <li>Dispute handling and takedown prevention</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top: 0">For platforms and teams</h3>
+          <ul class="clean">
+            <li>Integrity playbooks and risk reduction</li>
+            <li>Support operations and escalation models</li>
+            <li>Artist education and partner content</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="testimonials">
-      <div class="wrap testimonials">
-        <h2>Trusted by teams that build for artists</h2>
-        <div class="t-grid" style="margin-top:12px">
-          <article class="t-card"><p class="t-text">He reduces complex context to the essentials and spins up scalable solutions fast.</p></article>
-          <article class="t-card"><p class="t-text">The go-to for distribution and artist education.</p></article>
-          <article class="t-card"><p class="t-text">Pragmatic, intuitive, and a creative problem solver.</p></article>
-          <article class="t-card"><p class="t-text">Balances data-driven decisions with people-first leadership that lifts performance.</p></article>
-          <article class="t-card"><p class="t-text">Strategic process thinking helped us scale to a world-class support org.</p></article>
-          <article class="t-card"><p class="t-text">Brings clarity, calm, and a deep understanding of tech and people.</p></article>
-          <article class="t-card"><p class="t-text">Extensive industry knowledge with a sharp focus on growth and retention.</p></article>
-        </div>
+    <section id="testimonials" class="testimonials">
+      <h2>Trusted by teams that build for artists</h2>
+      <div class="testimonials-grid">
+        <figure class="testimonial"><blockquote><p>He reduces complex context to the essentials and spins up scalable solutions fast.</p></blockquote></figure>
+        <figure class="testimonial"><blockquote><p>The go-to for distribution and artist education.</p></blockquote></figure>
+        <figure class="testimonial"><blockquote><p>Pragmatic, intuitive, and a creative problem solver.</p></blockquote></figure>
+        <figure class="testimonial"><blockquote><p>Balances data-driven decisions with people-first leadership that lifts performance.</p></blockquote></figure>
+        <figure class="testimonial"><blockquote><p>Strategic process thinking helped us scale to a world-class support org.</p></blockquote></figure>
+        <figure class="testimonial"><blockquote><p>Brings clarity, calm, and a deep understanding of tech and people.</p></blockquote></figure>
+        <figure class="testimonial"><blockquote><p>Extensive industry knowledge with a sharp focus on growth and retention.</p></blockquote></figure>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="wrap contact">
-        <h2>Let’s talk</h2>
-        <p class="muted" style="margin-top:.25rem">Consulting sessions available worldwide via Google Meet.</p>
-        <div class="btn-row" style="margin-top:.9rem">
-          <a class="btn btn-primary"
-             href="https://calendly.com/jdsamford/60min"
-             target="_blank" rel="noopener"
-             onclick="window.plausible && plausible('Book time - contact');">
-            Book time
-          </a>
-          <a class="btn btn-ghost"
-             href="mailto:jasen@jasensamford.com"
-             onclick="window.plausible && plausible('Email click - contact');">
-            Email jasen@jasensamford.com
-          </a>
-        </div>
+      <h2>Let’s talk</h2>
+      <p class="muted" style="margin-top: 0.25rem">
+        Consulting sessions available worldwide via Google Meet.
+      </p>
+      <div class="btn-row" style="margin-top: 0.6rem">
+        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
+        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-      <div class="footer-brand">
-        <!-- Footer logo (auto switches) -->
-        <img src="logo_lt_bg.png" alt="Jasen Samford logo" class="footer-logo footer-logo-light" width="240" height="48">
-        <img src="logo_drk_bg.png" alt="Jasen Samford logo" class="footer-logo footer-logo-dark" width="240" height="48">
-      </div>
-      <div style="margin-top:10px;">© <span id="y"></span> Jasen Samford</div>
+      <img id="footer-logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo">
+      © <span id="y"></span> Jasen Samford
     </footer>
   </main>
 
   <script>
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Year auto-update
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Theme toggle with persistence
-    const root = document.documentElement;
-    const btn = document.getElementById('toggleTheme');
-    const label = document.getElementById('themeLabel');
+    // Theme toggle
+    const btn = document.getElementById("theme-toggle");
+    const logo = document.getElementById("logo");
+    const footerLogo = document.getElementById("footer-logo");
 
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      root.setAttribute('data-theme', saved);
-      label.textContent = saved === 'dark' ? 'Light' : 'Dark';
-    }
-
-    btn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      label.textContent = next === 'dark' ? 'Light' : 'Dark';
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const isDark = document.body.classList.contains("dark");
+      btn.textContent = isDark ? "Light" : "Dark";
+      const src = isDark ? "logo_drk_bg.png" : "logo_lt_bg.png";
+      logo.src = src;
+      footerLogo.src = src;
     });
   </script>
 </body>
