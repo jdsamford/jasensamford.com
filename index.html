@@ -4,116 +4,108 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jasen Samford — Music Business Consultant</title>
-<link rel="icon" type="image/png" href="favicon.png">
+
+<!-- Favicon / Icons -->
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#14b8a6">
+<meta name="theme-color" content="#0f172a">
+
+<!-- SEO -->
+<link rel="canonical" href="https://jasensamford.com/" />
+<meta name="description" content="Practical answers for independent artists—distribution, payouts, fraud prevention, and release strategy. Book a consultation with Jasen Samford.">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jasen Samford — Music Business Consultant">
+<meta property="og:description" content="Practical answers across the full indie artist lifecycle.">
+<meta property="og:image" content="https://jasensamford.com/social-card.jpg">
+<meta property="og:url" content="https://jasensamford.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jasen Samford — Music Business Consultant">
+<meta name="twitter:description" content="Practical answers for independent artists.">
+<meta name="twitter:image" content="https://jasensamford.com/social-card.jpg">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg:#0f172a;          /* page background */
-    --card:#101827;        /* card background */
-    --muted:#9aa4b2;       /* secondary text */
-    --text:#e5e7eb;        /* main text */
-    --pill:#1f2937;        /* pill buttons bg */
-    --pill-border:#2a3443; /* pill border */
-    --cta:#14b8a6;         /* teal CTA */
-    --cta-text:#052b2a;    /* dark teal text on CTA */
-    --ring:#1e293b;        /* subtle ring */
+    --bg:#0f172a; --card:#101827; --muted:#9aa4b2; --text:#e5e7eb;
+    --pill:#1f2937; --pill-border:#2a3443; --cta:#14b8a6; --cta-text:#052b2a; --ring:#1e293b;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0;
-    font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    background:var(--bg);
-    color:var(--text);
+    margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    background:var(--bg); color:var(--text);
   }
-  .wrap{
-    max-width:980px;   /* tighter than full width to match the mock */
-    margin:56px auto 96px;
-    padding:0 20px;
-  }
-  .hero{
-    text-align:center;
-  }
+  .wrap{max-width:980px; margin:56px auto 96px; padding:0 20px}
+  .hero{text-align:center}
   .avatar{
-    width:124px;height:124px;border-radius:50%;
-    display:block;margin:0 auto 18px;
-    border:6px solid #0b1220; outline:2px solid #1e293b; outline-offset:-2px;
-    object-fit:cover;
-    background:#222;
+    width:124px;height:124px;border-radius:50%;display:block;margin:0 auto 18px;
+    border:6px solid #0b1220; outline:2px solid #1e293b; outline-offset:-2px; object-fit:cover; background:#222;
   }
-  .logo{
-    height:34px; margin:10px auto 18px; display:block; opacity:.95;
+  .logo{height:34px; margin:10px auto 18px; display:block; opacity:.95}
+  h1{font-size:22px;font-weight:700;margin:0 0 6px;letter-spacing:.1px}
+  .tagline{max-width:720px;margin:0 auto 20px;line-height:1.55;color:var(--muted)}
+  .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .btn{border:1px solid transparent;border-radius:999px;padding:12px 18px;font-weight:600;font-size:14px;line-height:1;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .04s ease,opacity .2s ease,background-color .2s ease,border-color .2s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-cta{background:var(--cta);color:var(--cta-text);border-color:#0ea5a5}
+  .btn-pill{background:var(--pill);color:var(--text);border-color:var(--pill-border)}
+  .btn-pill:hover{border-color:#3a4658}
+  .btn-cta:hover{background:#10b3a2}
+  .section-title{font-size:20px;font-weight:700;margin:34px 0 16px}
+  .cards{display:grid;gap:16px;grid-template-columns:1fr}
+  @media (min-width:860px){ .cards{grid-template-columns:1.35fr .95fr} }
+  .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:18px 18px;box-shadow:0 1px 0 rgba(255,255,255,0.02) inset, 0 10px 24px rgba(0,0,0,.25)}
+  .card h3{font-size:16px;font-weight:700;margin:0 0 10px}
+  .card p{opacity:.95;line-height:1.6;margin:0}
+  .bullets{margin:0;padding:0;list-style:none}
+  .bullets li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px dashed rgba(255,255,255,.08)}
+  .bullets li:first-child{border-top:0;padding-top:0}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--cta);margin-top:7px;flex:0 0 8px}
+  /* Light theme support (optional) */
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --pill:#f1f5f9; --pill-border:#e2e8f0; --ring:#e5e7eb; --cta-text:#052b2a }
+    body{background:var(--bg); color:var(--text)}
+    .avatar{border-color:#ffffff; outline-color:#e2e8f0}
   }
-  h1{
-    font-size:22px; font-weight:700; margin:0 0 6px;
-    letter-spacing:.1px;
-  }
-  .tagline{
-    max-width:720px; margin:0 auto 20px; line-height:1.55; color:var(--muted);
-  }
-  .btn-row{
-    display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:6px;
-  }
-  .btn{ 
-    border:1px solid transparent; border-radius:999px; padding:12px 18px; 
-    font-weight:600; font-size:14px; line-height:1; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-    transition:transform .04s ease, opacity .2s ease, background-color .2s ease, border-color .2s ease;
-    will-change:transform;
-  }
-  .btn:active{ transform:translateY(1px) }
-  .btn-cta{
-    background:var(--cta); color:var(--cta-text); border-color:#0ea5a5;
-  }
-  .btn-pill{
-    background:var(--pill); color:var(--text); border-color:var(--pill-border);
-  }
-  .section-title{
-    font-size:20px; font-weight:700; margin:34px 0 16px;
-  }
-  /* cards row */
-  .cards{
-    display:grid; gap:16px;
-    grid-template-columns:1fr; 
-  }
-  @media (min-width:860px){
-    .cards{ grid-template-columns:1.35fr .95fr; }
-  }
-  .card{
-    background:var(--card); border:1px solid var(--ring);
-    border-radius:16px; padding:18px 18px;
-    box-shadow:0 1px 0 rgba(255,255,255,0.02) inset, 0 10px 24px rgba(0,0,0,.25);
-  }
-  .card h3{ font-size:16px; font-weight:700; margin:0 0 10px }
-  .card p{ color:var(--text); opacity:.95; line-height:1.6; margin:0 }
-  .bullets{ margin:0; padding:0; list-style:none }
-  .bullets li{
-    display:flex; gap:10px; align-items:flex-start;
-    padding:10px 0; border-top:1px dashed rgba(255,255,255,.08);
-  }
-  .bullets li:first-child{ border-top:0; padding-top:0 }
-  .dot{
-    width:8px; height:8px; border-radius:50%; background:var(--cta); margin-top:7px; flex:0 0 8px;
-  }
-  /* link pills look */
-  .btn-pill:hover{ border-color:#3a4658 }
-  .btn-cta:hover{ background:#10b3a2 }
 </style>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Jasen Samford",
+  "jobTitle":"Music Business Consultant",
+  "url":"https://jasensamford.com/",
+  "image":"https://jasensamford.com/headshot.png",
+  "sameAs":["https://www.linkedin.com/in/jasensamford/"],
+  "email":"mailto:jasen@jasensamford.com"
+}
+</script>
 </head>
 <body>
   <main class="wrap">
     <header class="hero">
-      <img class="avatar" src="YOUR_HEADSHOT.jpg" alt="Jasen Samford">
-      <!-- optional wordmark; replace with your exported SVG/PNG -->
-      <img class="logo" src="YOUR_LOGO.png" alt="Jasen Samford — Music Business Consultant">
+      <img class="avatar" src="/headshot.jpg" alt="Headshot of Jasen Samford">
+      <!-- Auto-switching logo for dark/light backgrounds -->
+      <picture>
+        <source srcset="/logo_drk_bg.png" media="(prefers-color-scheme: dark)">
+        <img class="logo" src="/logo_lt_bg.png" alt="Jasen Samford — Music Business Consultant logo">
+      </picture>
+
       <h1>Jasen Samford</h1>
       <div class="tagline">
         Practical answers across the full indie artist lifecycle — creation, distribution, promotion, payouts, touring, merch, and everything in between.
       </div>
       <div class="btn-row">
-        <a class="btn btn-cta" href="https://calendly.com/jasen-2/60">Book a consultation</a>
-        <a class="btn btn-pill" href="mailto:jasen@jasensamford.com">Email me</a>
-        <a class="btn btn-pill" href="https://www.linkedin.com/in/jasensamford/">LinkedIn</a>
+        <a class="btn btn-cta" href="https://calendly.com/jasen-2/60" target="_blank" rel="noopener">Book a consultation</a>
+        <a class="btn btn-pill" href="mailto:jasen@jasensamford.com" aria-label="Email Jasen">Email me</a>
+        <a class="btn btn-pill" href="https://www.linkedin.com/in/jasensamford/" target="_blank" rel="noopener" aria-label="Open LinkedIn profile">LinkedIn</a>
       </div>
     </header>
 
@@ -121,7 +113,6 @@
 
     <section class="cards">
       <article class="card">
-        <h3> </h3>
         <p>
           I spent years at DistroKid helping build systems that serve millions of independent artists. Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans, streamline payouts, and keep growth sustainable without losing the human touch.
         </p>
