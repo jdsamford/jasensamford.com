@@ -6,7 +6,7 @@
   <title>Jasen Samford | Music Business Consultant</title>
   <meta name="description" content="Practical consulting for independent artists and labels — from creation and distribution to promotion, payouts, touring, and merch sales." />
   <meta name="keywords" content="music business consultant, artist development, digital distribution, indie artist strategy, DistroKid expert, streaming consulting, metadata, release planning" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Plausible Analytics -->
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
@@ -33,9 +33,7 @@
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     html, body {
       margin: 0;
       padding: 0;
@@ -43,33 +41,15 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.25;
-      margin: 0 0 0.5rem;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 3.2vw + 1rem, 2.8rem);
-      font-weight: 800;
-      text-align: center;
-    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 24px; }
 
     h2 {
       font-size: clamp(1.35rem, 1.2vw + 1rem, 1.55rem);
       font-weight: 800;
       margin-top: 2.5rem;
-      text-align: left;
     }
 
     p.lead {
@@ -80,70 +60,40 @@
       text-align: center;
     }
 
-    section + section {
-      border-top: 1px solid var(--line);
-      margin-top: 2rem;
-      padding-top: 2rem;
-    }
+    section + section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 2rem; }
 
     /* Buttons */
     .btn {
-      appearance: none;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
-      padding: 0.78rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
+      appearance: none; border: none; cursor: pointer;
+      display: inline-block; padding: 0.78rem 1.2rem;
+      border-radius: 999px; font-weight: 700;
+      text-decoration: none; transition: all 0.2s ease;
       box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
     }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover {
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      background: #e7e7e7;
-      color: #111;
-    }
-    body.dark .btn-ghost {
-      background: #2a2f35;
-      color: #f5f5f5;
-    }
-    .btn-ghost:hover {
-      filter: brightness(1.1);
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 0.6rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 1rem 0 1.5rem;
-    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-ghost { background: #e7e7e7; color: #111; }
+    body.dark .btn-ghost { background: #2a2f35; color: #f5f5f5; }
+    .btn-ghost:hover { filter: brightness(1.1); }
+    .btn-row { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
 
     /* Hero */
-    header {
-      text-align: center;
-      padding-top: 1rem;
+    header { text-align: center; padding-top: 1rem; }
+
+    .headshot {
+      width: 168px; height: 168px; border-radius: 50%;
+      object-fit: cover; display: block;
+      margin: 0 auto 0.75rem;
+      box-shadow: 0 0 0 6px var(--bg), 0 0 0 10px rgba(10, 162, 162, 0.12), var(--shadow);
     }
 
-.logo {
-  display: block;
-  margin: 1rem auto 0.75rem;
-  width: clamp(220px, 30vw, 340px);
-  height: auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
-  transition: opacity 0.3s ease;
-}
-
+    .logo {
+      display: block;
+      margin: 0.5rem auto 0.25rem;
+      width: clamp(240px, 32vw, 360px);
+      height: auto;
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+      transition: opacity 0.3s ease;
     }
 
     footer .logo {
@@ -152,29 +102,9 @@
       opacity: 0.85;
     }
 
-    .headshot {
-      width: 168px;
-      height: 168px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      margin: 0 auto 1rem;
-      box-shadow: 0 0 0 6px var(--bg), 0 0 0 10px rgba(10, 162, 162, 0.12), var(--shadow);
-      background: #f5f5f5;
-    }
-
     /* Cards */
-    .grid {
-      display: grid;
-      gap: 0.9rem;
-    }
-    @media (min-width: 820px) {
-      .grid-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
+    .grid { display: grid; gap: 0.9rem; }
+    @media (min-width: 820px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
     .card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -183,34 +113,10 @@
       box-shadow: var(--shadow);
     }
 
-    .muted {
-      color: var(--muted);
-    }
-
-    ul.clean {
-      margin: 0.2rem 0 0 1rem;
-      padding: 0;
-    }
-    ul.clean li {
-      margin: 0.22rem 0;
-    }
-
     /* Testimonials */
-    .testimonials h2 {
-      text-align: center;
-      margin-bottom: 1.2rem;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 820px) {
-      .testimonials-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
+    .testimonials h2 { text-align: center; margin-bottom: 1.2rem; }
+    .testimonials-grid { display: grid; gap: 1rem; }
+    @media (min-width: 820px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
     .testimonial {
       background: var(--card);
       border-left: 4px solid var(--accent);
@@ -218,22 +124,13 @@
       padding: 1rem 1.25rem;
       position: relative;
     }
-
     .testimonial:before {
       content: "“";
       position: absolute;
-      top: -0.4rem;
-      left: 0.6rem;
-      font-size: 2rem;
-      color: var(--accent);
-      opacity: 0.6;
+      top: -0.4rem; left: 0.6rem;
+      font-size: 2rem; color: var(--accent); opacity: 0.6;
     }
-
-    .testimonial blockquote {
-      margin: 0;
-      font-style: italic;
-      color: var(--text);
-    }
+    .testimonial blockquote { margin: 0; font-style: italic; color: var(--text); }
 
     /* Footer */
     footer {
@@ -245,24 +142,15 @@
       text-align: center;
     }
 
+    /* Theme toggle */
     .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: transparent;
-      color: var(--muted);
+      position: fixed; top: 1rem; right: 1rem;
+      background: transparent; color: var(--muted);
       border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.3rem 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.2s ease;
+      border-radius: 999px; padding: 0.3rem 0.9rem;
+      font-weight: 600; cursor: pointer; font-size: 0.9rem;
     }
-    .theme-toggle:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+    .theme-toggle:hover { background: var(--accent); color: #fff; }
   </style>
 </head>
 
@@ -271,20 +159,22 @@
 
   <main class="wrap">
     <!-- HERO -->
-  <header>
-  <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168">
-  <img id="logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo" />
-  <h1>Jasen Samford</h1>
-  <p class="lead">
-    Practical answers across the full indie artist lifecycle — creation, distribution, promotion,
-    payouts, touring, merch, and everything in between.
-  </p>
-  <div class="btn-row">
-    <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
-    <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</header>
+    <header>
+      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168">
+      <img id="logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo" />
+      <p class="lead">
+        Practical answers across the full indie artist lifecycle — creation, distribution, promotion,
+        payouts, touring, merch, and everything in between.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener"
+          onclick="window.plausible && plausible('Book consultation');">Book a consultation</a>
+        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com"
+          onclick="window.plausible && plausible('Email click');">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener"
+          onclick="window.plausible && plausible('LinkedIn click');">LinkedIn</a>
+      </div>
+    </header>
 
     <!-- ABOUT -->
     <section id="about">
@@ -309,57 +199,16 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-      <h2>Services</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 style="margin-top: 0">For artists and labels</h3>
-          <ul class="clean">
-            <li>Distributor setup and catalog optimization</li>
-            <li>Release strategy and lightweight promo plans</li>
-            <li>Metadata, splits, and payout checks</li>
-            <li>Dispute handling and takedown prevention</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="margin-top: 0">For platforms and teams</h3>
-          <ul class="clean">
-            <li>Integrity playbooks and risk reduction</li>
-            <li>Support operations and escalation models</li>
-            <li>Artist education and partner content</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="testimonials">
-      <h2>Trusted by teams that build for artists</h2>
-      <div class="testimonials-grid">
-        <figure class="testimonial"><blockquote><p>He reduces complex context to the essentials and spins up scalable solutions fast.</p></blockquote></figure>
-        <figure class="testimonial"><blockquote><p>The go-to for distribution and artist education.</p></blockquote></figure>
-        <figure class="testimonial"><blockquote><p>Pragmatic, intuitive, and a creative problem solver.</p></blockquote></figure>
-        <figure class="testimonial"><blockquote><p>Balances data-driven decisions with people-first leadership that lifts performance.</p></blockquote></figure>
-        <figure class="testimonial"><blockquote><p>Strategic process thinking helped us scale to a world-class support org.</p></blockquote></figure>
-        <figure class="testimonial"><blockquote><p>Brings clarity, calm, and a deep understanding of tech and people.</p></blockquote></figure>
-        <figure class="testimonial"><blockquote><p>Extensive industry knowledge with a sharp focus on growth and retention.</p></blockquote></figure>
-      </div>
-    </section>
-
     <!-- CONTACT -->
     <section id="contact">
       <h2>Let’s talk</h2>
-      <p class="muted" style="margin-top: 0.25rem">
-        Consulting sessions available worldwide via Google Meet.
-      </p>
-      <div class="btn-row" style="margin-top: 0.6rem">
+      <p class="muted">Consulting sessions available worldwide via Google Meet.</p>
+      <div class="btn-row">
         <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
         <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <img id="footer-logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo">
       © <span id="y"></span> Jasen Samford
@@ -367,10 +216,7 @@
   </main>
 
   <script>
-    // Year auto-update
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Theme toggle
     const btn = document.getElementById("theme-toggle");
     const logo = document.getElementById("logo");
     const footerLogo = document.getElementById("footer-logo");
