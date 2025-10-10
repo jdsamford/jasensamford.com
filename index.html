@@ -17,40 +17,8 @@
   <!-- SVG favicon (circular, no square bg) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230aa2a2'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' font-family='Inter, Arial, sans-serif' fill='white' font-weight='700'%3EJS%3C/text%3E%3C/svg%3E">
 
-  <!-- Person + Service + FAQ schema (helps reach for broader queries) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Jasen Samford",
-    "jobTitle":"Music Business Consultant",
-    "url":"https://jasensamford.com",
-    "sameAs":["https://www.linkedin.com/in/jasensamford"]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"Independent artist consulting",
-    "serviceType":"Music business consulting",
-    "areaServed":"Worldwide",
-    "provider":{"@type":"Person","name":"Jasen Samford"},
-    "availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://calendly.com/jdsamford/60min","availableLanguage":["en"]},
-    "offers":{"@type":"Offer","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"USD"}}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Who do you work with?","acceptedAnswer":{"@type":"Answer","text":"Independent artists, small labels, managers, and music platforms."}},
-      {"@type":"Question","name":"What topics can we cover?","acceptedAnswer":{"@type":"Answer","text":"Anything across creation, distribution, promotion, payouts, touring, merch, rights, and risk."}},
-      {"@type":"Question","name":"How do we meet?","acceptedAnswer":{"@type":"Answer","text":"Google Meet. I also do workshops and ongoing retainers."}}
-    ]
-  }
-  </script>
+  <!-- Lightweight, privacy-friendly analytics -->
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 
   <style>
     /* ===== Light theme ===== */
@@ -68,9 +36,8 @@
 
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.06);
-      --wrap:1040px; /* a little wider for chip grid */
+      --wrap:1040px;
     }
-
     /* ===== Dark theme ===== */
     [data-theme="dark"]{
       --bg:#0c1117;
@@ -83,7 +50,6 @@
 
       --shadow:0 18px 36px rgba(0,0,0,.45);
     }
-
     @media (prefers-color-scheme: dark){ :root{ color-scheme: dark; } }
 
     /* Base */
@@ -111,7 +77,7 @@
     p.lead{font-size:1.07rem;color:var(--muted);margin:.8rem auto 1.8rem;max-width:68ch;line-height:1.5}
     .muted{color:var(--muted)}
 
-    /* Toggle */
+    /* Theme toggle */
     .theme-toggle{
       position:fixed; right:16px; top:14px; z-index:10;
       background:var(--card); border:1px solid var(--line); border-radius:999px;
@@ -122,6 +88,18 @@
 
     /* Hero */
     header{text-align:center;padding-top:28px}
+    .brand-lockup{display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:8px;}
+    .logo{height:46px; width:auto; filter:drop-shadow(0 6px 18px rgba(0,0,0,.12))}
+    .logo-dark{display:none}
+    /* If system dark and no manual toggle yet */
+    @media (prefers-color-scheme: dark){
+      .logo-light{display:none}
+      .logo-dark{display:block}
+    }
+    /* If user toggles theme */
+    [data-theme="dark"] .logo-light{display:none}
+    [data-theme="dark"] .logo-dark{display:block}
+
     .headshot{
       width:168px;height:168px;border-radius:50%;
       object-fit:cover;object-position:center;
@@ -166,7 +144,7 @@
     ul.clean{margin:.2rem 0 0 1rem;padding:0}
     ul.clean li{margin:.22rem 0}
 
-    /* Topic chips */
+    /* Chips */
     .chips{display:flex;flex-wrap:wrap;gap:.5rem}
     .chip{
       background:var(--card);
@@ -177,7 +155,7 @@
       color:var(--muted);
     }
 
-    /* Testimonials (2-col, quotes visible) */
+    /* Testimonials */
     .testimonials h2{ text-align:center; margin-bottom:1.1rem; }
     .t-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
     @media(min-width:860px){ .t-grid{ grid-template-columns:1fr 1fr; } }
@@ -203,21 +181,31 @@
       content:"”"; position:absolute; right:-8px; bottom:-14px;
       font-size:30px; line-height:1; font-weight:800; color:rgba(0,0,0,.12);
     }
-    [data-theme="dark"] .t-text::before,[data-theme="dark"] .t-text::after{ color:rgba(255,255,255,.12); }
-
-    /* Contact */
-    .contact h2{ margin-bottom:.25rem; }
-    .contact .btn-row{ margin-top:.9rem; }
-    @media(max-width:560px){
-      .btn{width:100%; text-align:center}
-      .wrap{padding:22px}
-    }
+    [data-theme="dark"] .t-text::before,
+    [data-theme="dark"] .t-text::after{ color:rgba(255,255,255,.12); }
 
     /* Footer */
+    .footer-brand{display:flex; flex-direction:column; align-items:center; gap:8px}
+    .footer-logo{height:28px; width:auto; opacity:.9}
+    .footer-logo-dark{display:none}
+    @media (prefers-color-scheme: dark){
+      .footer-logo-light{display:none}
+      .footer-logo-dark{display:block}
+    }
+    [data-theme="dark"] .footer-logo-light{display:none}
+    [data-theme="dark"] .footer-logo-dark{display:block}
+
     footer{
       border-top:1px solid var(--line);
       margin-top:2.25rem;padding:1.25rem 0;
       color:var(--muted);font-size:.95rem;text-align:center
+    }
+
+    /* Mobile niceties */
+    @media(max-width:560px){
+      .btn{width:100%; text-align:center}
+      .wrap{padding:22px}
+      .logo{height:40px}
     }
   </style>
 </head>
@@ -232,15 +220,38 @@
     <!-- HERO -->
     <section class="wrap">
       <header>
+        <!-- Brand logo (auto switches) -->
+        <div class="brand-lockup">
+          <img src="logo_lt_bg.png" alt="Jasen Samford logo" class="logo logo-light" width="400" height="80">
+          <img src="logo_drk_bg.png" alt="Jasen Samford logo" class="logo logo-dark" width="400" height="80">
+        </div>
+
+        <!-- Headshot stays as a personal trust anchor -->
         <img src="headshot.png" alt="Portrait of Jasen Samford" class="headshot" width="168" height="168" loading="lazy">
+
         <h1>Jasen Samford</h1>
         <p class="lead">
           Practical answers across the full indie artist lifecycle — creation, distribution, promotion, payouts, touring, merch, and everything in between.
         </p>
+
         <div class="btn-row">
-          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a consultation</a>
-          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email me</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-primary"
+             href="https://calendly.com/jdsamford/60min"
+             target="_blank" rel="noopener"
+             onclick="window.plausible && plausible('Book consultation');">
+            Book a consultation
+          </a>
+          <a class="btn btn-ghost"
+             href="mailto:jasen@jasensamford.com"
+             onclick="window.plausible && plausible('Email click');">
+            Email me
+          </a>
+          <a class="btn btn-ghost"
+             href="https://www.linkedin.com/in/jasensamford"
+             target="_blank" rel="noopener"
+             onclick="window.plausible && plausible('LinkedIn click');">
+            LinkedIn
+          </a>
         </div>
       </header>
     </section>
@@ -278,7 +289,7 @@
       </div>
     </section>
 
-    <!-- WHAT YOU CAN ASK ME (broad reach) -->
+    <!-- WHAT YOU CAN ASK ME -->
     <section id="topics">
       <div class="wrap">
         <h2>What you can ask me</h2>
@@ -298,28 +309,6 @@
             <span class="chip">Splits, PRO, MLC</span>
             <span class="chip">Sync prep</span>
             <span class="chip">Team roles & hiring</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WAYS TO WORK -->
-    <section id="engagements">
-      <div class="wrap">
-        <h2>Ways to work together</h2>
-        <div class="grid grid-3">
-          <div class="card">
-            <h3 style="margin-top:0">60-minute consult</h3>
-            <p class="muted">Bring links, assets, and questions. Leave with a prioritized plan and next steps.</p>
-            <p><a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a></p>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0">Project package</h3>
-            <p class="muted">Scoped support for a release, rollout, or ops improvement. Clear deliverables, fixed fee.</p>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0">Ongoing advisory</h3>
-            <p class="muted">Monthly check-ins and on-call support for teams that want steady guidance.</p>
           </div>
         </div>
       </div>
@@ -347,14 +336,28 @@
         <h2>Let’s talk</h2>
         <p class="muted" style="margin-top:.25rem">Consulting sessions available worldwide via Google Meet.</p>
         <div class="btn-row" style="margin-top:.9rem">
-          <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
-          <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
+          <a class="btn btn-primary"
+             href="https://calendly.com/jdsamford/60min"
+             target="_blank" rel="noopener"
+             onclick="window.plausible && plausible('Book time - contact');">
+            Book time
+          </a>
+          <a class="btn btn-ghost"
+             href="mailto:jasen@jasensamford.com"
+             onclick="window.plausible && plausible('Email click - contact');">
+            Email jasen@jasensamford.com
+          </a>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="y"></span> Jasen Samford
+      <div class="footer-brand">
+        <!-- Footer logo (auto switches) -->
+        <img src="logo_lt_bg.png" alt="Jasen Samford logo" class="footer-logo footer-logo-light" width="240" height="48">
+        <img src="logo_drk_bg.png" alt="Jasen Samford logo" class="footer-logo footer-logo-dark" width="240" height="48">
+      </div>
+      <div style="margin-top:10px;">© <span id="y"></span> Jasen Samford</div>
     </footer>
   </main>
 
