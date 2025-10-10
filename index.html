@@ -1,234 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jasen Samford | Music Business Consultant</title>
-  <meta name="description" content="Practical consulting for independent artists and labels — from creation and distribution to promotion, payouts, touring, and merch sales." />
-  <meta name="keywords" content="music business consultant, artist development, digital distribution, indie artist strategy, DistroKid expert, streaming consulting, metadata, release planning" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Plausible Analytics -->
-  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
-
-  <style>
-    :root {
-      --accent: #0aa2a2;
-      --text: #111;
-      --muted: #666;
-      --bg: #fff;
-      --card: #f7fbfb;
-      --line: #eee;
-      --radius: 14px;
-      --radius-sm: 10px;
-      --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    body.dark {
-      --bg: #111418;
-      --text: #f7f7f7;
-      --muted: #aaa;
-      --card: #1b1e23;
-      --line: #222;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .wrap { max-width: 960px; margin: 0 auto; padding: 24px; }
-
-    h2 {
-      font-size: clamp(1.35rem, 1.2vw + 1rem, 1.55rem);
-      font-weight: 800;
-      margin-top: 2.5rem;
-    }
-
-    p.lead {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin: 0.75rem auto 1.25rem;
-      max-width: 60ch;
-      text-align: center;
-    }
-
-    section + section { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 2rem; }
-
-    /* Buttons */
-    .btn {
-      appearance: none; border: none; cursor: pointer;
-      display: inline-block; padding: 0.78rem 1.2rem;
-      border-radius: 999px; font-weight: 700;
-      text-decoration: none; transition: all 0.2s ease;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
-    }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .btn-ghost { background: #e7e7e7; color: #111; }
-    body.dark .btn-ghost { background: #2a2f35; color: #f5f5f5; }
-    .btn-ghost:hover { filter: brightness(1.1); }
-    .btn-row { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
-
-    /* Hero */
-    header { text-align: center; padding-top: 1rem; }
-
-    .headshot {
-      width: 168px; height: 168px; border-radius: 50%;
-      object-fit: cover; display: block;
-      margin: 0 auto 0.75rem;
-      box-shadow: 0 0 0 6px var(--bg), 0 0 0 10px rgba(10, 162, 162, 0.12), var(--shadow);
-    }
-
-    .logo {
-      display: block;
-      margin: 0.5rem auto 0.25rem;
-      width: clamp(240px, 32vw, 360px);
-      height: auto;
-      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
-      transition: opacity 0.3s ease;
-    }
-
-    footer .logo {
-      margin: 0 auto 1rem;
-      width: clamp(160px, 24vw, 260px);
-      opacity: 0.85;
-    }
-
-    /* Cards */
-    .grid { display: grid; gap: 0.9rem; }
-    @media (min-width: 820px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem;
-      box-shadow: var(--shadow);
-    }
-
-    /* Testimonials */
-    .testimonials h2 { text-align: center; margin-bottom: 1.2rem; }
-    .testimonials-grid { display: grid; gap: 1rem; }
-    @media (min-width: 820px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
-    .testimonial {
-      background: var(--card);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.25rem;
-      position: relative;
-    }
-    .testimonial:before {
-      content: "“";
-      position: absolute;
-      top: -0.4rem; left: 0.6rem;
-      font-size: 2rem; color: var(--accent); opacity: 0.6;
-    }
-    .testimonial blockquote { margin: 0; font-style: italic; color: var(--text); }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--line);
-      margin-top: 2.25rem;
-      padding: 2rem 0 1rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      text-align: center;
-    }
-
-    /* Theme toggle */
-    .theme-toggle {
-      position: fixed; top: 1rem; right: 1rem;
-      background: transparent; color: var(--muted);
-      border: 1px solid var(--line);
-      border-radius: 999px; padding: 0.3rem 0.9rem;
-      font-weight: 600; cursor: pointer; font-size: 0.9rem;
-    }
-    .theme-toggle:hover { background: var(--accent); color: #fff; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jasen Samford — Music Business Consultant</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f172a;          /* page background */
+    --card:#101827;        /* card background */
+    --muted:#9aa4b2;       /* secondary text */
+    --text:#e5e7eb;        /* main text */
+    --pill:#1f2937;        /* pill buttons bg */
+    --pill-border:#2a3443; /* pill border */
+    --cta:#14b8a6;         /* teal CTA */
+    --cta-text:#052b2a;    /* dark teal text on CTA */
+    --ring:#1e293b;        /* subtle ring */
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    background:var(--bg);
+    color:var(--text);
+  }
+  .wrap{
+    max-width:980px;   /* tighter than full width to match the mock */
+    margin:56px auto 96px;
+    padding:0 20px;
+  }
+  .hero{
+    text-align:center;
+  }
+  .avatar{
+    width:124px;height:124px;border-radius:50%;
+    display:block;margin:0 auto 18px;
+    border:6px solid #0b1220; outline:2px solid #1e293b; outline-offset:-2px;
+    object-fit:cover;
+    background:#222;
+  }
+  .logo{
+    height:34px; margin:10px auto 18px; display:block; opacity:.95;
+  }
+  h1{
+    font-size:22px; font-weight:700; margin:0 0 6px;
+    letter-spacing:.1px;
+  }
+  .tagline{
+    max-width:720px; margin:0 auto 20px; line-height:1.55; color:var(--muted);
+  }
+  .btn-row{
+    display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:6px;
+  }
+  .btn{ 
+    border:1px solid transparent; border-radius:999px; padding:12px 18px; 
+    font-weight:600; font-size:14px; line-height:1; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .04s ease, opacity .2s ease, background-color .2s ease, border-color .2s ease;
+    will-change:transform;
+  }
+  .btn:active{ transform:translateY(1px) }
+  .btn-cta{
+    background:var(--cta); color:var(--cta-text); border-color:#0ea5a5;
+  }
+  .btn-pill{
+    background:var(--pill); color:var(--text); border-color:var(--pill-border);
+  }
+  .section-title{
+    font-size:20px; font-weight:700; margin:34px 0 16px;
+  }
+  /* cards row */
+  .cards{
+    display:grid; gap:16px;
+    grid-template-columns:1fr; 
+  }
+  @media (min-width:860px){
+    .cards{ grid-template-columns:1.35fr .95fr; }
+  }
+  .card{
+    background:var(--card); border:1px solid var(--ring);
+    border-radius:16px; padding:18px 18px;
+    box-shadow:0 1px 0 rgba(255,255,255,0.02) inset, 0 10px 24px rgba(0,0,0,.25);
+  }
+  .card h3{ font-size:16px; font-weight:700; margin:0 0 10px }
+  .card p{ color:var(--text); opacity:.95; line-height:1.6; margin:0 }
+  .bullets{ margin:0; padding:0; list-style:none }
+  .bullets li{
+    display:flex; gap:10px; align-items:flex-start;
+    padding:10px 0; border-top:1px dashed rgba(255,255,255,.08);
+  }
+  .bullets li:first-child{ border-top:0; padding-top:0 }
+  .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--cta); margin-top:7px; flex:0 0 8px;
+  }
+  /* link pills look */
+  .btn-pill:hover{ border-color:#3a4658 }
+  .btn-cta:hover{ background:#10b3a2 }
+</style>
 </head>
-
 <body>
-  <button id="theme-toggle" class="theme-toggle">Dark</button>
-
   <main class="wrap">
-    <!-- HERO -->
-    <header>
-      <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168">
-      <img id="logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo" />
-      <p class="lead">
-        Practical answers across the full indie artist lifecycle — creation, distribution, promotion,
-        payouts, touring, merch, and everything in between.
-      </p>
+    <header class="hero">
+      <img class="avatar" src="YOUR_HEADSHOT.jpg" alt="Jasen Samford">
+      <!-- optional wordmark; replace with your exported SVG/PNG -->
+      <img class="logo" src="YOUR_LOGO.png" alt="Jasen Samford — Music Business Consultant">
+      <h1>Jasen Samford</h1>
+      <div class="tagline">
+        Practical answers across the full indie artist lifecycle — creation, distribution, promotion, payouts, touring, merch, and everything in between.
+      </div>
       <div class="btn-row">
-        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener"
-          onclick="window.plausible && plausible('Book consultation');">Book a consultation</a>
-        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com"
-          onclick="window.plausible && plausible('Email click');">Email me</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener"
-          onclick="window.plausible && plausible('LinkedIn click');">LinkedIn</a>
+        <a class="btn btn-cta" href="https://calendly.com/jasen-2/60">Book a consultation</a>
+        <a class="btn btn-pill" href="mailto:jasen@jasensamford.com">Email me</a>
+        <a class="btn btn-pill" href="https://www.linkedin.com/in/jasensamford/">LinkedIn</a>
       </div>
     </header>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>About</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <p>
-            I spent years at DistroKid helping build systems that serve millions of independent artists.
-            Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
-            streamline payouts, and keep growth sustainable without losing the human touch.
-          </p>
-        </div>
-        <div class="card">
-          <h3 style="margin-top: 0">Typical outcomes</h3>
-          <ul class="clean">
-            <li>Cleaner metadata and smoother payouts</li>
-            <li>Release plans that travel from idea to impact</li>
-            <li>Fewer false-positive fraud flags</li>
-            <li>Clear documentation for teams and partners</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <h2 class="section-title">About</h2>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Let’s talk</h2>
-      <p class="muted">Consulting sessions available worldwide via Google Meet.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book time</a>
-        <a class="btn btn-ghost" href="mailto:jasen@jasensamford.com">Email jasen@jasensamford.com</a>
-      </div>
-    </section>
+    <section class="cards">
+      <article class="card">
+        <h3> </h3>
+        <p>
+          I spent years at DistroKid helping build systems that serve millions of independent artists. Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans, streamline payouts, and keep growth sustainable without losing the human touch.
+        </p>
+      </article>
 
-    <footer>
-      <img id="footer-logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo">
-      © <span id="y"></span> Jasen Samford
-    </footer>
+      <aside class="card">
+        <h3>Typical outcomes</h3>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>Cleaner metadata and smoother payouts</span></li>
+          <li><span class="dot"></span><span>Release plans that travel from idea to impact</span></li>
+          <li><span class="dot"></span><span>Fewer false-positive fraud flags</span></li>
+          <li><span class="dot"></span><span>Clear documentation for teams and partners</span></li>
+        </ul>
+      </aside>
+    </section>
   </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-    const btn = document.getElementById("theme-toggle");
-    const logo = document.getElementById("logo");
-    const footerLogo = document.getElementById("footer-logo");
-
-    btn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      const isDark = document.body.classList.contains("dark");
-      btn.textContent = isDark ? "Light" : "Dark";
-      const src = isDark ? "logo_drk_bg.png" : "logo_lt_bg.png";
-      logo.src = src;
-      footerLogo.src = src;
-    });
-  </script>
 </body>
 </html>
