@@ -373,7 +373,7 @@
 
     function updateLogos() {
       const src = darkScheme.matches ? 'logo_drk_bg.png' : 'logo_lt_bg.png';
-      logo.src = src;
+      logo.src = prefersDark ? 'logo_lt_bg.png' : 'logo_drk_bg.png';
       footerLogo.src = src;
     }
     darkScheme.addEventListener('change', updateLogos);
