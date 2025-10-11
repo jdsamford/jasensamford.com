@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
   <meta name="description" content="Practical answers across the full indie artist lifecycle — creation, distribution, promotion, payouts, touring, merch, and everything in between." />
+  <meta name="keywords" content="music business consultant, artist development, digital distribution, indie artist strategy, DistroKid, streaming, metadata, release planning" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 
   <style>
     :root {
@@ -64,15 +66,15 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      margin: 0 auto 4px; /* tighter under photo */
+      margin: 0 auto 6px;
       box-shadow: 0 0 0 5px #fff, 0 0 0 9px rgba(10, 162, 162, 0.12), var(--shadow);
     }
 
     .logo {
-  display: block;
-  max-width: 320px; /* bigger */
-  margin: 14px auto 10px; /* more space above/below */
-}
+      display: block;
+      max-width: 320px;
+      margin: 10px auto 8px;
+    }
 
     /* Buttons */
     .btn {
@@ -187,6 +189,39 @@
       opacity: 0.2;
     }
 
+    /* Share Buttons */
+    #share {
+      border-top: 1px solid var(--line);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1rem;
+    }
+
+    .share {
+      padding: .55rem .95rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      font-size: .9rem;
+      transition: background .2s ease;
+    }
+
+    .share.fb { background: #1877f2; }
+    .share.x { background: #000; }
+    .share.li { background: #0a66c2; }
+    .share.mail { background: #666; }
+
+    .share:hover { opacity: .85; }
+
     /* Sections */
     header + section {
       border-top: 1px solid var(--line);
@@ -209,6 +244,13 @@
       font-size: 0.95rem;
       text-align: center;
     }
+
+    footer .logo {
+      display: block;
+      max-width: 180px;
+      margin: 0 auto 10px;
+      opacity: 0.9;
+    }
   </style>
 </head>
 
@@ -217,7 +259,7 @@
     <!-- HERO -->
     <header>
       <img src="headshot.png" alt="Jasen Samford portrait" class="headshot" width="168" height="168">
-      <img src="logo_lt_bg.png" alt="Jasen Samford Music Business Consultant logo" class="logo" width="240" height="auto">
+      <img id="logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo" width="320" height="auto">
       <p class="lead">
         Practical answers across the full indie artist lifecycle — creation, distribution, promotion,
         payouts, touring, merch, and everything in between.
@@ -300,14 +342,54 @@
       </div>
     </section>
 
+    <!-- SHARE -->
+    <section id="share">
+      <h2>Share this site</h2>
+      <div class="share-buttons">
+        <a class="share fb" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">Facebook</a>
+        <a class="share x" href="#" target="_blank" rel="noopener" aria-label="Share on X">X</a>
+        <a class="share li" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">LinkedIn</a>
+        <a class="share mail" href="#" target="_blank" rel="noopener" aria-label="Share via Email">Email</a>
+      </div>
+    </section>
+
     <footer>
-      <img src="logo_lt_bg.png" alt="Jasen Samford logo" style="max-width:160px; display:block; margin:0 auto 10px;">
+      <img id="footer-logo" class="logo" src="logo_lt_bg.png" alt="Jasen Samford logo">
       © <span id="y"></span> Jasen Samford
     </footer>
   </main>
 
   <script>
+    // year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // logo swap for dark/light
+    const logo = document.getElementById('logo');
+    const footerLogo = document.getElementById('footer-logo');
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function updateLogos() {
+      const isDark = darkScheme.matches;
+      const src = isDark ? 'logo_drk_bg.png' : 'logo_lt_bg.png';
+      logo.src = src;
+      footerLogo.src = src;
+    }
+    darkScheme.addEventListener('change', updateLogos);
+    updateLogos();
+
+    // share links
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+    const shareLinks = {
+      fb: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
+      x: `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`,
+      li: `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`,
+      mail: `mailto:?subject=${pageTitle}&body=${pageUrl}`
+    };
+    document.querySelectorAll('.share').forEach(a => {
+      const type = a.classList[1];
+      a.href = shareLinks[type];
+    });
   </script>
 </body>
 </html>
