@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Jasen Samford | Music Distribution Consultant for Independent Artists</title>
   <meta name="description" content="Jasen Samford is a Seattle-based music distribution consultant helping independent artists, labels, and music companies with release planning, royalties, metadata, and strategy." />
-  <link rel="canonical" href="https://jasensamford.com/about" />
+  <link rel="canonical" href="https://jasensamford.com/about.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="About Jasen Samford | Music Distribution Consultant" />
   <meta property="og:description" content="Independent artist and label consulting focused on distribution, royalties, and metadata." />
-  <meta property="og:url" content="https://jasensamford.com/about" />
+  <meta property="og:url" content="https://jasensamford.com/about.html" />
   <meta property="og:image" content="https://jasensamford.com/assets/social-card.jpg" />
 
   <!-- Twitter Card -->
@@ -39,6 +39,12 @@
       "addressRegion": "WA",
       "addressCountry": "US"
     },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "url": "https://calendly.com/jdsamford/60min",
+      "contactType": "Booking",
+      "availableLanguage": ["English"]
+    },
     "sameAs": [
       "https://www.linkedin.com/in/jasensamford/",
       "https://www.instagram.com/jasensamford/"
@@ -47,34 +53,36 @@
   </script>
 
   <style>
-    :root { --max: 72ch; --fg: #0f172a; --muted: #475569; --bg: #ffffff; --accent: #111827; }
+    :root { --max: 72ch; --fg: #0f172a; --muted: #475569; --bg: #ffffff; --accent: #0aa2a2; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color: var(--fg); background: var(--bg); line-height: 1.6; }
     header, main, footer { padding: 24px; }
     .wrap { max-width: var(--max); margin: 0 auto; }
-    header a { text-decoration: none; color: var(--fg); }
-    nav a { margin-right: 16px; color: var(--muted); }
-    h1 { line-height: 1.2; font-size: clamp(2rem, 3.5vw, 2.5rem); margin: 0.2em 0 0.4em; }
-    h2 { font-size: 1.125rem; color: var(--muted); font-weight: 500; margin-top: 0; }
+    nav { text-align:center; margin-bottom:20px; }
+    nav a { margin:0 .9rem; color: var(--fg); text-decoration:none; font-weight:600; }
+    nav a:hover { color: var(--accent); }
+    h1 { line-height: 1.2; font-size: clamp(2rem, 3.5vw, 2.5rem); margin: 0.2em 0 0.4em; text-align:center; }
+    h2 { font-size: 1.125rem; color: var(--muted); font-weight: 600; margin-top: 1.5rem; }
     p { margin: 0 0 1rem; }
     ul { margin: 0 0 1rem 1.25rem; }
-    .hero { padding: 24px 0 4px; border-bottom: 1px solid #e5e7eb; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .hero { padding: 24px 0 4px; border-bottom: 1px solid #e5e7eb; text-align:center; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 1.5rem; }
     .card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 20px; }
-    .cta { display: inline-block; padding: 12px 16px; border-radius: 10px; background: var(--accent); color: #fff; text-decoration: none; }
+    .cta { display: inline-block; padding: 12px 16px; border-radius: 10px; background: var(--accent); color: #fff; text-decoration: none; font-weight:600; }
+    .cta:hover { background: #088c8c; }
     .muted { color: var(--muted); }
+    footer { border-top:1px solid #e5e7eb; text-align:center; color: var(--muted); font-size:.95rem; }
+    footer a { color:inherit; text-decoration:underline; margin:0 8px; }
     @media (min-width: 880px) { .grid { grid-template-columns: 2fr 1fr; } }
   </style>
 </head>
 <body>
   <header>
-    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-      <a href="/" aria-label="Go to homepage"><strong>Jasen Samford</strong></a>
-      <nav aria-label="primary">
-        <a href="/about" aria-current="page">About</a>
-        <a href="/services">Services</a>
-        <a href="/book">Book</a>
-        <a href="/contact">Contact</a>
+    <div class="wrap">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book</a>
       </nav>
     </div>
   </header>
@@ -88,29 +96,29 @@
     <section class="grid" aria-labelledby="about-section">
       <article class="card" id="about-section">
         <h2 class="muted">Who I am</h2>
-        <p>I help artists and teams release smarter, fix metadata problems, and get royalties where they should go. I focus on clear systems, accurate data, and practical steps you can use right away.</p>
-        <p>Before consulting, I spent nearly ten years at DistroKid, joining early and helping it scale from startup to the world’s largest music distributor. I built and led artist support and education, partnered with schools and festivals, and worked across product, ops, and policy to solve real artist problems.</p>
+        <p>I’m Jasen Samford, a music industry consultant who helps artists, labels, and music companies make sense of distribution, royalties, and metadata. My focus is on clarity—clean data, simple systems, and practical steps that help music reach audiences faster and more reliably.</p>
+        <p>Before launching my consulting practice, I spent nearly a decade at DistroKid, joining as one of the first employees and helping it grow from a startup into the world’s largest distributor. I built and led the artist support and education teams, partnered with Berklee College of Music, KEXP, and Folk Alliance, and helped millions of artists navigate releases from first upload to final payout.</p>
 
         <h2 class="muted">What I do</h2>
         <ul>
           <li>Release planning and distribution strategy</li>
-          <li>Metadata, ISRC/UPC hygiene, and catalog clean‑up</li>
-          <li>Royalties and reporting: setup, audits, and issue triage</li>
-          <li>Streaming fraud risk checks and best practices</li>
+          <li>Metadata, ISRC/UPC hygiene, and catalog cleanup</li>
+          <li>Royalty setup, audits, and troubleshooting</li>
+          <li>Streaming-fraud prevention and best practices</li>
           <li>Team training and process design for artist services</li>
         </ul>
 
         <h2 class="muted">Why it helps</h2>
-        <p>Most issues are avoidable with better planning and clean data. I make distribution transparent, efficient, and fair—so you can spend more time on the music.</p>
+        <p>Most problems in distribution come from unclear ownership, messy metadata, or poor planning. I help artists and teams fix that early—so royalties go where they should, releases hit deadlines, and nothing gets lost in the process.</p>
 
-        <h2 class="muted">Credibility</h2>
+        <h2 class="muted">Background</h2>
         <ul>
           <li>Former Director of Education at DistroKid</li>
-          <li>Scaled artist support from early stage to serving millions</li>
-          <li>Partnerships with Berklee College of Music, KEXP, Folk Alliance</li>
+          <li>Scaled artist support from early stage to millions of users</li>
+          <li>Partnered with Berklee, KEXP, and Folk Alliance on education and outreach</li>
         </ul>
 
-        <p><a class="cta" href="/book">Book a session</a> <span class="muted" aria-hidden="true">·</span> <a href="/contact">Get in touch</a></p>
+        <p><a class="cta" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a> <span class="muted">·</span> <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Get in touch</a></p>
       </article>
 
       <aside class="card" aria-label="Quick facts">
@@ -120,18 +128,25 @@
           <li>Focus: distribution, royalties, metadata</li>
           <li>Also: drums, live shows, family, two dogs</li>
         </ul>
+
         <h2 class="muted">Keywords</h2>
-        <p class="muted">music distribution consultant, independent artist strategy, royalty audits, metadata cleanup, Spotify Apple Music release planning, streaming fraud prevention</p>
+        <p class="muted">music distribution consultant, indie artist strategy, royalty audits, metadata cleanup, Spotify Apple Music release planning, streaming fraud prevention</p>
       </aside>
     </section>
   </main>
 
   <footer>
-    <div class="wrap muted">
+    <div class="wrap">
+      <p>
+        <a href="about.html">About</a>
+        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+      </p>
       <p>&copy; <span id="y"></span> Jasen Samford Consulting</p>
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
