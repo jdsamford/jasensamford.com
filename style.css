@@ -397,16 +397,17 @@ footer a {
 /* Checklist section nav chips */
 
 .checklist-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;   /* center all rows */
-  gap: 0.75rem 1rem;          /* even vertical + horizontal spacing */
-  padding: 0.75rem 0 1.75rem;
-  margin: 0 auto 1.5rem;
-  max-width: 720px;           /* keeps pills from stretching too far apart */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem 1rem;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  padding: 0.75rem 0 1.25rem;
 }
 
 .checklist-nav a {
+  display: flex;
+  justify-content: center;
   padding: 0.45rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -415,19 +416,7 @@ footer a {
   font-weight: 500;
   color: var(--muted);
   white-space: nowrap;
-  text-decoration: none;
 }
-
-.checklist-nav a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: #f3fbfb;
-}
-
-.checklist-nav::-webkit-scrollbar {
-  display: none; /* hid for desktop, since it's now centered rows */
-}
-
 
 /* Reduce large gap under hero on the home page */
 .home-hero + .section {
