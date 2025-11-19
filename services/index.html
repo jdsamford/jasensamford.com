@@ -22,7 +22,7 @@
       .then(html => { 
         document.getElementById('nav').innerHTML = html;
 
-        // After nav loads: highlight current
+        // Highlight current page
         var path = window.location.pathname.replace(/\/+$/, "") || "/";
         document.querySelectorAll("nav a").forEach(function (link) {
           var href = link.getAttribute("href") || "";
@@ -35,12 +35,10 @@
       });
   </script>
 
-  <!-- HERO consistent with Home -->
-  <header class="hero">
+  <!-- HERO (uniform with Home) -->
+  <header class="hero home-hero">
     <div class="wrap hero-inner">
       <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
-
-      <!-- Dark-on-light logo only -->
       <img src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
 
       <p class="lead">
@@ -59,11 +57,9 @@
     </div>
   </header>
 
-
   <!-- MAIN -->
   <main class="wrap">
 
-    <!-- Core work -->
     <section class="section">
       <h2>Core work</h2>
       <ul>
@@ -75,7 +71,6 @@
       </ul>
     </section>
 
-    <!-- How it works -->
     <section class="section">
       <h2>How it works</h2>
       <ol>
@@ -95,7 +90,6 @@
       </div>
     </section>
 
-    <!-- Who this helps -->
     <section class="section">
       <h2>Who this helps</h2>
       <ul>
