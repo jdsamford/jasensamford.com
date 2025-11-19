@@ -117,6 +117,19 @@
       margin-bottom: 0.4rem;
     }
 
+      main section ul ul {
+    margin-left: 1.5rem;
+    margin-top: 0.25rem;
+  }
+
+  main section ul ul li {
+    margin-bottom: 0.3rem;
+  }
+
+  main section li.no-checkbox {
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
     main section label {
       cursor: pointer;
       display: flex;
@@ -130,6 +143,7 @@
     flex: 1;
   }
 
+    
     main input[type="checkbox"] {
       margin-top: 0.1rem;
     }
@@ -277,34 +291,26 @@
     </section>
 
     <section>
-      <h2>Royalties and Payments</h2>
-      <ul>
-        <li><label><input type="checkbox"> Check your distributor’s reporting schedule.</label></li>
-        <li><label><input type="checkbox"> Confirm your payout info is correct.</label></li>
-        <li><label><input type="checkbox"> Set up revenue splits if your distributor supports it.</label></li>
-        <li>
-          <label><input type="checkbox"> Track income sources:</label>
-          <ul>
-            <li><label><input type="checkbox"> Distributor (master royalties)</label></li>
-            <li><label><input type="checkbox"> PRO (performance)</label></li>
-            <li><label><input type="checkbox"> Mechanical/publishing admin</label></li>
-            <li><label><input type="checkbox"> SoundExchange</label></li>
-          </ul>
-        </li>
-        <li><label><input type="checkbox"> Fix metadata or ownership issues quickly.</label></li>
-      </ul>
-    </section>
+  <h2>Royalties and Payments</h2>
+  <ul>
+    <li><label><input type="checkbox"> Check your distributor’s reporting schedule.</label></li>
+    <li><label><input type="checkbox"> Confirm your payout info is correct.</label></li>
+    <li><label><input type="checkbox"> Set up revenue splits if your distributor supports it.</label></li>
 
-    <section>
-      <h2>Long-Term</h2>
+    <li class="no-checkbox">
+      Track income sources:
       <ul>
-        <li><label><input type="checkbox"> Add the release to your website discography and EPK.</label></li>
-        <li><label><input type="checkbox"> Store stems, mixes, masters, artwork, lyrics, and credits long-term.</label></li>
-        <li><label><input type="checkbox"> Write down what worked and what you'll change next time.</label></li>
-        <li><label><input type="checkbox"> Keep a running live set list.</label></li>
-        <li><label><input type="checkbox"> Map out how this release connects to the next one.</label></li>
+        <li><label><input type="checkbox"> Distributor (master royalties)</label></li>
+        <li><label><input type="checkbox"> PRO (performance)</label></li>
+        <li><label><input type="checkbox"> Mechanical/publishing admin</label></li>
+        <li><label><input type="checkbox"> SoundExchange</label></li>
       </ul>
-    </section>
+    </li>
+
+    <li><label><input type="checkbox"> Fix metadata or ownership issues quickly.</label></li>
+  </ul>
+</section>
+
   </main>
 
   <script>
