@@ -3,83 +3,101 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Jasen Samford | Music Distribution Consultant</title>
-  <meta name="description" content="Who I am, what I do, and how I help artists, labels, and music companies with distribution, royalties, and metadata." />
+  <title>About | Jasen Samford Consulting</title>
+  <meta name="description" content="Music distribution consultant helping artists, labels, and platforms with metadata, royalties, fraud prevention, and distribution strategy." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/about/" />
   <link rel="stylesheet" href="/style.css" />
-  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="jasensamford.com"
+          src="https://plausible.io/js/script.js"></script>
 </head>
 
-  <script>
-  (function () {
-    var path = window.location.pathname.replace(/\/+$/, "") || "/";
-    document.querySelectorAll("nav a").forEach(function (link) {
-      var href = link.getAttribute("href") || "";
-      var normalized = href.replace(/\/+$/, "") || "/";
-      if (normalized === path) {
-        link.classList.add("is-current");
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  })();
-</script>
-
 <body>
-  <!-- Shared nav -->
+
+  <!-- Inject nav -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
       .then(r => r.text())
-      .then(html => { document.getElementById('nav').innerHTML = html; });
+      .then(html => { 
+        document.getElementById('nav').innerHTML = html;
+
+        // Highlight current page
+        var path = window.location.pathname.replace(/\/+$/, "") || "/";
+        document.querySelectorAll("nav a").forEach(function (link) {
+          var href = link.getAttribute("href") || "";
+          var normalized = href.replace(/\/+$/, "") || "/";
+          if (normalized === path) {
+            link.classList.add("is-current");
+            link.setAttribute("aria-current", "page");
+          }
+        });
+      });
   </script>
 
-  <!-- Page hero -->
-  <section class="page-hero">
-    <div class="wrap page-hero-inner">
+  <!-- HERO (exact same structure as Home / Services) -->
+  <header class="hero home-hero">
+    <div class="wrap hero-inner">
       <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
-      <p class="page-hero-subtitle">
+      <img src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
+
+      <h1 class="hero-name">About Jasen Samford</h1>
+
+      <p class="lead">
         Music distribution consultant for independent artists, labels, and music companies.
       </p>
-    </div>
-  </section>
 
+      <div class="btn-row">
+        <a href="https://calendly.com/jdsamford/60min"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener">
+          Book a session
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
   <main class="wrap">
+
+    <!-- Who I am -->
     <section class="section">
       <h2>Who I am</h2>
       <p>
-        I help artists, labels, and music companies make sense of distribution, royalties, and metadata.
+        I help artists, labels, and music companies make sense of distribution, royalties, and metadata. 
         I focus on clear systems, clean data, and practical steps you can use right away.
       </p>
       <p>
-        Before consulting, I spent almost ten years at DistroKid, joining early and helping it grow from a
-        startup into the world’s largest distributor. I built and led artist support and education, partnered
-        with Berklee College of Music, KEXP, and Folk Alliance, and helped artists move from first upload to
-        final payout.
+        Before consulting, I spent almost ten years at DistroKid, joining early and helping it grow from a startup 
+        into the world's largest music distributor. I built and led artist support and education, partnered with 
+        Berklee College of Music, KEXP, and Folk Alliance, and helped artists move from first upload to final payout.
       </p>
     </section>
 
+    <!-- What I do -->
     <section class="section">
       <h2>What I do</h2>
       <ul>
         <li>Release planning and distribution strategy.</li>
         <li>Metadata hygiene (ISRC/UPC), catalog cleanup, conflict resolution.</li>
         <li>Royalty setup, audits, and troubleshooting.</li>
-        <li>Streaming fraud prevention and best practices.</li>
+        <li>Streaming-fraud prevention and best practices.</li>
         <li>Team training and process design for artist services.</li>
       </ul>
     </section>
 
+    <!-- How it works -->
     <section class="section">
       <h2>How it works</h2>
       <ol>
         <li><strong>Meet:</strong> focused call to gather details, links, and context.</li>
         <li><strong>Clarify:</strong> map what’s happening, what’s blocking progress, and what data is needed.</li>
-        <li><strong>Follow-up:</strong> short written summary with priorities and actionable next steps.</li>
+        <li><strong>Follow-up:</strong> short written summary with priorities and next steps.</li>
       </ol>
 
       <p>
-        When support is slow or not tracking the problem, I can work with contacts at distributors and DSPs
+        When support is slow or not tracking the problem, I can work with contacts at distributors and DSPs 
         to get the issue in front of the right team.
       </p>
 
@@ -93,8 +111,10 @@
       </div>
     </section>
 
+    <!-- Background -->
     <section class="section">
       <h2>Background</h2>
+
       <ul>
         <li>Former Director of Education at DistroKid.</li>
         <li>Scaled artist support from early stage to millions of users.</li>
@@ -109,15 +129,19 @@
         <span class="tag-pill">Streaming fraud</span>
       </div>
     </section>
+
   </main>
 
   <footer>
     <p>
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
-      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">
+        Book a session
+      </a>
     </p>
     <p>© 2025 Jasen Samford Consulting</p>
   </footer>
+
 </body>
 </html>
