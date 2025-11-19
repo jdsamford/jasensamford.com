@@ -188,13 +188,15 @@
 <body>
   <header>
     <div class="wrap">
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about/" aria-current="page">About</a>
-        <a href="/services/">Services</a>
-        <a href="/checklist/">Release Checklist</a>
-        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book</a>
-      </nav>
+     <div id="nav"></div>
+<script>
+  fetch("/nav.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("nav").innerHTML = html;
+    });
+</script>
+
 
       <div class="hero">
         <img class="headshot" src="../headshot.png" alt="Jasen Samford headshot">
