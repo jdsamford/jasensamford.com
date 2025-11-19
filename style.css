@@ -114,6 +114,14 @@ nav a.is-current::after {
   background: var(--accent);
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
 /* HOME HERO */
 
 header.hero {
