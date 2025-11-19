@@ -10,6 +10,21 @@
   <link rel="stylesheet" href="/style.css" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
+
+  <script>
+  (function () {
+    var path = window.location.pathname.replace(/\/+$/, "") || "/";
+    document.querySelectorAll("nav a").forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      var normalized = href.replace(/\/+$/, "") || "/";
+      if (normalized === path) {
+        link.classList.add("is-current");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  })();
+</script>
+
 <body>
   <!-- Shared nav -->
   <div id="nav"></div>
