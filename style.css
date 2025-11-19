@@ -15,6 +15,8 @@
 html, body {
   margin:0;
   padding:0;
+  max-width:100%;
+  overflow-x:hidden; /* prevent stray horizontal scrolling */
 }
 
 body {
@@ -42,12 +44,10 @@ a:hover {
   padding:24px;
 }
 
-/* text-heavy pages (About / Services) use a slightly narrower main */
 .page-hero + main.wrap {
   max-width:760px;
 }
 
-/* extra breathing room above footer on all main content */
 main.wrap {
   padding-bottom:3rem;
 }
@@ -70,7 +70,6 @@ main.wrap {
   font-size:1rem;
 }
 
-/* small uppercase label above some section titles */
 .section-kicker {
   font-size:0.8rem;
   text-transform:uppercase;
@@ -79,47 +78,57 @@ main.wrap {
   margin:0 0 0.25rem;
 }
 
-/* NAV (from nav.html) */
+/* -----------------------------------------------------
+   NAVIGATION — FIXED FOR MOBILE
+----------------------------------------------------- */
 
 nav {
   border-bottom:1px solid var(--line);
   background:#fff;
   padding:.75rem 1rem;
-  text-align:center;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;         /* allow wrapping */
+  gap:1.25rem;            /* spacing between links */
+  white-space:normal;     /* allow text to wrap */
+  max-width:100%;
 }
+
 nav a {
   color:var(--text);
   text-decoration:none;
-  margin:0 .9rem;
   font-weight:600;
   font-size:.95rem;
   transition:color .2s ease;
 }
+
 nav a:hover {
   color:var(--accent);
 }
 
 /* active nav state */
-
 nav a.is-current {
-  color: var(--accent);
+  color:var(--accent);
 }
 nav a.is-current::after {
-  content: "";
-  display: block;
-  margin: 4px auto 0;
-  width: 26px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--accent);
+  content:"";
+  display:block;
+  margin:4px auto 0;
+  width:26px;
+  height:2px;
+  border-radius:999px;
+  background:var(--accent);
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+/* tighter spacing on very small screens */
+@media (max-width:480px) {
+  nav {
+    gap:.9rem;
+    padding:.65rem .5rem;
+  }
+  nav a {
+    font-size:.9rem;
+  }
 }
 
 /* HOME HERO */
@@ -294,7 +303,7 @@ header.hero {
 .page-hero {
   text-align:center;
   padding-top:2rem;
-  padding-bottom:1.5rem;
+  padding-bottom:1rem;
 }
 .page-hero-inner {
   max-width:640px;
@@ -313,7 +322,7 @@ header.hero {
   color:var(--muted);
 }
 
-/* Tag rows (keywords / location) */
+/* Tag rows */
 
 .tag-row {
   display:flex;
@@ -394,48 +403,34 @@ footer a {
   margin-top:0.15rem;
 }
 
-/* Checklist section nav chips */
+/* Checklist chips */
 
 .checklist-nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.75rem 1rem;
-  max-width: 720px;
-  margin: 0 auto 2rem;
-  padding: 0.75rem 0 1.25rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+  gap:0.75rem 1rem;
+  max-width:720px;
+  margin:0 auto 2rem;
+  padding:0.75rem 0 1.25rem;
 }
 
 .checklist-nav a {
-  display: flex;
-  justify-content: center;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #fff;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--muted);
-  white-space: nowrap;
+  display:flex;
+  justify-content:center;
+  padding:0.45rem 1rem;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-size:0.85rem;
+  font-weight:500;
+  color:var(--muted);
+  white-space:nowrap;
 }
 
-/* Reduce large gap under hero on the home page */
+/* Home / page spacing adjustments */
 .home-hero + .section {
-  margin-top: 1.25rem;
+  margin-top:1.25rem;
 }
-
-/* Reduce the space under page-hero on About and Services */
-.page-hero {
-  padding-bottom: 1rem; /* was 1.5rem */
-}
-
 .page-hero + main.wrap {
-  margin-top: 0.5rem; /* reduce the natural gap */
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+  margin-top:0.5rem;
 }
