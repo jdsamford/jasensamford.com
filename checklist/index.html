@@ -88,17 +88,39 @@
     }
 
     .page-intro {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       font-size: 1rem;
       line-height: 1.5;
       color: #444;
     }
 
+    /* in-page checklist nav */
+    .checklist-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.85rem;
+    }
+
+    .checklist-nav a {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      text-decoration: none;
+      color: #444;
+    }
+
+    .checklist-nav a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     main section {
-      margin-bottom: 2.5rem;
-      padding: 1.25rem 1rem 1rem;
-      border-radius: 8px;
-      background: #f7f7f7;
+      margin-bottom: 2rem;
+      padding: 1rem 0.9rem 0.8rem;
+      border-radius: 10px;
+      background: #fafafa;
     }
 
     main section h2 {
@@ -117,19 +139,20 @@
       margin-bottom: 0.4rem;
     }
 
-      main section ul ul {
-    margin-left: 1.5rem;
-    margin-top: 0.25rem;
-  }
+    main section ul ul {
+      margin-left: 1.5rem;
+      margin-top: 0.25rem;
+    }
 
-  main section ul ul li {
-    margin-bottom: 0.3rem;
-  }
+    main section ul ul li {
+      margin-bottom: 0.3rem;
+    }
 
-  main section li.no-checkbox {
-    margin-bottom: 0.4rem;
-    font-weight: 500;
-  }
+    main section li.no-checkbox {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
     main section label {
       cursor: pointer;
       display: flex;
@@ -139,13 +162,14 @@
       line-height: 1.4;
     }
 
-      main section label span {
-    flex: 1;
-  }
+    main section label span {
+      flex: 1;
+    }
 
-    
     main input[type="checkbox"] {
       margin-top: 0.1rem;
+      width: 1.1rem;
+      height: 1.1rem;
     }
   </style>
 </head>
@@ -166,7 +190,22 @@
       A simple, practical checklist to move your release from planning to payout.
     </p>
 
-    <section>
+    <nav class="checklist-nav">
+      <a href="#writing">Writing</a>
+      <a href="#recording">Recording</a>
+      <a href="#editing">Mixing</a>
+      <a href="#mastering">Mastering</a>
+      <a href="#artwork">Artwork</a>
+      <a href="#metadata">Metadata</a>
+      <a href="#distribution">Distribution</a>
+      <a href="#promo">Promo</a>
+      <a href="#release-week">Release Week</a>
+      <a href="#post-release">Post</a>
+      <a href="#royalties">Royalties</a>
+      <a href="#long-term">Long-Term</a>
+    </nav>
+
+    <section id="writing">
       <h2>Writing and Pre-Production</h2>
       <ul>
         <li><label><input type="checkbox"> Write the song.</label></li>
@@ -177,7 +216,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="recording">
       <h2>Recording</h2>
       <ul>
         <li><label><input type="checkbox"> Book studio time or prep your home setup.</label></li>
@@ -188,7 +227,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="editing">
       <h2>Editing and Mixing</h2>
       <ul>
         <li><label><input type="checkbox"> Clean up tracks (timing, tuning, noise).</label></li>
@@ -199,7 +238,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="mastering">
       <h2>Mastering</h2>
       <ul>
         <li><label><input type="checkbox"> Choose a mastering engineer or service.</label></li>
@@ -210,7 +249,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="artwork">
       <h2>Artwork and Visuals</h2>
       <ul>
         <li><label><input type="checkbox"> Create or commission cover art that meets distributor specs.</label></li>
@@ -219,7 +258,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="metadata">
       <h2>Metadata and Admin</h2>
       <ul>
         <li><label><input type="checkbox"> Confirm your artist name and check for conflicts.</label></li>
@@ -232,7 +271,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="distribution">
       <h2>Distribution Setup</h2>
       <ul>
         <li><label><input type="checkbox"> Choose your distributor.</label></li>
@@ -244,18 +283,17 @@
       </ul>
     </section>
 
-    <section>
+    <section id="promo">
       <h2>Pitching and Promotion (Pre-Release)</h2>
       <ul>
         <li>
-  <label>
-    <input type="checkbox">
-    <span>
-      Pitch upcoming release through Spotify for Artists <strong>at least</strong> 7 days before release, so that it can reach Release Radar for your followers and be eligible for editorial playlists.
-    </span>
-  </label>
-</li>
-
+          <label>
+            <input type="checkbox">
+            <span>
+              Pitch the release through Spotify for Artists at least 7 days before release so it reaches Release Radar for your followers and stays eligible for editorial playlists.
+            </span>
+          </label>
+        </li>
         <li><label><input type="checkbox"> Update artist profiles (Spotify, Apple, Amazon, YouTube, etc.).</label></li>
         <li><label><input type="checkbox"> Write or update your artist bio and track description.</label></li>
         <li><label><input type="checkbox"> Build or update your EPK (photos, links, short bio, stats).</label></li>
@@ -266,7 +304,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="release-week">
       <h2>Release Week</h2>
       <ul>
         <li><label><input type="checkbox"> Verify the release is live and correct on all platforms.</label></li>
@@ -279,7 +317,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="post-release">
       <h2>Post-Release</h2>
       <ul>
         <li><label><input type="checkbox"> Watch for algorithmic placements (Release Radar, Discover Weekly, radio).</label></li>
@@ -290,27 +328,35 @@
       </ul>
     </section>
 
-    <section>
-  <h2>Royalties and Payments</h2>
-  <ul>
-    <li><label><input type="checkbox"> Check your distributor’s reporting schedule.</label></li>
-    <li><label><input type="checkbox"> Confirm your payout info is correct.</label></li>
-    <li><label><input type="checkbox"> Set up revenue splits if your distributor supports it.</label></li>
-
-    <li class="no-checkbox">
-      Track income sources:
+    <section id="royalties">
+      <h2>Royalties and Payments</h2>
       <ul>
-        <li><label><input type="checkbox"> Distributor (master royalties)</label></li>
-        <li><label><input type="checkbox"> PRO (performance)</label></li>
-        <li><label><input type="checkbox"> Mechanical/publishing admin</label></li>
-        <li><label><input type="checkbox"> SoundExchange</label></li>
+        <li><label><input type="checkbox"> Check your distributor’s reporting schedule.</label></li>
+        <li><label><input type="checkbox"> Confirm your payout info is correct.</label></li>
+        <li><label><input type="checkbox"> Set up revenue splits if your distributor supports it.</label></li>
+
+        <li class="no-checkbox">
+          Track income sources:
+          <ul>
+            <li><label><input type="checkbox"> Distributor (master royalties)</label></li>
+            <li><label><input type="checkbox"> PRO (performance)</label></li>
+            <li><label><input type="checkbox"> Mechanical/publishing admin</label></li>
+            <li><label><input type="checkbox"> SoundExchange</label></li>
+          </ul>
+        </li>
+
+        <li><label><input type="checkbox"> Fix metadata or ownership issues quickly.</label></li>
       </ul>
-    </li>
+    </section>
 
-    <li><label><input type="checkbox"> Fix metadata or ownership issues quickly.</label></li>
-  </ul>
-</section>
-
+    <section id="long-term">
+      <h2>Long-Term</h2>
+      <ul>
+        <li><label><input type="checkbox"> Add this release to your website discography and EPK.</label></li>
+        <li><label><input type="checkbox"> Store stems, mixes, masters, artwork, lyrics, and credits in long-term backup.</label></li>
+        <li><label><input type="checkbox"> Note what worked and what you’ll change next time.</label></li>
+      </ul>
+    </section>
   </main>
 
   <script>
