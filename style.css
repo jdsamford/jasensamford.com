@@ -399,42 +399,35 @@ footer a {
 .checklist-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 0.8rem; /* even horizontal + vertical spacing */
-  margin: 0.75rem 0 2rem;
-  padding: 0;
+  justify-content: center;   /* center all rows */
+  gap: 0.75rem 1rem;          /* even vertical + horizontal spacing */
+  padding: 0.75rem 0 1.75rem;
+  margin: 0 auto 1.5rem;
+  max-width: 720px;           /* keeps pills from stretching too far apart */
 }
 
 .checklist-nav a {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 20px;
-  padding: 0.45rem 0.9rem;
-  background: #fff;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
   border: 1px solid var(--line);
-  font-size: 0.86rem;
+  background: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--muted);
   white-space: nowrap;
-  transition: 0.15s ease;
+  text-decoration: none;
 }
 
 .checklist-nav a:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: var(--accent-soft);
+  background: #f3fbfb;
 }
 
-.checklist-nav a:active {
-  transform: scale(0.97);
-}
-
-/* Cleaner scrollbar for overflow (mobile only) */
 .checklist-nav::-webkit-scrollbar {
-  height: 4px;
+  display: none; /* hid for desktop, since it's now centered rows */
 }
-.checklist-nav::-webkit-scrollbar-thumb {
-  background: #d8d8d8;
-  border-radius: 999px;
-}
+
 
 /* Reduce large gap under hero on the home page */
 .home-hero + .section {
