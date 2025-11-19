@@ -27,27 +27,6 @@
   </script>
 </head>
 
-<div id="nav"></div>
-<script>
-  fetch('/nav.html')
-    .then(r => r.text())
-    .then(html => {
-      const nav = document.getElementById('nav');
-      nav.innerHTML = html;
-
-      // highlight current page *after nav is loaded*
-      const path = window.location.pathname.replace(/\/+$/, "") || "/";
-      nav.querySelectorAll("a").forEach(link => {
-        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-        if (href === path) {
-          link.classList.add("is-current");
-          link.setAttribute("aria-current", "page");
-        }
-      });
-    });
-</script>
-
-
 <body>
   <!-- Shared nav -->
   <div id="nav"></div>
