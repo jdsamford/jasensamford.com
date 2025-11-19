@@ -30,11 +30,23 @@
 <body>
   <!-- Shared nav -->
   <div id="nav"></div>
-  <script>
-    fetch('/nav.html')
-      .then(r => r.text())
-      .then(html => { document.getElementById('nav').innerHTML = html; });
-  </script>
+<script>
+  fetch('/nav.html')
+    .then(r => r.text())
+    .then(html => {
+      const nav = document.getElementById('nav');
+      nav.innerHTML = html;
+
+      const path = window.location.pathname.replace(/\/+$/, "") || "/";
+      nav.querySelectorAll("a").forEach(link => {
+        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+        if (href === path) {
+          link.classList.add("is-current");
+          link.setAttribute("aria-current", "page");
+        }
+      });
+    });
+</script>
 
   <!-- HERO -->
   <header class="hero home-hero">
