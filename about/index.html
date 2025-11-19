@@ -11,6 +11,7 @@
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+  <!-- Shared nav -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
@@ -18,6 +19,7 @@
       .then(html => { document.getElementById('nav').innerHTML = html; });
   </script>
 
+  <!-- Page hero -->
   <section class="page-hero">
     <div class="wrap page-hero-inner">
       <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
@@ -36,9 +38,10 @@
         I focus on clear systems, clean data, and practical steps you can use right away.
       </p>
       <p>
-        Before consulting, I spent almost ten years at DistroKid, joining early and helping it grow from a startup
-        into the world’s largest distributor. I built and led artist support and education, partnered with Berklee
-        College of Music, KEXP, and Folk Alliance, and helped artists move from first upload to final payout.
+        Before consulting, I spent almost ten years at DistroKid, joining early and helping it grow from a
+        startup into the world’s largest distributor. I built and led artist support and education, partnered
+        with Berklee College of Music, KEXP, and Folk Alliance, and helped artists move from first upload to
+        final payout.
       </p>
     </section>
 
@@ -53,20 +56,28 @@
       </ul>
     </section>
 
-<section class="section">
-  <h2>How it works</h2>
-  <ol>
-    <li><strong>Meet:</strong> focused call to gather details, links, and context.</li>
-    <li><strong>Clarify:</strong> map what’s happening, what’s blocking progress, and what data is needed.</li>
-    <li><strong>Follow-up:</strong> short written summary with priorities and actionable next steps.</li>
-  </ol>
+    <section class="section">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Meet:</strong> focused call to gather details, links, and context.</li>
+        <li><strong>Clarify:</strong> map what’s happening, what’s blocking progress, and what data is needed.</li>
+        <li><strong>Follow-up:</strong> short written summary with priorities and actionable next steps.</li>
+      </ol>
 
-  <p>
-    When support is slow or not tracking the problem, I can work with contacts at distributors and DSPs
-    to get the issue in front of the right team.
-  </p>
-</section>
+      <p>
+        When support is slow or not tracking the problem, I can work with contacts at distributors and DSPs
+        to get the issue in front of the right team.
+      </p>
 
+      <div class="btn-row" style="justify-content:flex-start;margin-top:0.5rem;">
+        <a href="https://calendly.com/jdsamford/60min"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener">
+          Book a session
+        </a>
+      </div>
+    </section>
 
     <section class="section">
       <h2>Background</h2>
@@ -75,9 +86,14 @@
         <li>Scaled artist support from early stage to millions of users.</li>
         <li>Partnerships: Berklee, KEXP, Folk Alliance.</li>
       </ul>
-      <p class="card-muted">
-        Seattle area (Edmonds, WA) · Distribution · Royalties · Metadata · Streaming fraud
-      </p>
+
+      <div class="tag-row">
+        <span class="tag-pill">Seattle area (Edmonds, WA)</span>
+        <span class="tag-pill">Distribution</span>
+        <span class="tag-pill">Royalties</span>
+        <span class="tag-pill">Metadata</span>
+        <span class="tag-pill">Streaming fraud</span>
+      </div>
     </section>
   </main>
 
