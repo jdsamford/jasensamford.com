@@ -439,3 +439,11 @@ footer a {
 .page-hero + main.wrap {
   margin-top: 0.5rem; /* reduce the natural gap */
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
