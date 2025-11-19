@@ -11,6 +11,7 @@
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+  <!-- Shared nav -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
@@ -18,33 +19,40 @@
       .then(html => { document.getElementById('nav').innerHTML = html; });
   </script>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap hero-inner">
       <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
       <img src="/logo_drk_bg.png" alt="Jasen Samford Music Business Consultant" class="logo" />
       <h1 class="hero-name">Jasen Samford</h1>
       <p class="lead">
-        Practical answers across the full indie artist lifecycle: creation, distribution, promotion, payouts, touring, merch, and everything in between.
+        Practical answers across the full indie artist lifecycle: creation, distribution, promotion,
+        payouts, touring, merch, and everything in between.
       </p>
       <div class="btn-row">
-        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
-        <a href="https://www.linkedin.com/in/jasensamford" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">
+          Book a session
+        </a>
+        <a href="https://www.linkedin.com/in/jasensamford" class="btn btn-ghost" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- About -->
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="section-header">
+        <p class="section-kicker">For artists, labels, and platforms</p>
         <h2 class="section-title">About</h2>
       </div>
       <div class="grid grid-2">
         <div class="card">
           <p>
             I spent years at DistroKid helping build systems that serve millions of independent artists.
-            Now I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
-            smooth payouts, and keep growth sustainable without losing the human touch.
+            Now I partner with artists, labels, and platforms to improve transparency, strengthen release
+            plans, smooth payouts, and keep growth sustainable without losing the human touch.
           </p>
         </div>
         <div class="card">
@@ -52,16 +60,17 @@
           <ul class="card-muted">
             <li>Cleaner metadata and smoother payouts.</li>
             <li>Release plans that travel from idea to impact.</li>
-            <li>Fewer false positive fraud flags.</li>
+            <li>Fewer false-positive fraud flags.</li>
             <li>Clear documentation for teams and partners.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- SERVICES SUMMARY -->
     <section class="section" id="services">
       <div class="section-header">
+        <p class="section-kicker">Where I help most</p>
         <h2 class="section-title">Services</h2>
       </div>
       <div class="grid grid-2">
@@ -85,9 +94,9 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- TESTIMONIALS -->
     <section class="section testimonials" id="testimonials">
-      <h2 class="section-title">Trusted by teams that build for artists</h2>
+      <h2 class="section-title" style="text-align:center;">Trusted by teams that build for artists</h2>
       <div class="testimonials-grid">
         <div class="testimonial">
           He reduces complex context to the essentials and spins up scalable solutions fast.
@@ -116,7 +125,7 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT / CTA -->
     <section class="section" id="contact">
       <div class="section-header" style="text-align:center;">
         <h2 class="section-title">Let’s talk</h2>
@@ -125,7 +134,9 @@
         </p>
       </div>
       <div style="text-align:center;">
-        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
+        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">
+          Book a session
+        </a>
       </div>
     </section>
   </main>
