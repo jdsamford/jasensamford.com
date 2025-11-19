@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,95 +8,87 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/about/" />
   <link rel="stylesheet" href="/style.css" />
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
-
 <body>
-  <header>
-    <div class="wrap">
-     <div id="nav"></div>
-<script>
-  fetch("/nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav").innerHTML = html;
-    });
-</script>
+  <div id="nav"></div>
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('nav').innerHTML = html; });
+  </script>
 
-
-      <div class="hero">
-        <img class="headshot" src="../headshot.png" alt="Jasen Samford headshot">
-        <div>
-          <h1>About Jasen Samford</h1>
-          <p class="sub">Music distribution consultant for independent artists, labels, and music companies.</p>
-        </div>
-      </div>
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
+      <h1 class="page-hero-title">About Jasen Samford</h1>
+      <p class="page-hero-subtitle">
+        Music distribution consultant for independent artists, labels, and music companies.
+      </p>
     </div>
-  </header>
+  </section>
 
   <main class="wrap">
-    <section aria-labelledby="who">
-      <h2 id="who">Who I am</h2>
-      <p>I help artists, labels, and music companies make sense of distribution, royalties, and metadata. I focus on clear systems, clean data, and practical steps you can use right away.</p>
-      <p>Before consulting, I spent almost ten years at DistroKid, joining early and helping it grow from a startup into the world’s largest distributor. I built and led artist support and education, partnered with Berklee College of Music, KEXP, and Folk Alliance, and helped artists move from first upload to final payout.</p>
+    <section class="section">
+      <h2>Who I am</h2>
+      <p>
+        I help artists, labels, and music companies make sense of distribution, royalties, and metadata.
+        I focus on clear systems, clean data, and practical steps you can use right away.
+      </p>
+      <p>
+        Before consulting, I spent almost ten years at DistroKid, joining early and helping it grow from a startup
+        into the world’s largest distributor. I built and led artist support and education, partnered with Berklee
+        College of Music, KEXP, and Folk Alliance, and helped artists move from first upload to final payout.
+      </p>
     </section>
 
-    <section aria-labelledby="what">
-      <h2 id="what">What I do</h2>
+    <section class="section">
+      <h2>What I do</h2>
       <ul>
-        <li>Release planning and distribution strategy</li>
-        <li>Metadata hygiene (ISRC/UPC), catalog cleanup, conflict resolution</li>
-        <li>Royalty setup, audits, and troubleshooting</li>
-        <li>Streaming fraud prevention and best practices</li>
-        <li>Team training and process design for artist services</li>
+        <li>Release planning and distribution strategy.</li>
+        <li>Metadata hygiene (ISRC/UPC), catalog cleanup, conflict resolution.</li>
+        <li>Royalty setup, audits, and troubleshooting.</li>
+        <li>Streaming fraud prevention and best practices.</li>
+        <li>Team training and process design for artist services.</li>
       </ul>
     </section>
 
-    <section aria-labelledby="how">
-      <h2 id="how">How it works</h2>
+    <section class="section">
+      <h2>How it works</h2>
       <ol>
         <li><strong>Meet:</strong> focused call to gather details, links, and context.</li>
         <li><strong>Clarify:</strong> map what’s happening, what’s blocking progress, and what data is needed.</li>
         <li><strong>Follow-up:</strong> short written summary with priorities and actionable next steps.</li>
       </ol>
-      <p class="sub">When support is slow or not tracking the problem, I can work with contacts at distributors and DSPs to get the issue in front of the right team.</p>
       <p>
-        <a class="cta" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+        When support is slow or not tracking the problem, I can work with contacts at distributors and DSPs to get the issue
+        in front of the right team.
+      </p>
+      <p>
+        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
       </p>
     </section>
 
-    <section aria-labelledby="cred">
-      <h2 id="cred">Background</h2>
+    <section class="section">
+      <h2>Background</h2>
       <ul>
-        <li>Former Director of Education at DistroKid</li>
-        <li>Scaled artist support from early stage to millions of users</li>
-        <li>Partnerships: Berklee, KEXP, Folk Alliance</li>
+        <li>Former Director of Education at DistroKid.</li>
+        <li>Scaled artist support from early stage to millions of users.</li>
+        <li>Partnerships: Berklee, KEXP, Folk Alliance.</li>
       </ul>
-      <div class="pills">
-        <span class="pill">Seattle area (Edmonds, WA)</span>
-        <span class="pill">Distribution</span>
-        <span class="pill">Royalties</span>
-        <span class="pill">Metadata</span>
-        <span class="pill">Streaming fraud</span>
-      </div>
+      <p class="card-muted">
+        Seattle area (Edmonds, WA) · Distribution · Royalties · Metadata · Streaming fraud
+      </p>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      <p>
-        <a href="/about/">About</a>
-        <a href="/services/">Services</a>
-        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
-      </p>
-      <p>&copy; <span id="y"></span> Jasen Samford Consulting</p>
-    </div>
+    <p>
+      <a href="/about/">About</a> ·
+      <a href="/services/">Services</a> ·
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+    </p>
+    <p>© 2025 Jasen Samford Consulting</p>
   </footer>
-
-  <script>
-    const yearEl = document.getElementById('y');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  </script>
 </body>
 </html>
