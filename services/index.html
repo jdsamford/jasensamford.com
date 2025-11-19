@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="/style.css" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
+
 <body>
+  <!-- Shared nav -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
@@ -18,20 +20,28 @@
       .then(html => { document.getElementById('nav').innerHTML = html; });
   </script>
 
+  <!-- HERO -->
   <section class="page-hero">
     <div class="wrap page-hero-inner">
       <h1 class="page-hero-title">Services</h1>
       <p class="page-hero-subtitle">
-        Practical help for independent artists, labels, and music companies. We meet, I clarify the issues,
-        and you get a concise plan with next steps.
+        Practical help for independent artists, labels, and music companies.
+        We meet, I clarify the issues, and you get a concise plan with next steps.
       </p>
+
       <div class="btn-row" style="margin-top:1.2rem;">
-        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
+        <a href="https://calendly.com/jdsamford/60min"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener">
+          Book a session
+        </a>
       </div>
     </div>
   </section>
 
   <main class="wrap">
+    <!-- Core work -->
     <section class="section">
       <h2>Core work</h2>
       <ul>
@@ -43,19 +53,27 @@
       </ul>
     </section>
 
+    <!-- How it works -->
     <section class="section">
       <h2>How it works</h2>
       <ol>
-        <li><strong>Meet:</strong> focused call to gather details, links, and context about the issue(s) you’re facing.</li>
+        <li><strong>Meet:</strong> focused call to gather details, links, and context about the issues you’re facing.</li>
         <li><strong>Clarify:</strong> I map what’s happening, what’s blocking progress, and what data is needed.</li>
         <li><strong>Follow-up:</strong> written summary with priorities and actionable next steps.</li>
-        <li><strong>Escalate (if needed):</strong> if support is slow or not tracking the problem, I can liaise with contacts at distributors and DSPs to get the issue in front of the right team.</li>
+        <li><strong>Escalate:</strong> if support is slow or missing something, I can liaise with contacts at distributors and DSPs to get the issue in front of the right team.</li>
       </ol>
+
       <div class="btn-row" style="justify-content:flex-start;margin-top:0.5rem;">
-        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
+        <a href="https://calendly.com/jdsamford/60min"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener">
+          Book a session
+        </a>
       </div>
     </section>
 
+    <!-- Who this helps -->
     <section class="section">
       <h2>Who this helps</h2>
       <ul>
@@ -63,9 +81,14 @@
         <li>Indie labels and small catalogs.</li>
         <li>Platforms building artist services.</li>
       </ul>
-      <p class="card-muted">
-        Keywords: distribution · royalties · metadata · fraud · ops
-      </p>
+
+      <div class="tag-row">
+        <span class="tag-pill">Distribution</span>
+        <span class="tag-pill">Royalties</span>
+        <span class="tag-pill">Metadata</span>
+        <span class="tag-pill">Fraud</span>
+        <span class="tag-pill">Ops</span>
+      </div>
     </section>
   </main>
 
