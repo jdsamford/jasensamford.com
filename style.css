@@ -417,3 +417,8 @@ footer a {
   color:var(--accent);
   background:#f3fbfb;
 }
+
+/* Reduce large gap under hero on the home page */
+.home-hero + .section {
+  margin-top: 1.25rem;
+}
