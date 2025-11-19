@@ -20,7 +20,13 @@
       -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
     .wrap{max-width:960px;margin:0 auto;padding:24px}
+    h1{
+      font-size:1.8rem;
+      font-weight:800;
+      margin:.5rem 0 .25rem;
+    }
     h2{font-size:1.45rem;font-weight:800;margin:2rem 0 1rem}
+    h3{margin-top:0;font-size:1.05rem}
     .lead{font-size:1.05rem;color:var(--muted);margin:.5rem auto 1.25rem;max-width:56ch;text-align:center}
 
     /* NAVBAR */
@@ -82,7 +88,7 @@
     <a href="/" aria-current="page">Home</a>
     <a href="/about/">About</a>
     <a href="/services/">Services</a>
-    <a href="/checklist">Release Checklist</a>
+    <a href="/checklist/">Release Checklist</a>
     <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book</a>
   </nav>
 
@@ -91,6 +97,7 @@
     <header>
       <img src="headshot.png" alt="Jasen Samford portrait" class="headshot">
       <img id="logo" class="logo" src="logo_drk_bg.png" alt="Jasen Samford logo">
+      <h1>Jasen Samford</h1>
       <p class="lead">
         Practical answers across the full indie artist lifecycle: creation, distribution, promotion,
         payouts, touring, merch, and everything in between.
@@ -108,12 +115,12 @@
         <div class="card">
           <p>
             I spent years at DistroKid helping build systems that serve millions of independent artists.
-            Today I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
-            streamline payouts, and keep growth sustainable without losing the human touch.
+            Now I partner with artists, labels, and platforms to improve transparency, strengthen release plans,
+            smooth payouts, and keep growth sustainable without losing the human touch.
           </p>
         </div>
         <div class="card">
-          <h3 style="margin-top:0">Typical outcomes</h3>
+          <h3>Typical outcomes</h3>
           <ul>
             <li>Cleaner metadata and smoother payouts</li>
             <li>Release plans that travel from idea to impact</li>
@@ -129,7 +136,7 @@
       <h2>Services</h2>
       <div class="grid grid-2">
         <div class="card">
-          <h3 style="margin-top:0">For artists and labels</h3>
+          <h3>For artists and labels</h3>
           <ul>
             <li>Distributor setup and catalog optimization</li>
             <li>Release strategy and lightweight promo plans</li>
@@ -138,7 +145,7 @@
           </ul>
         </div>
         <div class="card">
-          <h3 style="margin-top:0">For platforms and teams</h3>
+          <h3>For platforms and teams</h3>
           <ul>
             <li>Integrity playbooks and risk reduction</li>
             <li>Support operations and escalation models</li>
@@ -163,18 +170,17 @@
     </section>
 
     <!-- CONTACT -->
-<section id="contact">
-  <h2>Let’s talk</h2>
-  <p class="lead" style="margin-top:.25rem">
-    Consulting sessions available worldwide via Google Meet.
-  </p>
-  <div class="btn-row">
-    <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">
-      Book a session
-    </a>
-  </div>
-</section>
-
+    <section id="contact">
+      <h2>Let’s talk</h2>
+      <p class="lead" style="margin-top:.25rem">
+        Consulting sessions available worldwide via Google Meet.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">
+          Book a session
+        </a>
+      </div>
+    </section>
 
     <!-- SHARE -->
     <section id="share">
@@ -209,33 +215,46 @@
 
   <script>
     // year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('y');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
     // Logo auto-switch
     const logo = document.getElementById('logo');
     const footerLogo = document.getElementById('footer-logo');
     const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
     function updateLogos() {
+      if (!logo || !footerLogo) return;
       const src = darkScheme.matches ? 'logo_lt_bg.png' : 'logo_drk_bg.png';
       logo.src = src;
       footerLogo.src = src;
     }
-    darkScheme.addEventListener('change', updateLogos);
-    updateLogos();
+
+    if (logo && footerLogo) {
+      darkScheme.addEventListener('change', updateLogos);
+      updateLogos();
+    }
 
     // Share links
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent(document.title);
-    const shareLinks = {
-      fb: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
-      x:  `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`,
-      li: `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`,
-      mail:`mailto:?subject=${pageTitle}&body=${pageUrl}`
-    };
-    document.querySelectorAll('.share').forEach(a => {
-      const type = a.classList[1];
-      a.href = shareLinks[type];
-    });
+    const shareEls = document.querySelectorAll('.share');
+    if (shareEls.length) {
+      const pageUrl = encodeURIComponent(window.location.href);
+      const pageTitle = encodeURIComponent(document.title);
+      const shareLinks = {
+        fb: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
+        x:  `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`,
+        li: `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`,
+        mail:`mailto:?subject=${pageTitle}&body=${pageUrl}`
+      };
+      shareEls.forEach(a => {
+        const type = a.classList[1];
+        if (shareLinks[type]) {
+          a.href = shareLinks[type];
+        }
+      });
+    }
   </script>
 </body>
 </html>
