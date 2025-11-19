@@ -11,18 +11,24 @@
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
-  <script>
-  (function () {
-    var path = window.location.pathname.replace(/\/+$/, "") || "/";
-    document.querySelectorAll("nav a").forEach(function (link) {
-      var href = link.getAttribute("href") || "";
-      var normalized = href.replace(/\/+$/, "") || "/";
-      if (normalized === path) {
-        link.classList.add("is-current");
-        link.setAttribute("aria-current", "page");
-      }
+<div id="nav"></div>
+<script>
+  fetch('/nav.html')
+    .then(r => r.text())
+    .then(html => {
+      const nav = document.getElementById('nav');
+      nav.innerHTML = html;
+
+      // highlight current page *after nav is loaded*
+      const path = window.location.pathname.replace(/\/+$/, "") || "/";
+      nav.querySelectorAll("a").forEach(link => {
+        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+        if (href === path) {
+          link.classList.add("is-current");
+          link.setAttribute("aria-current", "page");
+        }
+      });
     });
-  })();
 </script>
 
 <body>
