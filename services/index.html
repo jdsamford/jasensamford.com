@@ -11,45 +11,45 @@
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
-  <script>
-  (function () {
-    var path = window.location.pathname.replace(/\/+$/, "") || "/";
-    document.querySelectorAll("nav a").forEach(function (link) {
-      var href = link.getAttribute("href") || "";
-      var normalized = href.replace(/\/+$/, "") || "/";
-      if (normalized === path) {
-        link.classList.add("is-current");
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  })();
-</script>
-
 <body>
   <!-- Shared nav -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
       .then(r => r.text())
-      .then(html => { document.getElementById('nav').innerHTML = html; });
+      .then(html => {
+        document.getElementById('nav').innerHTML = html;
+
+        // highlight current nav item
+        (function () {
+          var path = window.location.pathname.replace(/\/+$/, "") || "/";
+          document.querySelectorAll("nav a").forEach(function (link) {
+            var href = link.getAttribute("href") || "";
+            var normalized = href.replace(/\/+$/, "") || "/";
+            if (normalized === path) {
+              link.classList.add("is-current");
+              link.setAttribute("aria-current", "page");
+            }
+          });
+        })();
+      });
   </script>
-  <!-- HERO -->
+
+  <!-- HERO (matching home layout, but for Services) -->
   <header class="hero home-hero">
     <div class="wrap hero-inner">
       <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
 
-      <!-- IMPORTANT: logo now has id="logo" for JS switching -->
-      <img id="logo" src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="wrap page-hero-inner">
-      <h1 class="page-hero-title">Services</h1>
-      <p class="page-hero-subtitle">
+      <!-- static logo here (no JS switching needed) -->
+      <img src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
+
+      <h1 class="hero-name">Services</h1>
+      <p class="lead">
         Practical help for independent artists, labels, and music companies.
         We meet, I clarify the issues, and you get a concise plan with next steps.
       </p>
 
-      <div class="btn-row" style="margin-top:1.2rem;">
+      <div class="btn-row">
         <a href="https://calendly.com/jdsamford/60min"
            class="btn btn-primary"
            target="_blank"
@@ -58,7 +58,7 @@
         </a>
       </div>
     </div>
-  </section>
+  </header>
 
   <main class="wrap">
     <!-- Core work -->
@@ -101,7 +101,6 @@
         <li>Indie labels and small catalogs.</li>
         <li>Platforms building artist services.</li>
       </ul>
-
     </section>
   </main>
 
