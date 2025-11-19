@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="/style.css" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
-
 <body>
-  <!-- NAV (loaded from /nav.html) -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
@@ -20,7 +18,6 @@
       .then(html => { document.getElementById('nav').innerHTML = html; });
   </script>
 
-  <!-- CHECKLIST CONTENT -->
   <main class="wrap checklist-main">
     <h1>Release Checklist</h1>
     <p class="page-intro">
@@ -178,5 +175,14 @@
       </ul>
     </section>
   </main>
+
+  <footer>
+    <p>
+      <a href="/about/">About</a> ·
+      <a href="/services/">Services</a> ·
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+    </p>
+    <p>© 2025 Jasen Samford Consulting</p>
+  </footer>
 </body>
 </html>
