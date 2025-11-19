@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Services | Jasen Samford Consulting</title>
-  <meta name="description" content="Release planning, distribution cleanup, royalties, streaming-fraud checks, and training for teams that work with independent artists." />
+  <meta name="description" content="Release planning, distribution cleanup, royalties, streaming-fraud checks, and training." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/services/" />
   <link rel="stylesheet" href="/style.css" />
@@ -14,18 +14,16 @@
 
 <body>
 
-  <!-- NAV -->
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
       .then(r => r.text())
       .then(html => {
-        const navContainer = document.getElementById('nav');
-        navContainer.innerHTML = html;
+        const nav = document.getElementById('nav');
+        nav.innerHTML = html;
 
-        // highlight current page
         const path = window.location.pathname.replace(/\/+$/, "") || "/";
-        navContainer.querySelectorAll("a").forEach(link => {
+        nav.querySelectorAll("a").forEach(link => {
           const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
           if (href === path) {
             link.classList.add("is-current");
@@ -35,17 +33,11 @@
       });
   </script>
 
-  <!-- HERO (matched to Home/About) -->
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap hero-inner">
-      <img src="/headshot.png"
-           alt="Photo of Jasen Samford"
-           class="headshot" />
-
-      <img id="logo"
-           src="/logo_drk_bg.png"
-           alt="Jasen Samford logo"
-           class="logo" />
+      <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
+      <img src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
 
       <p class="lead">
         Practical help for independent artists, labels, and music companies.
@@ -54,16 +46,11 @@
 
       <div class="btn-row">
         <a href="https://calendly.com/jdsamford/60min"
-           class="btn btn-primary"
-           target="_blank"
-           rel="noopener">
-          Book a session
-        </a>
+           class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
       </div>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="wrap">
 
     <section class="section">
@@ -73,26 +60,22 @@
         <li>Metadata cleanup (ISRC/UPC), catalog hygiene, conflict resolution.</li>
         <li>Royalty setup, audits, and payout troubleshooting.</li>
         <li>Streaming-fraud risk checks and best practices.</li>
-        <li>Team training and process design for artist services.</li>
+        <li>Team training and process design.</li>
       </ul>
     </section>
 
     <section class="section">
       <h2>How it works</h2>
       <ol>
-        <li><strong>Meet:</strong> focused call to gather details, links, and context.</li>
-        <li><strong>Clarify:</strong> mapping issues, blocks, and required data.</li>
-        <li><strong>Follow-up:</strong> written priorities with actionable steps.</li>
-        <li><strong>Escalate:</strong> if needed, I can liaise with distributor/DSP contacts.</li>
+        <li><strong>Meet:</strong> focused call to gather details and context.</li>
+        <li><strong>Clarify:</strong> map what’s happening and what’s blocking progress.</li>
+        <li><strong>Follow-up:</strong> written summary with priorities and next steps.</li>
+        <li><strong>Escalate:</strong> liaise with DSP/distributor teams when needed.</li>
       </ol>
 
-      <div class="btn-row" style="justify-content:flex-start;margin-top:0.5rem;">
+      <div class="btn-row" style="justify-content:flex-start;">
         <a href="https://calendly.com/jdsamford/60min"
-           class="btn btn-primary"
-           target="_blank"
-           rel="noopener">
-          Book a session
-        </a>
+           class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
       </div>
     </section>
 
@@ -111,21 +94,11 @@
     <p>
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
-      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+      <a href="/book/">Book a session</a>
     </p>
     <p>© 2025 Jasen Samford Consulting</p>
   </footer>
 
-  <!-- LOGO SWITCH (same as Home) -->
-  <script>
-    const logo = document.getElementById('logo');
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    function updateLogo() {
-      logo.src = darkScheme.matches ? '/logo_lt_bg.png' : '/logo_drk_bg.png';
-    }
-    darkScheme.addEventListener('change', updateLogo);
-    updateLogo();
-  </script>
-
 </body>
 </html>
+
