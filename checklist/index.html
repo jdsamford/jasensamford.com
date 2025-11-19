@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jasen Samford | Music Business Consultant</title>
-  <meta name="description" content="Practical answers across the full indie artist lifecycle: creation, distribution, promotion, payouts, touring, merch, and everything in between." />
-  <meta name="keywords" content="music business consultant, artist development, digital distribution, indie artist strategy, DistroKid, streaming, metadata, release planning" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>Jasen Samford | Release Checklist</title>
+  <meta name="description" content="A practical release checklist for independent artists: planning, recording, distribution, promotion, and payouts." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/checklist/" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 
+  <!-- MAIN SITE STYLES (copied from index.html) -->
   <style>
     :root { --accent:#0aa2a2; --text:#111; --muted:#555; --bg:#fff; --card:#f8fafb; --line:#eee; --radius:14px; --shadow:0 4px 18px rgba(0,0,0,.06); }
     *{box-sizing:border-box}
@@ -23,136 +23,49 @@
     h2{font-size:1.45rem;font-weight:800;margin:2rem 0 1rem}
     .lead{font-size:1.05rem;color:var(--muted);margin:.5rem auto 1.25rem;max-width:56ch;text-align:center}
 
-    /* NAVBAR */
     nav {border-bottom:1px solid var(--line);background:var(--bg);padding:.75rem 1rem;text-align:center}
     nav a {color:var(--text);text-decoration:none;margin:0 .9rem;font-weight:600;font-size:.95rem;transition:color .2s ease}
     nav a:hover { color:var(--accent) }
 
-    /* HERO (not really used here but kept for consistency) */
-    header{text-align:center;padding-top:1rem;padding-bottom:1.25rem}
-    .headshot{
-      width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center;
-      display:block;margin:0 auto 10px;
-      box-shadow:0 0 0 5px #fff,0 0 0 9px rgba(10,162,162,.12),var(--shadow)
-    }
-    .logo{display:block;max-width:320px;margin:16px auto 14px}
-
-    /* Buttons */
-    .btn{appearance:none;border:0;cursor:pointer;display:inline-block;padding:.75rem 1.1rem;border-radius:999px;font-weight:600;text-decoration:none;transition:.2s ease;font-size:.95rem}
-    .btn-primary{background:var(--accent);color:#fff}
-    .btn-primary:hover{transform:translateY(-1px);filter:brightness(.95)}
-    .btn-ghost{background:#eee;color:var(--text)}
-    .btn-ghost:hover{background:#e4e4e4}
-    .btn-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0 1.25rem}
-
-    /* Layout */
-    .grid{display:grid;gap:1rem}
-    @media(min-width:820px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);border:1px solid #e4eeee;border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
-
-    /* Testimonials */
-    .testimonials{margin-top:3rem}
-    .testimonials h2{text-align:center;margin-bottom:1.4rem}
-    .testimonials-grid{display:grid;gap:1rem}
-    @media(min-width:820px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
-    .testimonial{
-      background:var(--card);border:1px solid #e5f0f0;border-left:4px solid var(--accent);
-      border-radius:var(--radius);padding:1.1rem 1.2rem;position:relative;font-style:italic;color:#222;box-shadow:var(--shadow)
-    }
-    .testimonial::before{content:"“";position:absolute;left:10px;top:4px;font-size:2rem;line-height:1;color:var(--accent);opacity:.2}
-    .testimonial::after{content:"”";position:absolute;right:10px;bottom:4px;font-size:2rem;line-height:1;color:var(--accent);opacity:.2}
-
-    /* Share */
-    #share{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.5rem;text-align:center}
-    .share-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
-    .share{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;text-decoration:none;color:#fff;transition:opacity .2s}
-    .share svg{width:22px;height:22px;fill:currentColor}
-    .share.fb{background:#1877f2}.share.x{background:#000}.share.li{background:#0a66c2}.share.mail{background:#666}
-    .share:hover{opacity:.85}
-
-    /* Footer */
     footer{border-top:1px solid var(--line);margin-top:2rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem;text-align:center}
     footer .logo{display:block;max-width:180px;margin:0 auto 10px;opacity:.9}
   </style>
 
+  <!-- CHECKLIST PAGE STYLES -->
   <style>
     main {
       max-width: 720px;
       margin: 3rem auto 4rem;
       padding: 0 1.5rem 3rem;
     }
-
     main h1 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
     }
-
     .page-intro {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       font-size: 1rem;
       line-height: 1.5;
       color: #444;
     }
-
-    /* in-page checklist nav */
-    .checklist-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.75rem;
-      font-size: 0.85rem;
-    }
-
-    .checklist-nav a {
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid #ddd;
-      text-decoration: none;
-      color: #444;
-    }
-
-    .checklist-nav a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
     main section {
-      margin-bottom: 2rem;
-      padding: 1rem 0.9rem 0.8rem;
-      border-radius: 10px;
-      background: #fafafa;
+      margin-bottom: 2.5rem;
+      padding: 1.25rem 1rem 1rem;
+      border-radius: 8px;
+      background: #f7f7f7;
     }
-
     main section h2 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.75rem;
       font-size: 1.15rem;
     }
-
     main section ul {
       list-style: none;
       padding-left: 0;
       margin: 0;
     }
-
     main section li {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.45rem;
     }
-
-    main section ul ul {
-      margin-left: 1.5rem;
-      margin-top: 0.25rem;
-    }
-
-    main section ul ul li {
-      margin-bottom: 0.3rem;
-    }
-
-    main section li.no-checkbox {
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-
     main section label {
       cursor: pointer;
       display: flex;
@@ -161,20 +74,17 @@
       font-size: 0.98rem;
       line-height: 1.4;
     }
-
     main section label span {
       flex: 1;
     }
-
     main input[type="checkbox"] {
-      margin-top: 0.1rem;
-      width: 1.1rem;
-      height: 1.1rem;
+      margin-top: 0.25rem;
     }
   </style>
 </head>
 
 <body>
+
   <!-- NAVBAR -->
   <nav>
     <a href="/">Home</a>
@@ -184,223 +94,165 @@
     <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book</a>
   </nav>
 
+  <!-- MAIN CONTENT -->
   <main class="wrap">
     <h1>Release Checklist</h1>
     <p class="page-intro">
       A simple, practical checklist to move your release from planning to payout.
     </p>
 
-    <nav class="checklist-nav">
-      <a href="#writing">Writing</a>
-      <a href="#recording">Recording</a>
-      <a href="#editing">Mixing</a>
-      <a href="#mastering">Mastering</a>
-      <a href="#artwork">Artwork</a>
-      <a href="#metadata">Metadata</a>
-      <a href="#distribution">Distribution</a>
-      <a href="#promo">Promo</a>
-      <a href="#release-week">Release Week</a>
-      <a href="#post-release">Post</a>
-      <a href="#royalties">Royalties</a>
-      <a href="#long-term">Long-Term</a>
-    </nav>
-
-    <section id="writing">
+    <!-- CHECKLIST -->
+    <section>
       <h2>Writing and Pre-Production</h2>
       <ul>
-        <li><label><input type="checkbox"> Write the song.</label></li>
-        <li><label><input type="checkbox"> Finalize lyrics and structure.</label></li>
-        <li><label><input type="checkbox"> Create a demo.</label></li>
-        <li><label><input type="checkbox"> Confirm songwriting splits with co-writers.</label></li>
-        <li><label><input type="checkbox"> Decide who owns the master before recording.</label></li>
+        <li><label><input type="checkbox"><span>Write the song.</span></label></li>
+        <li><label><input type="checkbox"><span>Finalize lyrics and structure.</span></label></li>
+        <li><label><input type="checkbox"><span>Create a demo.</span></label></li>
+        <li><label><input type="checkbox"><span>Confirm songwriting splits with co-writers.</span></label></li>
+        <li><label><input type="checkbox"><span>Decide who owns the master before recording.</span></label></li>
       </ul>
     </section>
 
-    <section id="recording">
+    <section>
       <h2>Recording</h2>
       <ul>
-        <li><label><input type="checkbox"> Book studio time or prep your home setup.</label></li>
-        <li><label><input type="checkbox"> Track all instruments and vocals.</label></li>
-        <li><label><input type="checkbox"> Keep takes organized and clearly labeled.</label></li>
-        <li><label><input type="checkbox"> Collect session files from collaborators.</label></li>
-        <li><label><input type="checkbox"> Back everything up (local and cloud).</label></li>
+        <li><label><input type="checkbox"><span>Book studio time or prep your home setup.</span></label></li>
+        <li><label><input type="checkbox"><span>Track all instruments and vocals.</span></label></li>
+        <li><label><input type="checkbox"><span>Keep takes organized and clearly labeled.</span></label></li>
+        <li><label><input type="checkbox"><span>Collect session files from collaborators.</span></label></li>
+        <li><label><input type="checkbox"><span>Back everything up (local and cloud).</span></label></li>
       </ul>
     </section>
 
-    <section id="editing">
+    <section>
       <h2>Editing and Mixing</h2>
       <ul>
-        <li><label><input type="checkbox"> Clean up tracks (timing, tuning, noise).</label></li>
-        <li><label><input type="checkbox"> Choose reference tracks.</label></li>
-        <li><label><input type="checkbox"> Send full sessions or consolidated stems to your mix engineer.</label></li>
-        <li><label><input type="checkbox"> Review mix revisions and give clear notes.</label></li>
-        <li><label><input type="checkbox"> Approve the final mix and export a high-res WAV.</label></li>
+        <li><label><input type="checkbox"><span>Clean up tracks (timing, tuning, noise).</span></label></li>
+        <li><label><input type="checkbox"><span>Choose reference tracks.</span></label></li>
+        <li><label><input type="checkbox"><span>Send full sessions or consolidated stems to your mix engineer.</span></label></li>
+        <li><label><input type="checkbox"><span>Review mix revisions and give clear notes.</span></label></li>
+        <li><label><input type="checkbox"><span>Approve the final mix and export a high-res WAV.</span></label></li>
       </ul>
     </section>
 
-    <section id="mastering">
+    <section>
       <h2>Mastering</h2>
       <ul>
-        <li><label><input type="checkbox"> Choose a mastering engineer or service.</label></li>
-        <li><label><input type="checkbox"> Send the final mix, notes, and reference tracks.</label></li>
-        <li><label><input type="checkbox"> Review master revisions on multiple systems.</label></li>
-        <li><label><input type="checkbox"> Approve the final master.</label></li>
-        <li><label><input type="checkbox"> Export all versions you need (main, instrumental, clean, TV mix, etc.).</label></li>
+        <li><label><input type="checkbox"><span>Choose a mastering engineer or service.</span></label></li>
+        <li><label><input type="checkbox"><span>Send the final mix, notes, and reference tracks.</span></label></li>
+        <li><label><input type="checkbox"><span>Review master revisions on multiple systems.</span></label></li>
+        <li><label><input type="checkbox"><span>Approve the final master.</span></label></li>
+        <li><label><input type="checkbox"><span>Export all versions you need (main, instrumental, clean, TV mix, etc.).</span></label></li>
       </ul>
     </section>
 
-    <section id="artwork">
+    <section>
       <h2>Artwork and Visuals</h2>
       <ul>
-        <li><label><input type="checkbox"> Create or commission cover art that meets distributor specs.</label></li>
-        <li><label><input type="checkbox"> Make alternate crops (square, vertical, horizontal).</label></li>
-        <li><label><input type="checkbox"> Prepare basic promo graphics (quote cards, lyric cards, banners).</label></li>
+        <li><label><input type="checkbox"><span>Create or commission cover art that meets distributor specs.</span></label></li>
+        <li><label><input type="checkbox"><span>Make alternate crops (square, vertical, horizontal).</span></label></li>
+        <li><label><input type="checkbox"><span>Prepare basic promo graphics (quote cards, lyric cards, banners).</span></label></li>
       </ul>
     </section>
 
-    <section id="metadata">
+    <section>
       <h2>Metadata and Admin</h2>
       <ul>
-        <li><label><input type="checkbox"> Confirm your artist name and check for conflicts.</label></li>
-        <li><label><input type="checkbox"> Finalize the release title and track titles.</label></li>
-        <li><label><input type="checkbox"> Confirm all credits (writers, producers, performers, featured artists).</label></li>
-        <li><label><input type="checkbox"> Assign ISRCs (or let your distributor assign them).</label></li>
-        <li><label><input type="checkbox"> Add a UPC/EAN for the release.</label></li>
-        <li><label><input type="checkbox"> Register the song with your PRO.</label></li>
-        <li><label><input type="checkbox"> Register with SoundExchange (for U.S. digital performance royalties).</label></li>
+        <li><label><input type="checkbox"><span>Confirm your artist name and check for conflicts.</span></label></li>
+        <li><label><input type="checkbox"><span>Finalize the release title and track titles.</span></label></li>
+        <li><label><input type="checkbox"><span>Confirm all credits (writers, producers, performers, featured artists).</span></label></li>
+        <li><label><input type="checkbox"><span>Assign ISRCs (or let your distributor assign them).</span></label></li>
+        <li><label><input type="checkbox"><span>Add a UPC/EAN for the release.</span></label></li>
+        <li><label><input type="checkbox"><span>Register the song with your PRO.</span></label></li>
+        <li><label><input type="checkbox"><span>Register with SoundExchange (for U.S. digital performance royalties).</span></label></li>
       </ul>
     </section>
 
-    <section id="distribution">
+    <section>
       <h2>Distribution Setup</h2>
       <ul>
-        <li><label><input type="checkbox"> Choose your distributor.</label></li>
-        <li><label><input type="checkbox"> Upload final audio and artwork.</label></li>
-        <li><label><input type="checkbox"> Enter all metadata carefully and double-check spelling.</label></li>
-        <li><label><input type="checkbox"> Choose release date and time.</label></li>
-        <li><label><input type="checkbox"> Set pre-save or pre-order if supported.</label></li>
-        <li><label><input type="checkbox"> Submit for store review with enough lead time.</label></li>
+        <li><label><input type="checkbox"><span>Choose your distributor.</span></label></li>
+        <li><label><input type="checkbox"><span>Upload final audio and artwork.</span></label></li>
+        <li><label><input type="checkbox"><span>Enter all metadata carefully and double-check spelling.</span></label></li>
+        <li><label><input type="checkbox"><span>Choose release date and time.</span></label></li>
+        <li><label><input type="checkbox"><span>Set pre-save or pre-order if supported.</span></label></li>
+        <li><label><input type="checkbox"><span>Submit for store review with enough lead time.</span></label></li>
       </ul>
     </section>
 
-    <section id="promo">
+    <section>
       <h2>Pitching and Promotion (Pre-Release)</h2>
       <ul>
         <li>
           <label>
             <input type="checkbox">
-            <span>
-              Pitch the release through Spotify for Artists at least 7 days before release so it reaches Release Radar for your followers and stays eligible for editorial playlists.
-            </span>
+            <span><strong>Pitch through Spotify for Artists at least 7 days before release</strong> so it can reach Release Radar and be eligible for editorial.</span>
           </label>
         </li>
-        <li><label><input type="checkbox"> Update artist profiles (Spotify, Apple, Amazon, YouTube, etc.).</label></li>
-        <li><label><input type="checkbox"> Write or update your artist bio and track description.</label></li>
-        <li><label><input type="checkbox"> Build or update your EPK (photos, links, short bio, stats).</label></li>
-        <li><label><input type="checkbox"> Create a promo calendar (teasers, announcement, release-day, follow-ups).</label></li>
-        <li><label><input type="checkbox"> Record short-form video content.</label></li>
-        <li><label><input type="checkbox"> Prepare email newsletter copy.</label></li>
-        <li><label><input type="checkbox"> Make a list of blogs, playlists, radio shows, and curators to contact.</label></li>
+        <li><label><input type="checkbox"><span>Update artist profiles (Spotify, Apple, Amazon, YouTube, etc.).</span></label></li>
+        <li><label><input type="checkbox"><span>Write or update your artist bio and track description.</span></label></li>
+        <li><label><input type="checkbox"><span>Build or update your EPK (photos, links, short bio, stats).</span></label></li>
+        <li><label><input type="checkbox"><span>Create a promo calendar (teasers, announcement, release-day, follow-ups).</span></label></li>
+        <li><label><input type="checkbox"><span>Record short-form video content.</span></label></li>
+        <li><label><input type="checkbox"><span>Prepare email newsletter copy.</span></label></li>
+        <li><label><input type="checkbox"><span>Make a list of blogs, playlists, radio shows, and curators to contact.</span></label></li>
       </ul>
     </section>
 
-    <section id="release-week">
+    <section>
       <h2>Release Week</h2>
       <ul>
-        <li><label><input type="checkbox"> Verify the release is live and correct on all platforms.</label></li>
-        <li><label><input type="checkbox"> Update your link-in-bio and website.</label></li>
-        <li><label><input type="checkbox"> Post your release-day announcement.</label></li>
-        <li><label><input type="checkbox"> Share behind-the-scenes content.</label></li>
-        <li><label><input type="checkbox"> Encourage collaborators to share and tag you.</label></li>
-        <li><label><input type="checkbox"> Monitor early stats (streams, saves, playlist adds).</label></li>
-        <li><label><input type="checkbox"> Save and share notable playlist placements or press.</label></li>
+        <li><label><input type="checkbox"><span>Verify the release is live and correct on all platforms.</span></label></li>
+        <li><label><input type="checkbox"><span>Update your link-in-bio and website.</span></label></li>
+        <li><label><input type="checkbox"><span>Post your release-day announcement.</span></label></li>
+        <li><label><input type="checkbox"><span>Share behind-the-scenes content.</span></label></li>
+        <li><label><input type="checkbox"><span>Encourage collaborators to share and tag you.</span></label></li>
+        <li><label><input type="checkbox"><span>Monitor early stats (streams, saves, playlist adds).</span></label></li>
+        <li><label><input type="checkbox"><span>Save and share notable playlist placements or press.</span></label></li>
       </ul>
     </section>
 
-    <section id="post-release">
+    <section>
       <h2>Post-Release</h2>
       <ul>
-        <li><label><input type="checkbox"> Watch for algorithmic placements (Release Radar, Discover Weekly, radio).</label></li>
-        <li><label><input type="checkbox"> Add the track to your own playlists and update existing ones.</label></li>
-        <li><label><input type="checkbox"> Send follow-ups to press, blogs, and DJs.</label></li>
-        <li><label><input type="checkbox"> Release alternate versions (acoustic, live, remixes) if it fits your plan.</label></li>
-        <li><label><input type="checkbox"> Collect fan reactions and screenshots.</label></li>
+        <li><label><input type="checkbox"><span>Watch for algorithmic placements (Release Radar, Discover Weekly, radio).</span></label></li>
+        <li><label><input type="checkbox"><span>Add the track to your own playlists and update existing ones.</span></label></li>
+        <li><label><input type="checkbox"><span>Send follow-ups to press, blogs, and DJs.</span></label></li>
+        <li><label><input type="checkbox"><span>Release alternate versions (acoustic, live, remixes) if it fits your plan.</span></label></li>
+        <li><label><input type="checkbox"><span>Collect fan reactions and screenshots.</span></label></li>
       </ul>
     </section>
 
-    <section id="royalties">
+    <section>
       <h2>Royalties and Payments</h2>
       <ul>
-        <li><label><input type="checkbox"> Check your distributor’s reporting schedule.</label></li>
-        <li><label><input type="checkbox"> Confirm your payout info is correct.</label></li>
-        <li><label><input type="checkbox"> Set up revenue splits if your distributor supports it.</label></li>
-
-        <li class="no-checkbox">
-          Track income sources:
+        <li><label><input type="checkbox"><span>Check your distributor’s reporting schedule.</span></label></li>
+        <li><label><input type="checkbox"><span>Confirm your payout info is correct.</span></label></li>
+        <li><label><input type="checkbox"><span>Set up revenue splits if your distributor supports it.</span></label></li>
+        <li>
+          <label><input type="checkbox"><span>Track income sources:</span></label>
           <ul>
-            <li><label><input type="checkbox"> Distributor (master royalties)</label></li>
-            <li><label><input type="checkbox"> PRO (performance)</label></li>
-            <li><label><input type="checkbox"> Mechanical/publishing admin</label></li>
-            <li><label><input type="checkbox"> SoundExchange</label></li>
+            <li><label><input type="checkbox"><span>Distributor (master royalties)</span></label></li>
+            <li><label><input type="checkbox"><span>PRO (performance)</span></label></li>
+            <li><label><input type="checkbox"><span>Mechanical/publishing admin</span></label></li>
+            <li><label><input type="checkbox"><span>SoundExchange</span></label></li>
           </ul>
         </li>
-
-        <li><label><input type="checkbox"> Fix metadata or ownership issues quickly.</label></li>
+        <li><label><input type="checkbox"><span>Fix metadata or ownership issues quickly.</span></label></li>
       </ul>
     </section>
 
-    <section id="long-term">
+    <section>
       <h2>Long-Term</h2>
       <ul>
-        <li><label><input type="checkbox"> Add this release to your website discography and EPK.</label></li>
-        <li><label><input type="checkbox"> Store stems, mixes, masters, artwork, lyrics, and credits in long-term backup.</label></li>
-        <li><label><input type="checkbox"> Note what worked and what you’ll change next time.</label></li>
+        <li><label><input type="checkbox"><span>Add the release to your website discography and EPK.</span></label></li>
+        <li><label><input type="checkbox"><span>Store stems, mixes, masters, artwork, lyrics, and credits long-term.</span></label></li>
+        <li><label><input type="checkbox"><span>Write down what worked and what you'll change next time.</span></label></li>
+        <li><label><input type="checkbox"><span>Keep a running live set list.</span></label></li>
+        <li><label><input type="checkbox"><span>Map out how this release connects to the next one.</span></label></li>
       </ul>
     </section>
   </main>
 
-  <script>
-    // year
-    const yearEl = document.getElementById('y');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-
-    // Logo auto-switch
-    const logo = document.getElementById('logo');
-    const footerLogo = document.getElementById('footer-logo');
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    function updateLogos() {
-      if (!logo || !footerLogo) return;
-      const src = darkScheme.matches ? 'logo_lt_bg.png' : 'logo_drk_bg.png';
-      logo.src = src;
-      footerLogo.src = src;
-    }
-
-    if (logo && footerLogo) {
-      darkScheme.addEventListener('change', updateLogos);
-      updateLogos();
-    }
-
-    // Share links
-    const shareEls = document.querySelectorAll('.share');
-    if (shareEls.length) {
-      const pageUrl = encodeURIComponent(window.location.href);
-      const pageTitle = encodeURIComponent(document.title);
-      const shareLinks = {
-        fb: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
-        x:  `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`,
-        li: `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`,
-        mail:`mailto:?subject=${pageTitle}&body=${pageUrl}`
-      };
-      shareEls.forEach(a => {
-        const type = a.classList[1];
-        if (shareLinks[type]) {
-          a.href = shareLinks[type];
-        }
-      });
-    }
-  </script>
 </body>
 </html>
