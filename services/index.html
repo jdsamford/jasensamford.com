@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,74 +8,74 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/services/" />
   <link rel="stylesheet" href="/style.css" />
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
-
 <body>
-  <div class="wrap">
-<div id="nav"></div>
-<script>
-  fetch("/nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav").innerHTML = html;
-    });
-</script>
+  <div id="nav"></div>
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('nav').innerHTML = html; });
+  </script>
 
-
-    <header>
-      <h1>Services</h1>
-      <p class="sub">Practical help for independent artists, labels, and music companies. We meet, I clarify the issues, and you get a concise plan with next steps.</p>
-      <p style="text-align:center"><a class="cta" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a></p>
-    </header>
-
-    <section aria-labelledby="core">
-      <h2 id="core">Core work</h2>
-      <ul>
-        <li>Release planning and distribution strategy</li>
-        <li>Metadata cleanup (ISRC/UPC), catalog hygiene, conflict resolution</li>
-        <li>Royalty setup, audits, and payout troubleshooting</li>
-        <li>Streaming-fraud risk checks and best practices</li>
-        <li>Team training and process design for artist services</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="how" class="box">
-      <h2 id="how">How it works</h2>
-      <ol>
-        <li><strong>Meet:</strong> Focused call to gather details, links, and context about the issue(s) you’re facing.</li>
-        <li><strong>Clarify:</strong> I map what’s happening, what’s blocking progress, and what data is needed.</li>
-        <li><strong>Follow-up:</strong> Written summary with priorities and actionable next steps.</li>
-        <li><strong>Escalate (if needed):</strong> If support is slow or not tracking the problem, I can liaise with contacts at distributors and DSPs to get the issue in front of the right team.</li>
-      </ol>
-      <p><a class="cta" href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Start here</a></p>
-    </section>
-
-    <section aria-labelledby="who">
-      <h2 id="who">Who this helps</h2>
-      <ul>
-        <li>Independent artists and managers</li>
-        <li>Indie labels and small catalogs</li>
-        <li>Platforms building artist services</li>
-      </ul>
-      <div class="pillrow">
-        <span class="pill">distribution</span>
-        <span class="pill">royalties</span>
-        <span class="pill">metadata</span>
-        <span class="pill">fraud</span>
-        <span class="pill">ops</span>
-      </div>
-    </section>
-
-    <footer>
-      <p>
-        <a href="/about/">About</a>
-        <a href="/services/">Services</a>
-        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book</a>
+  <section class="page-hero">
+    <div class="wrap page-hero-inner">
+      <h1 class="page-hero-title">Services</h1>
+      <p class="page-hero-subtitle">
+        Practical help for independent artists, labels, and music companies. We meet, I clarify the issues,
+        and you get a concise plan with next steps.
       </p>
-      <p>&copy; <span id="y"></span> Jasen Samford Consulting</p>
-    </footer>
-  </div>
+      <div class="btn-row" style="margin-top:1.2rem;">
+        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">Book a session</a>
+      </div>
+    </div>
+  </section>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <main class="wrap">
+    <section class="section">
+      <h2>Core work</h2>
+      <ul>
+        <li>Release planning and distribution strategy.</li>
+        <li>Metadata cleanup (ISRC/UPC), catalog hygiene, conflict resolution.</li>
+        <li>Royalty setup, audits, and payout troubleshooting.</li>
+        <li>Streaming-fraud risk checks and best practices.</li>
+        <li>Team training and process design for artist services.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Meet:</strong> focused call to gather details, links, and context about the issue(s) you’re facing.</li>
+        <li><strong>Clarify:</strong> I map what’s happening, what’s blocking progress, and what data is needed.</li>
+        <li><strong>Follow-up:</strong> written summary with priorities and actionable next steps.</li>
+        <li><strong>Escalate (if needed):</strong> if support is slow or not tracking the problem, I can liaise with contacts at distributors and DSPs to get the issue in front of the right team.</li>
+      </ol>
+      <p>
+        <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Start here</a>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Who this helps</h2>
+      <ul>
+        <li>Independent artists and managers.</li>
+        <li>Indie labels and small catalogs.</li>
+        <li>Platforms building artist services.</li>
+      </ul>
+      <p class="card-muted">
+        Keywords: distribution · royalties · metadata · fraud · ops
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/about/">About</a> ·
+      <a href="/services/">Services</a> ·
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+    </p>
+    <p>© 2025 Jasen Samford Consulting</p>
+  </footer>
 </body>
 </html>
