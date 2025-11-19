@@ -422,3 +422,12 @@ footer a {
 .home-hero + .section {
   margin-top: 1.25rem;
 }
+
+/* Reduce the space under page-hero on About and Services */
+.page-hero {
+  padding-bottom: 1rem; /* was 1.5rem */
+}
+
+.page-hero + main.wrap {
+  margin-top: 0.5rem; /* reduce the natural gap */
+}
