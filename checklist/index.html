@@ -4,34 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Release Checklist | Jasen Samford</title>
-  <meta name="description" content="A practical release checklist for independent artists: planning, recording, distribution, promotion, and payouts." />
+  <meta name="description" content="A simple, practical release checklist for independent artists: planning, recording, distribution, promotion, and payouts." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/checklist/" />
   <link rel="stylesheet" href="/style.css" />
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
+  <!-- NAV (loaded from /nav.html) -->
+  <div id="nav"></div>
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('nav').innerHTML = html; });
+  </script>
 
-  <!-- NAVBAR -->
-<div id="nav"></div>
-<script>
-  fetch("/nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav").innerHTML = html;
-    });
-</script>
-
-
-  <!-- MAIN CONTENT -->
-  <main class="checklist-main">
-
+  <!-- CHECKLIST CONTENT -->
+  <main class="wrap checklist-main">
     <h1>Release Checklist</h1>
     <p class="page-intro">
       A simple, practical checklist to move your release from planning to payout.
     </p>
 
-    <!-- CHECKLIST -->
     <section>
       <h2>Writing and Pre-Production</h2>
       <ul>
@@ -183,6 +178,5 @@
       </ul>
     </section>
   </main>
-
 </body>
 </html>
