@@ -267,59 +267,59 @@ footer .logo {
 
 /* CHECKLIST PAGE */
 
-main.checklist-main {
-  max-width:720px;
-  margin:3rem auto 4rem;
-  padding:0 1.5rem 3rem;
+.checklist-main {
+  max-width: 720px;
+  margin: 3rem auto 4rem;
+  padding: 0 1.5rem 3rem;
 }
 
 .checklist-main h1 {
-  font-size:2.2rem;
-  margin-bottom:0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .page-intro {
-  margin-bottom:2rem;
-  font-size:1rem;
-  line-height:1.5;
-  color:#444;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
 }
 
 .checklist-main section {
-  margin-bottom:2.5rem;
-  padding:1.25rem 1rem 1rem;
-  border-radius:8px;
-  background:#f7f7f7;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1rem 1rem;
+  border-radius: 8px;
+  background: #f7f7f7;
 }
 
 .checklist-main section h2 {
-  margin:0 0 0.75rem;
-  font-size:1.15rem;
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
 }
 
 .checklist-main section ul {
-  list-style:none;
-  padding-left:0;
-  margin:0;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 .checklist-main section li {
-  margin-bottom:0.45rem;
+  margin-bottom: 0.45rem;
 }
 
 .checklist-main label {
-  cursor:pointer;
-  display:flex;
-  gap:0.5rem;
-  align-items:flex-start;
-  font-size:0.98rem;
-  line-height:1.4;
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
 
 .checklist-main label span {
-  flex:1;
+  flex: 1;
 }
 
 .checklist-main input[type="checkbox"] {
-  margin-top:0.25rem;
+  margin-top: 0.25rem;
 }
