@@ -16,24 +16,25 @@
 
   <!-- Inject nav -->
   <div id="nav"></div>
-  <script>
-    fetch('/nav.html')
-      .then(r => r.text())
-      .then(html => { 
-        document.getElementById('nav').innerHTML = html;
 
-        // Highlight current page
-        var path = window.location.pathname.replace(/\/+$/, "") || "/";
-        document.querySelectorAll("nav a").forEach(function (link) {
-          var href = link.getAttribute("href") || "";
-          var normalized = href.replace(/\/+$/, "") || "/";
-          if (normalized === path) {
-            link.classList.add("is-current");
-            link.setAttribute("aria-current", "page");
-          }
-        });
+  <script>
+  fetch('/nav.html')
+    .then(r => r.text())
+    .then(html => {
+      const navContainer = document.getElementById('nav');
+      navContainer.innerHTML = html;
+
+      // NOW highlight current page — after nav exists
+      const path = window.location.pathname.replace(/\/+$/, "") || "/";
+      navContainer.querySelectorAll("a").forEach(link => {
+        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+        if (href === path) {
+          link.classList.add("is-current");
+          link.setAttribute("aria-current", "page");
+        }
       });
-  </script>
+    });
+</script>
 
   <!-- HERO (uniform with Home/About) -->
   <header class="hero home-hero">
