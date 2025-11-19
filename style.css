@@ -42,8 +42,18 @@ a:hover {
   padding:24px;
 }
 
+/* text-heavy pages (About / Services) use a slightly narrower main */
+.page-hero + main.wrap {
+  max-width:760px;
+}
+
+/* extra breathing room above footer on all main content */
+main.wrap {
+  padding-bottom:3rem;
+}
+
 .section {
-  margin:3rem auto 0;
+  margin:3rem 0;
 }
 
 .section-header {
@@ -58,6 +68,15 @@ a:hover {
   margin:0;
   color:var(--muted);
   font-size:1rem;
+}
+
+/* small uppercase label above some section titles */
+.section-kicker {
+  font-size:0.8rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--muted);
+  margin:0 0 0.25rem;
 }
 
 /* NAV (from nav.html) */
@@ -128,7 +147,9 @@ header.hero {
   appearance:none;
   border:0;
   cursor:pointer;
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:.75rem 1.1rem;
   border-radius:999px;
   font-weight:600;
@@ -269,6 +290,24 @@ header.hero {
   color:var(--muted);
 }
 
+/* Tag rows (keywords / location) */
+
+.tag-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.4rem;
+  margin-top:0.75rem;
+  font-size:0.85rem;
+}
+
+.tag-pill {
+  padding:0.15rem 0.6rem;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--muted);
+}
+
 /* Footer */
 
 footer {
@@ -330,8 +369,9 @@ footer a {
   flex:1;
 }
 .checklist-main input[type="checkbox"] {
-  margin-top:0.25rem;
+  margin-top:0.15rem;
 }
+
 /* Checklist section nav chips */
 
 .checklist-nav {
