@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/style.css" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
+
 <body>
   <!-- Shared nav -->
   <div id="nav"></div>
@@ -23,12 +24,16 @@
   <header class="hero">
     <div class="wrap hero-inner">
       <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
-      <img src="/logo_drk_bg.png" alt="Jasen Samford Music Business Consultant" class="logo" />
+
+      <!-- IMPORTANT: logo now has id="logo" for JS switching -->
+      <img id="logo" src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
+
       <h1 class="hero-name">Jasen Samford</h1>
       <p class="lead">
-        Practical answers across the full indie artist lifecycle: creation, distribution, promotion,
-        payouts, touring, merch, and everything in between.
+        Practical answers across the full indie artist lifecycle: creation, distribution,
+        promotion, payouts, touring, merch, and everything in between.
       </p>
+
       <div class="btn-row">
         <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">
           Book a session
@@ -47,6 +52,7 @@
         <p class="section-kicker">For artists, labels, and platforms</p>
         <h2 class="section-title">About</h2>
       </div>
+
       <div class="grid grid-2">
         <div class="card">
           <p>
@@ -55,6 +61,7 @@
             plans, smooth payouts, and keep growth sustainable without losing the human touch.
           </p>
         </div>
+
         <div class="card">
           <h3 class="card-title">Typical outcomes</h3>
           <ul class="card-muted">
@@ -67,12 +74,13 @@
       </div>
     </section>
 
-    <!-- SERVICES SUMMARY -->
+    <!-- SERVICES -->
     <section class="section" id="services">
       <div class="section-header">
         <p class="section-kicker">Where I help most</p>
         <h2 class="section-title">Services</h2>
       </div>
+
       <div class="grid grid-2">
         <div class="card">
           <h3 class="card-title">For artists and labels</h3>
@@ -83,6 +91,7 @@
             <li>Dispute handling and takedown prevention.</li>
           </ul>
         </div>
+
         <div class="card">
           <h3 class="card-title">For platforms and teams</h3>
           <ul class="card-muted">
@@ -97,27 +106,33 @@
     <!-- TESTIMONIALS -->
     <section class="section testimonials" id="testimonials">
       <h2 class="section-title" style="text-align:center;">Trusted by teams that build for artists</h2>
+
       <div class="testimonials-grid">
         <div class="testimonial">
           He reduces complex context to the essentials and spins up scalable solutions fast.
           <span class="testimonial-footer">– Client</span>
         </div>
+
         <div class="testimonial">
           The go-to for distribution and artist education.
           <span class="testimonial-footer">– Client</span>
         </div>
+
         <div class="testimonial">
           Pragmatic, intuitive, and a creative problem solver.
           <span class="testimonial-footer">– Client</span>
         </div>
+
         <div class="testimonial">
           Balances data-driven decisions with people-first leadership that lifts performance.
           <span class="testimonial-footer">– Client</span>
         </div>
+
         <div class="testimonial">
           Strategic process thinking helped us scale to a world-class support org.
           <span class="testimonial-footer">– Client</span>
         </div>
+
         <div class="testimonial">
           Brings clarity, calm, and a deep understanding of tech and people.
           <span class="testimonial-footer">– Client</span>
@@ -125,7 +140,7 @@
       </div>
     </section>
 
-    <!-- CONTACT / CTA -->
+    <!-- CONTACT CTA -->
     <section class="section" id="contact">
       <div class="section-header" style="text-align:center;">
         <h2 class="section-title">Let’s talk</h2>
@@ -133,8 +148,12 @@
           Consulting sessions available worldwide via Google Meet.
         </p>
       </div>
+
       <div style="text-align:center;">
-        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="https://calendly.com/jdsamford/60min"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener">
           Book a session
         </a>
       </div>
@@ -148,6 +167,25 @@
       <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
     <p>© 2025 Jasen Samford Consulting</p>
+
+    <!-- Optional footer logo (gets swapped too) -->
+    <img id="footer-logo" src="/logo_drk_bg.png" class="logo" alt="Footer logo" style="max-width:180px; margin-top:10px;" />
   </footer>
+
+  <!-- LOGO SWITCHING SCRIPT -->
+  <script>
+    const logo = document.getElementById('logo');
+    const footerLogo = document.getElementById('footer-logo');
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function updateLogos() {
+      const file = darkScheme.matches ? '/logo_lt_bg.png' : '/logo_drk_bg.png';
+      if (logo) logo.src = file;
+      if (footerLogo) footerLogo.src = file;
+    }
+
+    darkScheme.addEventListener('change', updateLogos);
+    updateLogos();
+  </script>
 </body>
 </html>
