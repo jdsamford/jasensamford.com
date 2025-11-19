@@ -14,36 +14,38 @@
 
 <body>
 
-  <!-- Inject nav -->
+  <!-- NAV -->
   <div id="nav"></div>
-
   <script>
-  fetch('/nav.html')
-    .then(r => r.text())
-    .then(html => {
-      const navContainer = document.getElementById('nav');
-      navContainer.innerHTML = html;
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(html => {
+        const navContainer = document.getElementById('nav');
+        navContainer.innerHTML = html;
 
-      // NOW highlight current page — after nav exists
-      const path = window.location.pathname.replace(/\/+$/, "") || "/";
-      navContainer.querySelectorAll("a").forEach(link => {
-        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-        if (href === path) {
-          link.classList.add("is-current");
-          link.setAttribute("aria-current", "page");
-        }
+        // highlight current page
+        const path = window.location.pathname.replace(/\/+$/, "") || "/";
+        navContainer.querySelectorAll("a").forEach(link => {
+          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+          if (href === path) {
+            link.classList.add("is-current");
+            link.setAttribute("aria-current", "page");
+          }
+        });
       });
-    });
-</script>
+  </script>
 
-  <!-- HERO (uniform with Home/About) -->
-  <header class="hero home-hero">
- <header class="hero home-hero">
+  <!-- HERO (matched to Home/About) -->
+  <header class="hero">
     <div class="wrap hero-inner">
-      <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
+      <img src="/headshot.png"
+           alt="Photo of Jasen Samford"
+           class="headshot" />
 
-      <!-- IMPORTANT: logo now has id="logo" for JS switching -->
-      <img id="logo" src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
+      <img id="logo"
+           src="/logo_drk_bg.png"
+           alt="Jasen Samford logo"
+           class="logo" />
 
       <p class="lead">
         Practical help for independent artists, labels, and music companies.
@@ -54,7 +56,9 @@
         <a href="https://calendly.com/jdsamford/60min"
            class="btn btn-primary"
            target="_blank"
-           rel="noopener">Book a session</a>
+           rel="noopener">
+          Book a session
+        </a>
       </div>
     </div>
   </header>
@@ -76,11 +80,20 @@
     <section class="section">
       <h2>How it works</h2>
       <ol>
-        <li><strong>Meet:</strong> focused call to gather details, links, and context about the issues you’re facing.</li>
-        <li><strong>Clarify:</strong> I map what’s happening, what’s blocking progress, and what data is needed.</li>
-        <li><strong>Follow-up:</strong> written summary with priorities and actionable next steps.</li>
-        <li><strong>Escalate:</strong> if support is slow or missing something, I can liaise with contacts at distributors and DSPs.</li>
+        <li><strong>Meet:</strong> focused call to gather details, links, and context.</li>
+        <li><strong>Clarify:</strong> mapping issues, blocks, and required data.</li>
+        <li><strong>Follow-up:</strong> written priorities with actionable steps.</li>
+        <li><strong>Escalate:</strong> if needed, I can liaise with distributor/DSP contacts.</li>
       </ol>
+
+      <div class="btn-row" style="justify-content:flex-start;margin-top:0.5rem;">
+        <a href="https://calendly.com/jdsamford/60min"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener">
+          Book a session
+        </a>
+      </div>
     </section>
 
     <section class="section">
@@ -98,12 +111,21 @@
     <p>
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
-      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">
-        Book a session
-      </a>
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
     <p>© 2025 Jasen Samford Consulting</p>
   </footer>
+
+  <!-- LOGO SWITCH (same as Home) -->
+  <script>
+    const logo = document.getElementById('logo');
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    function updateLogo() {
+      logo.src = darkScheme.matches ? '/logo_lt_bg.png' : '/logo_drk_bg.png';
+    }
+    darkScheme.addEventListener('change', updateLogo);
+    updateLogo();
+  </script>
 
 </body>
 </html>
