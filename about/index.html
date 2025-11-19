@@ -32,7 +32,7 @@
       });
   </script>
 
-  <!-- HERO (no home-hero class!) -->
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap hero-inner">
       <img src="/headshot.png" class="headshot" alt="Jasen Samford">
@@ -50,12 +50,13 @@
     </div>
   </header>
 
+  <!-- MAIN -->
   <main class="wrap">
 
     <section class="section">
       <h2>Who I am</h2>
       <p>I help artists, labels, and music companies make sense of distribution, royalties, and metadata. I focus on clear systems, clean data, and practical steps you can use right away.</p>
-      <p>Before consulting, I spent almost ten years at DistroKid…</p>
+      <p>Before consulting, I spent almost ten years at DistroKid supporting artists and building internal systems for scale.</p>
     </section>
 
     <section class="section">
@@ -65,7 +66,7 @@
         <li>Metadata hygiene (ISRC/UPC), catalog cleanup, conflict resolution.</li>
         <li>Royalty setup, audits, and troubleshooting.</li>
         <li>Streaming-fraud prevention and best practices.</li>
-        <li>Team training and process design.</li>
+        <li>Team training and process design for artist services.</li>
       </ul>
     </section>
 
@@ -76,6 +77,12 @@
         <li><strong>Clarify:</strong> map what’s happening and what data is needed.</li>
         <li><strong>Follow-up:</strong> summary with priorities and next steps.</li>
       </ol>
+
+      <div class="btn-row" style="justify-content:flex-start;">
+        <a href="https://calendly.com/jdsamford/60min" class="btn btn-primary" target="_blank" rel="noopener">
+          Book a session
+        </a>
+      </div>
     </section>
 
   </main>
@@ -88,6 +95,20 @@
     </p>
     <p>© 2025 Jasen Samford Consulting</p>
   </footer>
+
+  <!-- Logo switching -->
+  <script>
+    const logo = document.getElementById('logo');
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function updateLogos() {
+      const file = darkScheme.matches ? '/logo_lt_bg.png' : '/logo_drk_bg.png';
+      if (logo) logo.src = file;
+    }
+
+    darkScheme.addEventListener('change', updateLogos);
+    updateLogos();
+  </script>
 
 </body>
 </html>
