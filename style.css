@@ -425,3 +425,13 @@ nav a.is-current::after {
   background: var(--accent);
 }
 
+.checklist-nav {
+  margin-top: 0.25rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.checklist-nav a {
+  background: #fff;
+  border-color: #e0e4e8;
+}
