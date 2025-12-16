@@ -2,7 +2,7 @@
 // Anyone who can view source can bypass it.
 // If you need real protection, use Cloudflare Access or host-level auth.
 
-const TANCC_PASSWORD = "CHANGE_THIS_PASSWORD";
+const TANCC_PASSWORD = "Fondudes!";
 const TANCC_STORAGE_KEY = "tancc_authed";
 
 function isAuthed() {
