@@ -24,7 +24,14 @@
       </div>
 
       <div class="panel">
-        <audio id="audio" class="audio" controls preload="metadata"></audio>
+        <div class="playerbar">
+  <button id="prevBtn" class="btn btn-ghost" type="button">Back</button>
+  <button id="playPauseBtn" class="btn" type="button">Play</button>
+  <button id="nextBtn" class="btn btn-ghost" type="button">Next</button>
+  <div id="nowPlaying" class="nowplaying muted tiny"></div>
+</div>
+
+<audio id="audio" preload="metadata"></audio>
 
         <div class="list-head">
           <div class="muted tiny">Tracks</div>
