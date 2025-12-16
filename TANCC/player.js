@@ -4,7 +4,7 @@ const tracks = [
   { title: "Divorce of Course of Course", file: "audio/03 Divorce of Course of Course.mp3" },
   { title: "Don't Cancel The Fair", file: "audio/04 Don't Cancel The Fair.mp3" },
   { title: "How Desperate We Are", file: "audio/05 How Desperate We Are.mp3" },
-  { title: "Jules Can You See Me?", file: "audio/06 Jules Can You See Me__.mp3" },
+  { title: "Jules Can You See Me?", file: "audio/06 Jules Can You See Me_.mp3" },
   { title: "Something is Different", file: "audio/07 Something is Different.mp3" },
   { title: "Our Remaining Pig", file: "audio/08 Our Remaining Pig.mp3" },
   { title: "The Mouth That Will Not Speak", file: "audio/09 The Mouth That Will Not Speak.mp3" },
@@ -19,7 +19,6 @@ const list = document.getElementById("trackList");
 let currentIndex = -1;
 
 function urlFor(path) {
-  // encode each path segment so spaces/quotes work
   return path
     .split("/")
     .map((seg) => encodeURIComponent(seg))
