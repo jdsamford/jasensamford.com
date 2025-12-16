@@ -188,3 +188,17 @@ body{
 @media (max-width: 860px){
   .grid{ grid-template-columns: 1fr; }
 }
+
+.playerbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom: 12px;
+}
+
+.nowplaying{
+  margin-left: auto;
+  text-align: right;
+  max-width: 45ch;
+}
