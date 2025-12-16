@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>The All-Night Costume Company</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div>
+        <div class="kicker">Private preview</div>
+        <h1 class="album">The All-Night Costume Company</h1>
+        <div class="artist">Kye Alfred Hillig</div>
+      </div>
+      <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
+    </header>
+
+    <section class="grid">
+      <div class="art">
+        <img src="./cover.jpg" alt="Album art" />
+      </div>
+
+      <div class="panel">
+        <audio id="audio" class="audio" controls preload="metadata"></audio>
+
+        <div class="list-head">
+          <div class="muted tiny">Tracks</div>
+          <div class="muted tiny">Download</div>
+        </div>
+
+        <ol id="trackList" class="tracks"></ol>
+
+        <div class="foot muted tiny">
+          Tip: click a track to play. Use the download links for MP3s.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./auth.js"></script>
+  <script src="./player.js"></script>
+</body>
+</html>
