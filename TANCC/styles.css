@@ -10,6 +10,11 @@
   --accent:#3fae63; /* mockup-ish green */
 }
 
+:root{
+  /* ...existing vars... */
+  --modalBody: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
@@ -292,8 +297,20 @@ body{
 
 .pre{
   white-space: pre-wrap;
-  line-height: 1.55;
-  margin:0;
+  word-break: break-word;
+
+  font-family: var(--modalBody);
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: .01em;
+
+  color: rgba(233,237,241,.92);
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(38,42,53,.8);
+  border-radius: 14px;
+  padding: 14px;
+
+  margin: 0;
 }
 
 /* Modal */
@@ -320,6 +337,11 @@ body{
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+.modal-card .title{
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .modal-head{
