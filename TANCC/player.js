@@ -7,12 +7,20 @@ Over the last two decades he’s been a principal voice in multiple Puget Sound 
 His songs move like indie rock with singer-songwriter clarity and occasional alt-pop swerves—direct, unsentimental, and obsessed with the moral ambiguity of modern life. With his upcoming release, Hillig delivers his ninth solo album: sharp, restless, and alive.
 `;
 
+const defaultCredits = `Kye Alfred Hillig: vocals, guitar
+Yoswa Grimgold: bass
+David Bilbrey: guitar
+Bill Nordwall: piano, organ
+Jasen Samford: drums, percussion
+Recorded and mixed by Ryan Leyva at ExEx Audio in Seattle, WA
+All music and lyrics by Kye Alfred Hilling`;
+
 const tracks = [
   {
     title: "The Horrible Truth",
     file: "audio/01 The Horrible Truth.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Ran some errands
 Made a friend call back,
 But we never made love today
@@ -65,7 +73,7 @@ All this horrible truth`
     title: "Ezekiel Bobbing For Apples",
     file: "audio/02 Ezekiel Bobbing For Apples.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
@@ -122,7 +130,7 @@ That is what we do…`
     title: "Divorce of Course of Course",
     file: "audio/03 Divorce of Course of Course.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Love me in these shackles fit for justice
 Show me how my heart can break
 Meet me on the map of Nova Scotia, hoping for a holiday
@@ -164,7 +172,7 @@ So what move on!`
     title: "Don't Cancel The Fair",
     file: "audio/04 Don't Cancel The Fair.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Don’t cancel the fair
 I don’t know what we’re gonna do come Spring
 Just sit around and drink?
@@ -204,7 +212,7 @@ Please don’t cancel the fair`
     title: "How Desperate We Are",
     file: "audio/05 How Desperate We Are.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
@@ -235,7 +243,7 @@ Just count the churches, jails, & bars`
     title: "Jules Can You See Me?",
     file: "audio/06 Jules Can You See Me__.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Jules, can you see me?
 I’m right before your eyes
 Here lonely, sick, & haunted
