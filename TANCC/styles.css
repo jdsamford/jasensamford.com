@@ -136,7 +136,7 @@ body{
 
 .list-head{
   display:grid;
-  grid-template-columns: 1fr 170px;
+  grid-template-columns: 1fr 84px;
   padding: 8px 10px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -162,18 +162,22 @@ body{
 
 .track-top{
   display:grid;
-  grid-template-columns: 1fr 170px;
+  grid-template-columns: 1fr 84px;
   gap: 10px;
   align-items:center;
 }
 
-.track button{
-  all: unset;
-  cursor: pointer;
-  display:block;
+.playbtn{
+  width: 100%;
+  background: transparent;
+  border: 0;
   padding: 2px 0;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  display: block;
 }
-.track button:focus{
+.playbtn:focus{
   outline: 3px solid rgba(122,162,255,.28);
   border-radius: 8px;
 }
@@ -192,17 +196,6 @@ body{
   align-items:center;
 }
 
-.downloadbtn{
-  display:inline-block;
-  color: var(--text);
-  text-decoration: none;
-  border: 1px solid var(--line);
-  padding: 8px 10px;
-  border-radius: 12px;
-  background: rgba(255,255,255,.03);
-}
-.downloadbtn:hover{ background: rgba(255,255,255,.06); }
-
 .iconbtn{
   background: transparent;
   border: 1px solid var(--line);
@@ -214,73 +207,41 @@ body{
 .iconbtn:hover{ background: rgba(255,255,255,.06); }
 .iconbtn:focus{ outline: 3px solid rgba(122,162,255,.28); outline-offset: 2px; }
 
-.caret{
-  font-weight: 800;
-  width: 44px;
-  text-align:center;
-}
-
-.drawer{
+.navrow{
+  display:none;
   margin-top: 10px;
-  border-top: 1px solid rgba(38,42,53,.7);
-  padding-top: 10px;
-  display:none;
-}
-.drawer.open{ display:block; }
-
-.drawerbar{
-  display:flex;
-  gap:10px;
+  gap: 10px;
+  justify-content:flex-start;
   align-items:center;
-  justify-content:space-between;
-  margin-bottom: 10px;
+  flex-wrap:wrap;
 }
+.navrow.open{ display:flex; }
 
-.dropdown{ position: relative; display:inline-block; }
-
-.dropbtn{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.menu{
-  position:absolute;
-  right:0;
-  top: calc(100% + 8px);
-  min-width: 220px;
-  background: rgba(18,20,27,.98);
+.navchip{
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 6px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.45);
-  display:none;
-  z-index: 50;
-}
-.menu.open{ display:block; }
-
-.menu button{
-  width:100%;
-  text-align:left;
-  border:0;
-  background: transparent;
+  background: rgba(255,255,255,.03);
   color: var(--text);
-  padding: 10px 10px;
-  border-radius: 10px;
+  border-radius: 999px;
+  padding: 8px 12px;
   cursor:pointer;
+  font-weight: 650;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.menu button:hover{ background: rgba(255,255,255,.06); }
+
+.navchip:hover{ background: rgba(255,255,255,.06); }
+.navchip:focus{ outline: 3px solid rgba(122,162,255,.28); outline-offset: 2px; }
+
+.navlink{
+  text-decoration: none;
+}
 
 .drawercontent{
   border: 1px solid rgba(38,42,53,.7);
   border-radius: 14px;
   padding: 12px;
   background: rgba(255,255,255,.03);
-}
-
-.blocktitle{
-  font-weight: 700;
-  margin: 0 0 8px;
 }
 
 .pre{
@@ -291,19 +252,7 @@ body{
 
 .foot{ margin-top: 10px; }
 
-.linklike{
-  all: unset;
-  cursor: pointer;
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.linklike:hover{ opacity: .9; }
-.linklike:focus{
-  outline: 3px solid rgba(122,162,255,.28);
-  outline-offset: 4px;
-  border-radius: 8px;
-}
+/* Artist bio hint */
 .linklike{
   all: unset;
   cursor: pointer;
@@ -312,15 +261,12 @@ body{
   gap: 10px;
   color: var(--text);
 }
-
 .linklike .artistname{
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 2px;
 }
-
 .linklike:hover .artistname{ opacity: .9; }
-
 .linklike:focus{
   outline: 3px solid rgba(122,162,255,.28);
   outline-offset: 4px;
@@ -336,12 +282,10 @@ body{
   text-transform: uppercase;
   letter-spacing: .08em;
 }
-
 .linklike:hover .bio-pill{
   background: rgba(255,255,255,.06);
   color: var(--text);
 }
-
 
 /* Modal */
 .modal{
@@ -379,5 +323,6 @@ body{
 
 @media (max-width: 860px){
   .grid{ grid-template-columns: 1fr; }
-  .list-head{ grid-template-columns: 1fr 170px; }
+  .list-head{ grid-template-columns: 1fr 84px; }
+  .track-top{ grid-template-columns: 1fr 84px; }
 }
