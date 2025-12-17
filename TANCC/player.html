@@ -2,83 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>The All-Night Costume Company</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TANCC – Player</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="wrap">
-    <header class="topbar">
+    <div class="topbar">
       <div>
         <div class="kicker">Private preview</div>
         <h1 class="album">The All-Night Costume Company</h1>
 
-        <div class="artist">
-  <button id="bioBtn" class="linklike" type="button" aria-haspopup="dialog" aria-label="Open artist bio">
-    <span class="artistname">Kye Alfred Hillig</span>
-    <span class="bio-pill">bio</span>
-  </button>
-</div>
+        <button id="bioBtn" class="linklike" type="button" aria-haspopup="dialog" aria-controls="bioModal">
+          <span class="artistname">Kye Alfred Hillig</span>
+          <span class="bio-pill">Bio</span>
+        </button>
 
-      <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
-    </header>
+        <div class="top-actions">
+          <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
+        </div>
+      </div>
 
-    <div class="actions">
-      <a class="btn" href="https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip">
-        Download all (ZIP)
-      </a>
+      <div class="actions">
+        <a id="zipBtn" class="btn" href="#" download>Download all (ZIP)</a>
+      </div>
     </div>
 
     <section class="grid">
       <div class="art">
-        <img src="./cover.jpg" alt="Album art" />
+        <img src="cover.jpg" alt="Cover art" />
       </div>
 
-      <div class="panel">
+      <section class="panel">
         <div class="playerbar">
           <button id="prevBtn" class="btn btn-ghost" type="button">Back</button>
           <button id="playPauseBtn" class="btn" type="button">Play</button>
           <button id="nextBtn" class="btn btn-ghost" type="button">Next</button>
-          <div id="nowPlaying" class="nowplaying muted tiny"></div>
+
+          <div id="nowPlaying" class="nowplaying tiny muted"></div>
         </div>
 
-        <audio id="audio" preload="metadata"></audio>
+        <audio id="audio" preload="none" crossorigin="anonymous"></audio>
 
-        <div class="list-head">
-          <div class="muted tiny">Tracks</div>
-          <div class="muted tiny" style="text-align:right;">Actions</div>
+        <div class="list-head tiny muted">
+          <div>Tracks</div>
+          <div style="text-align:right;">Actions</div>
         </div>
 
         <ol id="trackList" class="tracks"></ol>
 
-        <div class="foot muted tiny">
-          Click a track to play. Use the caret to open the drawer. Use the dropdown to switch Notes / Lyrics / Credits.
+        <div class="tiny muted" style="margin-top:10px;">
+          Click a track to play. Use the caret to open Lyrics / Credits / Notes / Download.
         </div>
-      </div>
+      </section>
     </section>
   </main>
 
-  <!-- Artist bio modal -->
-  <div id="bioModal" class="modal" aria-hidden="true">
+  <!-- Track modal -->
+  <div id="trackModal" class="modal" aria-hidden="true">
     <div class="modal-overlay" data-close="1"></div>
-
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="trackModalTitle">
       <div class="modal-head">
         <div>
-          <div class="kicker">Artist bio</div>
-          <div id="bioTitle" class="title" style="margin:0;">Kye Alfred Hillig</div>
+          <div id="trackModalKicker" class="kicker">Lyrics</div>
+          <div id="trackModalTitle" class="title">Track title</div>
         </div>
-        <button id="bioCloseBtn" class="iconbtn" type="button" aria-label="Close">✕</button>
+        <button id="trackModalCloseBtn" class="btn btn-ghost" type="button">Close</button>
       </div>
-
-      <div class="drawercontent">
-        <p id="bioBody" class="pre"></p>
-      </div>
+      <pre id="trackModalBody" class="pre"></pre>
     </div>
   </div>
 
-  <script src="./auth.js"></script>
-  <script src="./player.js"></script>
+  <!-- Bio modal -->
+  <div id="bioModal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close="1"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
+      <div class="modal-head">
+        <div>
+          <div class="kicker">Artist</div>
+          <div id="bioTitle" class="title">Kye Alfred Hillig</div>
+        </div>
+        <button id="bioCloseBtn" class="btn btn-ghost" type="button">Close</button>
+      </div>
+      <pre id="bioBody" class="pre"></pre>
+    </div>
+  </div>
+
+  <script src="player.js"></script>
 </body>
 </html>
