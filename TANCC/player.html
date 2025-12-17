@@ -13,16 +13,22 @@
       <div>
         <div class="kicker">Private preview</div>
         <h1 class="album">The All-Night Costume Company</h1>
-        <div class="artist">Kye Alfred Hillig</div>
+
+        <div class="artist">
+          <button id="bioBtn" class="linklike" type="button" aria-haspopup="dialog">
+            Kye Alfred Hillig
+          </button>
+        </div>
       </div>
+
       <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
     </header>
-    <div class="actions">
-  <a class="btn" href="https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip">
-    Download all (ZIP)
-  </a>
-</div>
 
+    <div class="actions">
+      <a class="btn" href="https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip">
+        Download all (ZIP)
+      </a>
+    </div>
 
     <section class="grid">
       <div class="art">
@@ -31,29 +37,48 @@
 
       <div class="panel">
         <div class="playerbar">
-  <button id="prevBtn" class="btn btn-ghost" type="button">Back</button>
-  <button id="playPauseBtn" class="btn" type="button">Play</button>
-  <button id="nextBtn" class="btn btn-ghost" type="button">Next</button>
-  <div id="nowPlaying" class="nowplaying muted tiny"></div>
-</div>
+          <button id="prevBtn" class="btn btn-ghost" type="button">Back</button>
+          <button id="playPauseBtn" class="btn" type="button">Play</button>
+          <button id="nextBtn" class="btn btn-ghost" type="button">Next</button>
+          <div id="nowPlaying" class="nowplaying muted tiny"></div>
+        </div>
 
-<audio id="audio" preload="metadata"></audio>
+        <audio id="audio" preload="metadata"></audio>
 
         <div class="list-head">
           <div class="muted tiny">Tracks</div>
-          <div class="muted tiny">Download</div>
+          <div class="muted tiny" style="text-align:right;">Actions</div>
         </div>
 
         <ol id="trackList" class="tracks"></ol>
 
         <div class="foot muted tiny">
-          Tip: click a track to play. Use the download links for MP3s.
+          Click a track to play. Use the caret to open the drawer. Use the dropdown to switch Notes / Lyrics / Credits.
         </div>
       </div>
     </section>
   </main>
 
-  <script src="./auth.js?v=2"></script>
+  <!-- Artist bio modal -->
+  <div id="bioModal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close="1"></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
+      <div class="modal-head">
+        <div>
+          <div class="kicker">Artist bio</div>
+          <div id="bioTitle" class="title" style="margin:0;">Kye Alfred Hillig</div>
+        </div>
+        <button id="bioCloseBtn" class="iconbtn" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="drawercontent">
+        <p id="bioBody" class="pre"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./auth.js"></script>
   <script src="./player.js"></script>
 </body>
 </html>
