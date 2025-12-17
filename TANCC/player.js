@@ -1,10 +1,10 @@
 // ---------- EDIT THESE LATER ----------
 const artistBio = `
-Kye Alfred Hillig is a songwriter from Tacoma, Washington, drawn to the city’s grand dysfunction and uninterested in seeing it cleaned up for comfort. The stories there are heartbreaking and endless, and it is where he returned after dropping out of art school in the early 2000s. He has spent years working in social services, close to the raw material of modern life, and his songs carry that weight without dressing it up.
+Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction—the parts that aren’t easily fixed and shouldn’t be smoothed over. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
 
-It is hard to say exactly what his problem is, but something is always wrong. Maybe it is the daily proximity to other people’s crises. Maybe it is the stubborn grind of trying to make art inside a world that keeps asking you to be smaller. Maybe it is just the divine torture chamber of being alive right now. Whatever dog bit him still has its teeth in the music.
+Over the last two decades he’s been a principal voice in multiple Puget Sound projects (including Destruction Island and Pistol For A Paycheck) before stepping fully into his solo work in 2012.
 
-Over the last two decades Hillig has moved through the Puget Sound with a complete disregard for genre, serving as principal songwriter in bands like Destruction Island and Pistol For A Paycheck before stepping out as a solo artist in 2012. His new material sits in the overlap of indie rock, singer-songwriter, and alt-pop. The melodies are immediate, the hooks are sharp, and the point is always the same. Tell the truth, even when it is ugly. With his upcoming release, Hillig delivers his ninth solo album, spanked and screaming.
+His songs move like indie rock with singer-songwriter clarity and occasional alt-pop swerves—direct, unsentimental, and obsessed with the moral ambiguity of modern life. With his upcoming release, Hillig delivers his ninth solo album: sharp, restless, and alive.
 `;
 
 const tracks = [
@@ -560,7 +560,6 @@ And would you leave as I just start to care?
 ‘Cause there’s a beggar in me that wants nothing but you, dear`
   },
 ];
-
 // -------------------------------------
 
 const audio = document.getElementById("audio");
@@ -695,17 +694,22 @@ document.addEventListener("keydown", (e) => {
   if (bioModal?.classList.contains("open")) closeBio();
 });
 
-// ----- Per-track menu rows -----
+// ----- Per-track caret rows -----
+function syncCaretButtons() {
+  document.querySelectorAll(".caretbtn").forEach((b) => {
+    const li = b.closest(".track");
+    const row = li ? li.querySelector(".navrow") : null;
+    const open = !!(row && row.classList.contains("open"));
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+    b.textContent = open ? "▴" : "▾";
+  });
+}
+
 function closeAllMenus(except = null) {
   document.querySelectorAll(".navrow.open").forEach((row) => {
     if (row !== except) row.classList.remove("open");
   });
-  document.querySelectorAll(".menubtn").forEach((b) => {
-    const li = b.closest(".track");
-    const row = li ? li.querySelector(".navrow") : null;
-    b.setAttribute("aria-expanded", row && row.classList.contains("open") ? "true" : "false");
-    b.textContent = row && row.classList.contains("open") ? "✕" : "≡";
-  });
+  syncCaretButtons();
 }
 
 document.addEventListener("click", () => closeAllMenus());
@@ -721,10 +725,13 @@ function buildList() {
     const top = document.createElement("div");
     top.className = "track-top";
 
-    // Left: play button
+    // Left: play
     const left = document.createElement("div");
+
     const playBtn = document.createElement("button");
     playBtn.type = "button";
+    playBtn.className = "playbtn";
+    playBtn.addEventListener("click", () => playIndex(i));
 
     const name = document.createElement("div");
     name.className = "name";
@@ -736,44 +743,33 @@ function buildList() {
 
     playBtn.appendChild(name);
     playBtn.appendChild(meta);
-
-    playBtn.addEventListener("click", () => playIndex(i));
-
     left.appendChild(playBtn);
 
-    // Right: download + menu icon
+    // Right: caret toggle only
     const actions = document.createElement("div");
     actions.className = "track-actions";
 
-    const download = document.createElement("a");
-    download.href = urlFor(t.file);
-    download.setAttribute("download", "");
-    download.textContent = "Download";
-    download.className = "downloadbtn";
-    download.addEventListener("click", (e) => e.stopPropagation());
-
-    const menuBtn = document.createElement("button");
-    menuBtn.type = "button";
-    menuBtn.className = "iconbtn menubtn";
-    menuBtn.textContent = "≡";
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.setAttribute("aria-label", "Open track menu");
-    menuBtn.addEventListener("click", (e) => {
+    const caretBtn = document.createElement("button");
+    caretBtn.type = "button";
+    caretBtn.className = "iconbtn caretbtn";
+    caretBtn.textContent = "▾";
+    caretBtn.setAttribute("aria-expanded", "false");
+    caretBtn.setAttribute("aria-label", "Open track actions");
+    caretBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const row = li.querySelector(".navrow");
       const willOpen = !row.classList.contains("open");
       closeAllMenus(willOpen ? row : null);
       if (willOpen) row.classList.add("open");
-      closeAllMenus(willOpen ? row : null); // ensures icon state updates
+      syncCaretButtons();
     });
 
-    actions.appendChild(download);
-    actions.appendChild(menuBtn);
+    actions.appendChild(caretBtn);
 
     top.appendChild(left);
     top.appendChild(actions);
 
-    // Nav row (buttons)
+    // Nav row (horizontal chips)
     const navrow = document.createElement("div");
     navrow.className = "navrow";
     navrow.addEventListener("click", (e) => e.stopPropagation());
@@ -796,9 +792,17 @@ function buildList() {
       return b;
     };
 
+    const dl = document.createElement("a");
+    dl.className = "navchip navlink";
+    dl.textContent = "Download";
+    dl.href = urlFor(t.file);
+    dl.setAttribute("download", "");
+    dl.addEventListener("click", (e) => e.stopPropagation());
+
     navrow.appendChild(mkNav("Lyrics", "lyrics"));
     navrow.appendChild(mkNav("Credits", "credits"));
     navrow.appendChild(mkNav("Notes", "notes"));
+    navrow.appendChild(dl);
 
     li.appendChild(top);
     li.appendChild(navrow);
@@ -806,8 +810,7 @@ function buildList() {
     list.appendChild(li);
   });
 
-  // set initial icon states
-  closeAllMenus();
+  syncCaretButtons();
 }
 
 prevBtn?.addEventListener("click", playPrev);
