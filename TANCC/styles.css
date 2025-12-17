@@ -76,6 +76,10 @@ body{
   font-weight: 650;
   white-space: nowrap;
   font: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn:focus{ outline: 3px solid rgba(122,162,255,.35); outline-offset: 2px; }
 .btn:hover{ filter: brightness(0.95); }
@@ -99,6 +103,7 @@ body{
 }
 .auth-art img{ width:100%; display:block; height:auto; }
 
+/* ---- player layout ---- */
 .topbar{
   display:flex;
   justify-content: space-between;
@@ -107,4 +112,64 @@ body{
   margin-bottom: 18px;
 }
 
-.top-actions{ margin-top: 10px
+.top-actions{ margin-top: 10px; }
+
+/* keep cover + panel side-by-side longer */
+.grid{
+  display:grid;
+  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.actions{ margin: 0 0 14px; }
+
+.art{
+  border-radius: 16px;
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: #0e1016;
+}
+
+/* key fix: cap height so tall art doesn’t take over the page */
+.art img{
+  width: 100%;
+  height: auto;
+  display:block;
+  max-height: 420px;
+  object-fit: contain;
+  background: #0e1016;
+}
+
+.panel{
+  background: rgba(18,20,27,.92);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 0;
+}
+
+.playerbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom: 12px;
+}
+
+.nowplaying{
+  margin-left: auto;
+  text-align: right;
+  max-width: 45ch;
+}
+
+.list-head{
+  display:grid;
+  grid-template-columns: 1fr 84px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-top: 8px;
+}
+
+.
