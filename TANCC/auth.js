@@ -1,58 +1,40 @@
-// SIMPLE STATIC GATE (not real security).
-// Anyone who can view source can bypass it.
-// If you need real protection, use Cloudflare Access or host-level auth.
+const TANCC_PASSWORD = "Fondudes"; // change this
 
-const TANCC_PASSWORD = 'test1234';
-const TANCC_STORAGE_KEY = "tancc_authed";
-
-function isAuthed() {
-  return localStorage.getItem(TANCC_STORAGE_KEY) === "1";
-}
-
-function requireAuthOnPlayerPage() {
-  const path = location.pathname.toLowerCase();
-  const onPlayer = path.endsWith("/tancc/player.html") || path.endsWith("/player.html");
-  if (onPlayer && !isAuthed()) {
-    location.replace("./index.html");
+(function boot() {
+  // already authed? go straight in.
+  if (sessionStorage.getItem("tancc_authed") === "1") {
+    window.location.href = "player.html";
+    return;
   }
-}
-
-function setupAuthForm() {
-  const form = document.getElementById("authForm");
-  if (!form) return;
 
   const pw = document.getElementById("pw");
-  const msg = document.getElementById("authMsg");
+  const btn = document.getElementById("enterBtn");
+  const msg = document.getElementById("msg");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  function fail(text) {
+    msg.textContent = text;
+    msg.classList.add("bad");
+  }
+
+  function ok() {
+    msg.textContent = "";
+    msg.classList.remove("bad");
+  }
+
+  function attempt() {
+    ok();
     const val = (pw.value || "").trim();
+    if (!val) return fail("enter a password.");
+    if (val !== TANCC_PASSWORD) return fail("nope. try again.");
 
-    if (val === TANCC_PASSWORD) {
-      localStorage.setItem(TANCC_STORAGE_KEY, "1");
-      msg.textContent = "ok.";
-      msg.className = "msg good";
-      location.assign("./player.html");
-      return;
-    }
+    sessionStorage.setItem("tancc_authed", "1");
+    window.location.href = "player.html";
+  }
 
-    msg.textContent = "nope. try again.";
-    msg.className = "msg bad";
-    pw.focus();
-    pw.select();
+  btn.addEventListener("click", attempt);
+  pw.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") attempt();
   });
-}
 
-function setupLogout() {
-  const btn = document.getElementById("logoutBtn");
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    localStorage.removeItem(TANCC_STORAGE_KEY);
-    location.assign("./index.html");
-  });
-}
-
-requireAuthOnPlayerPage();
-setupAuthForm();
-setupLogout();
+  pw.focus();
+})();
