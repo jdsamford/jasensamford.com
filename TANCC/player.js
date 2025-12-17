@@ -17,8 +17,8 @@ const tracks = [
     n: 1,
     title: "The Horrible Truth",
     file: "01 The Horrible Truth.mp3",
-    lyrics: `Ran some errands
-
+    lyrics: `
+Ran some errands
 Made a friend call back,
 But we never made love today
 Never said goodbye to my old friend Matt
@@ -72,7 +72,8 @@ All this horrible truth`,
     n: 2,
     title: "Ezekiel Bobbing For Apples",
     file: "02 Ezekiel Bobbing For Apples.mp3",
-    lyrics: `Open up our hearts for nothing
+    lyrics: `
+Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
 That is what we do
@@ -128,7 +129,8 @@ That is what we do…`,
     n: 3,
     title: "Divorce of Course of Course",
     file: "03 Divorce of Course of Course.mp3",
-    lyrics: `Love me in these shackles fit for justice
+    lyrics: `
+Love me in these shackles fit for justice
 Show me how my heart can break
 Meet me on the map of Nova Scotia, hoping for a holiday
 Crasser than life when you go down on me
@@ -170,7 +172,8 @@ So what move on!`,
     n: 4,
     title: "Don’t Cancel The Fair",
     file: "04 Don't Cancel The Fair.mp3",
-    lyrics: `Don’t cancel the fair
+    lyrics: `
+Don’t cancel the fair
 I don’t know what we’re gonna do come Spring
 Just sit around and drink?
 And lay off all the clowns?
@@ -210,7 +213,8 @@ Please don’t cancel the fair`,
     n: 5,
     title: "How Desperate We Are",
     file: "05 How Desperate We Are.mp3",
-    lyrics: `How desperate we are
+    lyrics: `
+How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
 Just count the churches, jails, & bars
@@ -241,7 +245,8 @@ Just count the churches, jails, & bars`,
     n: 6,
     title: "Jules Can You See Me?",
     file: "06 Jules Can You See Me_.mp3",
-    lyrics: `Jules, can you see me?
+    lyrics: `
+Jules, can you see me?
 I’m right before your eyes
 Here lonely, sick, & haunted
 Wishing for a different life
@@ -305,7 +310,8 @@ How can I reappear? Reappear?`,
     n: 7,
     title: "Something Is Different",
     file: "07 Something is Different.mp3",
-    lyrics: `Something went missing from your eyes
+    lyrics: `
+Something went missing from your eyes
 And I’ve been looking for it ever since
 The years we spent building memories
 May be all that we get
@@ -340,7 +346,7 @@ And I was sure they were wrong
 It breaks my heart how right they were
 And How love evaporates like fog
 
-And..
+And...
 Something is different
 Something is different
 Something is different
@@ -403,7 +409,8 @@ That’s what we do`,
     n: 9,
     title: "The Mouth That Will Not Speak",
     file: "09 The Mouth That Will Not Speak.mp3",
-    lyrics: `Thought I heard a voice once before
+    lyrics: `
+Thought I heard a voice once before
 Oh I thought it was yours
 Thought I heard a voice once before
 Oh I thought it was yours
@@ -443,7 +450,8 @@ Thought I heard a voice once before…`,
     n: 10,
     title: "Pain",
     file: "10 Pain.mp3",
-    lyrics: `What do you do with your pain?
+    lyrics: `
+What do you do with your pain?
 What do you do with your troubled mind?
 Do you just look away?
 Or do you pull out your eyes?
@@ -479,7 +487,8 @@ PAIN!`,
     n: 11,
     title: "We Were Right ('Til We Were Wrong)",
     file: "11 We Were Right ('Til We Were Wrong).mp3",
-    lyrics: `It happens slow
+    lyrics: `
+It happens slow
 The dying flame
 And where it goes there’s no escape
 And we’re just whores
@@ -526,7 +535,8 @@ We were right ‘till we were wrong`,
     n: 12,
     title: "Cut Off All Your Hair",
     file: "12 Cut Off All Your Hair.mp3",
-    lyrics: `Thought I could outrun every wild dog
+    lyrics: `
+Thought I could outrun every wild dog
 Cover myself in clouds & hide in the fog
 Thought if I left you’d forget my name
 Even though the splinter was stuck in my paw
