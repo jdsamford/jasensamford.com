@@ -304,6 +304,44 @@ body{
   outline-offset: 4px;
   border-radius: 8px;
 }
+.linklike{
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.linklike .artistname{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.linklike:hover .artistname{ opacity: .9; }
+
+.linklike:focus{
+  outline: 3px solid rgba(122,162,255,.28);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.bio-pill{
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.linklike:hover .bio-pill{
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
 
 /* Modal */
 .modal{
