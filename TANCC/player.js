@@ -5,12 +5,18 @@ if (localStorage.getItem(AUTH_KEY) !== '1') {
 }
 
 const CREDITS_ALL = `Kye Alfred Hillig: vocals, guitar
+
 Yoswa Grimgold: bass
+
 David Bilbrey: guitar
+
 Bill Nordwall: piano, organ
+
 Jasen Samford: drums, percussion
+
 Recorded and mixed by Ryan Leyva at ExEx Audio in Seattle, WA
-All music and lyrics by Kye Alfred Hilling`;
+
+All music and lyrics by Kye Alfred Hillig`;
 
 const tracks = [
   {
