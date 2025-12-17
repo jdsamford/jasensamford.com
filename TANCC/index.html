@@ -2,28 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>Enter</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TANCC – Private Link</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="wrap">
     <section class="card auth-card">
-      <h1 class="title">Private link</h1>
-      <p class="muted">Enter the password.</p>
+      <div class="kicker">Private link</div>
+      <h1 class="album">The All-Night Costume Company</h1>
+      <div class="artist muted">Kye Alfred Hillig</div>
 
-      <form id="authForm" class="auth-form" autocomplete="off">
-        <label class="label" for="pw">Password</label>
-        <div class="row">
-          <input id="pw" class="input" type="password" inputmode="text" autofocus />
-          <button class="btn" type="submit">Enter</button>
+      <div class="auth-hero">
+        <div class="auth-art">
+          <img src="cover.jpg" alt="Cover art" />
         </div>
-        <p id="authMsg" class="msg" aria-live="polite"></p>
-      </form>
+      </div>
+
+      <label class="label" for="pw">Password</label>
+      <div class="row">
+        <input id="pw" class="input" type="password" autocomplete="current-password" placeholder="Enter password" />
+        <button id="enterBtn" class="btn" type="button">Enter</button>
+      </div>
+      <div id="msg" class="msg bad" aria-live="polite"></div>
+
+      <div class="foot tiny muted">Tip: bookmark this link after you unlock.</div>
     </section>
   </main>
 
-  <script src="./auth.js?v=2"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
