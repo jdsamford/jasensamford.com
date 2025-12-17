@@ -1,9 +1,9 @@
 // ---------- EDIT THESE LATER ----------
 const artistBio = `
 Kye Alfred Hillig is a songwriter from Tacoma, Washington, drawn to the city’s grand dysfunction and uninterested in seeing it cleaned up for comfort. The stories there are heartbreaking and endless, and it is where he returned after dropping out of art school in the early 2000s. He has spent years working in social services, close to the raw material of modern life, and his songs carry that weight without dressing it up.
-<br>
+
 It is hard to say exactly what his problem is, but something is always wrong. Maybe it is the daily proximity to other people’s crises. Maybe it is the stubborn grind of trying to make art inside a world that keeps asking you to be smaller. Maybe it is just the divine torture chamber of being alive right now. Whatever dog bit him still has its teeth in the music.
-<br>
+
 Over the last two decades Hillig has moved through the Puget Sound with a complete disregard for genre, serving as principal songwriter in bands like Destruction Island and Pistol For A Paycheck before stepping out as a solo artist in 2012. His new material sits in the overlap of indie rock, singer-songwriter, and alt-pop. The melodies are immediate, the hooks are sharp, and the point is always the same. Tell the truth, even when it is ugly. With his upcoming release, Hillig delivers his ninth solo album, spanked and screaming.
 `;
 
