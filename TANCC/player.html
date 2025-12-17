@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TANCC – Player</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- cache-bust so you don’t see half-old styling -->
+  <link rel="stylesheet" href="styles.css?v=tancc3" />
 </head>
 <body>
   <main class="wrap">
@@ -88,6 +90,7 @@
     </div>
   </div>
 
-  <script src="player.js"></script>
+  <!-- cache-bust JS too -->
+  <script src="player.js?v=tancc3"></script>
 </body>
 </html>
