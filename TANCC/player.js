@@ -1,10 +1,10 @@
 // ---------- EDIT THESE LATER ----------
 const artistBio = `
-Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction—the parts that aren’t easily fixed and shouldn’t be smoothed over. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
+Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction. He’s interested in the parts that don’t get fixed, and maybe shouldn’t. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
 
-Over the last two decades he’s been a principal voice in multiple Puget Sound projects (including Destruction Island and Pistol For A Paycheck) before stepping fully into his solo work in 2012.
+Over the last two decades, he’s been a core voice in multiple Puget Sound projects, including Destruction Island and Pistol For A Paycheck, before committing fully to solo work in 2012.
 
-His songs move like indie rock with singer-songwriter clarity and occasional alt-pop swerves—direct, unsentimental, and obsessed with the moral ambiguity of modern life. With his upcoming release, Hillig delivers his ninth solo album: sharp, restless, and alive.
+His songs carry indie rock drive with singer-songwriter clarity and the occasional left turn into alt-pop. They’re direct, unsentimental, and preoccupied with the moral blur of modern life. His upcoming release is his ninth solo album. It’s sharp, restless, and fully alive.
 `;
 
 const defaultCredits = `Kye Alfred Hillig: vocals, guitar
