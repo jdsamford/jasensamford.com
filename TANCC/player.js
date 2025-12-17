@@ -1,11 +1,14 @@
-// ---------- EDIT THESE LATER ----------
-const artistBio = `
-Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction. He’s interested in the parts that don’t get fixed, and maybe shouldn’t. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
+// --- simple front-end gate ---
+if (sessionStorage.getItem("tancc_authed") !== "1") {
+  window.location.href = "index.html";
+}
 
-Over the last two decades, he’s been a core voice in multiple Puget Sound projects, including Destruction Island and Pistol For A Paycheck, before committing fully to solo work in 2012.
+// ---------- EDIT THESE ----------
+const ZIP_URL = "https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip";
 
-His songs carry indie rock drive with singer-songwriter clarity and the occasional left turn into alt-pop. They’re direct, unsentimental, and preoccupied with the moral blur of modern life. His upcoming release is his ninth solo album. It’s sharp, restless, and fully alive.
-`;
+const artistBio = `PASTE ARTIST BIO HERE.
+
+(placeholder)`;
 
 const defaultCredits = `Kye Alfred Hillig: vocals, guitar
 Yoswa Grimgold: bass
@@ -14,6 +17,23 @@ Bill Nordwall: piano, organ
 Jasen Samford: drums, percussion
 Recorded and mixed by Ryan Leyva at ExEx Audio in Seattle, WA
 All music and lyrics by Kye Alfred Hilling`;
+// ----------------------------
+
+function urlFor(path) {
+  return path
+    .split("/")
+    .map((seg) => encodeURIComponent(seg))
+    .join("/");
+}
+
+function downloadTrack(filePath) {
+  const a = document.createElement("a");
+  a.href = urlFor(filePath);
+  a.setAttribute("download", "");
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
 
 const tracks = [
   {
@@ -22,6 +42,7 @@ const tracks = [
     notes: "(add notes later)",
     credits: defaultCredits,
     lyrics: `Ran some errands
+
 Made a friend call back,
 But we never made love today
 Never said goodbye to my old friend Matt
@@ -75,6 +96,7 @@ All this horrible truth`
     notes: "(add notes later)",
     credits: defaultCredits,
     lyrics: `Open up our hearts for nothing
+
 That is what we do
 Open up our hearts for nothing
 That is what we do
@@ -109,6 +131,7 @@ In the morning the sun rose high
 And I let it kiss my face
 But it weren’t your lips
 Just a counterfeit
+
 Some things you can’t replace
 
 Open up our hearts for nothing
@@ -122,8 +145,8 @@ That is what we do
 Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
-That is what we do
-Open up our hearts for nothing
+That is what we do Open up our hearts for nothing
+
 That is what we do…`
   },
   {
@@ -132,6 +155,7 @@ That is what we do…`
     notes: "(add notes later)",
     credits: defaultCredits,
     lyrics: `Love me in these shackles fit for justice
+
 Show me how my heart can break
 Meet me on the map of Nova Scotia, hoping for a holiday
 Crasser than life when you go down on me
@@ -174,6 +198,7 @@ So what move on!`
     notes: "(add notes later)",
     credits: defaultCredits,
     lyrics: `Don’t cancel the fair
+
 I don’t know what we’re gonna do come Spring
 Just sit around and drink?
 And lay off all the clowns?
@@ -214,6 +239,7 @@ Please don’t cancel the fair`
     notes: "(add notes later)",
     credits: defaultCredits,
     lyrics: `How desperate we are
+
 How desperate we are
 And if you want to know how close to the bottom
 Just count the churches, jails, & bars
@@ -225,6 +251,7 @@ But you’re so lucky not to know
 If you want to find me, stranger
 There’s a holy boat we could share,
 But if it feels like spinning wheels
+
 While we continue only to drown
 Then you must excuse me if I steal
 The remaining jewels from your crown
@@ -241,10 +268,11 @@ Just count the churches, jails, & bars`
   },
   {
     title: "Jules Can You See Me?",
-    file: "audio/06 Jules Can You See Me__.mp3",
+    file: "audio/06 Jules Can You See Me_.mp3",
     notes: "(add notes later)",
     credits: defaultCredits,
     lyrics: `Jules, can you see me?
+
 I’m right before your eyes
 Here lonely, sick, & haunted
 Wishing for a different life
@@ -307,8 +335,9 @@ How can I reappear? Reappear?`
     title: "Something is Different",
     file: "audio/07 Something is Different.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Something went missing from your eyes
+
 And I’ve been looking for it ever since
 The years we spent building memories
 May be all that we get
@@ -320,6 +349,7 @@ And something’s gotta change
 
 Whatever pulled me close to you
 A lover’s serenade
+
 Has fallen quiet despite my demands
 And the band they just won’t play
 
@@ -330,6 +360,7 @@ And something’s gotta change
 
 When we met and fell madly in love
 The first time you touched my hand
+
 Now that it’s fading nothing’s enough
 And I just don’t know who I am
 
@@ -340,10 +371,12 @@ And something’s gotta change
 
 Everybody told me that it would never last
 And I was sure they were wrong
+
 It breaks my heart how right they were
 And How love evaporates like fog
 
 And..
+
 Something is different
 Something is different
 Something is different
@@ -353,51 +386,65 @@ And something’s gotta change`
     title: "Our Remaining Pig",
     file: "audio/08 Our Remaining Pig.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `There is a place in this world calling out my name
+
 It might be love, it might be death, it might be pain
 But there’s no way I’m staying here treading this water
 We must slaughter our remaining pig
 
 Forward, forward
+
 Darling, I loved you
 Deep in the wreckage, honey,
 That’s the truth
 Twisted and broken,
+
 But it’s the only way through
 And it kills me to kill you,
 But that’s what we do
 That’s what we do
 
 Don’t know how long you starved me, but here is the bones
+
 You can see them in the museum, but the animal is gone
 And it ain’t your fault
+
 It’s just this wicked world won’t quit breaking everything
+
 And it broke my heart with it
 
 Forward, forward
+
 Darling, I loved you
 Deep in the wreckage, honey,
 That’s the truth
 Twisted and broken,
+
 But it’s the only way through
 And it kills me to kill you,
+
 But that’s what we do
 That’s what we do
 
 Drift away now
+
 You’ve got to be free
 I pray and I shout that good things come to me
 Can good things come to me?
+
 Will good things come to me?
 
 Forward, forward
+
 Darling, I loved you
 Deep in the wreckage, honey,
 That’s the truth
 Twisted and broken,
+
 But it’s the only way through
 And it kills me to kill you,
+
 But that’s what we do
 That’s what we do`
   },
@@ -405,36 +452,45 @@ That’s what we do`
     title: "The Mouth That Will Not Speak",
     file: "audio/09 The Mouth That Will Not Speak.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Thought I heard a voice once before
+
 Oh I thought it was yours
 Thought I heard a voice once before
+
 Oh I thought it was yours
 
 Have at you!
+
 I could tear you apart
 In very little time I could own your heart
 I’m made of teeth
+
 You can wait and see,
 But you’re looking at a mouth that will not speak
 
 You’re looking at a mouth that will not speak
 You’re coming into town to ask after me,
+
 But I’m out the door
 I’m down the street
 You keep looking into my eyes like there’s something to see
 
 I don’t need a vacation
+
 I just want to believe
 That there’s more out there that my hands can reach
 Another falling curtain
+
 Another dimming light
 A dog on the runway’s had the time of his life
 And I just woke up in these dirty sheets
+
 Waiting on the mouth that will not speak
 
 You’re looking at a mouth that will not speak
 You’re coming into town to ask after me,
+
 But I’m out the door
 I’m down the street
 You keep looking into my eyes like there’s something to see
@@ -445,35 +501,42 @@ Thought I heard a voice once before…`
     title: "Pain",
     file: "audio/10 Pain.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `What do you do with your pain?
+
 What do you do with your troubled mind?
 Do you just look away?
 Or do you pull out your eyes?
 
 Pain
+
 Pain
 Pain
 
 What do you do with your past?
+
 What do you do when the day replays?
 Can you escape its grasp?
 Can you send it packing the way that it came?
 
 Pain
+
 Pain
 Pain
 
 What do you do with your lust?
+
 What do you do with your hungry eyes?
 Do you just want too much?
 Do you really want another life?
 
 Pain
+
 Pain
 Pain
 
 PAIN!
+
 PAIN!
 PAIN!`
   },
@@ -481,45 +544,55 @@ PAIN!`
     title: "We Were Right ('Til We Were Wrong)",
     file: "audio/11 We Were Right ('Til We Were Wrong).mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `It happens slow
+
 The dying flame
 And where it goes there’s no escape
 And we’re just whores
+
 Hearts made for rape
 The angel’s harp only played mistakes
 
 I thought we’d be forever
+
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
 We once adored these old oak floors,
+
 But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong
 
 Turn out the lights
+
 Deny the sun
 Turn on our phones
 We’ll call this love
 Maybe in your youth
+
 With bright blue eyes
 Before the truth stole surprise
 
 I thought we’d be forever
+
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
 We once adored these old oak floors,
+
 But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong
 
 I thought we’d be forever
+
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
 We once adored these old oak floors,
+
 But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong`
@@ -528,48 +601,58 @@ We were right ‘till we were wrong`
     title: "Cut Off All Your Hair",
     file: "audio/12 Cut Off All Your Hair.mp3",
     notes: "(add notes later)",
-    credits: "(add credits later)",
+    credits: defaultCredits,
     lyrics: `Thought I could outrun every wild dog
+
 Cover myself in clouds & hide in the fog
 Thought if I left you’d forget my name
 Even though the splinter was stuck in my paw
+
 I refused to flinch
 Just kept on walking
 It’s I that drives the stake
 And it’s not like I didn’t know what I needed to do
+
 I just said no
 Watch me stop the world from spin
 It’s never been my way to ask for help
 Though I needed it bad
+
 I kept it to myself
 That way no one could let me down
 
 And would you please cut off all your hair?
+
 And stand by my side though I can get so scared?
 And would you leave as I just start to care?
 ‘Cause there’s a beggar in me that wants nothing but you, dear
 
 Danced my way right out of the spotlight
+
 Jitterbug to the grave ‘till the bulbs glow hot white
 Thought I’d just let go of your hand
 Whatever became of that brand new feeling
+
 That just never came back despite all my wishing
 Blew out the candles on the cake
 Countless nights of endless drinking
+
 They gave away love without even thinking
 They sell it at the corner store
 And God only lasts in the moment you hold it
+
 Man, it gets away fast with nothing to show for it
 Hold this picture of my life
 
 And would you please cut off all your hair?
+
 And stand by my side though I can get so scared?
 And would you leave as I just start to care?
 ‘Cause there’s a beggar in me that wants nothing but you, dear`
   },
 ];
-// -------------------------------------
 
+// DOM
 const audio = document.getElementById("audio");
 const list = document.getElementById("trackList");
 
@@ -578,22 +661,22 @@ const nextBtn = document.getElementById("nextBtn");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const nowPlaying = document.getElementById("nowPlaying");
 
+const zipBtn = document.getElementById("zipBtn");
+zipBtn.href = ZIP_URL;
+
+const logoutBtn = document.getElementById("logoutBtn");
+logoutBtn.addEventListener("click", () => {
+  sessionStorage.removeItem("tancc_authed");
+  window.location.href = "index.html";
+});
+
 let currentIndex = -1;
 
-function urlFor(path) {
-  return path
-    .split("/")
-    .map((seg) => encodeURIComponent(seg))
-    .join("/");
-}
-
 function setPlayButtonLabel() {
-  if (!playPauseBtn) return;
   playPauseBtn.textContent = audio.paused ? "Play" : "Pause";
 }
 
 function setNowPlaying() {
-  if (!nowPlaying) return;
   nowPlaying.textContent = currentIndex >= 0 ? `Now playing: ${tracks[currentIndex].title}` : "";
 }
 
@@ -637,12 +720,18 @@ function togglePlayPause() {
   else audio.pause();
 }
 
-// ----- Track modal -----
+// Track modal
 const trackModal = document.getElementById("trackModal");
 const trackModalKicker = document.getElementById("trackModalKicker");
 const trackModalTitle = document.getElementById("trackModalTitle");
 const trackModalBody = document.getElementById("trackModalBody");
 const trackModalCloseBtn = document.getElementById("trackModalCloseBtn");
+
+// Bio modal
+const bioBtn = document.getElementById("bioBtn");
+const bioModal = document.getElementById("bioModal");
+const bioCloseBtn = document.getElementById("bioCloseBtn");
+const bioBody = document.getElementById("bioBody");
 
 let lastFocusEl = null;
 
@@ -655,7 +744,7 @@ function openTrackModal(trackTitle, sectionLabel, bodyText) {
 
   trackModal.classList.add("open");
   trackModal.setAttribute("aria-hidden", "false");
-  trackModalCloseBtn?.focus();
+  trackModalCloseBtn.focus();
 }
 
 function closeTrackModal() {
@@ -664,23 +753,17 @@ function closeTrackModal() {
   if (lastFocusEl && typeof lastFocusEl.focus === "function") lastFocusEl.focus();
 }
 
-trackModal?.addEventListener("click", (e) => {
-  if (e.target && e.target.dataset && e.target.dataset.close === "1") closeTrackModal();
+trackModal.addEventListener("click", (e) => {
+  if (e.target?.dataset?.close === "1") closeTrackModal();
 });
-trackModalCloseBtn?.addEventListener("click", closeTrackModal);
-
-// ----- Artist bio modal -----
-const bioBtn = document.getElementById("bioBtn");
-const bioModal = document.getElementById("bioModal");
-const bioCloseBtn = document.getElementById("bioCloseBtn");
-const bioBody = document.getElementById("bioBody");
+trackModalCloseBtn.addEventListener("click", closeTrackModal);
 
 function openBio() {
   lastFocusEl = document.activeElement;
   bioBody.textContent = artistBio || "(no bio yet)";
   bioModal.classList.add("open");
   bioModal.setAttribute("aria-hidden", "false");
-  bioCloseBtn?.focus();
+  bioCloseBtn.focus();
 }
 
 function closeBio() {
@@ -689,20 +772,20 @@ function closeBio() {
   if (lastFocusEl && typeof lastFocusEl.focus === "function") lastFocusEl.focus();
 }
 
-bioBtn?.addEventListener("click", openBio);
-bioModal?.addEventListener("click", (e) => {
-  if (e.target && e.target.dataset && e.target.dataset.close === "1") closeBio();
+bioBtn.addEventListener("click", openBio);
+bioModal.addEventListener("click", (e) => {
+  if (e.target?.dataset?.close === "1") closeBio();
 });
-bioCloseBtn?.addEventListener("click", closeBio);
+bioCloseBtn.addEventListener("click", closeBio);
 
-// global esc closes whichever modal is open
+// Esc closes modals
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
-  if (trackModal?.classList.contains("open")) closeTrackModal();
-  if (bioModal?.classList.contains("open")) closeBio();
+  if (trackModal.classList.contains("open")) closeTrackModal();
+  if (bioModal.classList.contains("open")) closeBio();
 });
 
-// ----- Per-track caret rows -----
+// Caret rows
 function syncCaretButtons() {
   document.querySelectorAll(".caretbtn").forEach((b) => {
     const li = b.closest(".track");
@@ -729,11 +812,9 @@ function buildList() {
     const li = document.createElement("li");
     li.className = "track";
 
-    // Row
     const top = document.createElement("div");
     top.className = "track-top";
 
-    // Left: play
     const left = document.createElement("div");
 
     const playBtn = document.createElement("button");
@@ -753,7 +834,6 @@ function buildList() {
     playBtn.appendChild(meta);
     left.appendChild(playBtn);
 
-    // Right: caret toggle only
     const actions = document.createElement("div");
     actions.className = "track-actions";
 
@@ -777,7 +857,6 @@ function buildList() {
     top.appendChild(left);
     top.appendChild(actions);
 
-    // Nav row (horizontal chips)
     const navrow = document.createElement("div");
     navrow.className = "navrow";
     navrow.addEventListener("click", (e) => e.stopPropagation());
@@ -800,12 +879,11 @@ function buildList() {
       return b;
     };
 
-    const dl = document.createElement("a");
-    dl.className = "navchip navlink";
+    const dl = document.createElement("button");
+    dl.type = "button";
+    dl.className = "navchip";
     dl.textContent = "Download";
-    dl.href = urlFor(t.file);
-    dl.setAttribute("download", "");
-    dl.addEventListener("click", (e) => e.stopPropagation());
+    dl.addEventListener("click", () => downloadTrack(t.file));
 
     navrow.appendChild(mkNav("Lyrics", "lyrics"));
     navrow.appendChild(mkNav("Credits", "credits"));
@@ -821,9 +899,9 @@ function buildList() {
   syncCaretButtons();
 }
 
-prevBtn?.addEventListener("click", playPrev);
-nextBtn?.addEventListener("click", playNext);
-playPauseBtn?.addEventListener("click", togglePlayPause);
+prevBtn.addEventListener("click", playPrev);
+nextBtn.addEventListener("click", playNext);
+playPauseBtn.addEventListener("click", togglePlayPause);
 
 audio.addEventListener("play", setPlayButtonLabel);
 audio.addEventListener("pause", setPlayButtonLabel);
