@@ -6,21 +6,30 @@
   }
 
   // Keep URL clean (show /TANCC/ even if we loaded player.html)
-  if (location.pathname.endsWith("/player.html")) {
-    history.replaceState(null, "", "./" + location.search + location.hash);
-  }
+  try {
+    if (location.pathname.endsWith("/player.html")) {
+      history.replaceState(null, "", "./" + location.search + location.hash);
+    }
+  } catch {}
 
   // Edit these if you want
   const ZIP_URL = "https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip";
 
   const CREDITS_ALL = [
     "Kye Alfred Hillig: vocals, guitar",
+    
     "Yoswa Grimgold: bass",
+    
     "David Bilbrey: guitar",
+    
     "Bill Nordwall: piano, organ",
+    
     "Jasen Samford: drums, percussion",
+    
     "Recorded and mixed by Ryan Leyva at ExEx Audio",
+    
     "Mastered by Rachel Field at Resonant Mastering",
+    
     "All music and lyrics by Kye Alfred Hillig"
   ].join("\n");
 
@@ -59,12 +68,12 @@
   ];
 
   const lyricsByTitle = {
-    "The Horrible Truth": `Ran some errands
-
-Made a friend call back,
+    "The Horrible Truth": `
+Ran some errands
+Made a friend call back
 But we never made love today
 Never said goodbye to my old friend Matt
-He went to bed,
+He went to bed
 But he couldn’t awake
 
 Hold the door
@@ -79,7 +88,7 @@ What’s so hard to hear
 All this horrible truth
 
 Down to the cellar
-Fill the washing machine,
+Fill the washing machine
 But I never got out your stains
 What’s the point of laundry if it never comes clean?
 Or a love that’s dying and grey?
@@ -103,7 +112,7 @@ You’re probably busy anyway
 
 After a while all you’ve got is strangers
 Two actors putting on a play
-Taking bows and catching all the roses,
+Taking bows and catching all the roses
 But the curtain’s falling on the stage
 
 You can’t escape it, dear
@@ -111,18 +120,19 @@ So I might as well confess to you
 What’s so hard to hear
 All this horrible truth`,
 
-    "Our Remaining Pig": `There is a place in this world calling out my name
+    "Our Remaining Pig": `
+There is a place in this world calling out my name
 It might be love, it might be death, it might be pain
 But there’s no way I’m staying here treading this water
 We must slaughter our remaining pig
 
 Forward, forward
 Darling, I loved you
-Deep in the wreckage, honey,
+Deep in the wreckage, honey
 That’s the truth
-Twisted and broken,
+Twisted and broken
 But it’s the only way through
-And it kills me to kill you,
+And it kills me to kill you
 But that’s what we do
 That’s what we do
 
@@ -134,11 +144,11 @@ And it broke my heart with it
 
 Forward, forward
 Darling, I loved you
-Deep in the wreckage, honey,
+Deep in the wreckage, honey
 That’s the truth
-Twisted and broken,
+Twisted and broken
 But it’s the only way through
-And it kills me to kill you,
+And it kills me to kill you
 But that’s what we do
 That’s what we do
 
@@ -150,15 +160,16 @@ Will good things come to me?
 
 Forward, forward
 Darling, I loved you
-Deep in the wreckage, honey,
+Deep in the wreckage, honey
 That’s the truth
-Twisted and broken,
+Twisted and broken
 But it’s the only way through
-And it kills me to kill you,
+And it kills me to kill you
 But that’s what we do
 That’s what we do`,
 
-    "Divorce of Course of Course": `Love me in these shackles fit for justice
+    "Divorce of Course of Course": 
+      `Love me in these shackles fit for justice
 Show me how my heart can break
 Meet me on the map of Nova Scotia, hoping for a holiday
 Crasser than life when you go down on me
@@ -166,7 +177,7 @@ Choking like there’s nothing wrong
 Just a million little birds on a dead dogs fur
 Trying to make a corpse their home
 
-And oh we often get it wrong,
+And oh we often get it wrong
 But so what move on
 So what move on!
 
@@ -178,7 +189,7 @@ Calling out my name like it don’t mean nothing
 Like a hooker in my dressing room
 Taking back what you said to the man on the ledge hoping for a honeymoon
 
-And oh we often get it wrong,
+And oh we often get it wrong
 But so what move on
 So what move on!
 
@@ -191,11 +202,12 @@ Like the pieces that I try to hide
 But we’re giving birth to a life that hurts
 And it’s really alright to cry
 
-And oh we often get it wrong,
+And oh we often get it wrong
 But so what move on
 So what move on!`,
 
-    "Jules Can You See Me?": `Jules, can you see me?
+    "Jules Can You See Me?": 
+`Jules, can you see me?
 I’m right before your eyes
 Here lonely, sick, & haunted
 Wishing for a different life
@@ -254,10 +266,11 @@ Can you see me? Am I here?
 You took my heart…
 How can I reappear? Reappear?`,
 
-    "How Desperate We Are": `How desperate we are
+    "How Desperate We Are": 
+`How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
-Just count the churches, jails, & bars
+Just count the churches, jails, and bars
 
 You say the road is heading south
 Like there’s another way to go
@@ -273,14 +286,15 @@ The remaining jewels from your crown
 How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
-Just count the churches, jails, & bars
+Just count the churches, jails, and bars
 
 How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
-Just count the churches, jails, & bars`,
+Just count the churches, jails, and bars`,
 
-    "We Were Right ('Til We Were Wrong)": `It happens slow
+    "We Were Right ('Til We Were Wrong)": 
+`It happens slow
 The dying flame
 And where it goes there’s no escape
 And we’re just whores
@@ -291,10 +305,10 @@ I thought we’d be forever
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
-We once adored these old oak floors,
+We once adored these old oak floors
 But the luster now is gone
 And it’s true the shine just fades with time
-We were right ‘till we were wrong
+We were right ‘til we were wrong
 
 Turn out the lights
 Deny the sun
@@ -308,25 +322,21 @@ I thought we’d be forever
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
-We once adored these old oak floors,
+We once adored these old oak floors
 But the luster now is gone
 And it’s true the shine just fades with time
-We were right ‘till we were wrong
+We were right ‘til we were wrong
 
 I thought we’d be forever
-I guess I’m just that dumb
-And i said no to tomorrow
-Like i could turn my back and run
-We once adored these old oak floors,
-But the luster now is gone
-And it’s true the shine just fades with time
-We were right ‘till we were wrong`,
+I guess it was never really mine
+We were right ‘til we were wrong`,
 
-    "Ezekiel Bobbing For Apples": `Open up our hearts for nothing
+    "Ezekiel Bobbing For Apples": 
+`Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
 That is what we do
-Peace on Earth and all that shit,
+Peace on Earth and all that shit
 But none of it comes true
 Open up our hearts for nothing
 That is what we do
@@ -344,7 +354,7 @@ Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
 That is what we do
-Peace on Earth and all that shit,
+Peace on Earth and all that shit
 But none of it comes true
 Open up our hearts for nothing
 That is what we do
@@ -363,7 +373,7 @@ Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
 That is what we do
-Peace on Earth and all that shit,
+Peace on Earth and all that shit
 But none of it comes true
 Open up our hearts for nothing
 That is what we do
@@ -373,7 +383,8 @@ Open up our hearts for nothing
 That is what we do Open up our hearts for nothing
 That is what we do…`,
 
-    "Pain": `What do you do with your pain?
+    "Pain": 
+`What do you do with your pain?
 What do you do with your troubled mind?
 Do you just look away?
 Or do you pull out your eyes?
@@ -404,7 +415,8 @@ PAIN!
 PAIN!
 PAIN!`,
 
-    "Don't Cancel The Fair": `Don’t cancel the fair
+    "Don't Cancel The Fair": 
+`Don’t cancel the fair
 I don’t know what we’re gonna do come Spring
 Just sit around and drink?
 And lay off all the clowns?
@@ -427,7 +439,7 @@ Alone with our thoughts in the quiet of this room
 I hope there’s a thousand people there
 Please don’t cancel the fair
 
-Don’t turn off all the lights,
+Don’t turn off all the lights
 Close the gates, and send the country singers home
 To sing sad songs alone
 And that little boy by the slide?
@@ -439,7 +451,8 @@ Alone with our thoughts in the quiet of this room
 I hope there’s a thousand people there
 Please don’t cancel the fair`,
 
-    "Something is Different": `Something went missing from your eyes
+    "Something is Different": 
+`Something went missing from your eyes
 And I’ve been looking for it ever since
 The years we spent building memories
 May be all that we get
@@ -462,7 +475,7 @@ And something’s gotta change
 When we met and fell madly in love
 The first time you touched my hand
 Now that it’s fading nothing’s enough
-And i just don’t know who i am
+And I just don’t know who I am
 
 Something is different
 Something is different
@@ -480,7 +493,8 @@ Something is different
 Something is different
 And something’s gotta change`,
 
-    "The Mouth That Will Not Speak": `Thought I heard a voice once before
+    "The Mouth That Will Not Speak": 
+`Thought I heard a voice once before
 Oh I thought it was yours
 Thought I heard a voice once before
 Oh I thought it was yours
@@ -489,11 +503,11 @@ Have at you!
 I could tear you apart
 In very little time i could own your heart
 I’m made of teeth
-You can wait and see,
+You can wait and see
 But you’re looking at a mouth that will not speak
 
 You’re looking at a mouth that will not speak
-You’re coming into town to ask after me,
+You’re coming into town to ask after me
 But I’m out the door
 I’m down the street
 You keep looking into my eyes like there’s something to see
@@ -508,14 +522,15 @@ And i just woke up in these dirty sheets
 Waiting on the mouth that will not speak
 
 You’re looking at a mouth that will not speak
-You’re coming into town to ask after me,
+You’re coming into town to ask after me
 But I’m out the door
 I’m down the street
 You keep looking into my eyes like there’s something to see
 
 Thought I heard a voice once before…`,
 
-    "Cut Off All Your Hair": `Thought I could outrun every wild dog
+    "Cut Off All Your Hair": 
+`Thought I could outrun every wild dog
 Cover myself in clouds & hide in the fog
 Thought if i left you’d forget my name
 Even though the splinter was stuck in my paw
@@ -774,10 +789,10 @@ And would you leave as i just start to care?
       left.className = "track-main";
       left.innerHTML = `
         <div class="track-title">
-          <span class="track-num">${String(t.n).padStart(2, "0")}.<\/span>
-          <span>${escapeHtml(t.title)}<\/span>
-        <\/div>
-        <div class="track-sub muted">click to play<\/div>
+          <span class="track-num">${String(t.n).padStart(2, "0")}.</span>
+          <span>${escapeHtml(t.title)}</span>
+        </div>
+        <div class="track-sub muted">click to play</div>
       `;
       left.addEventListener("click", () => setCurrent(idx, true));
 
@@ -785,7 +800,7 @@ And would you leave as i just start to care?
       caretBtn.type = "button";
       caretBtn.className = "caret-btn";
       caretBtn.setAttribute("aria-label", "Open track actions");
-      caretBtn.innerHTML = `<span class="caret">▾<\/span>`;
+      caretBtn.innerHTML = `<span class="caret">▾</span>`;
       caretBtn.addEventListener("click", () => {
         const willOpen = !row.classList.contains("open");
         closeAllDrawers(willOpen ? row : null);
@@ -797,11 +812,11 @@ And would you leave as i just start to care?
       drawer.className = "drawer";
       drawer.innerHTML = `
         <div class="drawer-buttons">
-          <button class="action-btn" data-action="lyrics">Lyrics<\/button>
-          <button class="action-btn" data-action="credits">Credits<\/button>
-          <button class="action-btn" data-action="notes">Notes<\/button>
-          <button class="action-btn action-download" data-action="download">Download<\/button>
-        <\/div>
+          <button class="action-btn" data-action="lyrics">Lyrics</button>
+          <button class="action-btn" data-action="credits">Credits</button>
+          <button class="action-btn" data-action="notes">Notes</button>
+          <button class="action-btn action-download" data-action="download">Download</button>
+        </div>
       `;
 
       drawer.addEventListener("click", (e) => {
