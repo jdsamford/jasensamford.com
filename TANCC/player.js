@@ -48,7 +48,7 @@
   // Notes (paste Kye's per-track notes here later)
   // Keys must match the track titles exactly.
   const NOTES_BY_TITLE = {
-    "The  Truth": "",
+    "The Horrible Truth": "",
     "Ezekiel Bobbing For Apples": "",
     "Divorce of Course of Course": "",
     "Don't Cancel The Fair": "",
