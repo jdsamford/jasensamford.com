@@ -1,6 +1,6 @@
 (() => {
   // Gate
-  if (!window.TANCCAuth?.isAuthed()) {
+  if (!window.TANCCAuth || !window.TANCCAuth.isAuthed()) {
     location.replace("./index.html");
     return;
   }
@@ -15,13 +15,13 @@
     "Bill Nordwall: piano, organ",
     "Jasen Samford: drums, percussion",
     "Recorded and mixed by Ryan Leyva at ExEx Audio in Seattle, WA",
-    "All music and lyrics by Kye Alfred Hilling"
+    "All music and lyrics by Kye Alfred Hillig"
   ].join("\n");
 
-  const ARTIST_BIO = [
-    "Artist bio goes here.",
+  const NOTES_PLACEHOLDER = [
+    "Track notes go here.",
     "",
-    "Replace this placeholder with your full artist bio."
+    "Replace this placeholder later."
   ].join("\n");
 
   const tracks = [
@@ -540,56 +540,91 @@ And would you leave as I just start to care?
 
   // Helpers
   const $ = (sel) => document.querySelector(sel);
+
   const list = $("#trackList");
   const audio = $("#audio");
+  const nowPlaying = $("#nowPlaying");
+
+  const playBtn = $("#playPauseBtn");
+  const prevBtn = $("#prevBtn");
+  const nextBtn = $("#nextBtn");
 
   const zipBtn = $("#zipBtn");
-  zipBtn.href = ZIP_URL;
+  if (zipBtn) zipBtn.href = ZIP_URL;
 
-  $("#logoutBtn").addEventListener("click", () => {
+  $("#logoutBtn")?.addEventListener("click", () => {
     window.TANCCAuth.logout();
     location.replace("./index.html");
   });
 
-  $("#bioBtn").addEventListener("click", () => openModal("BIO", "Kye Alfred Hillig", ARTIST_BIO));
-  $("#bioPill").addEventListener("click", () => openModal("BIO", "Kye Alfred Hillig", ARTIST_BIO));
+  // Track modal
+  const trackModal = $("#trackModal");
+  const trackModalKicker = $("#trackModalKicker");
+  const trackModalTitle = $("#trackModalTitle");
+  const trackModalBody = $("#trackModalBody");
+  const trackModalCloseBtn = $("#trackModalCloseBtn");
+  const trackModalBodyWrap = trackModal ? trackModal.querySelector(".modal-body") : null;
 
-  const modal = $("#modal");
-  const modalTag = $("#modalTag");
-  const modalTitle = $("#modalTitle");
-  const modalPre = $("#modalPre");
-  const modalClose = $("#modalClose");
+  function openTrackModal(kind, title, body) {
+    if (!trackModal) return;
 
-  function openModal(tag, title, body) {
-    modalTag.textContent = tag;
-    modalTitle.textContent = title;
-    modalPre.textContent = body;
+    trackModalKicker.textContent = kind;
+    trackModalTitle.textContent = title;
+    trackModalBody.textContent = body;
 
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
+    trackModal.classList.add("open");
+    trackModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
 
-    // scroll modal body to top each time
-    const bodyEl = $("#modalBody");
-    if (bodyEl) bodyEl.scrollTop = 0;
-
-    // focus close for accessibility
-    setTimeout(() => modalClose.focus(), 0);
+    if (trackModalBodyWrap) trackModalBodyWrap.scrollTop = 0;
+    setTimeout(() => trackModalCloseBtn?.focus(), 0);
   }
 
-  function closeModal() {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
+  function closeTrackModal() {
+    if (!trackModal) return;
+    trackModal.classList.remove("open");
+    trackModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
   }
 
-  modalClose.addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => {
+  trackModalCloseBtn?.addEventListener("click", closeTrackModal);
+  trackModal?.addEventListener("click", (e) => {
     const t = e.target;
-    if (t && t.dataset && t.dataset.close) closeModal();
+    if (t && t.dataset && t.dataset.close) closeTrackModal();
   });
+
+  // Bio modal
+  const bioModal = $("#bioModal");
+  const bioCloseBtn = $("#bioCloseBtn");
+  const bioBodyWrap = bioModal ? bioModal.querySelector(".modal-body") : null;
+
+  function openBioModal() {
+    if (!bioModal) return;
+    bioModal.classList.add("open");
+    bioModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    if (bioBodyWrap) bioBodyWrap.scrollTop = 0;
+    setTimeout(() => bioCloseBtn?.focus(), 0);
+  }
+
+  function closeBioModal() {
+    if (!bioModal) return;
+    bioModal.classList.remove("open");
+    bioModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+
+  $("#bioBtn")?.addEventListener("click", openBioModal);
+  bioCloseBtn?.addEventListener("click", closeBioModal);
+  bioModal?.addEventListener("click", (e) => {
+    const t = e.target;
+    if (t && t.dataset && t.dataset.close) closeBioModal();
+  });
+
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    if (e.key !== "Escape") return;
+    if (trackModal?.classList.contains("open")) closeTrackModal();
+    if (bioModal?.classList.contains("open")) closeBioModal();
   });
 
   function fileUrl(file) {
@@ -597,21 +632,33 @@ And would you leave as I just start to care?
     return "./audio/" + encodeURIComponent(file);
   }
 
-  let currentIndex = 0;
-  let isPlaying = false;
-
-  function setNowPlaying(idx, autoplay = true) {
-    currentIndex = idx;
+  function labelForTrack(idx) {
     const t = tracks[idx];
-    const url = fileUrl(t.file);
+    return `${String(t.n).padStart(2, "0")}. ${t.title}`;
+  }
 
-    audio.src = url;
-    if (autoplay) {
-      audio.play().catch(() => {});
-      isPlaying = true;
-      $("#btnPlay").textContent = "Pause";
+  let currentIndex = 0;
+
+  function ensureSrc(idx) {
+    if (!audio) return;
+    if (audio.dataset.srcIndex === String(idx) && audio.src) return;
+    const t = tracks[idx];
+    audio.src = fileUrl(t.file);
+    audio.dataset.srcIndex = String(idx);
+  }
+
+  function isActuallyPlaying() {
+    return audio && !audio.paused && !audio.ended;
+  }
+
+  function updateNowPlaying() {
+    if (!nowPlaying) return;
+    const t = tracks[currentIndex];
+    if (!t) {
+      nowPlaying.textContent = "";
+      return;
     }
-    highlightActive();
+    nowPlaying.textContent = (isActuallyPlaying() ? "Now playing: " : "Ready: ") + labelForTrack(currentIndex);
   }
 
   function highlightActive() {
@@ -620,33 +667,50 @@ And would you leave as I just start to care?
     });
   }
 
-  $("#btnPrev").addEventListener("click", () => {
-    const next = Math.max(0, currentIndex - 1);
-    setNowPlaying(next, true);
-  });
+  function setCurrent(idx, autoplay) {
+    currentIndex = idx;
+    highlightActive();
+    updateNowPlaying();
 
-  $("#btnNext").addEventListener("click", () => {
-    const next = Math.min(tracks.length - 1, currentIndex + 1);
-    setNowPlaying(next, true);
-  });
-
-  $("#btnPlay").addEventListener("click", () => {
-    if (!audio.src) setNowPlaying(currentIndex, true);
-
-    if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-      $("#btnPlay").textContent = "Play";
-    } else {
+    if (autoplay) {
+      ensureSrc(idx);
       audio.play().catch(() => {});
-      isPlaying = true;
-      $("#btnPlay").textContent = "Pause";
     }
+  }
+
+  prevBtn?.addEventListener("click", () => {
+    const next = Math.max(0, currentIndex - 1);
+    setCurrent(next, isActuallyPlaying());
   });
 
-  audio.addEventListener("ended", () => {
+  nextBtn?.addEventListener("click", () => {
     const next = Math.min(tracks.length - 1, currentIndex + 1);
-    if (next !== currentIndex) setNowPlaying(next, true);
+    setCurrent(next, isActuallyPlaying());
+  });
+
+  playBtn?.addEventListener("click", () => {
+    ensureSrc(currentIndex);
+
+    if (isActuallyPlaying()) {
+      audio.pause();
+      return;
+    }
+    audio.play().catch(() => {});
+  });
+
+  audio?.addEventListener("play", () => {
+    if (playBtn) playBtn.textContent = "Pause";
+    updateNowPlaying();
+  });
+
+  audio?.addEventListener("pause", () => {
+    if (playBtn) playBtn.textContent = "Play";
+    updateNowPlaying();
+  });
+
+  audio?.addEventListener("ended", () => {
+    const next = Math.min(tracks.length - 1, currentIndex + 1);
+    if (next !== currentIndex) setCurrent(next, true);
   });
 
   // One-open-at-a-time drawers
@@ -654,14 +718,35 @@ And would you leave as I just start to care?
     document.querySelectorAll(".track-row").forEach((row) => {
       if (exceptRow && row === exceptRow) return;
       row.classList.remove("open");
+      const caret = row.querySelector(".caret");
+      if (caret) caret.textContent = "▾";
     });
   }
 
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".track-row")) closeAllDrawers();
+  });
+
+  function downloadFile(url, filename) {
+    try {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename || "";
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch {
+      window.open(url, "_blank", "noopener");
+    }
+  }
+
   function render() {
+    if (!list) return;
     list.innerHTML = "";
 
     tracks.forEach((t, idx) => {
-      const row = document.createElement("div");
+      const row = document.createElement("li");
       row.className = "track-row";
       row.dataset.index = String(idx);
 
@@ -675,20 +760,18 @@ And would you leave as I just start to care?
         </div>
         <div class="track-sub muted">click to play</div>
       `;
-      left.addEventListener("click", () => {
-        setNowPlaying(idx, true);
-      });
+      left.addEventListener("click", () => setCurrent(idx, true));
 
-      const caret = document.createElement("button");
-      caret.type = "button";
-      caret.className = "caret-btn";
-      caret.setAttribute("aria-label", "Open track actions");
-      caret.innerHTML = `<span class="caret">▾</span>`;
-      caret.addEventListener("click", () => {
+      const caretBtn = document.createElement("button");
+      caretBtn.type = "button";
+      caretBtn.className = "caret-btn";
+      caretBtn.setAttribute("aria-label", "Open track actions");
+      caretBtn.innerHTML = `<span class="caret">▾</span>`;
+      caretBtn.addEventListener("click", () => {
         const willOpen = !row.classList.contains("open");
         closeAllDrawers(willOpen ? row : null);
         row.classList.toggle("open");
-        caret.querySelector(".caret").textContent = row.classList.contains("open") ? "▴" : "▾";
+        caretBtn.querySelector(".caret").textContent = row.classList.contains("open") ? "▴" : "▾";
       });
 
       const drawer = document.createElement("div");
@@ -707,31 +790,34 @@ And would you leave as I just start to care?
         if (!btn) return;
 
         const action = btn.dataset.action;
+
         if (action === "download") {
-          window.open(fileUrl(t.file), "_blank", "noopener");
+          downloadFile(fileUrl(t.file), t.file);
           return;
         }
 
+        closeAllDrawers();
+
         if (action === "credits") {
-          openModal("CREDITS", t.title, CREDITS_ALL);
+          openTrackModal("Credits", labelForTrack(idx), CREDITS_ALL);
           return;
         }
 
         if (action === "notes") {
-          openModal("NOTES", t.title, "Track notes go here.\n\nReplace this placeholder later.");
+          openTrackModal("Notes", labelForTrack(idx), NOTES_PLACEHOLDER);
           return;
         }
 
         if (action === "lyrics") {
           const lyr = lyricsByTitle[t.title] || "Lyrics go here.";
-          openModal("LYRICS", `${String(t.n).padStart(2, "0")}. ${t.title}`, lyr);
+          openTrackModal("Lyrics", labelForTrack(idx), lyr);
           return;
         }
       });
 
       const right = document.createElement("div");
       right.className = "track-actions";
-      right.appendChild(caret);
+      right.appendChild(caretBtn);
 
       row.appendChild(left);
       row.appendChild(right);
@@ -741,6 +827,7 @@ And would you leave as I just start to care?
     });
 
     highlightActive();
+    updateNowPlaying();
   }
 
   // basic HTML escape for titles we inject
