@@ -1,7 +1,6 @@
 :root{
   --bg0:#07090f;
   --bg1:#0b0f18;
-  --card:rgba(255,255,255,.05);
   --stroke:rgba(255,255,255,.10);
   --stroke2:rgba(255,255,255,.08);
   --text:rgba(245,247,250,.93);
@@ -9,7 +8,6 @@
   --shadow:0 20px 60px rgba(0,0,0,.55);
 
   --r-lg:20px;
-  --r-md:14px;
 
   --font:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   --modalBody:ui-serif, Georgia, "Times New Roman", Times, serif;
@@ -76,7 +74,6 @@ a{ color:inherit; }
   align-items:start;
 }
 
-/* Left column */
 .side{
   display:flex;
   flex-direction:column;
@@ -119,6 +116,7 @@ a{ color:inherit; }
 .artistlink:hover .artistname{ text-decoration:underline; }
 
 .artistname{ font-weight:800; }
+
 .bio-pill{
   font-size:12px;
   padding:4px 10px;
@@ -128,7 +126,7 @@ a{ color:inherit; }
   color:var(--muted);
 }
 
-/* Right column panel */
+/* Right panel */
 .panel{
   background:rgba(255,255,255,.03);
   border:1px solid var(--stroke);
@@ -197,7 +195,7 @@ audio{
   background:transparent;
   color:inherit;
   cursor:pointer;
-  padding:12px 48px 12px 12px;
+  padding:12px 56px 12px 12px;
 }
 
 .track-title{
@@ -244,22 +242,26 @@ audio{
 }
 .track-row.open .drawer{ display:block; }
 
+/* Fixes the “weird on web” action layout */
 .drawer-buttons{
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
 }
 
 .action-btn{
   border:1px solid rgba(255,255,255,.10);
   background:rgba(255,255,255,.04);
   color:rgba(245,247,250,.92);
-  padding:8px 12px;
+  padding:9px 10px;
   border-radius:12px;
   cursor:pointer;
   font-weight:750;
-  min-width:86px;
   text-align:center;
+
+  flex:1 1 0;
+  min-width:0;
+  white-space:nowrap;
 }
 .action-btn:hover{ background:rgba(255,255,255,.08); }
 
@@ -268,11 +270,15 @@ audio{
   border-color:rgba(255,255,255,.16);
 }
 
-/* Buttons below playlist */
-.panel-actions{
-  margin-top:14px;
+/* Footer + bottom actions (Download/Logout) */
+.panel-footer{
+  margin-top:12px;
   padding-top:12px;
   border-top:1px solid var(--stroke2);
+}
+
+.panel-actions{
+  margin-top:10px;
   display:flex;
   gap:10px;
   justify-content:flex-end;
@@ -291,7 +297,6 @@ body.modal-open{ overflow:hidden; }
   align-items:center;
   justify-content:center;
 }
-
 .modal.open{ display:flex; }
 
 .modal-overlay{
@@ -353,10 +358,16 @@ body.modal-open{ overflow:hidden; }
     width:100%;
     text-align:left;
   }
+
   .panel-actions{
     justify-content:stretch;
   }
   .panel-actions .btn{
     flex:1;
   }
+}
+
+@media (max-width: 420px){
+  .drawer-buttons{ flex-wrap:wrap; }
+  .action-btn{ flex:1 1 calc(50% - 5px); }
 }
