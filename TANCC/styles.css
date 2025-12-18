@@ -285,11 +285,20 @@ body{
 }
 .track-sub{ margin-top:2px; font-size:12px; }
 
+/* Keep the menu button vertically aligned even if the subtitle line is hidden */
 .track-actions{
   position:absolute;
   right:10px;
-  top:10px;
+  top:50%;
+  transform:translateY(-50%);
 }
+
+/* When the row is expanded, keep it up by the title (optional, but looks better) */
+.track-row.open .track-actions{
+  top:10px;
+  transform:none;
+}
+
 
 .caret-btn{
   width:36px;
