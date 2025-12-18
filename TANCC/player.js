@@ -14,7 +14,8 @@
     "David Bilbrey: guitar",
     "Bill Nordwall: piano, organ",
     "Jasen Samford: drums, percussion",
-    "Recorded and mixed by Ryan Leyva at ExEx Audio in Seattle, WA",
+    "Recorded and mixed by Ryan Leyva at ExEx Audio",
+    "Mastered by Rachel Field at Resonant Mastering",
     "All music and lyrics by Kye Alfred Hillig"
   ].join("\n");
 
