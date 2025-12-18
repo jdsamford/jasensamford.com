@@ -1,8 +1,13 @@
 (() => {
   // Gate
   if (!window.TANCCAuth || !window.TANCCAuth.isAuthed()) {
-    location.replace("./index.html");
+    location.replace("./");
     return;
+  }
+
+  // Keep URL clean (show /TANCC/ even if we loaded player.html)
+  if (location.pathname.endsWith("/player.html")) {
+    history.replaceState(null, "", "./" + location.search + location.hash);
   }
 
   // Edit these if you want
@@ -18,6 +23,19 @@
     "Mastered by Rachel Field at Resonant Mastering",
     "All music and lyrics by Kye Alfred Hillig"
   ].join("\n");
+
+  const CREDITS_EXTRA_BY_TITLE = {
+    "Ezekiel Bobbing For Apples": ["Annie Jantzer: background vocals"],
+    "Don't Cancel The Fair": ["Annie Jantzer: background vocals"],
+    "Jules Can You See Me?": ["Annie Jantzer: background vocals"],
+    "Something is Different": ["Annie Jantzer: background vocals"],
+    "The Mouth That Will Not Speak": ["Annie Jantzer: background vocals"],
+  };
+
+  function creditsForTitle(title) {
+    const extra = CREDITS_EXTRA_BY_TITLE[title] || [];
+    return extra.length ? [CREDITS_ALL, "", ...extra].join("\n") : CREDITS_ALL;
+  }
 
   const NOTES_PLACEHOLDER = [
     "Track notes go here.",
@@ -297,8 +315,8 @@ We were right ‘till we were wrong
 
 I thought we’d be forever
 I guess I’m just that dumb
-And I said no to tomorrow
-Like I could turn my back and run
+And i said no to tomorrow
+Like i could turn my back and run
 We once adored these old oak floors,
 But the luster now is gone
 And it’s true the shine just fades with time
@@ -331,7 +349,7 @@ But none of it comes true
 Open up our hearts for nothing
 That is what we do
 
-Down the road I saw a home
+Down the road i saw a home
 Without windows or a wife
 I went indoors, just walked the floors
 No, I couldn’t sleep that night
@@ -413,7 +431,7 @@ Don’t turn off all the lights,
 Close the gates, and send the country singers home
 To sing sad songs alone
 And that little boy by the slide?
-Looks like me back when I was his age
+Looks like me back when i was his age
 Oh please just let him stay
 
 And what are we gonna do with ourselves come June?
@@ -444,7 +462,7 @@ And something’s gotta change
 When we met and fell madly in love
 The first time you touched my hand
 Now that it’s fading nothing’s enough
-And I just don’t know who I am
+And i just don’t know who i am
 
 Something is different
 Something is different
@@ -469,7 +487,7 @@ Oh I thought it was yours
 
 Have at you!
 I could tear you apart
-In very little time I could own your heart
+In very little time i could own your heart
 I’m made of teeth
 You can wait and see,
 But you’re looking at a mouth that will not speak
@@ -486,7 +504,7 @@ That there’s more out there that my hands can reach
 Another falling curtain
 Another dimming light
 A dog on the runway’s had the time of his life
-And I just woke up in these dirty sheets
+And i just woke up in these dirty sheets
 Waiting on the mouth that will not speak
 
 You’re looking at a mouth that will not speak
@@ -499,29 +517,29 @@ Thought I heard a voice once before…`,
 
     "Cut Off All Your Hair": `Thought I could outrun every wild dog
 Cover myself in clouds & hide in the fog
-Thought if I left you’d forget my name
+Thought if i left you’d forget my name
 Even though the splinter was stuck in my paw
 I refused to flinch
 Just kept on walking
 
-It’s I that drives the stake
-And it’s not like I didn’t know what I needed to do
+It’s i that drives the stake
+And it’s not like i didn’t know what i needed to do
 I just said no
 
 Watch me stop the world from spin
 It’s never been my way to ask for help
-Though I needed it bad
+Though i needed it bad
 I kept it to myself
 That way no one could let me down
 
 And would you please cut off all your hair?
-And stand by my side though I can get so scared?
-And would you leave as I just start to care?
+And stand by my side though i can get so scared?
+And would you leave as i just start to care?
 ‘Cause there’s a beggar in me that wants nothing but you, dear
 
 Danced my way right out of the spotlight 
 Jitterbug to the grave ‘till the bulbs glow hot white
-Thought I’d just let go of your hand
+Thought i’d just let go of your hand
 Whatever became of that brand new feeling
 That just never came back despite all my wishing
 Blew out the candles on the cake
@@ -534,8 +552,8 @@ Man, it gets away fast with nothing to show for it
 Hold this picture of my life
 
 And would you please cut off all your hair?
-And stand by my side though I can get so scared?
-And would you leave as I just start to care?
+And stand by my side though i can get so scared?
+And would you leave as i just start to care?
 ‘Cause there’s a beggar in me that wants nothing but you, dear`
   };
 
@@ -555,7 +573,7 @@ And would you leave as I just start to care?
 
   $("#logoutBtn")?.addEventListener("click", () => {
     window.TANCCAuth.logout();
-    location.replace("./index.html");
+    location.replace("./");
   });
 
   // Track modal
@@ -629,7 +647,7 @@ And would you leave as I just start to care?
   });
 
   function fileUrl(file) {
-    // keep spaces/quotes working on GitHub Pages
+    // keep spaces/quotes working
     return "./audio/" + encodeURIComponent(file);
   }
 
@@ -756,10 +774,10 @@ And would you leave as I just start to care?
       left.className = "track-main";
       left.innerHTML = `
         <div class="track-title">
-          <span class="track-num">${String(t.n).padStart(2, "0")}.</span>
-          <span>${escapeHtml(t.title)}</span>
-        </div>
-        <div class="track-sub muted">click to play</div>
+          <span class="track-num">${String(t.n).padStart(2, "0")}.<\/span>
+          <span>${escapeHtml(t.title)}<\/span>
+        <\/div>
+        <div class="track-sub muted">click to play<\/div>
       `;
       left.addEventListener("click", () => setCurrent(idx, true));
 
@@ -767,7 +785,7 @@ And would you leave as I just start to care?
       caretBtn.type = "button";
       caretBtn.className = "caret-btn";
       caretBtn.setAttribute("aria-label", "Open track actions");
-      caretBtn.innerHTML = `<span class="caret">▾</span>`;
+      caretBtn.innerHTML = `<span class="caret">▾<\/span>`;
       caretBtn.addEventListener("click", () => {
         const willOpen = !row.classList.contains("open");
         closeAllDrawers(willOpen ? row : null);
@@ -779,11 +797,11 @@ And would you leave as I just start to care?
       drawer.className = "drawer";
       drawer.innerHTML = `
         <div class="drawer-buttons">
-          <button class="action-btn" data-action="lyrics">Lyrics</button>
-          <button class="action-btn" data-action="credits">Credits</button>
-          <button class="action-btn" data-action="notes">Notes</button>
-          <button class="action-btn action-download" data-action="download">Download</button>
-        </div>
+          <button class="action-btn" data-action="lyrics">Lyrics<\/button>
+          <button class="action-btn" data-action="credits">Credits<\/button>
+          <button class="action-btn" data-action="notes">Notes<\/button>
+          <button class="action-btn action-download" data-action="download">Download<\/button>
+        <\/div>
       `;
 
       drawer.addEventListener("click", (e) => {
@@ -800,7 +818,7 @@ And would you leave as I just start to care?
         closeAllDrawers();
 
         if (action === "credits") {
-          openTrackModal("Credits", labelForTrack(idx), CREDITS_ALL);
+          openTrackModal("Credits", labelForTrack(idx), creditsForTitle(t.title));
           return;
         }
 
