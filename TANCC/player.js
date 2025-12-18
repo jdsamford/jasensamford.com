@@ -270,12 +270,12 @@ All this horrible truth`,
 
       const caretBtn = document.createElement("button");
       caretBtn.className = "caret-btn";
-      caretBtn.innerHTML = `<span class="caret">▾</span>`;
+      caretBtn.innerHTML = `<span class="caret">☰</span>`;
       caretBtn.addEventListener("click", () => {
         const willOpen = !row.classList.contains("open");
         closeAllDrawers(willOpen ? row : null);
         row.classList.toggle("open");
-        caretBtn.querySelector(".caret").textContent = row.classList.contains("open") ? "▴" : "▾";
+        caretBtn.querySelector(".caret").textContent = row.classList.contains("open") ? "✕" : "☰";
       });
 
       const drawer = document.createElement("div");
