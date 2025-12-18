@@ -2,33 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TANCC – Player</title>
-  <link rel="stylesheet" href="./styles.css?v=tancc7" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>The All-Night Costume Company – Private preview</title>
+  <link rel="stylesheet" href="./styles.css?v=tancc5" />
 </head>
-
 <body>
-  <main class="wrap">
-    <section class="grid">
-      <!-- Left column -->
+  <main class="page">
+    <div class="layout">
       <aside class="side">
-        <div class="art">
-          <img src="./cover.jpg" alt="Cover art" />
-        </div>
+        <img class="cover-img" src="./cover.jpg" alt="Cover art" />
 
-        <div class="meta">
+        <section class="meta-card">
           <div class="kicker">Private preview</div>
-          <h1 class="album">The All-Night Costume Company</h1>
+          <h1 class="album-title">The All-Night Costume Company</h1>
 
-          <button id="bioBtn" class="artistlink" type="button" aria-haspopup="dialog" aria-controls="bioModal">
-            <span class="artistname">Kye Alfred Hillig</span>
+          <button id="bioBtn" class="artist-btn" type="button" aria-haspopup="dialog" aria-controls="bioModal">
+            <span class="artist-name">Kye Alfred Hillig</span>
             <span class="bio-pill">Bio</span>
           </button>
-        </div>
+        </section>
       </aside>
 
-      <!-- Right column -->
-      <section class="panel">
+      <section class="player-card">
         <div class="playerbar">
           <button id="prevBtn" class="btn btn-ghost" type="button">Back</button>
           <button id="playPauseBtn" class="btn btn-primary" type="button">Play</button>
@@ -46,42 +41,29 @@
 
         <ol id="trackList" class="tracks"></ol>
 
-        <div class="panel-footer">
-          <div class="tiny muted">
-            Click a track to play. Use the caret to open Lyrics / Credits / Notes / Download.
-          </div>
+        <div class="hint tiny muted">
+          Click a track to play. Use the caret to open Lyrics / Credits / Notes / Download.
+        </div>
 
-          <div class="panel-actions">
-            <a
-              id="zipBtn"
-              class="btn"
-              href="https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip"
-              download
-            >
-              Download all (ZIP)
-            </a>
-
-            <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
-          </div>
+        <div class="bottom-actions">
+          <a id="zipBtn" class="btn" href="#" download>Download all (ZIP)</a>
+          <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
         </div>
       </section>
-    </section>
+    </div>
   </main>
 
   <!-- Track modal (Lyrics/Credits/Notes) -->
   <div id="trackModal" class="modal" aria-hidden="true">
     <div class="modal-overlay" data-close="1"></div>
-
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="trackModalTitle">
       <div class="modal-head">
         <div>
           <div id="trackModalKicker" class="kicker">Lyrics</div>
-          <div id="trackModalTitle" class="title">Track title</div>
+          <div id="trackModalTitle" class="modal-title">Track title</div>
         </div>
-
         <button id="trackModalCloseBtn" class="btn btn-ghost" type="button">Close</button>
       </div>
-
       <div class="modal-body">
         <pre id="trackModalBody" class="pre"></pre>
       </div>
@@ -91,17 +73,14 @@
   <!-- Bio modal -->
   <div id="bioModal" class="modal" aria-hidden="true">
     <div class="modal-overlay" data-close="1"></div>
-
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
       <div class="modal-head">
         <div>
           <div class="kicker">Artist</div>
-          <div id="bioTitle" class="title">Kye Alfred Hillig</div>
+          <div id="bioTitle" class="modal-title">Kye Alfred Hillig</div>
         </div>
-
         <button id="bioCloseBtn" class="btn btn-ghost" type="button">Close</button>
       </div>
-
       <div class="modal-body">
         <pre id="bioBody" class="pre">Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction. He’s interested in the parts that don’t get fixed, and maybe shouldn’t. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
 
@@ -112,7 +91,7 @@ His songs carry indie rock drive with singer-songwriter clarity and the occasion
     </div>
   </div>
 
-  <script src="./auth.js?v=2"></script>
-  <script src="./player.js?v=tancc7"></script>
+  <script src="./auth.js?v=tancc5"></script>
+  <script src="./player.js?v=tancc5"></script>
 </body>
 </html>
