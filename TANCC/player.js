@@ -35,15 +35,15 @@
   };
 
   // Insert Annie’s credit after Kye’s line
-  function creditsForTitle(title) {
-    const extra = CREDITS_EXTRA_BY_TITLE[title] || [];
-    if (!extra.length) return CREDITS_ALL;
+function creditsForTitle(title) {
+  const extra = CREDITS_EXTRA_BY_TITLE[title] || [];
+  if (!extra.length) return CREDITS_ALL;
 
-    const lines = CREDITS_ALL.split("\n");
-    const head = lines.slice(0, 1);
-    const tail = lines.slice(1);
-    return [...head, ...extra, "", ...tail].join("\n");
-  }
+  const lines = CREDITS_ALL.split("\n");
+  const head = lines.slice(0, 1); // Kye line
+  const tail = lines.slice(1);    // everyone else
+  return [...head, ...extra, ...tail].join("\n");
+}
 
   // NOTES
   const NOTES_BY_TITLE = {
