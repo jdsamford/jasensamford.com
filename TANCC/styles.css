@@ -3,7 +3,6 @@
   --bg1:#0b0f18;
 
   --card:rgba(255,255,255,.05);
-  --card2:rgba(255,255,255,.035);
   --stroke:rgba(255,255,255,.10);
 
   --text:rgba(245,247,250,.93);
@@ -66,9 +65,7 @@ body{
 .tiny{ font-size:12px; }
 
 /* Layout */
-.page{
-  padding:22px 18px 40px;
-}
+.page{ padding:22px 18px 40px; }
 
 .layout{
   max-width:1100px;
@@ -102,15 +99,15 @@ body{
   opacity:.75;
 }
 
+/* Keep title on one line on desktop */
 .album-title{
   margin:6px 0 8px;
-  font-size:24px;        /* slightly smaller so it fits on desktop */
+  font-size:24px;
   line-height:1.15;
   font-weight:850;
-
-  white-space:nowrap;    /* keep it on one line */
-  overflow:hidden;       /* prevent overflow */
-  text-overflow:ellipsis;/* show … if the window is too narrow */
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .artist-btn{
@@ -136,7 +133,7 @@ body{
 }
 .artist-btn:hover .bio-pill{ background:rgba(255,255,255,.10); }
 
-/* Sticky side on desktop so the left column doesn't feel empty */
+/* Sticky side on desktop */
 @media (min-width: 981px){
   .side{
     position: sticky;
@@ -205,7 +202,7 @@ body{
   border:0;
   background:transparent;
   color:var(--text);
-  padding:12px 54px 12px 12px; /* room for caret */
+  padding:12px 54px 12px 12px;
   cursor:pointer;
 }
 .track-main:hover{ background:rgba(255,255,255,.04); }
@@ -222,10 +219,7 @@ body{
   min-width:28px;
   display:inline-block;
 }
-.track-sub{
-  margin-top:2px;
-  font-size:12px;
-}
+.track-sub{ margin-top:2px; font-size:12px; }
 
 .track-actions{
   position:absolute;
@@ -246,12 +240,9 @@ body{
   justify-content:center;
 }
 .caret-btn:hover{ background:rgba(255,255,255,.07); }
-.caret{ font-size:14px; line-height:1; opacity:.9; }
+.caret{ font-size:16px; line-height:1; opacity:.9; }
 
-.drawer{
-  display:none;
-  padding:0 12px 12px;
-}
+.drawer{ display:none; padding:0 12px 12px; }
 .track-row.open .drawer{ display:block; }
 
 .drawer-buttons{
@@ -270,7 +261,6 @@ body{
   font-weight:780;
   font-size:13px;
   cursor:pointer;
-
   min-width:110px;
   text-align:center;
   display:inline-flex;
@@ -298,10 +288,7 @@ body{
 }
 
 /* Modal */
-body.modal-open{
-  overflow:hidden;
-  height:100%;
-}
+body.modal-open{ overflow:hidden; height:100%; }
 
 .modal{
   position:fixed;
@@ -328,13 +315,10 @@ body.modal-open{
   border:1px solid rgba(255,255,255,.10);
   border-radius:18px;
   box-shadow:var(--shadow);
-
   display:flex;
   flex-direction:column;
-
   max-height:calc(100dvh - 32px);
   overflow:hidden;
-
   padding:14px;
 }
 
@@ -364,27 +348,22 @@ body.modal-open{
 .pre{
   white-space:pre-wrap;
   word-break:break-word;
-
   font-family:var(--modalBody);
   font-size:18px;
   line-height:1.7;
   letter-spacing:.01em;
-
   color:rgba(233,237,241,.92);
   background:rgba(255,255,255,.03);
   border:1px solid rgba(38,42,53,.8);
   border-radius:14px;
   padding:14px;
-
   margin:0;
 }
 
-/* Responsive */
 @media (max-width: 980px){
   .layout{ grid-template-columns:1fr; }
   .side{ position:static; }
   .nowplaying{ min-width:0; }
-  .bottom-actions{ flex-direction:row; }
   .modal-card{
     top:auto;
     transform:none;
