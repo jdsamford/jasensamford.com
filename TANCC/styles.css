@@ -69,18 +69,40 @@ a{ color:inherit; }
   padding:22px 18px 40px;
 }
 
-.topbar{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
+.grid{
+  display:grid;
+  grid-template-columns:420px 1fr;
   gap:18px;
-  margin-bottom:14px;
+  align-items:start;
+}
+
+/* Left column */
+.side{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.art img{
+  width:100%;
+  display:block;
+  border-radius:var(--r-lg);
+  border:1px solid var(--stroke);
+  box-shadow:var(--shadow);
+}
+
+.meta{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--stroke);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow);
+  padding:14px;
 }
 
 .album{
-  margin:6px 0 6px;
-  font-size:26px;
-  line-height:1.08;
+  margin:6px 0 8px;
+  font-size:22px;
+  line-height:1.12;
   font-weight:900;
 }
 
@@ -106,24 +128,7 @@ a{ color:inherit; }
   color:var(--muted);
 }
 
-.top-actions{ margin-top:10px; }
-.top-right{ display:flex; gap:10px; }
-
-.grid{
-  display:grid;
-  grid-template-columns:420px 1fr;
-  gap:18px;
-  align-items:start;
-}
-
-.art img{
-  width:100%;
-  display:block;
-  border-radius:var(--r-lg);
-  border:1px solid var(--stroke);
-  box-shadow:var(--shadow);
-}
-
+/* Right column panel */
 .panel{
   background:rgba(255,255,255,.03);
   border:1px solid var(--stroke);
@@ -237,7 +242,6 @@ audio{
   border-top:1px solid rgba(255,255,255,.08);
   background:rgba(0,0,0,.16);
 }
-
 .track-row.open .drawer{ display:block; }
 
 .drawer-buttons{
@@ -262,6 +266,17 @@ audio{
 .action-download{
   background:rgba(255,255,255,.10);
   border-color:rgba(255,255,255,.16);
+}
+
+/* Buttons below playlist */
+.panel-actions{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid var(--stroke2);
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
 }
 
 /* Modal */
@@ -337,5 +352,11 @@ body.modal-open{ overflow:hidden; }
     min-width:0;
     width:100%;
     text-align:left;
+  }
+  .panel-actions{
+    justify-content:stretch;
+  }
+  .panel-actions .btn{
+    flex:1;
   }
 }
