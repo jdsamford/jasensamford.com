@@ -927,11 +927,20 @@ prevBtn?.addEventListener("click", () => {
       caretBtn.setAttribute("aria-label", "Open track actions");
       caretBtn.innerHTML = `<span class="caret">☰<\/span>`;
       caretBtn.addEventListener("click", () => {
-        const willOpen = !row.classList.contains("open");
-        closeAllDrawers(willOpen ? row : null);
-        row.classList.toggle("open");
-        caretBtn.querySelector(".caret").textContent = row.classList.contains("open") ? "✕" : "☰";
-      });
+  const isOpen = row.classList.contains("open");
+
+  if (isOpen) {
+    // already open — close it
+    row.classList.remove("open");
+    caretBtn.querySelector(".caret").textContent = "☰";
+  } else {
+    // open this one and close others
+    closeAllDrawers(row);
+    row.classList.add("open");
+    caretBtn.querySelector(".caret").textContent = "✕";
+  }
+});
+
 
       const drawer = document.createElement("div");
       drawer.className = "drawer";
