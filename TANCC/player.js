@@ -49,7 +49,20 @@ function creditsForTitle(title) {
   const NOTES_BY_TITLE = {
     // Example:
     // "Pain": "This one was written after...\n\nSecond paragraph here."
-  };
+  "The Horrible Truth": `This song is about The Horrible Truth`,
+  "Ezekiel Bobbing For Apples": `This song is about Ezekiel. He's bobbing for apples.`,
+  "Divorce of Course of Course": `This song is about divorce. Of course!`,
+  "Don't Cancel The Fair": `This song is about the fair. Don't cancel it!`,
+  "How Desperate We Are": `This song is about how we are. Which is desparate.`,
+  "Jules Can You See Me?": `This song is about Jules. Jules can't see me. Sad.`,
+  "Something is Different": `This song is about something the same. Psych!`,
+  "Our Remaining Pig": `This song is about a pig. Last one. Poor lil guy.`,
+  "The Mouth That Will Not Speak": `This song is about a mouth that's locked up tight.`,
+  "Pain": `This song is about PAIN!`,
+  "We Were Right ('Til We Were Wrong)": `This song is about the natural order of all things.`,
+  "Cut Off All Your Hair": `This song is about personal grooming.`
+};
+
 
   const NOTES_PLACEHOLDER = "Track notes go here.\n\nReplace this placeholder later.";
 
