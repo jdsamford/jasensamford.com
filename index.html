@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17743416863"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17743416863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17743416863');
+  </script>
 
-  gtag('config', 'AW-17743416863');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jasen Samford | Music Business Consultant</title>
@@ -30,31 +30,54 @@
 <body>
   <!-- Shared nav -->
   <div id="nav"></div>
-<script>
-  fetch('/nav.html')
-    .then(r => r.text())
-    .then(html => {
-      const nav = document.getElementById('nav');
-      nav.innerHTML = html;
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(html => {
+        const nav = document.getElementById('nav');
+        nav.innerHTML = html;
 
-      const path = window.location.pathname.replace(/\/+$/, "") || "/";
-      nav.querySelectorAll("a").forEach(link => {
-        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-        if (href === path) {
-          link.classList.add("is-current");
-          link.setAttribute("aria-current", "page");
-        }
+        const path = window.location.pathname.replace(/\/+$/, "") || "/";
+        nav.querySelectorAll("a").forEach(link => {
+          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+          if (href === path) {
+            link.classList.add("is-current");
+            link.setAttribute("aria-current", "page");
+          }
+        });
       });
-    });
-</script>
+  </script>
 
   <!-- HERO -->
   <header class="hero home-hero">
     <div class="wrap hero-inner">
-      <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" />
 
-      <!-- IMPORTANT: logo now has id="logo" for JS switching -->
-      <img id="logo" src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" />
+      <!-- Headshot with WebP + PNG fallback -->
+      <picture class="headshot-wrapper">
+        <source srcset="/headshot.webp" type="image/webp" />
+        <source srcset="/headshot.png" type="image/png" />
+        <img
+          src="/headshot.png"
+          alt="Photo of Jasen Samford"
+          class="headshot"
+          width="320"
+          height="320"
+        />
+      </picture>
+
+      <!-- Logo using WebP + PNG fallback; switched for dark/light theme -->
+      <picture class="logo-picture">
+        <source id="logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
+        <source id="logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
+        <img
+          id="logo"
+          src="/logo_drk_bg.png"
+          alt="Jasen Samford logo"
+          class="logo"
+          width="260"
+          height="60"
+        />
+      </picture>
 
       <p class="lead">
         Practical answers across the full indie artist lifecycle: creation, distribution,
@@ -195,23 +218,52 @@
     </p>
     <p>© 2025 Jasen Samford Consulting</p>
 
-    <!-- Optional footer logo (gets swapped too) -->
-    <img id="footer-logo" src="/logo_drk_bg.png" class="logo" alt="Footer logo" style="max-width:180px; margin-top:10px;" />
+    <!-- Footer logo with WebP + PNG fallback -->
+    <picture class="logo-picture-footer">
+      <source id="footer-logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
+      <source id="footer-logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
+      <img
+        id="footer-logo"
+        src="/logo_drk_bg.png"
+        class="logo"
+        alt="Footer logo"
+        style="max-width:180px; margin-top:10px;"
+        width="260"
+        height="60"
+        loading="lazy"
+      />
+    </picture>
   </footer>
 
-  <!-- LOGO SWITCHING SCRIPT -->
+  <!-- LOGO SWITCHING SCRIPT (supports WebP + PNG) -->
   <script>
-    const logo = document.getElementById('logo');
-    const footerLogo = document.getElementById('footer-logo');
     const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-    function updateLogos() {
-      const file = darkScheme.matches ? '/logo_lt_bg.png' : '/logo_drk_bg.png';
-      if (logo) logo.src = file;
-      if (footerLogo) footerLogo.src = file;
+    function setLogoVariant(prefix) {
+      const isDark = darkScheme.matches;
+      const base = isDark ? '/logo_lt_bg' : '/logo_drk_bg';
+
+      const webp = document.getElementById(prefix + 'logo-source-webp');
+      const png = document.getElementById(prefix + 'logo-source-png');
+      const img = document.getElementById(prefix + 'logo');
+
+      if (webp) webp.srcset = base + '.webp';
+      if (png) png.srcset = base + '.png';
+      if (img) img.src = base + '.png';
     }
 
-    darkScheme.addEventListener('change', updateLogos);
+    function updateLogos() {
+      setLogoVariant('');
+      setLogoVariant('footer-');
+    }
+
+    if (darkScheme.addEventListener) {
+      darkScheme.addEventListener('change', updateLogos);
+    } else if (darkScheme.addListener) {
+      // Older Safari
+      darkScheme.addListener(updateLogos);
+    }
+
     updateLogos();
   </script>
 </body>
