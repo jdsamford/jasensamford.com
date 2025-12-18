@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TANCC – Player</title>
-  <link rel="stylesheet" href="styles.css?v=tancc4" />
+  <link rel="stylesheet" href="styles.css?v=tancc5" />
 </head>
 <body>
   <main class="wrap">
@@ -71,7 +71,9 @@
         </div>
         <button id="trackModalCloseBtn" class="btn btn-ghost" type="button">Close</button>
       </div>
-      <pre id="trackModalBody" class="pre"></pre>
+      <div class="modal-body">
+        <pre id="trackModalBody" class="pre"></pre>
+      </div>
     </div>
   </div>
 
@@ -86,12 +88,15 @@
         </div>
         <button id="bioCloseBtn" class="btn btn-ghost" type="button">Close</button>
       </div>
-      <pre id="bioBody" class="pre">Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction. He’s interested in the parts that don’t get fixed, and maybe shouldn’t. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
+      <div class="modal-body">
+        <pre id="bioBody" class="pre">Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction. He’s interested in the parts that don’t get fixed, and maybe shouldn’t. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
 Over the last two decades, he’s been a core voice in multiple Puget Sound projects, including Destruction Island and Pistol For A Paycheck, before committing fully to solo work in 2012.
 His songs carry indie rock drive with singer-songwriter clarity and the occasional left turn into alt-pop. They’re direct, unsentimental, and preoccupied with the moral blur of modern life. His upcoming release is his ninth solo album. It’s sharp, restless, and fully alive.</pre>
+      </div>
     </div>
   </div>
 
-  <script src="player.js?v=tancc4"></script>
+  <script src="./auth.js?v=2"></script>
+  <script src="player.js?v=tancc5"></script>
 </body>
 </html>
