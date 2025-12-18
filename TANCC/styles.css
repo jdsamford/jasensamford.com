@@ -379,3 +379,13 @@ body.modal-open{ overflow:hidden; }
     align-self: start;
   }
 }
+
+@media (hover: hover){
+  .track-row:hover{
+    border-color: rgba(255,255,255,.14);
+    background: rgba(255,255,255,.06);
+  }
+  .caret-btn:hover{
+    border-color: rgba(255,255,255,.16);
+  }
+}
