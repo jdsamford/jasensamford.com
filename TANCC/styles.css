@@ -467,6 +467,30 @@ body.modal-open{ overflow:hidden; height:100%; }
 
 #nowPlaying { display: none !important; }
 
+.bio-box{
+  word-break:break-word;
+  font-family:var(--modalBody);
+  font-size:18px;
+  line-height:1.7;
+  letter-spacing:.01em;
+  color:rgba(233,237,241,.92);
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(38,42,53,.8);
+  border-radius:14px;
+  padding:14px;
+  margin:0;
+}
+
+.bio-box p{ margin:0 0 16px; }
+.bio-box p:last-child{ margin-bottom:0; }
+
+.bio-links{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
 .bio-link{
   display:inline-flex;
   align-items:center;
@@ -476,7 +500,10 @@ body.modal-open{ overflow:hidden; height:100%; }
   font-weight:700;
   opacity:.9;
 }
+
 .bio-link:hover{ opacity:1; text-decoration:underline; }
+
+.bio-icon{ line-height:1; }
 
 .ig-logo{
   width:16px;
