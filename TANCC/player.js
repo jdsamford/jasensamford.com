@@ -41,10 +41,13 @@
     "The Mouth That Will Not Speak": ["Annie Jantzer: background vocals"],
   };
 
-  function creditsForTitle(title) {
-    const extra = CREDITS_EXTRA_BY_TITLE[title] || [];
-    return extra.length ? [CREDITS_ALL, "", ...extra].join("\n") : CREDITS_ALL;
-  }
+ function creditsForTitle(title) {
+  const extra = CREDITS_EXTRA_BY_TITLE[title] || [];
+  if (!extra.length) return CREDITS_ALL;
+
+  const lines = CREDITS_ALL.split("\n");
+  return [...lines.slice(0, 1), ...extra, ...lines.slice(1)].join("\n");
+}
 
   const NOTES_PLACEHOLDER = [
     "Track notes go here.",
