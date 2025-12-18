@@ -1,9 +1,9 @@
 // /TANCC/auth.js
-// Simple client-side gate (not “secure” security—just keeps casual visitors out)
+// Simple client-side gate (keeps casual visitors out)
 
 (() => {
   const STORAGE_KEY = "tancc_auth_v1";
-  const TANCC_PASSWORD = "Fondudes"; // <-- change this to whatever you want
+  const TANCC_PASSWORD = "Fondudes"; // change if you want
 
   function getStored() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
