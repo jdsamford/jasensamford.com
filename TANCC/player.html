@@ -4,37 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TANCC – Player</title>
-  <link rel="stylesheet" href="styles.css?v=tancc5" />
+  <link rel="stylesheet" href="styles.css?v=tancc6" />
 </head>
 <body>
   <main class="wrap">
-    <header class="topbar">
-      <div class="top-left">
-        <div class="kicker">Private preview</div>
-        <h1 class="album">The All-Night Costume Company</h1>
-
-        <button id="bioBtn" class="artistlink" type="button" aria-haspopup="dialog" aria-controls="bioModal">
-          <span class="artistname">Kye Alfred Hillig</span>
-          <span class="bio-pill">Bio</span>
-        </button>
-
-        <div class="top-actions">
-          <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
-        </div>
-      </div>
-
-      <div class="top-right">
-        <a id="zipBtn" class="btn" href="https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip" download>
-          Download all (ZIP)
-        </a>
-      </div>
-    </header>
-
     <section class="grid">
-      <div class="art">
-        <img src="cover.jpg" alt="Cover art" />
-      </div>
+      <!-- Left column: artwork + album meta -->
+      <aside class="side">
+        <div class="art">
+          <img src="cover.jpg" alt="Cover art" />
+        </div>
 
+        <div class="meta">
+          <div class="kicker">Private preview</div>
+          <h1 class="album">The All-Night Costume Company</h1>
+
+          <button id="bioBtn" class="artistlink" type="button" aria-haspopup="dialog" aria-controls="bioModal">
+            <span class="artistname">Kye Alfred Hillig</span>
+            <span class="bio-pill">Bio</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Right column: player + playlist + actions -->
       <section class="panel">
         <div class="playerbar">
           <button id="prevBtn" class="btn btn-ghost" type="button">Back</button>
@@ -53,8 +45,17 @@
 
         <ol id="trackList" class="tracks"></ol>
 
-        <div class="tiny muted" style="margin-top:10px;">
-          Click a track to play. Use the caret to open Lyrics / Credits / Notes / Download.
+        <div class="panel-actions">
+          <a
+            id="zipBtn"
+            class="btn"
+            href="https://github.com/jdsamford/jasensamford.com/releases/download/tancc-zip-v1/KAH-TANCC.zip"
+            download
+          >
+            Download all (ZIP)
+          </a>
+
+          <button id="logoutBtn" class="btn btn-ghost" type="button">Log out</button>
         </div>
       </section>
     </section>
@@ -90,15 +91,13 @@
       </div>
       <div class="modal-body">
         <pre id="bioBody" class="pre">Kye Alfred Hillig is a Tacoma, Washington songwriter drawn to the city’s grand dysfunction. He’s interested in the parts that don’t get fixed, and maybe shouldn’t. After leaving art school in the early 2000s, he built a life split between social services and songwriting, collecting stories where heartbreak and dark humor sit side by side.
-
-          Over the last two decades, he’s been a core voice in multiple Puget Sound projects, including Destruction Island and Pistol For A Paycheck, before committing fully to solo work in 2012.
-
-          His songs carry indie rock drive with singer-songwriter clarity and the occasional left turn into alt-pop. They’re direct, unsentimental, and preoccupied with the moral blur of modern life. His upcoming release is his ninth solo album. It’s sharp, restless, and fully alive.</pre>
+Over the last two decades, he’s been a core voice in multiple Puget Sound projects, including Destruction Island and Pistol For A Paycheck, before committing fully to solo work in 2012.
+His songs carry indie rock drive with singer-songwriter clarity and the occasional left turn into alt-pop. They’re direct, unsentimental, and preoccupied with the moral blur of modern life. His upcoming release is his ninth solo album. It’s sharp, restless, and fully alive.</pre>
       </div>
     </div>
   </div>
 
   <script src="./auth.js?v=2"></script>
-  <script src="player.js?v=tancc5"></script>
+  <script src="player.js?v=tancc6"></script>
 </body>
 </html>
