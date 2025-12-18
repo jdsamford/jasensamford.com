@@ -774,10 +774,37 @@ And would you leave as i just start to care?
     }
   }
 
-  prevBtn?.addEventListener("click", () => {
-    const next = Math.max(0, currentIndex - 1);
-    setCurrent(next, isActuallyPlaying());
-  });
+// Back button behavior:
+// - Single click: restart track if you're past 1s
+// - If within the first 1s: go to previous track (common player behavior)
+// - Double-click: go to previous track
+let lastPrevClickTs = 0;
+
+function goPrev(autoplay) {
+  const prev = Math.max(0, currentIndex - 1);
+  setCurrent(prev, autoplay);
+}
+
+prevBtn?.addEventListener("click", () => {
+  const wasPlaying = isActuallyPlaying();
+  ensureSrc(currentIndex);
+
+  const now = Date.now();
+  const isDouble = now - lastPrevClickTs < 350;
+  lastPrevClickTs = now;
+
+  const t = Number(audio?.currentTime || 0);
+
+  if (isDouble || t <= 1) {
+    goPrev(wasPlaying);
+    return;
+  }
+
+  try { audio.currentTime = 0; } catch {}
+  syncTimeUI();
+  if (wasPlaying) audio.play().catch(() => {});
+});
+
 
   nextBtn?.addEventListener("click", () => {
     const next = Math.min(tracks.length - 1, currentIndex + 1);
@@ -891,7 +918,6 @@ And would you leave as i just start to care?
           <span class="track-num">${String(t.n).padStart(2, "0")}.<\/span>
           <span>${escapeHtml(t.title)}<\/span>
         </div>
-        <div class="track-sub muted">click to play<\/div>
       `;
       left.addEventListener("click", () => setCurrent(idx, true));
 
