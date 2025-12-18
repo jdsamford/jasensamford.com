@@ -2,130 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TANCC – Private Preview</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Enter password | The All-Night Costume Company</title>
+
   <link rel="stylesheet" href="./styles.css?v=tancc5" />
+
   <style>
+    :root{
+      --bg0:#07090f;
+      --bg1:#0b0f18;
+      --stroke:rgba(255,255,255,.12);
+      --text:rgba(245,247,250,.93);
+      --muted:rgba(245,247,250,.62);
+      --shadow:0 30px 80px rgba(0,0,0,.55);
+      --r:22px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
     body.tancc-auth{
+      margin:0;
       min-height:100vh;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 20%, rgba(60,80,160,.18), transparent 65%),
+        radial-gradient(900px 600px at 85% 20%, rgba(130,70,150,.12), transparent 60%),
+        radial-gradient(1200px 800px at 50% 100%, rgba(30,40,70,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:24px;
+      padding:18px;
     }
-    .auth-card{
+
+    .tancc-card{
       width:min(520px, 100%);
-      background:rgba(255,255,255,.05);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      border-radius:var(--r);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    .tancc-cover{
+      border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
-      border-radius:20px;
-      box-shadow:0 20px 60px rgba(0,0,0,.55);
       overflow:hidden;
-    }
-    .auth-top{
+      background:rgba(0,0,0,.20);
+      aspect-ratio: 1 / 1;
       display:flex;
-      gap:16px;
-      padding:18px;
       align-items:center;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.14);
+      justify-content:center;
     }
-    .auth-top img{
-      width:76px;
-      height:76px;
-      border-radius:14px;
+    .tancc-cover img{
+      width:100%;
+      height:100%;
       object-fit:cover;
-      border:1px solid rgba(255,255,255,.10);
+      display:block;
     }
-    .auth-title{
-      margin:0;
-      font-size:18px;
-      font-weight:850;
+
+    .tancc-title{
+      margin:14px 0 4px;
+      font-size:28px;
       line-height:1.15;
+      font-weight:800;
     }
-    .auth-sub{
-      margin:6px 0 0;
-      font-size:13px;
-      opacity:.70;
-    }
-    .auth-body{
-      padding:18px;
-    }
-    .row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      margin-top:10px;
-    }
-    .pw{
-      flex:1;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.22);
-      color:rgba(245,247,250,.93);
-      outline:none;
+
+    .tancc-artist{
+      margin:0 0 10px;
+      color:var(--muted);
       font-size:14px;
+      font-weight:700;
     }
-    .pw:focus{
-      border-color:rgba(255,255,255,.20);
+
+    .tancc-help{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.4;
     }
-    .err{
+
+    .tancc-field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
       margin-top:10px;
-      font-size:13px;
-      color:rgba(255,180,180,.95);
+    }
+    .tancc-field label{
+      font-size:12px;
+      letter-spacing:.10em;
+      opacity:.8;
+    }
+    .tancc-field input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+      color:var(--text);
+      outline:none;
+      font-size:16px;
+    }
+    .tancc-field input:focus{
+      border-color:rgba(255,255,255,.28);
+    }
+
+    .tancc-actions{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+    }
+    .tancc-btn{
+      border:1px solid rgba(255,255,255,.85);
+      background:rgba(255,255,255,.92);
+      color:rgba(10,12,18,.95);
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:800;
+      cursor:pointer;
+      min-width: 220px;
+      font-size:16px;
+    }
+    .tancc-btn:hover{ background:rgba(255,255,255,.98); }
+    .tancc-msg{
+      margin:12px 0 0;
       min-height:18px;
+      text-align:center;
+      font-weight:700;
+      color:rgba(255,180,180,.95);
     }
   </style>
 </head>
+
 <body class="tancc-auth">
-  <div class="auth-card">
-    <div class="auth-top">
-      <img src="cover.jpg" alt="Cover art" />
-      <div>
-        <h1 class="auth-title">The All-Night Costume Company</h1>
-        <div class="auth-sub">Private preview. Enter password to continue.</div>
-      </div>
+  <main class="tancc-card">
+    <div class="tancc-cover">
+      <img src="./cover.jpg" alt="Album cover" onerror="this.style.display='none'" />
     </div>
 
-    <div class="auth-body">
-      <label class="tiny muted" for="pw">Password</label>
-      <div class="row">
-        <input id="pw" class="pw" type="password" autocomplete="current-password" />
-        <button id="go" class="btn btn-primary" type="button">Enter</button>
-      </div>
-      <div id="err" class="err"></div>
-    </div>
-  </div>
+    <h1 class="tancc-title">The All-Night Costume Company</h1>
+    <p class="tancc-artist">Kye Alfred Hillig</p>
+    <p class="tancc-help">This page is private. Enter password to access.</p>
 
-  <script src="./auth.js?v=2"></script>
+    <form id="authForm" autocomplete="off">
+      <div class="tancc-field">
+        <label for="pw">PASSWORD</label>
+        <input id="pw" type="password" autocomplete="current-password" placeholder="Password" required />
+      </div>
+
+      <div class="tancc-actions">
+        <button class="tancc-btn" type="submit">Unlock</button>
+      </div>
+
+      <p id="authMsg" class="tancc-msg" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="./auth.js?v=tancc5"></script>
   <script>
-    // If already authed, go straight to player
-    if (window.TANCCAuth.isAuthed()) {
-      location.replace("./player.html");
-    }
+    if (window.TANCCAuth?.isAuthed()) location.replace("./");
 
+    const form = document.getElementById("authForm");
     const pw = document.getElementById("pw");
-    const go = document.getElementById("go");
-    const err = document.getElementById("err");
+    const msg = document.getElementById("authMsg");
 
-    function submit() {
-      err.textContent = "";
-      const ok = window.TANCCAuth.login(pw.value);
-      if (!ok) {
-        err.textContent = "Wrong password.";
-        pw.focus();
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      msg.textContent = "";
+      const ok = window.TANCCAuth?.login(pw.value || "");
+      if (ok) location.replace("./");
+      else {
+        msg.textContent = "wrong password.";
         pw.select();
-        return;
+        pw.focus();
       }
-      location.replace("./player.html");
-    }
-
-    go.addEventListener("click", submit);
-    pw.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") submit();
     });
-
-    setTimeout(() => pw.focus(), 0);
   </script>
 </body>
 </html>
