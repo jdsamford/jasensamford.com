@@ -48,7 +48,7 @@
   // Notes (paste Kye's per-track notes here later)
   // Keys must match the track titles exactly.
   const NOTES_BY_TITLE = {
-    "The Horrible Truth": "",
+    "The  Truth": "",
     "Ezekiel Bobbing For Apples": "",
     "Divorce of Course of Course": "",
     "Don't Cancel The Fair": "",
@@ -86,7 +86,7 @@ Made a friend call back
 But we never made love today
 Never said goodbye to my old friend Matt
 He went to bed
-But he couldn’t awake
+But he couldn’t wake
 
 Hold the door
 Hold my whole damn life
@@ -119,7 +119,7 @@ Stepping out
 Got an obligation
 A phone call you’ve gotta take
 It’s my fault
-I should made an appointment
+I should have made an appointment
 You’re probably busy anyway
 
 After a while all you’ve got is strangers
@@ -186,7 +186,7 @@ Show me how my heart can break
 Meet me on the map of Nova Scotia, hoping for a holiday
 Crasser than life when you go down on me
 Choking like there’s nothing wrong
-Just a million little birds on a dead dogs fur
+Just a million little birds on a dead dog's fur
 Trying to make a corpse their home
 
 And oh we often get it wrong
@@ -450,7 +450,7 @@ Don’t take the giant pumpkins home
 I want the bright blue jackets of the FFA
 I want the grange displays
 And a burger as big as your head
-And an old man dragging his oxygen tank down passed the carnival games
+And an old man dragging his oxygen tank down past the carnival games
 
 And what are we gonna do with ourselves come June?
 Alone with our thoughts in the quiet of this room
