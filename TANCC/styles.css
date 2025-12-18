@@ -104,9 +104,13 @@ body{
 
 .album-title{
   margin:6px 0 8px;
-  font-size:26px;
+  font-size:24px;        /* slightly smaller so it fits on desktop */
   line-height:1.15;
   font-weight:850;
+
+  white-space:nowrap;    /* keep it on one line */
+  overflow:hidden;       /* prevent overflow */
+  text-overflow:ellipsis;/* show … if the window is too narrow */
 }
 
 .artist-btn{
