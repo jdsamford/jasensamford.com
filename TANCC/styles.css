@@ -466,3 +466,21 @@ body.modal-open{ overflow:hidden; height:100%; }
 }
 
 #nowPlaying { display: none !important; }
+
+.bio-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  opacity:.9;
+}
+.bio-link:hover{ opacity:1; text-decoration:underline; }
+
+.ig-logo{
+  width:16px;
+  height:16px;
+  display:inline-block;
+  border-radius:4px;
+}
