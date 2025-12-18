@@ -25,42 +25,44 @@
     "All music and lyrics by Kye Alfred Hillig"
   ].join("\n");
 
+  // Per-track extra credits
   const CREDITS_EXTRA_BY_TITLE = {
     "Ezekiel Bobbing For Apples": ["Annie Jantzer: background vocals"],
     "Don't Cancel The Fair": ["Annie Jantzer: background vocals"],
     "Jules Can You See Me?": ["Annie Jantzer: background vocals"],
     "Something is Different": ["Annie Jantzer: background vocals"],
-    "The Mouth That Will Not Speak": ["Annie Jantzer: background vocals"],
+    "The Mouth That Will Not Speak": ["Annie Jantzer: background vocals"]
   };
 
-  // Annie goes right after Kye, no extra blank line
+  // Insert Annie (and any other extras) directly after Kye
   function creditsForTitle(title) {
     const extra = CREDITS_EXTRA_BY_TITLE[title] || [];
     if (!extra.length) return CREDITS_ALL;
 
     const lines = CREDITS_ALL.split("\n");
-    const head = lines.slice(0, 1);
+    const head = lines.slice(0, 1); // Kye line
     const tail = lines.slice(1);
     return [...head, ...extra, ...tail].join("\n");
   }
 
-  // Notes (each track can have its own notes)
+  // Notes (paste Kye's per-track notes here later)
+  // Keys must match the track titles exactly.
   const NOTES_BY_TITLE = {
-    "The Horrible Truth": `This song is about The Horrible Truth`,
-    "Ezekiel Bobbing For Apples": `This song is about Ezekiel. He's bobbing for apples.`,
-    "Divorce of Course of Course": `This song is about divorce. Of course!`,
-    "Don't Cancel The Fair": `This song is about the fair. Don't cancel it!`,
-    "How Desperate We Are": `This song is about how we are. Which is desparate.`,
-    "Jules Can You See Me?": `This song is about Jules. Jules can't see me. Sad.`,
-    "Something is Different": `This song is about something the same. Psych!`,
-    "Our Remaining Pig": `This song is about a pig. Last one. Poor lil guy.`,
-    "The Mouth That Will Not Speak": `This song is about a mouth that's locked up tight.`,
-    "Pain": `This song is about PAIN!`,
-    "We Were Right ('Til We Were Wrong)": `This song is about the natural order of all things.`,
-    "Cut Off All Your Hair": `This song is about personal grooming.` 
+    "The Horrible Truth": "",
+    "Ezekiel Bobbing For Apples": "",
+    "Divorce of Course of Course": "",
+    "Don't Cancel The Fair": "",
+    "How Desperate We Are": "",
+    "Jules Can You See Me?": "",
+    "Something is Different": "",
+    "Our Remaining Pig": "",
+    "The Mouth That Will Not Speak": "",
+    "Pain": "",
+    "We Were Right ('Til We Were Wrong)": "",
+    "Cut Off All Your Hair": ""
   };
 
-  const NOTES_PLACEHOLDER = "Track notes go here.\n\nReplace this placeholder later.";
+  const NOTES_PLACEHOLDER = "No notes yet.";
 
   const tracks = [
     { n: 1,  title: "The Horrible Truth", file: "01 The Horrible Truth.mp3" },
@@ -78,7 +80,7 @@
   ];
 
   const lyricsByTitle = {
-    "The Horrible Truth": 
+    "The Horrible Truth":
 `Ran some errands
 Made a friend call back,
 But we never made love today
@@ -130,7 +132,7 @@ So I might as well confess to you
 What’s so hard to hear
 All this horrible truth`,
 
-    "Our Remaining Pig": 
+    "Our Remaining Pig":
 `There is a place in this world calling out my name
 It might be love, it might be death, it might be pain
 But there’s no way I’m staying here treading this water
@@ -178,7 +180,7 @@ And it kills me to kill you,
 But that’s what we do
 That’s what we do`,
 
-    "Divorce of Course of Course": 
+    "Divorce of Course of Course":
 `Love me in these shackles fit for justice
 Show me how my heart can break
 Meet me on the map of Nova Scotia, hoping for a holiday
@@ -216,7 +218,7 @@ And oh we often get it wrong,
 But so what move on
 So what move on!`,
 
-    "Jules Can You See Me?": 
+    "Jules Can You See Me?":
 `Jules, can you see me?
 I’m right before your eyes
 Here lonely, sick, & haunted
@@ -276,7 +278,7 @@ Can you see me? Am I here?
 You took my heart…
 How can I reappear? Reappear?`,
 
-    "How Desperate We Are": 
+    "How Desperate We Are":
 `How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
@@ -303,7 +305,7 @@ How desperate we are
 And if you want to know how close to the bottom
 Just count the churches, jails, & bars`,
 
-    "We Were Right ('Til We Were Wrong)":       
+    "We Were Right ('Til We Were Wrong)":
 `It happens slow
 The dying flame
 And where it goes there’s no escape
@@ -346,7 +348,7 @@ But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong`,
 
-    "Ezekiel Bobbing For Apples": 
+    "Ezekiel Bobbing For Apples":
 `Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
@@ -399,7 +401,7 @@ That is what we do
 Open up our hearts for nothing
 That is what we do…`,
 
-    "Pain": 
+    "Pain":
 `What do you do with your pain?
 What do you do with your troubled mind?
 Do you just look away?
@@ -431,7 +433,7 @@ PAIN!
 PAIN!
 PAIN!`,
 
-    "Don't Cancel The Fair": 
+    "Don't Cancel The Fair":
 `Don’t cancel the fair
 I don’t know what we’re gonna do come Spring
 Just sit around and drink?
@@ -467,7 +469,7 @@ Alone with our thoughts in the quiet of this room
 I hope there’s a thousand people there
 Please don’t cancel the fair`,
 
-    "Something is Different": 
+    "Something is Different":
 `Something went missing from your eyes
 And I’ve been looking for it ever since
 The years we spent building memories
@@ -509,7 +511,8 @@ Something is different
 Something is different
 And something’s gotta change`,
 
-    "The Mouth That Will Not Speak": `Thought I heard a voice once before
+    "The Mouth That Will Not Speak":
+`Thought I heard a voice once before
 Oh I thought it was yours
 Thought I heard a voice once before
 Oh I thought it was yours
@@ -544,7 +547,7 @@ You keep looking into my eyes like there’s something to see
 
 Thought I heard a voice once before…`,
 
-    "Cut Off All Your Hair": 
+    "Cut Off All Your Hair":
 `Thought I could outrun every wild dog
 Cover myself in clouds & hide in the fog
 Thought if I left you’d forget my name
@@ -582,11 +585,12 @@ Man, it gets away fast with nothing to show for it
 Hold this picture of my life
 
 And would you please cut off all your hair?
-And stand by my side though I can get so scared?
-And would you leave as I just start to care?
+And stand by my side though i can get so scared?
+And would you leave as i just start to care?
 ‘Cause there’s a beggar in me that wants nothing but you, dear`
   };
 
+  // Helpers
   const $ = (sel) => document.querySelector(sel);
 
   const list = $("#trackList");
@@ -682,6 +686,12 @@ And would you leave as I just start to care?
   function labelForTrack(idx) {
     const t = tracks[idx];
     return `${String(t.n).padStart(2, "0")}. ${t.title}`;
+  }
+
+  function formatLyrics(raw) {
+    const s = String(raw || "").replace(/\r\n/g, "\n");
+    // Always add one blank line before the first lyric line
+    return "\n" + s.replace(/^\n+/, "").trimEnd();
   }
 
   let currentIndex = 0;
@@ -802,10 +812,10 @@ And would you leave as I just start to care?
       left.className = "track-main";
       left.innerHTML = `
         <div class="track-title">
-          <span class="track-num">${String(t.n).padStart(2, "0")}.</span>
-          <span>${escapeHtml(t.title)}</span>
+          <span class="track-num">${String(t.n).padStart(2, "0")}.<\/span>
+          <span>${escapeHtml(t.title)}<\/span>
         </div>
-        <div class="track-sub muted">click to play</div>
+        <div class="track-sub muted">click to play<\/div>
       `;
       left.addEventListener("click", () => setCurrent(idx, true));
 
@@ -813,7 +823,7 @@ And would you leave as I just start to care?
       caretBtn.type = "button";
       caretBtn.className = "caret-btn";
       caretBtn.setAttribute("aria-label", "Open track actions");
-      caretBtn.innerHTML = `<span class="caret">☰</span>`;
+      caretBtn.innerHTML = `<span class="caret">☰<\/span>`;
       caretBtn.addEventListener("click", () => {
         const willOpen = !row.classList.contains("open");
         closeAllDrawers(willOpen ? row : null);
@@ -825,10 +835,10 @@ And would you leave as I just start to care?
       drawer.className = "drawer";
       drawer.innerHTML = `
         <div class="drawer-buttons">
-          <button class="action-btn" data-action="lyrics">Lyrics</button>
-          <button class="action-btn" data-action="credits">Credits</button>
-          <button class="action-btn" data-action="notes">Notes</button>
-          <button class="action-btn action-download" data-action="download">Download</button>
+          <button class="action-btn" data-action="lyrics">Lyrics<\/button>
+          <button class="action-btn" data-action="credits">Credits<\/button>
+          <button class="action-btn" data-action="notes">Notes<\/button>
+          <button class="action-btn action-download" data-action="download">Download<\/button>
         </div>
       `;
 
@@ -851,16 +861,15 @@ And would you leave as I just start to care?
         }
 
         if (action === "notes") {
-          const notes = (NOTES_BY_TITLE[t.title] && NOTES_BY_TITLE[t.title].trim())
-            ? NOTES_BY_TITLE[t.title]
-            : NOTES_PLACEHOLDER;
+          const raw = NOTES_BY_TITLE[t.title] || "";
+          const notes = raw.trim() ? raw : NOTES_PLACEHOLDER;
           openTrackModal("Notes", labelForTrack(idx), notes);
           return;
         }
 
         if (action === "lyrics") {
-          const lyr = lyricsByTitle[t.title] || "Lyrics go here.";
-          openTrackModal("Lyrics", labelForTrack(idx), lyr);
+          const lyrRaw = lyricsByTitle[t.title] || "Lyrics go here.";
+          openTrackModal("Lyrics", labelForTrack(idx), formatLyrics(lyrRaw));
           return;
         }
       });
@@ -888,10 +897,6 @@ And would you leave as I just start to care?
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
   }
-
-  // ZIP link
-  const zipBtn = $("#zipBtn");
-  if (zipBtn) zipBtn.href = ZIP_URL;
 
   render();
 })();
