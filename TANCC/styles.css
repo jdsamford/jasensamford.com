@@ -434,3 +434,5 @@ body.modal-open{ overflow:hidden; height:100%; }
     margin:16px auto;
   }
 }
+
+#nowPlaying { display: none !important; }
