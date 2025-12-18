@@ -82,10 +82,10 @@
   const lyricsByTitle = {
     "The Horrible Truth":
 `Ran some errands
-Made a friend call back,
+Made a friend call back
 But we never made love today
 Never said goodbye to my old friend Matt
-He went to bed,
+He went to bed
 But he couldn’t awake
 
 Hold the door
@@ -100,7 +100,7 @@ What’s so hard to hear
 All this horrible truth
 
 Down to the cellar
-Fill the washing machine,
+Fill the washing machine
 But I never got out your stains
 What’s the point of laundry if it never comes clean?
 Or a love that’s dying and grey?
@@ -124,7 +124,7 @@ You’re probably busy anyway
 
 After a while all you’ve got is strangers
 Two actors putting on a play
-Taking bows and catching all the roses,
+Taking bows and catching all the roses
 But the curtain’s falling on the stage
 
 You can’t escape it, dear
@@ -140,11 +140,11 @@ We must slaughter our remaining pig
 
 Forward, forward
 Darling, I loved you
-Deep in the wreckage, honey,
+Deep in the wreckage, honey
 That’s the truth
 Twisted and broken,
 But it’s the only way through
-And it kills me to kill you,
+And it kills me to kill you
 But that’s what we do
 That’s what we do
 
@@ -156,11 +156,11 @@ And it broke my heart with it
 
 Forward, forward
 Darling, I loved you
-Deep in the wreckage, honey,
+Deep in the wreckage, honey
 That’s the truth
 Twisted and broken,
 But it’s the only way through
-And it kills me to kill you,
+And it kills me to kill you
 But that’s what we do
 That’s what we do
 
@@ -172,11 +172,11 @@ Will good things come to me?
 
 Forward, forward
 Darling, I loved you
-Deep in the wreckage, honey,
+Deep in the wreckage, honey
 That’s the truth
-Twisted and broken,
+Twisted and broken
 But it’s the only way through
-And it kills me to kill you,
+And it kills me to kill you
 But that’s what we do
 That’s what we do`,
 
@@ -189,7 +189,7 @@ Choking like there’s nothing wrong
 Just a million little birds on a dead dogs fur
 Trying to make a corpse their home
 
-And oh we often get it wrong,
+And oh we often get it wrong
 But so what move on
 So what move on!
 
@@ -201,7 +201,7 @@ Calling out my name like it don’t mean nothing
 Like a hooker in my dressing room
 Taking back what you said to the man on the ledge hoping for a honeymoon
 
-And oh we often get it wrong,
+And oh we often get it wrong
 But so what move on
 So what move on!
 
@@ -214,7 +214,7 @@ Like the pieces that I try to hide
 But we’re giving birth to a life that hurts
 And it’s really alright to cry
 
-And oh we often get it wrong,
+And oh we often get it wrong
 But so what move on
 So what move on!`,
 
@@ -269,7 +269,7 @@ They’re locking up the doors
 Tell me where are we going
 Is it my place or yours?
 But you broke off towards the theater
-And I turned off towards the park,
+And I turned off towards the park
 But in a sense you took me with you
 Jules, you took my heart
 
@@ -282,14 +282,14 @@ How can I reappear? Reappear?`,
 `How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
-Just count the churches, jails, & bars
+Just count the churches, jails, and bars
 
 You say the road is heading south
 Like there’s another way to go
-Every mother is hand-to-mouth,
+Every mother is hand-to-mouth
 But you’re so lucky not to know
 If you want to find me, stranger
-There’s a holy boat we could share,
+There’s a holy boat we could share
 But if it feels like spinning wheels 
 While we continue only to drown
 Then you must excuse me if I steal
@@ -298,12 +298,12 @@ The remaining jewels from your crown
 How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
-Just count the churches, jails, & bars
+Just count the churches, jails, and bars
 
 How desperate we are
 How desperate we are
 And if you want to know how close to the bottom
-Just count the churches, jails, & bars`,
+Just count the churches, jails, and bars`,
 
     "We Were Right ('Til We Were Wrong)":
 `It happens slow
@@ -317,7 +317,7 @@ I thought we’d be forever
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
-We once adored these old oak floors,
+We once adored these old oak floors
 But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong
@@ -334,7 +334,7 @@ I thought we’d be forever
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
-We once adored these old oak floors,
+We once adored these old oak floors
 But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong
@@ -343,7 +343,7 @@ I thought we’d be forever
 I guess I’m just that dumb
 And I said no to tomorrow
 Like I could turn my back and run
-We once adored these old oak floors,
+We once adored these old oak floors
 But the luster now is gone
 And it’s true the shine just fades with time
 We were right ‘till we were wrong`,
@@ -353,7 +353,7 @@ We were right ‘till we were wrong`,
 That is what we do
 Open up our hearts for nothing
 That is what we do
-Peace on Earth and all that shit,
+Peace on Earth and all that shit
 But none of it comes true
 Open up our hearts for nothing
 That is what we do
@@ -371,7 +371,7 @@ Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
 That is what we do
-Peace on Earth and all that shit,
+Peace on Earth and all that shit
 But none of it comes true
 Open up our hearts for nothing
 That is what we do
@@ -390,7 +390,7 @@ Open up our hearts for nothing
 That is what we do
 Open up our hearts for nothing
 That is what we do
-Peace on Earth and all that shit,
+Peace on Earth and all that shit
 But none of it comes true
 Open up our hearts for nothing
 That is what we do
@@ -457,7 +457,7 @@ Alone with our thoughts in the quiet of this room
 I hope there’s a thousand people there
 Please don’t cancel the fair
 
-Don’t turn off all the lights,
+Don’t turn off all the lights
 Close the gates, and send the country singers home
 To sing sad songs alone
 And that little boy by the slide?
@@ -521,11 +521,11 @@ Have at you!
 I could tear you apart
 In very little time I could own your heart
 I’m made of teeth
-You can wait and see,
+You can wait and see
 But you’re looking at a mouth that will not speak
 
 You’re looking at a mouth that will not speak
-You’re coming into town to ask after me,
+You’re coming into town to ask after me
 But I’m out the door
 I’m down the street
 You keep looking into my eyes like there’s something to see
@@ -540,7 +540,7 @@ And I just woke up in these dirty sheets
 Waiting on the mouth that will not speak
 
 You’re looking at a mouth that will not speak
-You’re coming into town to ask after me,
+You’re coming into town to ask after me
 But I’m out the door
 I’m down the street
 You keep looking into my eyes like there’s something to see
