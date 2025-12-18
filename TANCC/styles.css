@@ -286,16 +286,28 @@ body{
 .track-sub{ margin-top:2px; font-size:12px; }
 
 /* Keep the menu button vertically aligned even if the subtitle line is hidden */
-.track-actions button {
+.track-actions {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.track-actions .caret-btn {
   background: none;
   border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: 20px;
   color: #fff;
+  font-size: 20px;
+  cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.2s;
+  line-height: 1;
 }
+
+.track-actions .caret-btn:hover {
+  opacity: 1;
+}
+
 
 .track-actions button:hover {
   opacity: 1;
