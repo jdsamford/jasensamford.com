@@ -45,24 +45,25 @@
     return [...head, ...extra, ...tail].join("\n");
   }
 
-  // Notes (paste Kye's per-track notes here later)
-  // Keys must match the track titles exactly.
-  const NOTES_BY_TITLE = {
-    "The  Truth": "",
-    "Ezekiel Bobbing For Apples": "",
-    "Divorce of Course of Course": "",
-    "Don't Cancel The Fair": "",
-    "How Desperate We Are": "",
-    "Jules Can You See Me?": "",
-    "Something is Different": "",
-    "Our Remaining Pig": "",
-    "The Mouth That Will Not Speak": "",
-    "Pain": "",
-    "We Were Right ('Til We Were Wrong)": "",
-    "Cut Off All Your Hair": ""
-  };
+// Notes (paste Kye's per-track notes here later)
+// Keys must match the track titles exactly.
+const NOTES_BY_TITLE = {
+  "The Horrible Truth": "The truth can be a scary thing sometimes. I think a lot of us avoid admitting that our lives are maybe not in the best of places. The Horrible Truth is me saying “yep, things are fucked up, so let’s just state that outright.” I feel like you have to do this in order to move on from it. What the song is warning is that if you don’t acknowledge it, you essentially end up becoming an actor in your own life and who wants to live that way?",
+  "Ezekiel Bobbing For Apples": "This song is really a bit of singing up from the bottom of the well. Like, everything's kind of screwed and feels a bit hopeless at times, but the message is I am with you. It's not that strange to have feelings of hopelessness and there's something freeing about saying it out loud. I have many friends who are on dating apps and this kind of thing and many of them in conversation convey this feeling of \"why did I open my heart to this person who just threw me away to go on more frivolous dates\". There's something in modern life that makes opening yourself up to other people even more risky than in years past. This song is simply an acknowledgment of that heartache.",
+  "Divorce of Course of Course": "When a relationship finally ends it can be incredibly painful. I think with this one I wanted an ode to splitting up that essentially said “yes, it’s hard, but so is life, buddy, so take a deep breath and move on”. It’s challenging when you’ve had an idea about your life that now needs to evolve to a new but uncertain chapter. This one to me just screams “it hurts it hurts!..but down the road we go, aye?”",
+  "Don't Cancel The Fair": "The idea for this one occurred to me during Covid lockdown as more and more events started being cancelled. I fucking love the fair. It’s pure Americana to me, magical in the way it brings everyone together to just have fun, eat bad food, and have some laughs. So many memories from as far back as elementary school. Going on dates there. Rides with friends. Causing trouble. All so much fun. I finally wrote this the day John Prine died as a bit of a tribute to him as well, which is why it reeks a bit of his particular flavor.",
+  "How Desperate We Are": "This started as merely an observation. I noticed everywhere I traveled where people were especially struggling there was suddenly an uptick in churches, jails, and bars. Then from that a song was born.",
+  "Jules Can You See Me?": "Ah, unrequited love. One of life’s sharpest pains. I’ve seen this sort of scenario play out so many times in my life. Some drunken fool is certain that a lady is interested in him when in truth she just wants a night out with her friends free of unwanted attention. I observed a particular scene like this playing out at a local bar I frequent and the seed was planted.",
+  "Something is Different": "This song is all about that feeling that can come in a romantic relationship when you suddenly realize that what was once easy has become hard. Where conversations used to flow over dinner and drinks now things feel forced and stilted. When I wrote this initially it was a piano ballad, but by the time the band and I started working on it the thing evolved into a Zevon-esque rock song, which ultimately I think was way more fun.",
+  "Our Remaining Pig": "For the last several years I have gone to an art therapist. This can yield some interesting results. One drawing I did during these sessions was that of a man on his family farm wading across a river towards the farm's final living pig in order to slaughter it. You can tell the farmer doesn't want to do this, but that sometimes the hard thing is exactly what must be done. In this song I drew a parallel to this idea by comparing it to a relationship in trouble. Sometimes couples just need to say the honest and hard thing as much as it hurts. No one benefits from avoiding the suffering that accompanies growth.",
+  "The Mouth That Will Not Speak": "Our minds and hearts can betray us. You think you’ve got your hands around your dreams and then they slip out of your hands. In those moments a person can find themselves saying, “what else is there for me in this world?” It’s hard to see the next chapter, though of course it inevitably comes. The magic of life is that you truly cannot predict it. An old world has burned down to the foundation and now we must step into the unknown to live anew somehow.",
+  "Pain": "Just some honest questions for the listener with no attempt at an answer on my end. What do you do with your pain? What do you do with your past? What do you do with your lust? I write songs. That’s how I stay sane, but I have no clue what others do to overcome these struggles. It truly puzzles me.",
+  "We Were Right ('Til We Were Wrong)": "The initial concept for this song came when I saw a close friend of mine completely disheartened by a breakup. It was as if the entire concept of love were a joke. That all hope for deep connection with another human being was a fool’s errand. Honestly, it was incredibly hard to see someone give up in that way. You want to say, “Keep getting out there! Something will happen! Open your heart!” But it’s as if they’ve seen too much. They know there’s nothing there. That somehow it always ends in heartbreak, two people packing boxes for separate houses. In the studio we tried a more subdued version of this with me singing softly, but it was too devastating. We also had to carve a lot of the instrumentation out of it as it had gotten too busy and required a more bare-bones sort of arrangement.",
+  "Cut Off All Your Hair": "This speaks to vulnerability. It’s an honest assessment of my failings at the time I wrote the song. I thought of some of those videos you see online where someone is in treatment for cancer and someone else shaves their head at the same time in solidarity. So I think in a way I’m saying “Come beside me in that way. I’m fighting my own battle here and I could use someone who cares about me this deeply now.” This one felt like a good end to the album as it also addresses the reason why it took me four years to make another record. There’s an existential crisis related to making music that this attempts to tackle. So the album ends on a bit of a plea: “Will you help me?” Ultimately, with the help of my band I realized that in making this record I could help myself, which was a real homecoming to me."
+};
 
-  const NOTES_PLACEHOLDER = "No notes yet.";
+
+// const NOTES_PLACEHOLDER = "No notes yet.";
 
   const tracks = [
     { n: 1,  title: "The Horrible Truth", file: "01 The Horrible Truth.mp3" },
