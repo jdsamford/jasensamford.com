@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | Jasen Samford Consulting</title>
+  <meta name="description" content="Privacy policy for Jasen Samford Consulting. Learn how we handle your data." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="canonical" href="https://jasensamford.com/privacy/" />
+  <link rel="stylesheet" href="/style.css" />
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="nav"></div>
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(html => {
+        const nav = document.getElementById('nav');
+        nav.innerHTML = html;
+        const path = window.location.pathname.replace(/\/+$/, "") || "/";
+        nav.querySelectorAll("a").forEach(link => {
+          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+          if (href === path) {
+            link.classList.add("is-current");
+            link.setAttribute("aria-current", "page");
+          }
+        });
+      });
+  </script>
+
+  <main id="main" class="wrap" style="max-width:760px;">
+    <h1>Privacy Policy</h1>
+    <p class="lead" style="text-align:left;">Last updated: January 2026</p>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>Jasen Samford Consulting ("we," "our," or "us") respects your privacy. This policy explains what data we collect, why, and how we use it.</p>
+    </section>
+
+    <section class="section">
+      <h2>Information We Collect</h2>
+
+      <h3>Analytics Data</h3>
+      <p>We use <a href="https://plausible.io" target="_blank" rel="noopener">Plausible Analytics</a>, a privacy-focused analytics tool. Plausible does not use cookies and does not collect personal data. It tracks:</p>
+      <ul>
+        <li>Page views and referral sources</li>
+        <li>Country-level location (not precise location)</li>
+        <li>Device type and browser</li>
+      </ul>
+      <p>This data is aggregated and cannot identify you personally.</p>
+
+      <h3>Advertising</h3>
+      <p>We use Google Ads conversion tracking to measure the effectiveness of our advertising. This may use cookies to track conversions when you interact with our ads. You can opt out of personalized advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google's Ad Settings</a>.</p>
+
+      <h3>Booking Sessions</h3>
+      <p>When you book a session through Calendly, you provide your name and email directly to Calendly. Please review <a href="https://calendly.com/privacy" target="_blank" rel="noopener">Calendly's Privacy Policy</a> for details on how they handle your information. We use this information solely to conduct our scheduled consultation.</p>
+    </section>
+
+    <section class="section">
+      <h2>How We Use Your Information</h2>
+      <p>We use collected information to:</p>
+      <ul>
+        <li>Understand how visitors use our website</li>
+        <li>Measure advertising effectiveness</li>
+        <li>Conduct booked consulting sessions</li>
+        <li>Improve our services</li>
+      </ul>
+      <p>We do not sell your personal information to third parties.</p>
+    </section>
+
+    <section class="section">
+      <h2>Cookies</h2>
+      <p>Our website uses minimal cookies:</p>
+      <ul>
+        <li><strong>Plausible Analytics:</strong> No cookies used</li>
+        <li><strong>Google Ads:</strong> May set cookies for conversion tracking</li>
+      </ul>
+      <p>You can disable cookies in your browser settings, though this may affect functionality on other websites.</p>
+    </section>
+
+    <section class="section">
+      <h2>Third-Party Services</h2>
+      <p>We use the following third-party services:</p>
+      <ul>
+        <li><a href="https://plausible.io/privacy" target="_blank" rel="noopener">Plausible Analytics</a> (privacy-focused analytics)</li>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Ads</a> (advertising)</li>
+        <li><a href="https://calendly.com/privacy" target="_blank" rel="noopener">Calendly</a> (scheduling)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have rights to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction or deletion of your data</li>
+        <li>Opt out of marketing communications</li>
+        <li>Withdraw consent where applicable</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Contact</h2>
+      <p>For privacy-related questions, you can reach us through the <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">booking page</a> or connect on <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </section>
+
+    <section class="section">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy occasionally. Changes will be posted on this page with an updated revision date.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/about/">About</a> ·
+      <a href="/services/">Services</a> ·
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+    </p>
+    <p>© 2026 Jasen Samford Consulting</p>
+  </footer>
+</body>
+</html>

@@ -2,28 +2,40 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17743416863"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17743416863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17743416863');
+  </script>
 
-  gtag('config', 'AW-17743416863');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0aa2a2" />
   <title>Release Checklist | Jasen Samford</title>
   <meta name="description" content="A simple, practical release checklist for independent artists: planning, recording, distribution, promotion, and payouts." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jasensamford.com/checklist/" />
+  <meta property="og:title" content="Release Checklist | Jasen Samford" />
+  <meta property="og:description" content="A practical checklist to move your release from planning to payout. Track your progress through writing, recording, distribution, and promotion." />
+  <meta property="og:image" content="https://jasensamford.com/headshot.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Release Checklist | Jasen Samford" />
+  <meta name="twitter:description" content="A practical checklist to move your release from planning to payout." />
+  <meta name="twitter:image" content="https://jasensamford.com/headshot.png" />
+
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/checklist/" />
+  <link rel="preconnect" href="https://plausible.io" />
   <link rel="stylesheet" href="/style.css" />
 
   <!-- Privacy-friendly analytics by Plausible -->
-  <script
-    defer
-    data-domain="jasensamford.com"
-    src="https://plausible.io/js/script.js">
-  </script>
+  <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
@@ -264,9 +276,59 @@
     <p>
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
+      <a href="/privacy/">Privacy</a> ·
       <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
     <p>© 2026 Jasen Samford Consulting</p>
   </footer>
+
+  <script>
+    (function() {
+      const STORAGE_KEY = 'jasensamford-checklist';
+
+      // Assign IDs to all checkboxes and load saved state
+      const checkboxes = document.querySelectorAll('.checklist-main input[type="checkbox"]');
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+      checkboxes.forEach((cb, i) => {
+        const id = 'cb-' + i;
+        cb.dataset.id = id;
+        if (saved[id]) cb.checked = true;
+
+        cb.addEventListener('change', function() {
+          const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          if (this.checked) {
+            state[this.dataset.id] = true;
+          } else {
+            delete state[this.dataset.id];
+          }
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          updateProgress();
+        });
+      });
+
+      // Progress indicator
+      function updateProgress() {
+        const total = checkboxes.length;
+        const checked = document.querySelectorAll('.checklist-main input[type="checkbox"]:checked').length;
+        let indicator = document.getElementById('progress-indicator');
+        if (!indicator) {
+          indicator = document.createElement('div');
+          indicator.id = 'progress-indicator';
+          indicator.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:var(--accent);color:#fff;padding:0.5rem 1rem;border-radius:999px;font-size:0.9rem;font-weight:600;box-shadow:var(--shadow);z-index:50;';
+          document.body.appendChild(indicator);
+        }
+        const pct = Math.round((checked / total) * 100);
+        indicator.textContent = checked + '/' + total + ' (' + pct + '%)';
+        if (checked === total) {
+          indicator.style.background = '#22c55e';
+        } else {
+          indicator.style.background = 'var(--accent)';
+        }
+      }
+
+      updateProgress();
+    })();
+  </script>
 </body>
 </html>
