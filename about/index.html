@@ -15,6 +15,7 @@
   <title>About Jasen Samford</title>
   <meta name="description" content="Music distribution consultant for independent artists, labels, and music companies." />
   <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="canonical" href="https://jasensamford.com/about/" />
   <link rel="stylesheet" href="/style.css" />
 
   <!-- Privacy-friendly analytics by Plausible -->
@@ -27,8 +28,7 @@
 
 
 <body>
-
-  <!-- Nav -->
+  <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
@@ -51,8 +51,16 @@
   <!-- HERO -->
   <header class="hero">
     <div class="wrap hero-inner">
-      <img src="/headshot.png" class="headshot" alt="Jasen Samford">
-      <img id="logo" src="/logo_drk_bg.png" class="logo" alt="Jasen Samford logo">
+      <picture class="headshot-wrapper">
+        <source srcset="/headshot.webp" type="image/webp" />
+        <source srcset="/headshot.png" type="image/png" />
+        <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" width="320" height="320" />
+      </picture>
+      <picture class="logo-picture">
+        <source id="logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
+        <source id="logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
+        <img id="logo" src="/logo_drk_bg.png" alt="Jasen Samford logo" class="logo" width="260" height="60" />
+      </picture>
 
       <p class="lead">
         Music distribution consultant for independent artists, labels, and music companies.
@@ -66,8 +74,7 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="wrap">
+  <main id="main" class="wrap">
 
     <section class="section">
       <h2>Who I am</h2>
@@ -103,22 +110,36 @@
       <a href="/services/">Services</a> ·
       <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
-    <p>© 2025 Jasen Samford Consulting</p>
+    <p>© 2026 Jasen Samford Consulting</p>
+    <picture class="logo-picture-footer">
+      <source id="footer-logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
+      <source id="footer-logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
+      <img id="footer-logo" src="/logo_drk_bg.png" class="logo" alt="Footer logo" style="max-width:180px; margin-top:10px;" width="260" height="60" loading="lazy" />
+    </picture>
   </footer>
 
-  <!-- Logo switching -->
+  <!-- Logo switching for dark/light mode -->
   <script>
-    const logo = document.getElementById('logo');
     const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
+    function setLogoVariant(prefix) {
+      const isDark = darkScheme.matches;
+      const base = isDark ? '/logo_lt_bg' : '/logo_drk_bg';
+      const webp = document.getElementById(prefix + 'logo-source-webp');
+      const png = document.getElementById(prefix + 'logo-source-png');
+      const img = document.getElementById(prefix + 'logo');
+      if (webp) webp.srcset = base + '.webp';
+      if (png) png.srcset = base + '.png';
+      if (img) img.src = base + '.png';
+    }
+
     function updateLogos() {
-      const file = darkScheme.matches ? '/logo_lt_bg.png' : '/logo_drk_bg.png';
-      if (logo) logo.src = file;
+      setLogoVariant('');
+      setLogoVariant('footer-');
     }
 
     darkScheme.addEventListener('change', updateLogos);
     updateLogos();
   </script>
-
 </body>
 </html>

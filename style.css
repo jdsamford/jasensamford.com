@@ -10,13 +10,25 @@
   --shadow:0 4px 18px rgba(0,0,0,.06);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text:#f0f0f0;
+    --muted:#a8a8a8;
+    --bg:#121212;
+    --card:#1e1e1e;
+    --line:#333;
+    --accent-soft:#1a3a3a;
+    --shadow:0 4px 18px rgba(0,0,0,.3);
+  }
+}
+
 * { box-sizing:border-box; }
 
 html, body {
   margin:0;
   padding:0;
   max-width:100%;
-  overflow-x:hidden; /* prevent stray horizontal scrolling */
+  overflow-x:hidden;
 }
 
 body {
@@ -26,6 +38,23 @@ body {
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position:absolute;
+  top:-40px;
+  left:0;
+  background:var(--accent);
+  color:#fff;
+  padding:8px 16px;
+  z-index:100;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:0 0 var(--radius) 0;
+}
+.skip-link:focus {
+  top:0;
 }
 
 a {
@@ -84,13 +113,13 @@ main.wrap {
 
 nav {
   border-bottom:1px solid var(--line);
-  background:#fff;
+  background:var(--bg);
   padding:.75rem 1rem;
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;         /* allow wrapping */
-  gap:1.25rem;            /* spacing between links */
-  white-space:normal;     /* allow text to wrap */
+  flex-wrap:wrap;
+  gap:1.25rem;
+  white-space:normal;
   max-width:100%;
 }
 
@@ -268,13 +297,13 @@ header.hero {
 }
 .testimonial {
   background:var(--card);
-  border:1px solid #e5f0f0;
+  border:1px solid var(--line);
   border-left:4px solid var(--accent);
   border-radius:var(--radius);
   padding:1.05rem 1.1rem;
   position:relative;
   font-style:italic;
-  color:#222;
+  color:var(--text);
   box-shadow:var(--shadow);
   min-height:120px;
 }
@@ -343,7 +372,7 @@ header.hero {
   padding:0.15rem 0.6rem;
   border-radius:999px;
   border:1px solid var(--line);
-  background:#fff;
+  background:var(--bg);
   color:var(--muted);
 }
 
@@ -376,13 +405,13 @@ footer a {
   margin-bottom:2rem;
   font-size:1rem;
   line-height:1.5;
-  color:#444;
+  color:var(--muted);
 }
 .checklist-main section {
   margin-bottom:2.5rem;
   padding:1.25rem 1rem 1rem;
   border-radius:8px;
-  background:#f7f7f7;
+  background:var(--card);
 }
 .checklist-main section h2 {
   margin:0 0 0.75rem;
@@ -428,11 +457,17 @@ footer a {
   padding:0.45rem 1rem;
   border-radius:999px;
   border:1px solid var(--line);
-  background:#fff;
+  background:var(--bg);
   font-size:0.85rem;
   font-weight:500;
   color:var(--muted);
   white-space:nowrap;
+}
+.checklist-nav a:hover {
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent);
+  text-decoration:none;
 }
 
 /* Home / page spacing adjustments */

@@ -26,37 +26,27 @@
   </script>
 </head>
 
-
-<div id="nav"></div>
-<script>
-  fetch('/nav.html')
-    .then(r => r.text())
-    .then(html => {
-      const nav = document.getElementById('nav');
-      nav.innerHTML = html;
-
-      // highlight current page *after nav is loaded*
-      const path = window.location.pathname.replace(/\/+$/, "") || "/";
-      nav.querySelectorAll("a").forEach(link => {
-        const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-        if (href === path) {
-          link.classList.add("is-current");
-          link.setAttribute("aria-current", "page");
-        }
-      });
-    });
-</script>
-
 <body>
-  <!-- Shared nav -->
+  <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
   <script>
     fetch('/nav.html')
       .then(r => r.text())
-      .then(html => { document.getElementById('nav').innerHTML = html; });
+      .then(html => {
+        const nav = document.getElementById('nav');
+        nav.innerHTML = html;
+        const path = window.location.pathname.replace(/\/+$/, "") || "/";
+        nav.querySelectorAll("a").forEach(link => {
+          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+          if (href === path) {
+            link.classList.add("is-current");
+            link.setAttribute("aria-current", "page");
+          }
+        });
+      });
   </script>
 
-  <main class="wrap checklist-main">
+  <main id="main" class="wrap checklist-main">
     <h1>Release Checklist</h1>
     <p class="page-intro">
       A simple, practical checklist to move your release from planning to payout.
@@ -276,7 +266,7 @@
       <a href="/services/">Services</a> ·
       <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
-    <p>© 2025 Jasen Samford Consulting</p>
+    <p>© 2026 Jasen Samford Consulting</p>
   </footer>
 </body>
 </html>
