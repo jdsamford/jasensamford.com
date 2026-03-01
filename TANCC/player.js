@@ -630,7 +630,7 @@ And would you leave as i just start to care?
     trackModalBody.textContent = body;
 
     trackModal.classList.add("open");
-    trackModal.setAttribute("aria-hidden", "false");
+    trackModal.removeAttribute("hidden");
     document.body.classList.add("modal-open");
 
     if (trackModalBodyWrap) trackModalBodyWrap.scrollTop = 0;
@@ -640,7 +640,7 @@ And would you leave as i just start to care?
   function closeTrackModal() {
     if (!trackModal) return;
     trackModal.classList.remove("open");
-    trackModal.setAttribute("aria-hidden", "true");
+    trackModal.setAttribute("hidden", "");
     document.body.classList.remove("modal-open");
   }
 
@@ -658,7 +658,7 @@ And would you leave as i just start to care?
   function openBioModal() {
     if (!bioModal) return;
     bioModal.classList.add("open");
-    bioModal.setAttribute("aria-hidden", "false");
+    bioModal.removeAttribute("hidden");
     document.body.classList.add("modal-open");
     if (bioBodyWrap) bioBodyWrap.scrollTop = 0;
     setTimeout(() => bioCloseBtn?.focus(), 0);
@@ -667,7 +667,7 @@ And would you leave as i just start to care?
   function closeBioModal() {
     if (!bioModal) return;
     bioModal.classList.remove("open");
-    bioModal.setAttribute("aria-hidden", "true");
+    bioModal.setAttribute("hidden", "");
     document.body.classList.remove("modal-open");
   }
 
