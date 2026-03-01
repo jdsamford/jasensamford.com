@@ -390,7 +390,7 @@ body.modal-open{ overflow:hidden; height:100%; }
   z-index:9999;
   display:none;
 }
-.modal.open{ display:block; }
+.modal.open{ display:block !important; }
 
 .modal-overlay{
   position:absolute;

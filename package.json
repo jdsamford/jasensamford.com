@@ -1,0 +1,17 @@
+{
+  "name": "jasensamford.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jasen Samford consulting website",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:html": "jest --verbose tests/html-validation.test.js",
+    "test:js": "jest --verbose tests/js-unit.test.js",
+    "test:structure": "jest --verbose tests/structure.test.js"
+  },
+  "devDependencies": {
+    "html-validate": "^9.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
