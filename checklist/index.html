@@ -12,7 +12,7 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0aa2a2" />
+  <meta name="theme-color" content="#088080" />
   <title>Release Checklist | Jasen Samford</title>
   <meta name="description" content="A simple, practical release checklist for independent artists: planning, recording, distribution, promotion, and payouts." />
 
@@ -261,7 +261,7 @@
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
       <a href="/privacy/">Privacy</a> ·
-      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session<span class="sr-only"> (opens in new tab)</span></a>
     </p>
     <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
   </footer>
@@ -298,6 +298,8 @@
         if (!indicator) {
           indicator = document.createElement('div');
           indicator.id = 'progress-indicator';
+          indicator.setAttribute('role', 'status');
+          indicator.setAttribute('aria-label', 'Checklist progress');
           indicator.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:var(--accent);color:#fff;padding:0.5rem 1rem;border-radius:999px;font-size:0.9rem;font-weight:600;box-shadow:var(--shadow);z-index:50;';
           document.body.appendChild(indicator);
         }

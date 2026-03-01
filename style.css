@@ -1,5 +1,5 @@
 :root {
-  --accent:#0aa2a2;
+  --accent:#088080;
   --accent-soft:#e3f5f5;
   --text:#111;
   --muted:#3a3a3a;
@@ -55,6 +55,19 @@ body {
 }
 .skip-link:focus {
   top:0;
+}
+
+/* Visually hidden, accessible to screen readers */
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 
 /* Focus states for accessibility */
@@ -136,6 +149,12 @@ main.wrap {
    NAVIGATION — FIXED FOR MOBILE
 ----------------------------------------------------- */
 
+#nav {
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+
 nav {
   border-bottom:1px solid var(--line);
   background:var(--bg);
@@ -212,7 +231,7 @@ header.hero {
   margin:0 auto 10px;
   box-shadow:
     0 0 0 5px var(--bg),
-    0 0 0 9px rgba(10,162,162,.12),
+    0 0 0 9px rgba(8,128,128,.12),
     var(--shadow);
 }
 
@@ -505,6 +524,53 @@ footer a {
   border-color:var(--accent);
   color:var(--accent);
   text-decoration:none;
+}
+
+/* FAQ PAGE */
+
+.faq-main details {
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--card);
+  margin-bottom:0.75rem;
+  overflow:hidden;
+}
+.faq-main details[open] {
+  box-shadow:var(--shadow);
+}
+.faq-main summary {
+  cursor:pointer;
+  padding:1rem 1.2rem;
+  font-weight:700;
+  font-size:1.05rem;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+.faq-main summary::-webkit-details-marker {
+  display:none;
+}
+.faq-main summary::after {
+  content:"+";
+  font-size:1.3rem;
+  font-weight:400;
+  color:var(--muted);
+  flex-shrink:0;
+  transition:transform .2s ease;
+}
+.faq-main details[open] summary::after {
+  content:"\2212";
+}
+.faq-main details p,
+.faq-main details ul {
+  padding:0 1.2rem 1rem;
+  margin:0;
+}
+.faq-main details ul {
+  padding-bottom:1rem;
+  padding-left:2.2rem;
 }
 
 /* Home / page spacing adjustments */
