@@ -1,5 +1,5 @@
 :root {
-  --accent:#0aa2a2;
+  --accent:#088080;
   --accent-soft:#e3f5f5;
   --text:#111;
   --muted:#3a3a3a;
@@ -31,13 +31,34 @@ html, body {
   overflow-x:hidden;
 }
 
+html {
+  scroll-behavior:smooth;
+}
+
 body {
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
   color:var(--text);
   background:var(--bg);
-  line-height:1.6;
+  line-height:1.7;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+}
+
+/* Typographic scale */
+h1, h2, h3 {
+  line-height:1.2;
+  letter-spacing:-0.02em;
+}
+h1 { font-size:2.25rem; font-weight:800; margin:0 0 0.75rem; }
+h2 { font-size:1.5rem;  font-weight:700; margin:1.5rem 0 0.75rem; }
+h3 { font-size:1.15rem; font-weight:600; margin:1rem 0 0.5rem; }
+
+p { margin:0 0 1rem; }
+p:last-child { margin-bottom:0; }
+
+/* Scroll offset for sticky nav */
+[id] {
+  scroll-margin-top:4rem;
 }
 
 /* Skip to content link for accessibility */
@@ -55,6 +76,19 @@ body {
 }
 .skip-link:focus {
   top:0;
+}
+
+/* Visually hidden, accessible to screen readers */
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 
 /* Focus states for accessibility */
@@ -82,6 +116,15 @@ nav a:focus-visible {
   }
 }
 
+/* Subtle page-load fade-in */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+main, header.hero {
+  animation:fadeUp .4s ease both;
+}
+
 a {
   color:var(--accent);
   text-decoration:none;
@@ -98,8 +141,18 @@ a:hover {
   padding:24px;
 }
 
-.page-hero + main.wrap {
+.page-hero + main.wrap,
+main.wrap[style*="max-width"] {
   max-width:760px;
+}
+
+/* Footer logo */
+.logo-picture-footer {
+  display:inline-block;
+}
+.logo-picture-footer img {
+  max-width:160px;
+  margin-top:0.75rem;
 }
 
 main.wrap {
@@ -136,6 +189,12 @@ main.wrap {
    NAVIGATION — FIXED FOR MOBILE
 ----------------------------------------------------- */
 
+#nav {
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+
 nav {
   border-bottom:1px solid var(--line);
   background:var(--bg);
@@ -167,8 +226,8 @@ nav a.is-current {
 nav a.is-current::after {
   content:"";
   display:block;
-  margin:4px auto 0;
-  width:26px;
+  margin:3px auto 0;
+  width:100%;
   height:2px;
   border-radius:999px;
   background:var(--accent);
@@ -183,6 +242,16 @@ nav a.is-current::after {
   nav a {
     font-size:.9rem;
   }
+}
+
+/* Responsive typography */
+@media (max-width:640px) {
+  h1 { font-size:1.75rem; }
+  h2 { font-size:1.25rem; }
+  .section-title { font-size:1.4rem; }
+  .hero-name { font-size:1.5rem; }
+  .page-hero-title { font-size:1.5rem; }
+  .headshot { width:120px; height:120px; }
 }
 
 /* HOME HERO */
@@ -211,8 +280,8 @@ header.hero {
   display:block;
   margin:0 auto 10px;
   box-shadow:
-    0 0 0 5px #fff,
-    0 0 0 9px rgba(10,162,162,.12),
+    0 0 0 5px var(--bg),
+    0 0 0 9px rgba(8,128,128,.12),
     var(--shadow);
 }
 
@@ -260,11 +329,16 @@ header.hero {
   filter:brightness(.95);
 }
 .btn-ghost {
-  background:#eee;
+  background:var(--card);
+  border:1px solid var(--line);
   color:var(--text);
 }
 .btn-ghost:hover {
-  background:#e4e4e4;
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent);
+  text-decoration:none;
+  transform:translateY(-1px);
 }
 .btn-row {
   display:flex;
@@ -287,10 +361,20 @@ header.hero {
 
 .card {
   background:var(--card);
-  border:1px solid #e4eeee;
+  border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:1.1rem 1.2rem;
+  padding:1.25rem 1.4rem;
   box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.1);
+}
+@media (prefers-color-scheme: dark) {
+  .card:hover {
+    box-shadow:0 8px 24px rgba(0,0,0,.3);
+  }
 }
 .card-title {
   margin:0 0 .4rem;
@@ -315,6 +399,11 @@ header.hero {
   display:grid;
   gap:1rem;
 }
+@media (min-width:560px) and (max-width:819px) {
+  .testimonials-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
 @media (min-width:820px) {
   .testimonials-grid {
     grid-template-columns:repeat(3,1fr);
@@ -326,11 +415,14 @@ header.hero {
   border-left:4px solid var(--accent);
   border-radius:var(--radius);
   padding:1.05rem 1.1rem;
+  margin:0;
   position:relative;
   font-style:italic;
   color:var(--text);
   box-shadow:var(--shadow);
-  min-height:120px;
+}
+.testimonial p {
+  margin:0;
 }
 .testimonial::before {
   content:"“";
@@ -353,11 +445,15 @@ header.hero {
   opacity:.2;
 }
 .testimonial-footer {
+  display:block;
   margin-top:.6rem;
   font-style:normal;
   font-weight:600;
   font-size:.85rem;
   color:var(--muted);
+}
+.testimonial-footer:empty {
+  display:none;
 }
 
 /* Page hero (About / Services) */
@@ -405,11 +501,14 @@ header.hero {
 
 footer {
   border-top:1px solid var(--line);
-  margin-top:2rem;
-  padding:1.25rem 0;
+  margin-top:3rem;
+  padding:2rem 1rem 1.5rem;
   color:var(--muted);
-  font-size:.95rem;
+  font-size:.9rem;
   text-align:center;
+}
+footer p {
+  margin:0 0 0.4rem;
 }
 footer a {
   color:var(--accent);
@@ -462,7 +561,15 @@ footer a {
   flex:1;
 }
 .checklist-main input[type="checkbox"] {
-  margin-top:0.15rem;
+  margin-top:0.2rem;
+  accent-color:var(--accent);
+  width:1.1em;
+  height:1.1em;
+  flex-shrink:0;
+}
+.checklist-main label:has(input:checked) span {
+  text-decoration:line-through;
+  opacity:0.55;
 }
 
 /* Checklist chips */
@@ -493,6 +600,53 @@ footer a {
   border-color:var(--accent);
   color:var(--accent);
   text-decoration:none;
+}
+
+/* FAQ PAGE */
+
+.faq-main details {
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--card);
+  margin-bottom:0.75rem;
+  overflow:hidden;
+}
+.faq-main details[open] {
+  box-shadow:var(--shadow);
+}
+.faq-main summary {
+  cursor:pointer;
+  padding:1rem 1.2rem;
+  font-weight:700;
+  font-size:1.05rem;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+.faq-main summary::-webkit-details-marker {
+  display:none;
+}
+.faq-main summary::after {
+  content:"+";
+  font-size:1.3rem;
+  font-weight:400;
+  color:var(--muted);
+  flex-shrink:0;
+  transition:transform .2s ease;
+}
+.faq-main details[open] summary::after {
+  content:"\2212";
+}
+.faq-main details p,
+.faq-main details ul {
+  padding:0 1.2rem 1rem;
+  margin:0;
+}
+.faq-main details ul {
+  padding-bottom:1rem;
+  padding-left:2.2rem;
 }
 
 /* Home / page spacing adjustments */

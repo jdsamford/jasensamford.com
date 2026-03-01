@@ -63,7 +63,7 @@ const NOTES_BY_TITLE = {
 };
 
 
-// const NOTES_PLACEHOLDER = "No notes yet.";
+  const NOTES_PLACEHOLDER = "No notes yet.";
 
   const tracks = [
     { n: 1,  title: "The Horrible Truth", file: "01 The Horrible Truth.mp3" },

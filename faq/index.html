@@ -11,8 +11,8 @@
   </script>
 
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0aa2a2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#088080" />
   <title>FAQ | Jasen Samford Consulting</title>
   <meta name="description" content="Frequently asked questions about music consulting sessions with Jasen Samford. Learn about rates, session format, and what to expect." />
 
@@ -83,38 +83,22 @@
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
-  <script>
-    fetch('/nav.html')
-      .then(r => r.text())
-      .then(html => {
-        const nav = document.getElementById('nav');
-        nav.innerHTML = html;
-        const path = window.location.pathname.replace(/\/+$/, "") || "/";
-        nav.querySelectorAll("a").forEach(link => {
-          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-          if (href === path) {
-            link.classList.add("is-current");
-            link.setAttribute("aria-current", "page");
-          }
-        });
-      });
-  </script>
 
-  <main id="main" class="wrap" style="max-width:760px;">
+  <main id="main" class="wrap faq-main" style="max-width:760px;">
     <h1>Frequently Asked Questions</h1>
 
-    <section class="section">
-      <h2>What happens in a consulting session?</h2>
+    <details open>
+      <summary>What happens in a consulting session?</summary>
       <p>We'll meet over Google Meet for 60 minutes. I'll listen to what you're working on, ask clarifying questions, and give you practical guidance you can act on right away. After the call, I'll send a summary with next steps.</p>
-    </section>
+    </details>
 
-    <section class="section">
-      <h2>Who do you work with?</h2>
+    <details>
+      <summary>Who do you work with?</summary>
       <p>Independent artists, managers, small labels, and music platforms. Whether you're releasing your first single or managing a catalog of thousands of tracks, I can help.</p>
-    </section>
+    </details>
 
-    <section class="section">
-      <h2>What topics do you cover?</h2>
+    <details>
+      <summary>What topics do you cover?</summary>
       <ul>
         <li>Distribution strategy and choosing the right distributor</li>
         <li>Release planning and timeline</li>
@@ -124,34 +108,34 @@
         <li>Catalog cleanup and conflict resolution</li>
         <li>Team training for artist services and support</li>
       </ul>
-    </section>
+    </details>
 
-    <section class="section">
-      <h2>How much does a session cost?</h2>
-      <p>Session rates are listed on the <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">booking page</a>. If you're not sure whether consulting is right for you, feel free to <a href="mailto:jasen@jasensamford.com">email me</a> first.</p>
-    </section>
+    <details>
+      <summary>How much does a session cost?</summary>
+      <p>Session rates are listed on the <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">booking page<span class="sr-only"> (opens in new tab)</span></a>. If you're not sure whether consulting is right for you, feel free to <a href="mailto:jasen@jasensamford.com">email me</a> first.</p>
+    </details>
 
-    <section class="section">
-      <h2>Do you offer ongoing work or just one-off sessions?</h2>
+    <details>
+      <summary>Do you offer ongoing work or just one-off sessions?</summary>
       <p>Both. Many people start with a single session to solve a specific problem. If you need ongoing support—like catalog audits, release rollouts, or team training—we can discuss a longer engagement.</p>
-    </section>
+    </details>
 
-    <section class="section">
-      <h2>What if I need to reschedule?</h2>
+    <details>
+      <summary>What if I need to reschedule?</summary>
       <p>No problem. You can reschedule through Calendly up to 24 hours before the session. If something comes up last minute, just email me.</p>
-    </section>
+    </details>
 
-    <section class="section">
-      <h2>Can you help with sync licensing or publishing?</h2>
+    <details>
+      <summary>Can you help with sync licensing or publishing?</summary>
       <p>My focus is on distribution, royalties, and metadata—the operational side of releasing music. For publishing deals, sync representation, or legal advice, I'd recommend working with a music attorney or publisher. I can point you in the right direction.</p>
-    </section>
+    </details>
 
-    <section class="section">
-      <h2>What's your background?</h2>
+    <details>
+      <summary>What's your background?</summary>
       <p>I spent almost ten years at DistroKid, helping build systems that serve millions of independent artists. I've worked on everything from artist support to fraud prevention to internal tooling. You can read more on the <a href="/about/">About page</a>.</p>
-    </section>
+    </details>
 
-    <section class="section">
+    <section class="section" style="text-align:center;">
       <h2>Still have questions?</h2>
       <p>Feel free to <a href="mailto:jasen@jasensamford.com">send me an email</a>. I'm happy to chat before you book.</p>
     </section>
@@ -162,9 +146,11 @@
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
       <a href="/privacy/">Privacy</a> ·
-      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session<span class="sr-only"> (opens in new tab)</span></a>
     </p>
-    <p>© 2026 Jasen Samford Consulting</p>
+    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
   </footer>
+
+  <script src="/js/nav.js"></script>
 </body>
 </html>

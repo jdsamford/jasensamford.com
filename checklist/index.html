@@ -11,8 +11,8 @@
   </script>
 
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0aa2a2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#088080" />
   <title>Release Checklist | Jasen Samford</title>
   <meta name="description" content="A simple, practical release checklist for independent artists: planning, recording, distribution, promotion, and payouts." />
 
@@ -41,22 +41,6 @@
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
-  <script>
-    fetch('/nav.html')
-      .then(r => r.text())
-      .then(html => {
-        const nav = document.getElementById('nav');
-        nav.innerHTML = html;
-        const path = window.location.pathname.replace(/\/+$/, "") || "/";
-        nav.querySelectorAll("a").forEach(link => {
-          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-          if (href === path) {
-            link.classList.add("is-current");
-            link.setAttribute("aria-current", "page");
-          }
-        });
-      });
-  </script>
 
   <main id="main" class="wrap checklist-main">
     <h1>Release Checklist</h1>
@@ -207,7 +191,7 @@
         <li>
           <label>
             <input type="checkbox">
-            <span>Check your distributor’s reporting schedule.</span>
+            <span>Check your distributor's reporting schedule.</span>
           </label>
         </li>
         <li>
@@ -277,26 +261,26 @@
       <a href="/about/">About</a> ·
       <a href="/services/">Services</a> ·
       <a href="/privacy/">Privacy</a> ·
-      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
+      <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session<span class="sr-only"> (opens in new tab)</span></a>
     </p>
-    <p>© 2026 Jasen Samford Consulting</p>
+    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
   </footer>
 
+  <script src="/js/nav.js"></script>
   <script>
     (function() {
-      const STORAGE_KEY = 'jasensamford-checklist';
+      var STORAGE_KEY = 'jasensamford-checklist';
 
-      // Assign IDs to all checkboxes and load saved state
-      const checkboxes = document.querySelectorAll('.checklist-main input[type="checkbox"]');
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      var checkboxes = document.querySelectorAll('.checklist-main input[type="checkbox"]');
+      var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
 
-      checkboxes.forEach((cb, i) => {
-        const id = 'cb-' + i;
+      checkboxes.forEach(function(cb, i) {
+        var id = 'cb-' + i;
         cb.dataset.id = id;
         if (saved[id]) cb.checked = true;
 
         cb.addEventListener('change', function() {
-          const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          var state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
           if (this.checked) {
             state[this.dataset.id] = true;
           } else {
@@ -307,24 +291,21 @@
         });
       });
 
-      // Progress indicator
       function updateProgress() {
-        const total = checkboxes.length;
-        const checked = document.querySelectorAll('.checklist-main input[type="checkbox"]:checked').length;
-        let indicator = document.getElementById('progress-indicator');
+        var total = checkboxes.length;
+        var checked = document.querySelectorAll('.checklist-main input[type="checkbox"]:checked').length;
+        var indicator = document.getElementById('progress-indicator');
         if (!indicator) {
           indicator = document.createElement('div');
           indicator.id = 'progress-indicator';
+          indicator.setAttribute('role', 'status');
+          indicator.setAttribute('aria-label', 'Checklist progress');
           indicator.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:var(--accent);color:#fff;padding:0.5rem 1rem;border-radius:999px;font-size:0.9rem;font-weight:600;box-shadow:var(--shadow);z-index:50;';
           document.body.appendChild(indicator);
         }
-        const pct = Math.round((checked / total) * 100);
+        var pct = Math.round((checked / total) * 100);
         indicator.textContent = checked + '/' + total + ' (' + pct + '%)';
-        if (checked === total) {
-          indicator.style.background = '#22c55e';
-        } else {
-          indicator.style.background = 'var(--accent)';
-        }
+        indicator.style.background = (checked === total) ? '#22c55e' : 'var(--accent)';
       }
 
       updateProgress();
