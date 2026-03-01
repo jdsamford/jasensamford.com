@@ -211,7 +211,7 @@ header.hero {
   display:block;
   margin:0 auto 10px;
   box-shadow:
-    0 0 0 5px #fff,
+    0 0 0 5px var(--bg),
     0 0 0 9px rgba(10,162,162,.12),
     var(--shadow);
 }
@@ -260,11 +260,15 @@ header.hero {
   filter:brightness(.95);
 }
 .btn-ghost {
-  background:#eee;
+  background:var(--card);
+  border:1px solid var(--line);
   color:var(--text);
 }
 .btn-ghost:hover {
-  background:#e4e4e4;
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent);
+  text-decoration:none;
 }
 .btn-row {
   display:flex;
@@ -287,7 +291,7 @@ header.hero {
 
 .card {
   background:var(--card);
-  border:1px solid #e4eeee;
+  border:1px solid var(--line);
   border-radius:var(--radius);
   padding:1.1rem 1.2rem;
   box-shadow:var(--shadow);
@@ -326,11 +330,15 @@ header.hero {
   border-left:4px solid var(--accent);
   border-radius:var(--radius);
   padding:1.05rem 1.1rem;
+  margin:0;
   position:relative;
   font-style:italic;
   color:var(--text);
   box-shadow:var(--shadow);
   min-height:120px;
+}
+.testimonial p {
+  margin:0;
 }
 .testimonial::before {
   content:"“";
@@ -353,11 +361,15 @@ header.hero {
   opacity:.2;
 }
 .testimonial-footer {
+  display:block;
   margin-top:.6rem;
   font-style:normal;
   font-weight:600;
   font-size:.85rem;
   color:var(--muted);
+}
+.testimonial-footer:empty {
+  display:none;
 }
 
 /* Page hero (About / Services) */

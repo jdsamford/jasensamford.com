@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Page Not Found | Jasen Samford</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -12,13 +12,6 @@
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
-  <script>
-    fetch('/nav.html')
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById('nav').innerHTML = html;
-      });
-  </script>
 
   <main id="main" class="wrap" style="text-align:center; padding-top:4rem; padding-bottom:4rem;">
     <h1 style="font-size:4rem; margin:0 0 0.5rem;">404</h1>
@@ -33,7 +26,9 @@
       <a href="/services/">Services</a> ·
       <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
-    <p>© 2026 Jasen Samford Consulting</p>
+    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
   </footer>
+
+  <script src="/js/nav.js"></script>
 </body>
 </html>

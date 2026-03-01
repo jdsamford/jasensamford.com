@@ -11,7 +11,7 @@
   </script>
 
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0aa2a2" />
   <title>Services | Jasen Samford Consulting</title>
   <meta name="description" content="Release planning, metadata cleanup, royalty audits, and streaming-fraud prevention for independent artists, labels, and music platforms." />
@@ -38,27 +38,9 @@
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
 
-
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
-  <script>
-    fetch('/nav.html')
-      .then(r => r.text())
-      .then(html => {
-        const nav = document.getElementById('nav');
-        nav.innerHTML = html;
-
-        const path = window.location.pathname.replace(/\/+$/, "") || "/";
-        nav.querySelectorAll("a").forEach(link => {
-          const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
-          if (href === path) {
-            link.classList.add("is-current");
-            link.setAttribute("aria-current", "page");
-          }
-        });
-      });
-  </script>
 
   <!-- HERO -->
   <header class="hero">
@@ -128,7 +110,7 @@
       <a href="/privacy/">Privacy</a> ·
       <a href="https://calendly.com/jdsamford/60min" target="_blank" rel="noopener">Book a session</a>
     </p>
-    <p>© 2026 Jasen Samford Consulting</p>
+    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
     <picture class="logo-picture-footer">
       <source id="footer-logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
       <source id="footer-logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
@@ -136,28 +118,7 @@
     </picture>
   </footer>
 
-  <!-- Logo switching for dark/light mode -->
-  <script>
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    function setLogoVariant(prefix) {
-      const isDark = darkScheme.matches;
-      const base = isDark ? '/logo_lt_bg' : '/logo_drk_bg';
-      const webp = document.getElementById(prefix + 'logo-source-webp');
-      const png = document.getElementById(prefix + 'logo-source-png');
-      const img = document.getElementById(prefix + 'logo');
-      if (webp) webp.srcset = base + '.webp';
-      if (png) png.srcset = base + '.png';
-      if (img) img.src = base + '.png';
-    }
-
-    function updateLogos() {
-      setLogoVariant('');
-      setLogoVariant('footer-');
-    }
-
-    darkScheme.addEventListener('change', updateLogos);
-    updateLogos();
-  </script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/theme.js"></script>
 </body>
 </html>
