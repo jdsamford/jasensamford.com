@@ -704,3 +704,9 @@ footer a {
   font-size:.9rem;
   color:var(--muted);
 }
+.pricing-card {
+  margin-bottom:1.5rem;
+}
+.pricing-card:hover {
+  transform:none;
+}
