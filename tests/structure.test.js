@@ -15,6 +15,7 @@ const seoPages = [
   "faq/index.html",
   "checklist/index.html",
   "gatefolded/index.html",
+  "contact/index.html",
   "privacy/index.html",
 ];
 
@@ -26,6 +27,7 @@ const allPages = [
   "faq/index.html",
   "checklist/index.html",
   "gatefolded/index.html",
+  "contact/index.html",
   "privacy/index.html",
   "404.html",
 ];
