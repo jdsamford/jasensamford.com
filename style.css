@@ -537,6 +537,11 @@ summary:focus-visible {
 .card-muted { color:var(--muted); }
 
 .card-link { display:inline-block; margin-top:1.5rem; font-weight:600; }
+.also-note {
+  margin:1.5rem 0 0;
+  color:var(--muted);
+}
+.also-note + .card-link { margin-top:1rem; }
 
 .issue-card {
   border-top:3px solid var(--accent);
