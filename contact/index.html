@@ -56,11 +56,12 @@
       <p class="card-muted">If earnings have been withheld or locked, there's also a <strong>15% success fee</strong>, which applies only if the funds are successfully recovered.</p>
     </div>
 
-    <form class="contact-form card" action="https://formsubmit.co/jasen@jasensamford.com" method="POST">
-      <input type="hidden" name="_subject" value="New inquiry from jasensamford.com" />
-      <input type="hidden" name="_next" value="https://jasensamford.com/contact/thanks/" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <form class="contact-form card" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="New inquiry from jasensamford.com" />
+      <input type="hidden" name="from_name" value="jasensamford.com" />
+      <input type="hidden" name="redirect" value="https://jasensamford.com/contact/thanks/" />
+      <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true" />
 
       <div class="form-field">
         <label for="contact-name">Name</label>
