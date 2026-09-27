@@ -323,6 +323,7 @@ describe("Contact routing", () => {
     "gatefolded/index.html",
     "contact/index.html",
     "contact/thanks/index.html",
+    "privacy/index.html",
     "404.html",
     "nav.html",
   ];
