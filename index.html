@@ -12,22 +12,24 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#088080" />
-  <title>Jasen Samford | Music Business Consultant</title>
-  <meta name="description" content="Practical answers across the full indie artist lifecycle: creation, distribution, promotion, payouts, touring, merch, and everything in between." />
+  <meta name="theme-color" content="#0d1b24" />
+  <title>Royalty Recovery and Distributor Disputes | Jasen Samford Consulting</title>
+  <meta name="description" content="Frozen royalties, locked accounts, false takedowns? Former DistroKid employee #2 helping independent artists and labels resolve distributor disputes and recover withheld earnings." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jasensamford.com/" />
-  <meta property="og:title" content="Jasen Samford | Music Business Consultant" />
-  <meta property="og:description" content="Practical answers across the full indie artist lifecycle: creation, distribution, promotion, payouts, touring, merch, and everything in between." />
-  <meta property="og:image" content="https://jasensamford.com/headshot.png" />
+  <meta property="og:title" content="Royalty Recovery and Distributor Disputes | Jasen Samford Consulting" />
+  <meta property="og:description" content="Frozen royalties, locked accounts, false takedowns? Former DistroKid employee #2 helping independent artists and labels resolve distributor disputes and recover withheld earnings." />
+  <meta property="og:image" content="https://jasensamford.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Jasen Samford | Music Business Consultant" />
-  <meta name="twitter:description" content="Practical answers across the full indie artist lifecycle: creation, distribution, promotion, payouts, touring, merch, and everything in between." />
-  <meta name="twitter:image" content="https://jasensamford.com/headshot.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Royalty Recovery and Distributor Disputes | Jasen Samford Consulting" />
+  <meta name="twitter:description" content="Frozen royalties, locked accounts, false takedowns? Former DistroKid employee #2 helping independent artists and labels resolve distributor disputes and recover withheld earnings." />
+  <meta name="twitter:image" content="https://jasensamford.com/og-image.png" />
 
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/" />
@@ -35,7 +37,9 @@
   <!-- Preconnect to external resources -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://plausible.io" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
 
   <!-- Privacy-friendly analytics by Plausible -->
@@ -47,21 +51,21 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Jasen Samford Consulting",
-    "description": "Music business consulting for independent artists, labels, and platforms. Specializing in distribution, royalties, metadata, and release strategy.",
+    "description": "Distributor dispute resolution and royalty recovery for independent artists and labels: frozen or escrowed royalties, locked accounts, false DMCA takedowns, copyright claims, fraudulent duplicates, and payout holds.",
     "url": "https://jasensamford.com",
-    "image": "https://jasensamford.com/headshot.png",
+    "image": "https://jasensamford.com/og-image.png",
     "priceRange": "$$",
     "founder": {
       "@type": "Person",
       "name": "Jasen Samford",
-      "jobTitle": "Music Business Consultant",
+      "jobTitle": "Music Distribution Consultant",
       "url": "https://jasensamford.com/about/",
       "sameAs": [
         "https://www.linkedin.com/in/jasensamford"
       ]
     },
     "areaServed": "Worldwide",
-    "serviceType": ["Music Distribution Consulting", "Release Strategy", "Royalty Audits", "Metadata Management"]
+    "serviceType": ["Royalty Recovery", "Distributor Dispute Resolution", "DMCA Takedown Disputes", "Copyright Claim Resolution", "Music Distribution Consulting"]
   }
   </script>
 </head>
@@ -70,244 +74,304 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
 
-  <!-- HERO -->
-  <header class="hero home-hero">
-    <div class="wrap hero-inner">
+  <main id="main">
 
-      <!-- Headshot with WebP + PNG fallback -->
-      <picture class="headshot-wrapper">
-        <source srcset="/headshot.webp" type="image/webp" />
-        <source srcset="/headshot.png" type="image/png" />
-        <img
-          src="/headshot.png"
-          alt="Photo of Jasen Samford"
-          class="headshot"
-          width="320"
-          height="320"
-        />
-      </picture>
+    <!-- HERO -->
+    <header class="home-hero band-dark">
+      <div class="wrap hero-grid">
+        <div>
+          <picture>
+            <source srcset="/logo_drk_bg.webp" type="image/webp" />
+            <img src="/logo_drk_bg.png" alt="Jasen Samford, Music Business Consultant" class="hero-logo" width="640" height="140" />
+          </picture>
 
-      <!-- Logo using WebP + PNG fallback; switched for dark/light theme -->
-      <picture class="logo-picture">
-        <source id="logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
-        <source id="logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
-        <img
-          id="logo"
-          src="/logo_drk_bg.png"
-          alt="Jasen Samford logo"
-          class="logo"
-          width="260"
-          height="60"
-        />
-      </picture>
-
-      <p class="lead">
-        Practical answers across the full indie artist lifecycle: creation, distribution,
-        promotion, payouts, touring, merch, and everything in between.
-      </p>
-
-      <div class="btn-row">
-        <a href="/contact/" class="btn btn-primary">
-          Get started
-        </a>
-        <a href="https://www.linkedin.com/in/jasensamford" class="btn btn-ghost" target="_blank" rel="noopener">
-          LinkedIn<span class="sr-only"> (opens in new tab)</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" class="wrap">
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="section-header">
-        <p class="section-kicker">For artists, labels, and platforms</p>
-        <h2 class="section-title">About</h2>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <p>
-            I spent years at DistroKid helping build systems that serve millions of independent artists.
-            Now I partner with artists, labels, and platforms to improve transparency, strengthen release
-            plans, smooth payouts, and keep growth sustainable without losing the human touch.
+          <h1 class="hero-title">Distributor froze your royalties or took down your music?</h1>
+          <p class="hero-sub">
+            I spent almost ten years as employee #2 at DistroKid. I know how distributors handle
+            these cases, and how to get them fixed.
           </p>
+          <p class="hero-proof">
+            $51,000+ in earnings released for one client. $10,000+ in frozen royalties recovered
+            within days for another.
+          </p>
+
+          <div class="btn-row">
+            <a href="/contact/" class="btn btn-primary">Get started</a>
+            <a href="#how-it-works" class="btn btn-ghost">How it works</a>
+          </div>
+        </div>
+
+        <picture class="hero-photo">
+          <source srcset="/headshot.webp" type="image/webp" />
+          <img src="/headshot.png" alt="Photo of Jasen Samford" class="headshot" width="320" height="320" />
+        </picture>
+      </div>
+    </header>
+
+    <!-- WHAT I HANDLE -->
+    <section class="band" id="services">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="kicker">What I handle</p>
+          <h2>Disputes and recovery cases</h2>
+          <p class="section-intro">Most of my work is case-based: something has gone wrong with a distributor, and you need it resolved.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card issue-card">
+            <h3>Frozen or escrowed royalties</h3>
+            <p>Earnings held during a review, dispute or account investigation.</p>
+          </div>
+          <div class="card issue-card">
+            <h3>Locked or terminated accounts</h3>
+            <p>Accounts locked, suspended or closed, including after a hack.</p>
+          </div>
+          <div class="card issue-card">
+            <h3>False DMCA takedowns</h3>
+            <p>Releases removed by a takedown notice that doesn't hold up.</p>
+          </div>
+          <div class="card issue-card">
+            <h3>Copyright and ownership claims</h3>
+            <p>Conflicting claims over who owns a recording or release.</p>
+          </div>
+          <div class="card issue-card">
+            <h3>Fraudulent duplicate uploads</h3>
+            <p>Someone else distributing your music as their own.</p>
+          </div>
+          <div class="card issue-card">
+            <h3>Payout holds</h3>
+            <p>Withdrawals paused, delayed or stuck in review.</p>
+          </div>
+        </div>
+
+        <p class="also-note">
+          I also help with release planning, metadata and royalty setup.
+          <a href="/services/#release-planning">See release planning and metadata</a>.
+        </p>
+
+        <a href="/services/" class="card-link">All services and pricing &rarr;</a>
+      </div>
+    </section>
+
+    <!-- WHY ME -->
+    <section class="band band-alt" id="about">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Why me</p>
+          <h2>A decade inside DistroKid</h2>
+          <p class="lede">
+            I was employee #2 at DistroKid and spent almost ten years there, working on artist support,
+            fraud prevention and internal tooling.
+          </p>
+          <p class="muted">
+            I know how distributor teams review these cases, what they need to see, and who to escalate to.
+            Now I work cases for independent artists, labels and the people who represent them, mostly by email.
+          </p>
+          <a href="/about/" class="card-link">More about me &rarr;</a>
         </div>
 
         <div class="card">
-          <h3 class="card-title">Typical outcomes</h3>
-          <ul class="card-muted">
-            <li>Cleaner metadata and smoother payouts.</li>
-            <li>Release plans that travel from idea to impact.</li>
-            <li>Fewer false-positive fraud flags.</li>
-            <li>Clear documentation for teams and partners.</li>
+          <h3>Typical outcomes</h3>
+          <ul class="check-list">
+            <li>Withheld and frozen royalties released.</li>
+            <li>Locked and restricted accounts restored.</li>
+            <li>Takedowns and copyright claims resolved, releases back up.</li>
+            <li>Fraudulent duplicate uploads removed.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="section-header">
-        <p class="section-kicker">Where I help most</p>
-        <h2 class="section-title">Services</h2>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <h3 class="card-title">For artists and labels</h3>
-          <ul class="card-muted">
-            <li>Distributor setup and catalog optimization.</li>
-            <li>Release strategy and lightweight promo plans.</li>
-            <li>Metadata, splits, and payout checks.</li>
-            <li>Dispute handling and takedown prevention.</li>
-          </ul>
+    <!-- HOW IT WORKS -->
+    <section class="band" id="how-it-works">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="kicker">How it works</p>
+          <h2>A flat fee to open your case</h2>
+          <p class="section-intro">Plus a success fee only if withheld money comes back.</p>
         </div>
 
-        <div class="card">
-          <h3 class="card-title">For platforms and teams</h3>
-          <ul class="card-muted">
-            <li>Integrity playbooks and risk reduction.</li>
-            <li>Support operations and escalation models.</li>
-            <li>Artist education and partner content.</li>
-          </ul>
+        <ol class="steps">
+          <li>
+            <h3>Tell me what's going on</h3>
+            <p>Use the contact form or email me. Include your distributor, what happened, and any messages you've received.</p>
+          </li>
+          <li>
+            <h3>$175 opens your case</h3>
+            <p>That covers collecting the details, creating a plan, and contacting your distributor and DSPs as needed.</p>
+          </li>
+          <li>
+            <h3>I gather documents and escalate</h3>
+            <p>I collect what the distributor needs to see, then contact the distributor and DSPs and keep you updated by email.</p>
+          </li>
+          <li>
+            <h3>15% success fee, only on recovery</h3>
+            <p>If earnings have been withheld or locked, there's a 15% success fee, which applies only if the funds are recovered.</p>
+          </li>
+        </ol>
+
+        <div class="center-cta">
+          <a href="/contact/" class="btn btn-primary">Get started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="band band-alt" id="results">
+      <div class="wrap">
+        <div class="section-header center">
+          <p class="kicker">Results</p>
+          <h2>What clients say</h2>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-figure">$51,000+</span>
+            <span class="stat-label">in earnings released for one client</span>
+          </div>
+          <div class="stat">
+            <span class="stat-figure">$10,000+</span>
+            <span class="stat-label">in frozen royalties recovered within days</span>
+          </div>
+          <div class="stat">
+            <span class="stat-figure">$6,000+</span>
+            <span class="stat-label">unlocked for an artist whose earnings were frozen</span>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">$51,000+ released and account restored</h3>
+            <blockquote><p>Working with Jasen was like having an experienced navigator when everything went off course. I came to him facing multiple copyright claims, restrictions on my distribution account, and a significant amount of inaccessible earnings. He brought clarity and deep industry knowledge to a situation that felt impossible to untangle: the claims were resolved in my favor, my account was restored, and more than $51,000 in earnings was released. I would recommend him to any independent artist or producer navigating complex distribution or copyright issues.</p></blockquote>
+            <figcaption>3z Production</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">$10,000+ in frozen royalties recovered within days</h3>
+            <blockquote><p>My distributor account was locked during a legal dispute, and over $10,000 of my hard-earned royalties were frozen. I had tried everything and felt hopeless, but once Jasen stepped in he handled the situation with complete professionalism and used his contacts to resolve it. Within days my withdrawal button was reactivated and my funds were fully recovered. Jasen is reliable and a true lifesaver for independent artists. I highly recommend his services to anyone facing similar issues.</p></blockquote>
+            <figcaption>Kila Fvnky</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Over $6,000 unlocked for a client</h3>
+            <blockquote><p>My client's earnings were frozen by his distributor and nothing seemed to be moving. Countless emails, late nights of research, and numerous dead ends forced me to rethink the approach. Then I found Jasen Samford, and that connection changed everything. He understood the system, guided parts of the process, and helped bridge the gap where needed to help the artist get over $6,000 unlocked.</p></blockquote>
+            <figcaption>Sharon Igbokwe, Corporate Commercial Lawyer</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Copyright claim resolved, release restored</h3>
+            <blockquote><p>I was dealing with a serious copyright claim involving my release being taken down through my distributor, with the situation becoming unclear at the time. Jasen was able to step in quickly and handle the copyright claim directly, guiding the entire process from start to finish. He kept me updated throughout so I always knew what was happening, and the issue was resolved in a short time with the release fully restored.</p></blockquote>
+            <figcaption>Black River Whiskey</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Fraudulent duplicate attack resolved quickly</h3>
+            <blockquote><p>Jasen helped me resolve a fraudulent duplicate attack very quickly thanks to his experience and network. I later reached out again for a separate distribution issue, which was also handled fast. His professionalism speaks for itself, and I won't hesitate to use his services again.</p></blockquote>
+            <figcaption>Alexis C, ATANA</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Hacked, locked account resolved within a month</h3>
+            <blockquote><p>After months of trying in vain to get any response from my distributor, Jasen helped us resolve everything within a month, including fixing an account lock caused by a hacker. Something that's unfortunately becoming more and more common these days. Huge thanks to Jasen!</p></blockquote>
+            <figcaption>Triarstar</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Months-old issue resolved within days</h3>
+            <blockquote><p>A very frustrating, months-old distribution issue I had been stuck on was resolved within days of contacting Jasen. The results speak for themselves, but it's also worth noting that he was professional, thorough, and quick to respond throughout the entire process. I can't recommend his services enough to any artist looking for help and practical answers in the music industry.</p></blockquote>
+            <figcaption>W. Summers</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">False DMCA takedown handled fast</h3>
+            <blockquote><p>Hands down the best decision I made this year. As an independent artist it's easy to feel unheard, and when I had a false DMCA takedown on my music, Jasen responded immediately to offer assistance. Fast, professional, and actually cares about results. 10/10 would recommend again!</p></blockquote>
+            <figcaption>CEO K</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Frozen distributor account resolved</h3>
+            <blockquote><p>Jasen's help was invaluable when my distributor account appeared to be frozen. He assessed the situation promptly, guided me on the next steps, and most importantly managed to resolve the issue with the distributor. His deep industry knowledge is second to none and I would recommend him without hesitation.</p></blockquote>
+            <figcaption>Timothy L (Chill City Pop)</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Structure in a messy copyright dispute</h3>
+            <blockquote><p>Jasen was a huge help during a really messy distributor and copyright situation. When everything started piling up, he helped bring structure to the chaos and walked me through it all. His guidance has made a real difference in how I handle disputes, distribution decisions, and overall strategy now. I would absolutely recommend him to other artists dealing with similar issues.</p></blockquote>
+            <figcaption>Cain Walker</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">Clear, honest guidance on a complicated case</h3>
+            <blockquote><p>Jasen was extremely helpful throughout a difficult situation involving a music distribution platform. He took the time to properly understand the issue and provided clear, honest guidance when things became complicated. He helped clarify the best path forward and stayed proactive in trying to move things along from the distribution side. His persistence and willingness to look deeper than surface-level support really stood out. I'd definitely recommend working with him.</p></blockquote>
+            <figcaption>Zachary Aghaizu</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <h3 class="testimonial-headline">A trusted advisor for a new indie label</h3>
+            <blockquote><p>I met Jasen when I first launched my indie label and he has been super valuable. Extremely professional, personable, and very knowledgeable about all things music and tech. On several occasions he has gone above and beyond, which really impressed me with his character. Highly recommend him for anything music tech related and beyond.</p></blockquote>
+            <figcaption>Raviga Records</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- GATEFOLDED -->
-    <section class="section" id="gatefolded">
-      <div class="section-header">
-        <p class="section-kicker">My company</p>
-        <h2 class="section-title">Gatefolded</h2>
-      </div>
-
-      <div class="card">
-        <p>
-          Gatefolded is public or private music sharing for artists, producers, and labels.
-          Send demos and advance music as one private link, give fans a music-first page,
-          and see who actually listened.
-        </p>
-        <div class="btn-row" style="justify-content:flex-start; margin-bottom:0;">
-          <a href="/gatefolded/" class="btn btn-ghost">Learn more and get 50% off</a>
+    <section class="band" id="gatefolded">
+      <div class="wrap">
+        <div class="card promo">
+          <div>
+            <p class="kicker">My company</p>
+            <h2>Gatefolded</h2>
+            <p class="muted">Public or private music sharing for artists, producers and labels. Send demos and advance music as one private link, and see who actually listened.</p>
+          </div>
+          <div class="btn-row">
+            <a href="/gatefolded/" class="btn btn-ghost">Learn more and get 50% off</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section testimonials" id="testimonials">
-      <h2 class="section-title" style="text-align:center;">Trusted by teams that build for artists</h2>
-
-      <div class="testimonials-grid">
-        <blockquote class="testimonial">
-          <p>Jasen was a huge help during a really messy distributor and copyright situation. When everything started piling up, he helped bring structure to the chaos and walked me through it all. His guidance has made a real difference in how I handle disputes, distribution decisions, and overall strategy now. I would absolutely recommend him to other artists dealing with similar issues.</p>
-          <footer class="testimonial-footer">— Cain Walker</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>Hands down the best decision I made this year. As an independent artist it's easy to feel unheard, and when I had a false DMCA takedown on my music, Jasen responded immediately to offer assistance. Fast, professional, and actually cares about results. 10/10 would recommend again!</p>
-          <footer class="testimonial-footer">— CEO K</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>After months of trying in vain to get any response from my distributor, Jasen helped us resolve everything within a month, including fixing an account lock caused by a hacker. Something that's unfortunately becoming more and more common these days. Huge thanks to Jasen!</p>
-          <footer class="testimonial-footer">— Triarstar</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>I met Jasen when I first launched my indie label and he has been super valuable. Extremely professional, personable, and very knowledgeable about all things music and tech. On several occasions he has gone above and beyond, which really impressed me with his character. Highly recommend him for anything music tech related and beyond.</p>
-          <footer class="testimonial-footer">— Raviga Records</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>Jasen helped me resolve a fraudulent duplicate attack very quickly thanks to his experience and network. I later reached out again for a separate distribution issue, which was also handled fast. His professionalism speaks for itself, and I won't hesitate to use his services again.</p>
-          <footer class="testimonial-footer">— Alexis C, ATANA</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>A very frustrating, months-old distribution issue I had been stuck on was resolved within days of contacting Jasen. The results speak for themselves, but it's also worth noting that he was professional, thorough, and quick to respond throughout the entire process. I can't recommend his services enough to any artist looking for help and practical answers in the music industry.</p>
-          <footer class="testimonial-footer">— W. Summers</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>My client's earnings were frozen by his distributor and nothing seemed to be moving. Countless emails, late nights of research, and numerous dead ends forced me to rethink the approach. Then I found Jasen Samford, and that connection changed everything. He understood the system, guided parts of the process, and helped bridge the gap where needed to help the artist get over $6,000 unlocked.</p>
-          <footer class="testimonial-footer">— Sharon Igbokwe, Corporate Commercial Lawyer</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>Jasen was extremely helpful throughout a difficult situation involving a music distribution platform. He took the time to properly understand the issue and provided clear, honest guidance when things became complicated. He helped clarify the best path forward and stayed proactive in trying to move things along from the distribution side. His persistence and willingness to look deeper than surface-level support really stood out. I'd definitely recommend working with him.</p>
-          <footer class="testimonial-footer">— Zachary Aghaizu</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>My distributor account was locked during a legal dispute, and over $10,000 of my hard-earned royalties were frozen. I had tried everything and felt hopeless, but once Jasen stepped in he handled the situation with complete professionalism and used his contacts to resolve it. Within days my withdrawal button was reactivated and my funds were fully recovered. Jasen is reliable and a true lifesaver for independent artists. I highly recommend his services to anyone facing similar issues.</p>
-          <footer class="testimonial-footer">— Kila Fvnky</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>Jasen's help was invaluable when my distributor account appeared to be frozen. He assessed the situation promptly, guided me on the next steps, and most importantly managed to resolve the issue with the distributor. His deep industry knowledge is second to none and I would recommend him without hesitation.</p>
-          <footer class="testimonial-footer">— Timothy L (Chill City Pop)</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>I was dealing with a serious copyright claim involving my release being taken down through my distributor, with the situation becoming unclear at the time. Jasen was able to step in quickly and handle the copyright claim directly, guiding the entire process from start to finish. He kept me updated throughout so I always knew what was happening, and the issue was resolved in a short time with the release fully restored.</p>
-          <footer class="testimonial-footer">— Black River Whiskey</footer>
-        </blockquote>
-
-        <blockquote class="testimonial">
-          <p>Working with Jasen was like having an experienced navigator when everything went off course. I came to him facing multiple copyright claims, restrictions on my distribution account, and a significant amount of inaccessible earnings. He brought clarity and deep industry knowledge to a situation that felt impossible to untangle: the claims were resolved in my favor, my account was restored, and more than $51,000 in earnings was released. I would recommend him to any independent artist or producer navigating complex distribution or copyright issues.</p>
-          <footer class="testimonial-footer">— 3z Production</footer>
-        </blockquote>
-      </div>
-    </section>
-
     <!-- CONTACT CTA -->
-    <section class="section" id="contact">
-      <div class="section-header" style="text-align:center;">
-        <h2 class="section-title">Let's talk</h2>
-        <p class="section-subtitle">
-          Working with artists, labels, and platforms worldwide, mostly over email. Video calls available on request.
-        </p>
-      </div>
-
-      <div class="btn-row" style="justify-content:center;">
-        <a href="/contact/" class="btn btn-primary">
-          Get started
-        </a>
-        <a href="mailto:jasen@jasensamford.com" class="btn btn-ghost">
-          Email me
-        </a>
+    <section class="band band-dark" id="contact">
+      <div class="wrap">
+        <div class="section-header center">
+          <h2>Tell me what's going on</h2>
+          <p class="section-intro">
+            I work with artists and labels worldwide, mostly over email. Video calls are available on request.
+          </p>
+        </div>
+        <div class="btn-row center">
+          <a href="/contact/" class="btn btn-primary">Get started</a>
+          <a href="mailto:jasen@jasensamford.com" class="btn btn-ghost">Email me</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>
-      <a href="/about/">About</a> ·
-      <a href="/services/">Services</a> ·
-      <a href="/gatefolded/">Gatefolded</a> ·
-      <a href="/privacy/">Privacy</a> ·
-      <a href="/contact/">Contact</a>
-    </p>
-    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
-
-    <!-- Footer logo with WebP + PNG fallback -->
-    <picture class="logo-picture-footer">
-      <source id="footer-logo-source-webp" srcset="/logo_drk_bg.webp" type="image/webp" />
-      <source id="footer-logo-source-png" srcset="/logo_drk_bg.png" type="image/png" />
-      <img
-        id="footer-logo"
-        src="/logo_drk_bg.png"
-        class="logo"
-        alt="Footer logo"
-        width="260"
-        height="60"
-        loading="lazy"
-      />
-    </picture>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="/" class="footer-logo">
+        <picture>
+          <source srcset="/logo_drk_bg.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_drk_bg.png" type="image/png" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_lt_bg.webp" type="image/webp" />
+          <img src="/logo_lt_bg.png" alt="Jasen Samford, Music Business Consultant" width="640" height="140" loading="lazy" />
+        </picture>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/gatefolded/">Gatefolded</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+      </nav>
+      <p class="footer-copy">&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+    </div>
   </footer>
 
   <script src="/js/nav.js"></script>
-  <script src="/js/theme.js"></script>
+  <script src="/js/testimonials.js"></script>
 </body>
 </html>

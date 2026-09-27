@@ -105,71 +105,86 @@ describe("nav.js", () => {
   });
 });
 
-describe("theme.js", () => {
-  const themeScript = fs.readFileSync(path.join(root, "js/theme.js"), "utf-8");
-
-  let matchMediaListeners;
+describe("nav.js mobile menu", () => {
+  const navScript = fs.readFileSync(path.join(root, "js/nav.js"), "utf-8");
+  const navHTML = fs.readFileSync(path.join(root, "nav.html"), "utf-8");
 
   beforeEach(() => {
-    matchMediaListeners = [];
-    document.body.innerHTML = `
-      <source id="logo-source-webp" srcset="/logo_drk_bg.webp" />
-      <source id="logo-source-png" srcset="/logo_drk_bg.png" />
-      <img id="logo" src="/logo_drk_bg.png" />
-      <source id="footer-logo-source-webp" srcset="/logo_drk_bg.webp" />
-      <source id="footer-logo-source-png" srcset="/logo_drk_bg.png" />
-      <img id="footer-logo" src="/logo_drk_bg.png" />
-    `;
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
-  function setupMatchMedia(prefersDark) {
-    window.matchMedia = jest.fn().mockReturnValue({
-      matches: prefersDark,
-      addEventListener: jest.fn((event, cb) => {
-        matchMediaListeners.push(cb);
-      }),
+    document.body.innerHTML = '<div id="nav"></div>';
+    global.fetch = jest.fn().mockResolvedValue({
+      text: () => Promise.resolve(navHTML),
     });
+    delete window.location;
+    window.location = { pathname: "/services/" };
+  });
+
+  test("toggle opens and closes the menu", async () => {
+    eval(navScript);
+    await new Promise((r) => setTimeout(r, 50));
+
+    const toggle = document.querySelector(".nav-toggle");
+    const links = document.querySelector(".nav-links");
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+
+    toggle.click();
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    expect(links.classList.contains("is-open")).toBe(true);
+
+    toggle.click();
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    expect(links.classList.contains("is-open")).toBe(false);
+  });
+
+  test("Escape closes the menu", async () => {
+    eval(navScript);
+    await new Promise((r) => setTimeout(r, 50));
+
+    const toggle = document.querySelector(".nav-toggle");
+    toggle.click();
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+  });
+
+  test("does not mark the brand or Get started button as current", async () => {
+    window.location = { pathname: "/" };
+    eval(navScript);
+    await new Promise((r) => setTimeout(r, 50));
+
+    expect(document.querySelector(".brand").classList.contains("is-current")).toBe(false);
+  });
+});
+
+describe("testimonials.js", () => {
+  const script = fs.readFileSync(path.join(root, "js/testimonials.js"), "utf-8");
+
+  function setup(scrollHeight) {
+    document.body.innerHTML =
+      '<figure class="testimonial"><blockquote><p>Quote</p></blockquote><figcaption>Name</figcaption></figure>';
+    const p = document.querySelector("blockquote p");
+    Object.defineProperty(p, "scrollHeight", { configurable: true, value: scrollHeight });
+    Object.defineProperty(p, "clientHeight", { configurable: true, value: 100 });
   }
 
-  test("sets light-background logos when dark mode is off", () => {
-    setupMatchMedia(false);
-    eval(themeScript);
+  test("adds a Read more toggle to long quotes", () => {
+    setup(300);
+    eval(script);
 
-    expect(document.getElementById("logo").src).toContain("/logo_drk_bg.png");
-    expect(document.getElementById("logo-source-webp").srcset).toContain(
-      "/logo_drk_bg.webp"
-    );
-    expect(document.getElementById("footer-logo").src).toContain(
-      "/logo_drk_bg.png"
-    );
+    const item = document.querySelector(".testimonial");
+    const btn = document.querySelector(".read-more");
+    expect(item.classList.contains("is-clamped")).toBe(true);
+    expect(btn.textContent).toBe("Read more");
+
+    btn.click();
+    expect(item.classList.contains("is-clamped")).toBe(false);
+    expect(btn.textContent).toBe("Show less");
+    expect(btn.getAttribute("aria-expanded")).toBe("true");
   });
 
-  test("sets dark-background logos when dark mode is on", () => {
-    setupMatchMedia(true);
-    eval(themeScript);
+  test("leaves short quotes alone", () => {
+    setup(100);
+    eval(script);
 
-    expect(document.getElementById("logo").src).toContain("/logo_lt_bg.png");
-    expect(document.getElementById("logo-source-webp").srcset).toContain(
-      "/logo_lt_bg.webp"
-    );
-    expect(document.getElementById("footer-logo").src).toContain(
-      "/logo_lt_bg.png"
-    );
-  });
-
-  test("registers a change listener on matchMedia", () => {
-    setupMatchMedia(false);
-    eval(themeScript);
-    expect(matchMediaListeners.length).toBe(1);
-  });
-
-  test("handles missing logo elements gracefully", () => {
-    document.body.innerHTML = "";
-    setupMatchMedia(false);
-    expect(() => eval(themeScript)).not.toThrow();
+    expect(document.querySelector(".read-more")).toBeNull();
+    expect(document.querySelector(".testimonial").classList.contains("is-clamped")).toBe(false);
   });
 });

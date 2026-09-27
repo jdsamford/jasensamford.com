@@ -12,26 +12,29 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#088080" />
+  <meta name="theme-color" content="#0d1b24" />
   <title>Contact | Jasen Samford Consulting</title>
-  <meta name="description" content="Get in touch with Jasen Samford about music business consulting for distribution, royalties, metadata, copyright claims, and release strategy." />
+  <meta name="description" content="Open a case with Jasen Samford for frozen royalties, locked distributor accounts, false DMCA takedowns, copyright claims, fraudulent duplicates or payout holds." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jasensamford.com/contact/" />
   <meta property="og:title" content="Contact | Jasen Samford Consulting" />
-  <meta property="og:description" content="Get in touch about music business consulting." />
-  <meta property="og:image" content="https://jasensamford.com/headshot.png" />
+  <meta property="og:description" content="Tell me what is going on with your distributor. $175 opens your case." />
+  <meta property="og:image" content="https://jasensamford.com/og-image.png" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact | Jasen Samford Consulting" />
-  <meta name="twitter:description" content="Get in touch about music business consulting." />
-  <meta name="twitter:image" content="https://jasensamford.com/headshot.png" />
+  <meta name="twitter:description" content="Tell me what is going on with your distributor. $175 opens your case." />
+  <meta name="twitter:image" content="https://jasensamford.com/og-image.png" />
 
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/contact/" />
   <link rel="preconnect" href="https://plausible.io" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
 
   <!-- Privacy-friendly analytics by Plausible -->
@@ -42,71 +45,126 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
 
-  <main id="main" class="wrap" style="max-width:760px;">
-    <h1>Let's talk</h1>
-    <p class="page-intro">
-      Tell me a little about what you're working on or what's gone wrong. I'll reply by email,
-      usually within one business day. Email is usually the easiest way to gather the details,
-      but I'm always happy to schedule a video call if you'd prefer.
-    </p>
+  <main id="main">
+    <header class="page-header">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">Contact</p>
+        <h1>Let's talk</h1>
+        <p class="page-header-sub">
+          Tell me a little about what you're working on or what's gone wrong. I'll reply by email,
+          usually within one business day. Email is usually the easiest way to gather the details,
+          but I'm always happy to schedule a video call if you'd prefer.
+        </p>
+      </div>
+    </header>
 
-    <div class="card pricing-card">
-      <h2 class="card-title">Pricing</h2>
-      <p><strong>$175</strong> opens your case: I collect the details, create a plan, and contact your distributor and DSPs as needed.</p>
-      <p class="card-muted">If earnings have been withheld or locked, there's also a <strong>15% success fee</strong>, which applies only if the funds are successfully recovered.</p>
+    <div class="page-body">
+      <div class="wrap wrap-narrow">
+        <div class="card pricing-card" style="margin-bottom:1.5rem;">
+          <h2>Pricing</h2>
+          <p><strong>$175</strong> opens your case: I collect the details, create a plan, and contact your distributor and DSPs as needed.</p>
+          <p class="card-muted">If earnings have been withheld or locked, there's also a <strong>15% success fee</strong>, which applies only if the funds are successfully recovered.</p>
+        </div>
+
+        <form class="contact-form card" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="8f3cf8ae-2c76-4289-95a8-83445b88ff10" />
+          <input type="hidden" name="subject" value="New inquiry from jasensamford.com" />
+          <input type="hidden" name="from_name" value="jasensamford.com" />
+          <input type="hidden" name="redirect" value="https://jasensamford.com/contact/thanks/" />
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true" />
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" type="text" name="name" autocomplete="name" required />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" type="email" name="email" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="contact-role">Which best describes you? <span class="optional">(optional)</span></label>
+              <select id="contact-role" name="Role">
+                <option value="">Choose one</option>
+                <option value="Artist">Artist</option>
+                <option value="Manager">Manager</option>
+                <option value="Label">Label</option>
+                <option value="Platform or company">Platform or company</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-distributor">Distributor <span class="optional">(optional)</span></label>
+              <select id="contact-distributor" name="Distributor">
+                <option value="">Choose one</option>
+                <option value="DistroKid">DistroKid</option>
+                <option value="TuneCore">TuneCore</option>
+                <option value="CD Baby">CD Baby</option>
+                <option value="UnitedMasters">UnitedMasters</option>
+                <option value="Amuse">Amuse</option>
+                <option value="RouteNote">RouteNote</option>
+                <option value="Ditto">Ditto</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-amount">Approximate amount held <span class="optional">(optional)</span></label>
+            <input id="contact-amount" type="text" name="Amount held" placeholder="e.g. $2,500" />
+          </div>
+
+          <fieldset class="form-field">
+            <legend>Is any of the catalog AI-generated or AI-assisted? <span class="optional">(optional)</span></legend>
+            <div class="radio-row">
+              <label><input type="radio" name="AI-generated or AI-assisted catalog" value="Yes" /> Yes</label>
+              <label><input type="radio" name="AI-generated or AI-assisted catalog" value="Partly" /> Partly</label>
+              <label><input type="radio" name="AI-generated or AI-assisted catalog" value="No" /> No</label>
+            </div>
+          </fieldset>
+
+          <div class="form-field">
+            <label for="contact-message">What's going on?</label>
+            <textarea id="contact-message" name="message" rows="7" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+
+        <p class="form-note">
+          Prefer email? Write to <a href="mailto:jasen@jasensamford.com">jasen@jasensamford.com</a>.
+          See the <a href="/privacy/">privacy policy</a> for how form submissions are handled.
+        </p>
+      </div>
     </div>
-
-    <form class="contact-form card" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="8f3cf8ae-2c76-4289-95a8-83445b88ff10" />
-      <input type="hidden" name="subject" value="New inquiry from jasensamford.com" />
-      <input type="hidden" name="from_name" value="jasensamford.com" />
-      <input type="hidden" name="redirect" value="https://jasensamford.com/contact/thanks/" />
-      <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true" />
-
-      <div class="form-field">
-        <label for="contact-name">Name</label>
-        <input id="contact-name" type="text" name="name" autocomplete="name" required />
-      </div>
-
-      <div class="form-field">
-        <label for="contact-email">Email</label>
-        <input id="contact-email" type="email" name="email" autocomplete="email" required />
-      </div>
-
-      <div class="form-field">
-        <label for="contact-role">Which best describes you?</label>
-        <select id="contact-role" name="role">
-          <option value="">Choose one</option>
-          <option value="Artist">Artist</option>
-          <option value="Manager">Manager</option>
-          <option value="Label">Label</option>
-          <option value="Platform or company">Platform or company</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-
-      <div class="form-field">
-        <label for="contact-message">How can I help?</label>
-        <textarea id="contact-message" name="message" rows="7" required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Send message</button>
-    </form>
-
-    <p class="form-note">
-      Prefer email? Write to <a href="mailto:jasen@jasensamford.com">jasen@jasensamford.com</a>.
-      See the <a href="/privacy/">privacy policy</a> for how form submissions are handled.
-    </p>
   </main>
 
-  <footer>
-    <p>
-      <a href="/about/">About</a> ·
-      <a href="/services/">Services</a> ·
-      <a href="/gatefolded/">Gatefolded</a> ·
-      <a href="/privacy/">Privacy</a>
-    </p>
-    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="/" class="footer-logo">
+        <picture>
+          <source srcset="/logo_drk_bg.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_drk_bg.png" type="image/png" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_lt_bg.webp" type="image/webp" />
+          <img src="/logo_lt_bg.png" alt="Jasen Samford, Music Business Consultant" width="640" height="140" loading="lazy" />
+        </picture>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/gatefolded/">Gatefolded</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+      </nav>
+      <p class="footer-copy">&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+    </div>
   </footer>
 
   <script src="/js/nav.js"></script>
