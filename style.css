@@ -462,14 +462,6 @@ summary:focus-visible {
   max-width:40ch;
   margin:0;
 }
-.hero-proof {
-  margin:1.5rem 0 0;
-  padding-left:.9rem;
-  border-left:3px solid var(--accent-on-dark);
-  color:var(--ink-text);
-  font-weight:500;
-  max-width:44ch;
-}
 .hero-photo {
   justify-self:center;
   order:-1;
