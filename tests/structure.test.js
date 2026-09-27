@@ -313,6 +313,25 @@ describe("Site consistency", () => {
   );
 });
 
+describe("Contact routing", () => {
+  const pages = [
+    "index.html",
+    "about/index.html",
+    "services/index.html",
+    "faq/index.html",
+    "checklist/index.html",
+    "gatefolded/index.html",
+    "contact/index.html",
+    "contact/thanks/index.html",
+    "404.html",
+    "nav.html",
+  ];
+
+  test.each(pages)("%s sends people to the contact form, not email", (file) => {
+    expect(readFile(file)).not.toContain("mailto:");
+  });
+});
+
 describe("Contact form", () => {
   const html = readFile("contact/index.html");
 
