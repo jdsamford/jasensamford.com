@@ -29,6 +29,7 @@ const htmlFiles = [
   "services/index.html",
   "faq/index.html",
   "checklist/index.html",
+  "gatefolded/index.html",
   "privacy/index.html",
   "404.html",
   "nav.html",
