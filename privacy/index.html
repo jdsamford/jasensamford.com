@@ -7,6 +7,9 @@
   <meta name="description" content="Privacy policy for Jasen Samford Consulting. Learn how we handle your data." />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/privacy/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -15,16 +18,24 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
 
-  <main id="main" class="wrap" style="max-width:760px;">
-    <h1>Privacy Policy</h1>
-    <p class="lead" style="text-align:left;">Last updated: September 2026</p>
+  <main id="main">
+    <header class="page-header">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="page-header-sub">Last updated: September 2026</p>
+      </div>
+    </header>
 
-    <section class="section">
+    <div class="page-body">
+    <div class="wrap wrap-narrow">
+
+    <section class="prose-section">
       <h2>Overview</h2>
       <p>Jasen Samford Consulting ("we," "our," or "us") respects your privacy. This policy explains what data we collect, why, and how we use it.</p>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>Information We Collect</h2>
 
       <h3>Analytics Data</h3>
@@ -40,10 +51,10 @@
       <p>We use Google Ads conversion tracking to measure the effectiveness of our advertising. This may use cookies to track conversions when you interact with our ads. You can opt out of personalized advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google's Ad Settings<span class="sr-only"> (opens in new tab)</span></a>.</p>
 
       <h3>Contact Form</h3>
-      <p>When you submit the contact form, the name, email address, and message you enter are delivered to us by email through <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">Web3Forms<span class="sr-only"> (opens in new tab)</span></a>. We use this information solely to respond to your inquiry and to provide consulting services.</p>
+      <p>When you submit the contact form, the details you enter (name, email address, role, distributor, approximate amount held, whether your catalog is AI-generated or AI-assisted, and your message) are delivered to us by email through <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">Web3Forms<span class="sr-only"> (opens in new tab)</span></a>. We use this information solely to respond to your inquiry and to provide consulting services.</p>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>How We Use Your Information</h2>
       <p>We use collected information to:</p>
       <ul>
@@ -55,7 +66,7 @@
       <p>We do not sell your personal information to third parties.</p>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>Cookies</h2>
       <p>Our website uses minimal cookies:</p>
       <ul>
@@ -65,7 +76,7 @@
       <p>You can disable cookies in your browser settings, though this may affect functionality on other websites.</p>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>Third-Party Services</h2>
       <p>We use the following third-party services:</p>
       <ul>
@@ -75,7 +86,7 @@
       </ul>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>Your Rights</h2>
       <p>Depending on your location, you may have rights to:</p>
       <ul>
@@ -86,25 +97,40 @@
       </ul>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>Contact</h2>
       <p>For privacy-related questions, email <a href="mailto:jasen@jasensamford.com">jasen@jasensamford.com</a>.</p>
     </section>
 
-    <section class="section">
+    <section class="prose-section">
       <h2>Changes to This Policy</h2>
       <p>We may update this policy occasionally. Changes will be posted on this page with an updated revision date.</p>
     </section>
+    </div>
+    </div>
   </main>
 
-  <footer>
-    <p>
-      <a href="/about/">About</a> ·
-      <a href="/services/">Services</a> ·
-      <a href="/gatefolded/">Gatefolded</a> ·
-      <a href="/contact/">Contact</a>
-    </p>
-    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="/" class="footer-logo">
+        <picture>
+          <source srcset="/logo_drk_bg.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_drk_bg.png" type="image/png" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_lt_bg.webp" type="image/webp" />
+          <img src="/logo_lt_bg.png" alt="Jasen Samford, Music Business Consultant" width="640" height="140" loading="lazy" />
+        </picture>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/gatefolded/">Gatefolded</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+      </nav>
+      <p class="footer-copy">&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+    </div>
   </footer>
 
   <script src="/js/nav.js"></script>

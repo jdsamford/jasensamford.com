@@ -263,7 +263,8 @@ describe("Required files exist", () => {
     "nav.html",
     "style.css",
     "js/nav.js",
-    "js/theme.js",
+    "js/testimonials.js",
+    "og-image.png",
     "robots.txt",
     "sitemap.xml",
     "favicon.png",
@@ -274,4 +275,59 @@ describe("Required files exist", () => {
     const filePath = path.join(root, file);
     expect(fs.existsSync(filePath)).toBe(true);
   });
+});
+
+describe("Site consistency", () => {
+  const sitePages = [...allPages, "contact/thanks/index.html"];
+
+  function footerOf(html) {
+    return html.slice(html.lastIndexOf('<footer class="site-footer"'), html.lastIndexOf("</footer>"));
+  }
+
+  test.each(sitePages)("%s title uses the standard format", (file) => {
+    const title = readFile(file).match(/<title>([^<]+)<\/title>/)[1];
+    expect(title).toMatch(/^.+ \| Jasen Samford Consulting$/);
+  });
+
+  test.each(sitePages)("%s has the shared footer", (file) => {
+    expect(footerOf(readFile(file))).toBe(footerOf(readFile("index.html")));
+  });
+
+  test("footer links are About, Services, FAQ, Gatefolded, Privacy, Contact", () => {
+    const links = (footerOf(readFile("index.html")).match(/href="\/[^"]*"/g) || []).slice(1);
+    expect(links).toEqual([
+      'href="/about/"',
+      'href="/services/"',
+      'href="/faq/"',
+      'href="/gatefolded/"',
+      'href="/privacy/"',
+      'href="/contact/"',
+    ]);
+  });
+
+  test.each([...sitePages, "nav.html", "style.css", "js/nav.js", "js/testimonials.js"])(
+    "%s contains no em dashes",
+    (file) => {
+      expect(readFile(file)).not.toContain("\u2014");
+    }
+  );
+});
+
+describe("Contact form", () => {
+  const html = readFile("contact/index.html");
+
+  test("posts to Web3Forms", () => {
+    expect(html).toContain('action="https://api.web3forms.com/submit"');
+  });
+
+  test.each(["name", "email", "message"])("%s is required", (name) => {
+    expect(html).toMatch(new RegExp(`name="${name}"[^>]*required`));
+  });
+
+  test.each(["Distributor", "Amount held", "AI-generated or AI-assisted catalog"])(
+    "has optional %s field",
+    (name) => {
+      expect(html).toContain(`name="${name}"`);
+    }
+  );
 });

@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#088080" />
+  <meta name="theme-color" content="#0d1b24" />
   <meta name="robots" content="noindex" />
-  <title>Message sent | Jasen Samford Consulting</title>
+  <title>Message Sent | Jasen Samford Consulting</title>
   <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
   <script defer data-domain="jasensamford.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -15,22 +18,41 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <div id="nav"></div>
 
-  <main id="main" class="wrap" style="max-width:760px; text-align:center;">
-    <h1>Thanks, your message is on its way</h1>
-    <p>I'll get back to you by email, usually within one business day.</p>
-    <div class="btn-row">
-      <a href="/" class="btn btn-ghost">Back to home</a>
-    </div>
+  <main id="main">
+    <header class="page-header">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">Message sent</p>
+        <h1>Thanks, your message is on its way</h1>
+        <p class="page-header-sub">I'll get back to you by email, usually within one business day.</p>
+        <div class="btn-row">
+          <a href="/" class="btn btn-ghost">Back to home</a>
+          <a href="/faq/" class="btn btn-ghost">Read the FAQ</a>
+        </div>
+      </div>
+    </header>
   </main>
 
-  <footer>
-    <p>
-      <a href="/about/">About</a> ·
-      <a href="/services/">Services</a> ·
-      <a href="/gatefolded/">Gatefolded</a> ·
-      <a href="/privacy/">Privacy</a>
-    </p>
-    <p>&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="/" class="footer-logo">
+        <picture>
+          <source srcset="/logo_drk_bg.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_drk_bg.png" type="image/png" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_lt_bg.webp" type="image/webp" />
+          <img src="/logo_lt_bg.png" alt="Jasen Samford, Music Business Consultant" width="640" height="140" loading="lazy" />
+        </picture>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/gatefolded/">Gatefolded</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+      </nav>
+      <p class="footer-copy">&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+    </div>
   </footer>
 
   <script src="/js/nav.js"></script>
