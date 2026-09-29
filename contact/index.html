@@ -167,5 +167,19 @@
   </footer>
 
   <script src="/js/nav.js"></script>
+  <script>
+    // Give each inquiry a unique subject so Gmail doesn't thread them together.
+    (function () {
+      var form = document.querySelector(".contact-form");
+      if (!form) return;
+      form.addEventListener("submit", function () {
+        var name = form.elements.namedItem("name").value.trim();
+        var distributor = form.elements.namedItem("Distributor").value;
+        if (!name) return;
+        form.elements.namedItem("subject").value =
+          "New inquiry from " + name + (distributor ? " (" + distributor + ")" : "") + " via jasensamford.com";
+      });
+    })();
+  </script>
 </body>
 </html>
