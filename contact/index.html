@@ -175,6 +175,7 @@
       form.addEventListener("submit", function () {
         var name = form.elements.namedItem("name").value.trim();
         var distributor = form.elements.namedItem("Distributor").value;
+        if (distributor === "Other") distributor = "";
         if (!name) return;
         form.elements.namedItem("subject").value =
           "New inquiry from " + name + (distributor ? " (" + distributor + ")" : "") + " via jasensamford.com";
