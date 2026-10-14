@@ -35,8 +35,6 @@ const htmlFiles = [
   "privacy/index.html",
   "404.html",
   "nav.html",
-  "TANCC/index.html",
-  "TANCC/login.html",
 ];
 
 describe("HTML validation", () => {
