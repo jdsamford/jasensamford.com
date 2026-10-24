@@ -670,7 +670,7 @@ summary:focus-visible {
     text-align:left;
     padding:1rem 1.25rem;
   }
-  .stat-figure { font-size:1.6rem; min-width:7.5rem; }
+  .stat-figure { font-size:1.5rem; min-width:8.25rem; flex-shrink:0; }
   .stat-label { margin-top:0; font-size:.9rem; line-height:1.4; }
 }
 .stat-label {
