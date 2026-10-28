@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1b24" />
+  <title>Last Waltz Set List | Jasen Samford Consulting</title>
+  <meta name="description" content="Suggest changes to the running order for the Last Waltz show." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="canonical" href="https://jasensamford.com/lastwaltz/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .setlist-toolbar {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:.5rem 1rem;
+    }
+    .setlist-toolbar p { margin:0; color:var(--muted); font-size:var(--fs-small); }
+    .setlist {
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:.4rem;
+    }
+    .track {
+      display:grid;
+      grid-template-columns:auto 2rem 1fr auto auto;
+      align-items:center;
+      gap:.6rem;
+      padding:.55rem .6rem;
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+      user-select:none;
+    }
+    .track.is-moved { border-color:var(--accent); background:var(--accent-soft); }
+    .track.is-dragging { box-shadow:var(--shadow-lg); opacity:.9; position:relative; z-index:2; }
+    .track-handle {
+      display:grid;
+      place-items:center;
+      width:2rem;
+      height:2.4rem;
+      border:0;
+      border-radius:6px;
+      background:transparent;
+      color:var(--muted);
+      cursor:grab;
+      touch-action:none;
+      font-size:1.2rem;
+      line-height:1;
+    }
+    .track.is-dragging .track-handle { cursor:grabbing; }
+    .track-num {
+      font-family:var(--font-head);
+      font-weight:700;
+      color:var(--accent);
+      text-align:right;
+    }
+    .track-info { min-width:0; }
+    .track-title { display:block; font-weight:600; }
+    .track-guests { display:block; color:var(--muted); font-size:var(--fs-small); }
+    .track-was { color:var(--accent-strong); font-size:.8rem; font-weight:600; }
+    .horns {
+      font-size:.75rem;
+      font-weight:600;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .horns-yes { background:#f6e7c8; color:#6b4a07; }
+    .horns-no { color:var(--muted); border:1px solid var(--line); }
+    @media (prefers-color-scheme: dark) {
+      .horns-yes { background:#4a3a14; color:#f6e1a8; }
+    }
+    .track-moves { display:flex; gap:.2rem; }
+    .track-moves button {
+      width:2rem;
+      height:2rem;
+      border:1px solid var(--line);
+      border-radius:6px;
+      background:var(--card);
+      color:var(--text);
+      cursor:pointer;
+      font-size:.85rem;
+    }
+    .track-moves button:disabled { opacity:.35; cursor:default; }
+    .setlist-reset {
+      font:inherit;
+      font-size:var(--fs-small);
+      font-weight:600;
+      color:var(--accent);
+      background:none;
+      border:0;
+      padding:0;
+      cursor:pointer;
+    }
+    .form-status { margin:0; font-weight:600; }
+    .form-status.is-error { color:#b42318; }
+    @media (max-width:560px) {
+      .track { grid-template-columns:auto 1.6rem 1fr auto; }
+      .track .horns { grid-column:3; justify-self:start; }
+      .track-moves { grid-column:4; grid-row:1 / span 2; flex-direction:column; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="nav"></div>
+
+  <main id="main">
+    <header class="page-header">
+      <div class="wrap wrap-narrow">
+        <p class="kicker">For the band</p>
+        <h1>Last Waltz set list</h1>
+        <p class="page-header-sub">
+          Drag the songs into the order you'd like to play them (or use the arrows), add any notes,
+          and send it over. Moved songs are highlighted so it's easy to see what changed.
+        </p>
+      </div>
+    </header>
+
+    <div class="page-body">
+      <div class="wrap wrap-narrow">
+        <form class="contact-form card setlist-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="8f3cf8ae-2c76-4289-95a8-83445b88ff10" />
+          <input type="hidden" name="subject" value="Last Waltz set list suggestion" />
+          <input type="hidden" name="from_name" value="jasensamford.com" />
+          <input type="hidden" name="Proposed set list" value="" />
+          <input type="hidden" name="Changes" value="" />
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true" />
+
+          <div class="form-field">
+            <label for="setlist-name">Your name</label>
+            <input id="setlist-name" type="text" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="setlist-toolbar">
+            <p id="setlist-help">Drag the handle, or use the arrows to move a song.</p>
+            <button type="button" class="setlist-reset">Reset to current order</button>
+          </div>
+
+          <ol class="setlist" aria-describedby="setlist-help"></ol>
+
+          <div class="form-field">
+            <label for="setlist-notes">Notes <span class="optional">(optional)</span></label>
+            <textarea id="setlist-notes" name="message" rows="5" placeholder="Why the change? Pacing, key changes, guest logistics, horn breaks..."></textarea>
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary">Send suggestion</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="/" class="footer-logo">
+        <picture>
+          <source srcset="/logo_drk_bg.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_drk_bg.png" type="image/png" media="(prefers-color-scheme: dark)" />
+          <source srcset="/logo_lt_bg.webp" type="image/webp" />
+          <img src="/logo_lt_bg.png" alt="Jasen Samford, Music Business Consultant" width="640" height="140" loading="lazy" />
+        </picture>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/about/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/gatefolded/">Gatefolded</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+      </nav>
+      <p class="footer-copy">&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js"></script>
+  <script src="/js/setlist.js"></script>
+</body>
+</html>
