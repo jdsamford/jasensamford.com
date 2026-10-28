@@ -869,6 +869,7 @@ summary:focus-visible {
 }
 .form-field input[type="text"],
 .form-field input[type="email"],
+.form-field input[type="password"],
 .form-field select,
 .form-field textarea {
   width:100%;
