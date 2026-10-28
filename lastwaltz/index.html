@@ -101,7 +101,9 @@
       padding:0;
       cursor:pointer;
     }
+    .contact-form[hidden] { display:none; }
     .form-status { margin:0; font-weight:600; }
+    .form-status:empty { display:none; }
     .form-status.is-error { color:#b42318; }
     @media (max-width:560px) {
       .track { grid-template-columns:auto 1.6rem 1fr auto; }
@@ -129,7 +131,16 @@
 
     <div class="page-body">
       <div class="wrap wrap-narrow">
-        <form class="contact-form card setlist-form" action="https://api.web3forms.com/submit" method="POST">
+        <form class="contact-form card setlist-gate">
+          <div class="form-field">
+            <label for="setlist-password">Band password</label>
+            <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
+          </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary">Open set list</button>
+        </form>
+
+        <form class="contact-form card setlist-form" action="https://api.web3forms.com/submit" method="POST" hidden>
           <input type="hidden" name="access_key" value="8f3cf8ae-2c76-4289-95a8-83445b88ff10" />
           <input type="hidden" name="subject" value="Last Waltz set list suggestion" />
           <input type="hidden" name="from_name" value="jasensamford.com" />
@@ -185,6 +196,7 @@
   </footer>
 
   <script src="/js/nav.js"></script>
+  <script src="/js/setlist-data.js"></script>
   <script src="/js/setlist.js"></script>
 </body>
 </html>
