@@ -17,68 +17,52 @@
 
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-  <header class="lw-bar">
-    <div class="wrap wrap-narrow lw-bar-inner">
-      <span class="lw-bar-name">The Last Waltz</span>
-      <nav class="lw-tabs" aria-label="Set list pages">
-        <a href="/lastwaltz/" aria-current="page">My order</a>
-        <a href="/lastwaltz/results/">Results</a>
-      </nav>
-    </div>
-  </header>
-
   <main id="main">
-    <header class="page-header">
-      <div class="wrap wrap-narrow">
-        <h1>Last Waltz set list</h1>
-        <p class="page-header-sub">
-          Drag the songs into the order you'd like to play them (or use the arrows), add any notes,
-          and send it. Everyone's orders get compared on the <a href="/lastwaltz/results/">results page</a>
-          so we can see what we agree on and what to talk through. You can come back and change yours anytime.
-        </p>
-      </div>
-    </header>
+    <div class="wrap wrap-narrow lw-page">
+      <h1>Last Waltz set list</h1>
+      <p class="lw-intro">
+        Drag the songs into the order you'd like to play them (or use the arrows), add any notes,
+        and send it. Everyone's orders get compared on the <a href="/lastwaltz/results/">results page</a>
+        so we can see what we agree on and what to talk through. You can come back and change yours anytime.
+      </p>
 
-    <div class="page-body">
-      <div class="wrap wrap-narrow">
-        <form class="contact-form card setlist-gate">
-          <div class="form-field">
-            <label for="setlist-password">Band password</label>
-            <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
-          </div>
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn btn-primary">Open set list</button>
-        </form>
+      <form class="contact-form card setlist-gate">
+        <div class="form-field">
+          <label for="setlist-password">Band password</label>
+          <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
+        </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary">Open set list</button>
+      </form>
 
-        <form class="contact-form card setlist-form" action="https://api.web3forms.com/submit" method="POST" hidden>
-          <input type="hidden" name="access_key" value="8f3cf8ae-2c76-4289-95a8-83445b88ff10" />
-          <input type="hidden" name="subject" value="Last Waltz set list suggestion" />
-          <input type="hidden" name="from_name" value="jasensamford.com" />
-          <input type="hidden" name="Proposed set list" value="" />
-          <input type="hidden" name="Changes" value="" />
-          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true" />
+      <form class="contact-form card setlist-form" action="https://api.web3forms.com/submit" method="POST" hidden>
+        <input type="hidden" name="access_key" value="8f3cf8ae-2c76-4289-95a8-83445b88ff10" />
+        <input type="hidden" name="subject" value="Last Waltz set list suggestion" />
+        <input type="hidden" name="from_name" value="jasensamford.com" />
+        <input type="hidden" name="Proposed set list" value="" />
+        <input type="hidden" name="Changes" value="" />
+        <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" aria-hidden="true" />
 
-          <div class="form-field">
-            <label for="setlist-name">Your name</label>
-            <input id="setlist-name" type="text" name="name" autocomplete="name" required />
-          </div>
+        <div class="form-field">
+          <label for="setlist-name">Your name</label>
+          <input id="setlist-name" type="text" name="name" autocomplete="name" required />
+        </div>
 
-          <div class="setlist-toolbar">
-            <p id="setlist-help">Drag the handle, or use the arrows to move a song.</p>
-            <button type="button" class="setlist-reset">Reset to current order</button>
-          </div>
+        <div class="setlist-toolbar">
+          <p id="setlist-help">Drag the handle, or use the arrows to move a song.</p>
+          <button type="button" class="setlist-reset">Reset to current order</button>
+        </div>
 
-          <ol class="setlist" aria-describedby="setlist-help"></ol>
+        <ol class="setlist" aria-describedby="setlist-help"></ol>
 
-          <div class="form-field">
-            <label for="setlist-notes">Notes <span class="optional">(optional)</span></label>
-            <textarea id="setlist-notes" name="message" rows="5" placeholder="Why the change? Pacing, key changes, guest logistics, horn breaks..."></textarea>
-          </div>
+        <div class="form-field">
+          <label for="setlist-notes">Notes <span class="optional">(optional)</span></label>
+          <textarea id="setlist-notes" name="message" rows="5" placeholder="Why the change? Pacing, key changes, guest logistics, horn breaks..."></textarea>
+        </div>
 
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn btn-primary">Send suggestion</button>
-        </form>
-      </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary">Send suggestion</button>
+      </form>
     </div>
   </main>
 

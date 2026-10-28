@@ -360,11 +360,13 @@ describe("Last Waltz band pages", () => {
     expect(readFile(file)).toMatch(/<meta\s[^>]*name="robots"\s[^>]*content="noindex/);
   });
 
-  test.each(bandPages)("%s skips the site nav and footer", (file) => {
+  test.each(bandPages)("%s skips the site nav, header and footer", (file) => {
     const html = readFile(file);
     expect(html).not.toContain('id="nav"');
     expect(html).not.toContain("nav.js");
     expect(html).not.toContain('class="site-footer"');
+    expect(html).not.toMatch(/<header[\s>]/);
+    expect(html).not.toMatch(/<footer[\s>]/);
   });
 
   test.each(bandPages)("%s loads the encrypted track list", (file) => {

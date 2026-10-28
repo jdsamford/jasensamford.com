@@ -17,43 +17,27 @@
 
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-  <header class="lw-bar">
-    <div class="wrap wrap-narrow lw-bar-inner">
-      <span class="lw-bar-name">The Last Waltz</span>
-      <nav class="lw-tabs" aria-label="Set list pages">
-        <a href="/lastwaltz/">My order</a>
-        <a href="/lastwaltz/results/" aria-current="page">Results</a>
-      </nav>
-    </div>
-  </header>
-
   <main id="main">
-    <header class="page-header">
-      <div class="wrap wrap-narrow">
-        <h1>Set list results</h1>
-        <p class="page-header-sub">
-          Everyone's suggested orders, combined. Songs where we're all within a couple of slots are
-          marked agreed; songs that are all over the place are the ones to talk through.
-          <a href="/lastwaltz/">Add or change your order</a>.
-        </p>
-      </div>
-    </header>
+    <div class="wrap wrap-narrow lw-page">
+      <h1>Set list results</h1>
+      <p class="lw-intro">
+        Everyone's suggested orders, combined. Songs where we're all within a couple of slots are
+        marked agreed; songs that are all over the place are the ones to talk through.
+        <a href="/lastwaltz/">Add or change your order</a>.
+      </p>
 
-    <div class="page-body">
-      <div class="wrap wrap-narrow">
-        <form class="contact-form card setlist-gate">
-          <div class="form-field">
-            <label for="setlist-password">Band password</label>
-            <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
-          </div>
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn btn-primary">Open results</button>
-        </form>
-
-        <div class="lw-results" hidden>
-          <p class="form-status" role="status" aria-live="polite">Loading...</p>
-          <div class="lw-output"></div>
+      <form class="contact-form card setlist-gate">
+        <div class="form-field">
+          <label for="setlist-password">Band password</label>
+          <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
         </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary">Open results</button>
+      </form>
+
+      <div class="lw-results" hidden>
+        <p class="form-status" role="status" aria-live="polite">Loading...</p>
+        <div class="lw-output"></div>
       </div>
     </div>
   </main>
