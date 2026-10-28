@@ -169,3 +169,8 @@
   white-space:pre-wrap;
 }
 .lw-notes cite { display:block; font-style:normal; font-weight:600; margin-bottom:.2rem; }
+
+/* Page shell: these pages skip the consulting site's nav, header band and footer */
+.lw-page { padding-top:clamp(1.75rem, 1.25rem + 2vw, 3rem); padding-bottom:var(--section-y); }
+.lw-page h1 { margin:0 0 .5rem; }
+.lw-intro { color:var(--muted); margin:0 0 1.75rem; max-width:62ch; }

@@ -4,10 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0d1b24" />
-  <title>Last Waltz Set List Results | Jasen Samford Consulting</title>
+  <title>Last Waltz Set List Results</title>
   <meta name="description" content="Compare the band's suggested running orders for the Last Waltz show." />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="canonical" href="https://jasensamford.com/lastwaltz/results/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,64 +17,31 @@
 
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-  <div id="nav"></div>
-
   <main id="main">
-    <header class="page-header">
-      <div class="wrap wrap-narrow">
-        <p class="kicker">For the band</p>
-        <h1>Set list results</h1>
-        <p class="page-header-sub">
-          Everyone's suggested orders, combined. Songs where we're all within a couple of slots are
-          marked agreed; songs that are all over the place are the ones to talk through.
-          <a href="/lastwaltz/">Add or change your order</a>.
-        </p>
-      </div>
-    </header>
+    <div class="wrap wrap-narrow lw-page">
+      <h1>Set list results</h1>
+      <p class="lw-intro">
+        Everyone's suggested orders, combined. Songs where we're all within a couple of slots are
+        marked agreed; songs that are all over the place are the ones to talk through.
+        <a href="/lastwaltz/">Add or change your order</a>.
+      </p>
 
-    <div class="page-body">
-      <div class="wrap wrap-narrow">
-        <form class="contact-form card setlist-gate">
-          <div class="form-field">
-            <label for="setlist-password">Band password</label>
-            <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
-          </div>
-          <p class="form-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn btn-primary">Open results</button>
-        </form>
-
-        <div class="lw-results" hidden>
-          <p class="form-status" role="status" aria-live="polite">Loading...</p>
-          <div class="lw-output"></div>
+      <form class="contact-form card setlist-gate">
+        <div class="form-field">
+          <label for="setlist-password">Band password</label>
+          <input id="setlist-password" type="password" name="password" autocomplete="current-password" required />
         </div>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary">Open results</button>
+      </form>
+
+      <div class="lw-results" hidden>
+        <p class="form-status" role="status" aria-live="polite">Loading...</p>
+        <div class="lw-output"></div>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <a href="/" class="footer-logo">
-        <picture>
-          <source srcset="/logo_drk_bg.webp" type="image/webp" media="(prefers-color-scheme: dark)" />
-          <source srcset="/logo_drk_bg.png" type="image/png" media="(prefers-color-scheme: dark)" />
-          <source srcset="/logo_lt_bg.webp" type="image/webp" />
-          <img src="/logo_lt_bg.png" alt="Jasen Samford, Music Business Consultant" width="640" height="140" loading="lazy" />
-        </picture>
-      </a>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="/about/">About</a>
-        <a href="/services/">Services</a>
-        <a href="/faq/">FAQ</a>
-        <a href="/gatefolded/">Gatefolded</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="/contact/">Contact</a>
-        <a href="https://www.linkedin.com/in/jasensamford" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
-      </nav>
-      <p class="footer-copy">&copy; <span class="js-year">2026</span> Jasen Samford Consulting</p>
-    </div>
-  </footer>
-
-  <script src="/js/nav.js"></script>
   <script src="/js/setlist-data.js"></script>
   <script src="/js/lastwaltz.js"></script>
   <script src="/js/setlist-results.js"></script>
