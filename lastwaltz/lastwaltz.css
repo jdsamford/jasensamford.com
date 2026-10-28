@@ -169,3 +169,32 @@
   white-space:pre-wrap;
 }
 .lw-notes cite { display:block; font-style:normal; font-weight:600; margin-bottom:.2rem; }
+
+/* Band header (these pages skip the consulting site's nav and footer) */
+.lw-bar {
+  background:var(--ink);
+  color:var(--ink-text);
+}
+.lw-bar-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  min-height:56px;
+}
+.lw-bar-name {
+  font-family:var(--font-head);
+  font-weight:800;
+  letter-spacing:.01em;
+}
+.lw-tabs { display:flex; gap:.25rem; }
+.lw-tabs a {
+  color:var(--ink-muted);
+  font-weight:600;
+  font-size:.92rem;
+  padding:.4rem .75rem;
+  border-radius:999px;
+  text-decoration:none;
+}
+.lw-tabs a:hover { color:#fff; text-decoration:none; }
+.lw-tabs a[aria-current="page"] { background:rgba(255,255,255,.12); color:#fff; }

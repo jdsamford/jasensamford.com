@@ -29,8 +29,6 @@ const allPages = [
   "gatefolded/index.html",
   "contact/index.html",
   "privacy/index.html",
-  "lastwaltz/index.html",
-  "lastwaltz/results/index.html",
   "404.html",
 ];
 
@@ -352,4 +350,28 @@ describe("Contact form", () => {
       expect(html).toContain(`name="${name}"`);
     }
   );
+});
+
+describe("Last Waltz band pages", () => {
+  // Internal band tool: unlisted, without the consulting site's nav and footer
+  const bandPages = ["lastwaltz/index.html", "lastwaltz/results/index.html"];
+
+  test.each(bandPages)("%s is noindex", (file) => {
+    expect(readFile(file)).toMatch(/<meta\s[^>]*name="robots"\s[^>]*content="noindex/);
+  });
+
+  test.each(bandPages)("%s skips the site nav and footer", (file) => {
+    const html = readFile(file);
+    expect(html).not.toContain('id="nav"');
+    expect(html).not.toContain("nav.js");
+    expect(html).not.toContain('class="site-footer"');
+  });
+
+  test.each(bandPages)("%s loads the encrypted track list", (file) => {
+    expect(readFile(file)).toMatch(/src="\/js\/setlist-data\.js"/);
+  });
+
+  test("band pages are not in the sitemap", () => {
+    expect(readFile("sitemap.xml")).not.toContain("lastwaltz");
+  });
 });
