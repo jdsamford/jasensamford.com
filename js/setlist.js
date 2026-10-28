@@ -1,75 +1,15 @@
-// Last Waltz set list: password gate, then drag-and-drop (or arrow buttons) to reorder and submit via Web3Forms
+// Last Waltz set list: drag-and-drop (or arrow buttons) to reorder, then save to the shared results
 (function () {
-  var STORAGE_KEY = "lastwaltz_pw";
-  var gate = document.querySelector(".setlist-gate");
   var form = document.querySelector(".setlist-form");
-  if (!gate || !form || !window.SETLIST_DATA) return;
+  if (!form || !window.LastWaltz) return;
+  var escapeHtml = window.LastWaltz.escapeHtml;
 
-  function fromB64(s) {
-    return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); });
-  }
-
-  // The track list is AES-encrypted with a key derived from the password
-  // (see scripts/lastwaltz-data.js), so a wrong password simply fails to decrypt.
-  function unlock(password) {
-    var blob = window.SETLIST_DATA;
-    var subtle = window.crypto && window.crypto.subtle;
-    if (!subtle) return Promise.reject(new Error("no crypto"));
-    return subtle
-      .importKey("raw", new TextEncoder().encode(password.trim().toLowerCase()), "PBKDF2", false, ["deriveKey"])
-      .then(function (base) {
-        return subtle.deriveKey(
-          { name: "PBKDF2", salt: fromB64(blob.salt), iterations: blob.iterations, hash: "SHA-256" },
-          base,
-          { name: "AES-GCM", length: 256 },
-          false,
-          ["decrypt"]
-        );
-      })
-      .then(function (key) {
-        return subtle.decrypt({ name: "AES-GCM", iv: fromB64(blob.iv) }, key, fromB64(blob.data));
-      })
-      .then(function (plain) {
-        return JSON.parse(new TextDecoder().decode(plain));
-      });
-  }
-
-  function show(tracks, password) {
-    try { localStorage.setItem(STORAGE_KEY, password); } catch (e) { /* private mode */ }
-    gate.hidden = true;
+  window.LastWaltz.gate(function (tracks) {
     form.hidden = false;
     start(tracks);
-  }
-
-  var gateStatus = gate.querySelector(".form-status");
-  gate.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var password = gate.elements.namedItem("password").value;
-    var button = gate.querySelector('button[type="submit"]');
-    button.disabled = true;
-    gateStatus.classList.remove("is-error");
-    gateStatus.textContent = "Checking...";
-    unlock(password)
-      .then(function (tracks) { show(tracks, password); })
-      .catch(function () {
-        gateStatus.classList.add("is-error");
-        gateStatus.textContent = "That password didn't work.";
-        button.disabled = false;
-      });
   });
 
-  var saved = null;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* private mode */ }
-  if (saved) {
-    unlock(saved)
-      .then(function (tracks) { show(tracks, saved); })
-      .catch(function () {
-        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* private mode */ }
-      });
-  }
-
   function start(TRACKS) {
-    var form = document.querySelector(".setlist-form");
     var list = form.querySelector(".setlist");
     var status = form.querySelector(".form-status");
 
@@ -94,13 +34,18 @@
       return li;
     }
 
-    function escapeHtml(s) {
-      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
-
-    function render() {
+    // order: optional list of titles (a saved submission); unknown titles are skipped
+    // and songs it doesn't mention go at the end in their current order.
+    function render(order) {
+      var indexes = TRACKS.map(function (t, i) { return i; });
+      if (order) {
+        var byTitle = {};
+        TRACKS.forEach(function (t, i) { byTitle[t.title] = i; });
+        var picked = order.filter(function (title) { return title in byTitle; }).map(function (title) { return byTitle[title]; });
+        indexes = picked.concat(indexes.filter(function (i) { return picked.indexOf(i) === -1; }));
+      }
       list.innerHTML = "";
-      TRACKS.forEach(function (t, i) { list.appendChild(buildItem(t, i)); });
+      indexes.forEach(function (i) { list.appendChild(buildItem(TRACKS[i], i)); });
       update();
     }
 
@@ -222,26 +167,50 @@
       status.textContent = "";
     });
 
-    // Submit in place so the band member stays on the page
+    function currentOrder() {
+      return Array.prototype.map.call(list.querySelectorAll(".track"), function (li) {
+        return TRACKS[Number(li.dataset.index)].title;
+      });
+    }
+
+    // Returning band members get their saved order back when they enter their name
+    var saved = {};
+    window.LastWaltz.rpc("lastwaltz_results").then(function (rows) {
+      (rows || []).forEach(function (row) { saved[row.name.trim().toLowerCase()] = row; });
+    }).catch(function () { /* results page will show errors; the form still works */ });
+
+    form.elements.namedItem("name").addEventListener("change", function (e) {
+      var row = saved[e.target.value.trim().toLowerCase()];
+      if (!row) return;
+      render(row.track_order);
+      if (row.notes && !form.elements.namedItem("message").value) form.elements.namedItem("message").value = row.notes;
+      status.classList.remove("is-error");
+      status.textContent = "Loaded the order you sent on " + new Date(row.updated_at).toLocaleDateString() + ". Sending again replaces it.";
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       update();
       var name = form.elements.namedItem("name").value.trim();
-      form.elements.namedItem("subject").value = "Last Waltz set list suggestion from " + name;
+      var notes = form.elements.namedItem("message").value;
+      var order = currentOrder();
       var submit = form.querySelector('button[type="submit"]');
       submit.disabled = true;
       status.classList.remove("is-error");
       status.textContent = "Sending...";
 
-      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          if (!data.success) throw new Error(data.message || "Submission failed");
-          status.textContent = "Thanks, " + name + "! Your suggestion was sent.";
+      window.LastWaltz.rpc("lastwaltz_submit", { p_name: name, p_order: order, p_notes: notes })
+        .then(function () {
+          saved[name.toLowerCase()] = { name: name, track_order: order, notes: notes, updated_at: new Date().toISOString() };
+          status.innerHTML = "Thanks, " + escapeHtml(name) + "! Your order is saved. " +
+            '<a href="/lastwaltz/results/">See how everyone\'s lines up</a>.';
+          // Email Jasen a copy too; the saved order is what counts, so ignore failures here
+          form.elements.namedItem("subject").value = "Last Waltz set list suggestion from " + name;
+          fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } }).catch(function () {});
         })
         .catch(function () {
           status.classList.add("is-error");
-          status.textContent = "Something went wrong sending that. Please try again, or text Jasen your order.";
+          status.textContent = "Something went wrong saving that. Please try again, or text Jasen your order.";
         })
         .then(function () { submit.disabled = false; });
     });

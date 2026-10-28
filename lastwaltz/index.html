@@ -13,104 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@600;700;800&amp;display=swap" />
   <link rel="stylesheet" href="/style.css" />
-  <style>
-    .setlist-toolbar {
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      gap:.5rem 1rem;
-    }
-    .setlist-toolbar p { margin:0; color:var(--muted); font-size:var(--fs-small); }
-    .setlist {
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:.4rem;
-    }
-    .track {
-      display:grid;
-      grid-template-columns:auto 2rem 1fr auto auto;
-      align-items:center;
-      gap:.6rem;
-      padding:.55rem .6rem;
-      background:var(--bg);
-      border:1px solid var(--line);
-      border-radius:var(--radius-sm);
-      user-select:none;
-    }
-    .track.is-moved { border-color:var(--accent); background:var(--accent-soft); }
-    .track.is-dragging { box-shadow:var(--shadow-lg); opacity:.9; position:relative; z-index:2; }
-    .track-handle {
-      display:grid;
-      place-items:center;
-      width:2rem;
-      height:2.4rem;
-      border:0;
-      border-radius:6px;
-      background:transparent;
-      color:var(--muted);
-      cursor:grab;
-      touch-action:none;
-      font-size:1.2rem;
-      line-height:1;
-    }
-    .track.is-dragging .track-handle { cursor:grabbing; }
-    .track-num {
-      font-family:var(--font-head);
-      font-weight:700;
-      color:var(--accent);
-      text-align:right;
-    }
-    .track-info { min-width:0; }
-    .track-title { display:block; font-weight:600; }
-    .track-guests { display:block; color:var(--muted); font-size:var(--fs-small); }
-    .track-was { color:var(--accent-strong); font-size:.8rem; font-weight:600; }
-    .horns {
-      font-size:.75rem;
-      font-weight:600;
-      padding:.2rem .55rem;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-    .horns-yes { background:#f6e7c8; color:#6b4a07; }
-    .horns-no { color:var(--muted); border:1px solid var(--line); }
-    @media (prefers-color-scheme: dark) {
-      .horns-yes { background:#4a3a14; color:#f6e1a8; }
-    }
-    .track-moves { display:flex; gap:.2rem; }
-    .track-moves button {
-      width:2rem;
-      height:2rem;
-      border:1px solid var(--line);
-      border-radius:6px;
-      background:var(--card);
-      color:var(--text);
-      cursor:pointer;
-      font-size:.85rem;
-    }
-    .track-moves button:disabled { opacity:.35; cursor:default; }
-    .setlist-reset {
-      font:inherit;
-      font-size:var(--fs-small);
-      font-weight:600;
-      color:var(--accent);
-      background:none;
-      border:0;
-      padding:0;
-      cursor:pointer;
-    }
-    .contact-form[hidden] { display:none; }
-    .form-status { margin:0; font-weight:600; }
-    .form-status:empty { display:none; }
-    .form-status.is-error { color:#b42318; }
-    @media (max-width:560px) {
-      .track { grid-template-columns:auto 1.6rem 1fr auto; }
-      .track .horns { grid-column:3; justify-self:start; }
-      .track-moves { grid-column:4; grid-row:1 / span 2; flex-direction:column; }
-    }
-  </style>
+  <link rel="stylesheet" href="/lastwaltz/lastwaltz.css" />
 </head>
 
 <body>
@@ -124,7 +27,8 @@
         <h1>Last Waltz set list</h1>
         <p class="page-header-sub">
           Drag the songs into the order you'd like to play them (or use the arrows), add any notes,
-          and send it over. Moved songs are highlighted so it's easy to see what changed.
+          and send it. Everyone's orders get compared on the <a href="/lastwaltz/results/">results page</a>
+          so we can see what we agree on and what to talk through. You can come back and change yours anytime.
         </p>
       </div>
     </header>
@@ -197,6 +101,7 @@
 
   <script src="/js/nav.js"></script>
   <script src="/js/setlist-data.js"></script>
+  <script src="/js/lastwaltz.js"></script>
   <script src="/js/setlist.js"></script>
 </body>
 </html>

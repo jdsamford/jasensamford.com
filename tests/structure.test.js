@@ -30,6 +30,7 @@ const allPages = [
   "contact/index.html",
   "privacy/index.html",
   "lastwaltz/index.html",
+  "lastwaltz/results/index.html",
   "404.html",
 ];
 

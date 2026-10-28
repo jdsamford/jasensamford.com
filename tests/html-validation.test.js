@@ -34,6 +34,7 @@ const htmlFiles = [
   "contact/thanks/index.html",
   "privacy/index.html",
   "lastwaltz/index.html",
+  "lastwaltz/results/index.html",
   "404.html",
   "nav.html",
 ];
